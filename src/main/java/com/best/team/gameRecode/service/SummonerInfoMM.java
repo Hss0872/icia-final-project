@@ -37,6 +37,7 @@ public class SummonerInfoMM {
         //소환사 puuid,level,id 가져오기
         String url1="https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+champ_name+"?api_key="+riot_api_key;
         URL get_url1= new URL(url1);
+        System.out.println("url1 = " + url1);
         HttpURLConnection conn1= (HttpURLConnection) get_url1.openConnection();
         conn1.setRequestMethod("GET");
         conn1.setRequestProperty("Content-type","application/json");

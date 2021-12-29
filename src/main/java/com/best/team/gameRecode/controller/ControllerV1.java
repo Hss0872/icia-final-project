@@ -4,7 +4,7 @@ package com.best.team.gameRecode.controller;
 
 
 import com.best.team.gameRecode.service.SummonerInfoMM;
-import com.board.icia.call.service.SummonerInfoMM;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
