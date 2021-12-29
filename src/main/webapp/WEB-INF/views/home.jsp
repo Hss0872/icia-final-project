@@ -23,11 +23,11 @@
         <span>전적검색</span>
     </div>
     <div class="box">
-        <a href="../../../../../../../down/Front-End/projectTest/community.html"><img src="../../../../../../../down/Front-End/projectTest/images/Jarvan-League-of-Legends-purple-LoL_jarban.jpg"></a>
+        <a href="/community"><img src="/resources/images/Jarvan-League-of-Legends-purple-LoL_jarban.jpg"></a>
         <span>커뮤니티</span>
     </div>
     <div class="box">
-        <a href="../../../../../../../down/Front-End/projectTest/manager.html"><img src="../../../../../../../down/Front-End/projectTest/images/vi.jpg"></a>
+        <a href="/manager"><img src="/resources/images/vi.jpg"></a>
         <span></span>
     </div>
 </div>

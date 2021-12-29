@@ -9,10 +9,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
-<<<<<<< HEAD
-=======
-        <sourceRoots />
->>>>>>> master
       </configuration>
     </facet>
   </component>
