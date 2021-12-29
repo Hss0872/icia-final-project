@@ -3,6 +3,7 @@ package com.best.team.gameRecode.controller;
 
 
 
+import com.best.team.gameRecode.service.SummonerInfoMM;
 import com.board.icia.call.service.SummonerInfoMM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,7 @@ public class ControllerV1 {
     @Autowired
     private SummonerInfoMM sm;
 
-    @RequestMapping("/")
-    public String main(){
-        return "home";
-    }
+
 
     @GetMapping("test")
     public String test(){
