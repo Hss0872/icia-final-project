@@ -20,10 +20,10 @@ public class MemberController {
         this.mm = mm;
     }
 
-    @RequestMapping("/")
+/*    @RequestMapping("/")
     public String test() {
         return "home";
-    }
+    }*/
 
     @RequestMapping(value = "/join", method = RequestMethod.GET)
     public String joinfrm() {
