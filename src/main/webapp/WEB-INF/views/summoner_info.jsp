@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="/resources/js/summoner_info.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .swal2-container{
             margin: 0 auto;
@@ -53,6 +53,45 @@
     }
 
   }
+</script>
+
+<div class="summonerInfo">
+    <div class="summonerName">
+        ${si.summonerName}
+    </div>
+    <div class="summonerLevel">
+        ${si.level}
+    </div>
+    <div class="summonerRank">
+        ${si.tier}<br>${si.rank}
+    </div>
+</div>
+
+
+<div id="gameInfo">
+
+
+</div>
+
+
+<script>
+    let puuid;
+
+    $.ajax({
+        type: "POST",
+        url: '/summoner/summoner_info/getjson',
+        data: { puuid :"${si.puuid}"},
+        dataType: 'json',
+        success: function (data) {
+            console.log(data)
+
+        },
+        error: function (err) {
+            console.log(err)
+        }
+
+    })
+
 </script>
 </body>
 </html>

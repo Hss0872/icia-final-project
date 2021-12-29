@@ -12,10 +12,10 @@
         <img src="/resources/images/pngwing.com (2).png" alt="aaaa">
     </a>
 </div>
-<form class="summoner_search" onsubmit="return summoner_name()" action="summoner_info">
+<form class="summoner_search" method="get" onsubmit="return summoner_name()" action="/summoner/summoner_info">
     <div class="search">
-        <input id=userName type="text" placeholder="Search User" >
-        <button class="btn" type="submit">Search</button>
+        <input name=userName id="userName" type="text" placeholder="Search User">
+        <button class="btn">Search</button>
     </div>
 </form>
 
