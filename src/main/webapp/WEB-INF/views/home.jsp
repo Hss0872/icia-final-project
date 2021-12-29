@@ -17,7 +17,9 @@
 
 </head>
 <body>
-
+<div>
+	<img src="/resources/image/lol_image.png" alt="lol_image"> lol_image
+</div>
 <h1>Home.jsp -로그인 페이지--</h1>
 	<form action="access" method="post">
 		<table border="1">
