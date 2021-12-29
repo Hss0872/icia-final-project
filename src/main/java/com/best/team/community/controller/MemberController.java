@@ -20,11 +20,6 @@ public class MemberController {
         this.mm = mm;
     }
 
-    @RequestMapping("/")
-    public String test() {
-        return "home";
-    }
-
     @RequestMapping(value = "/join", method = RequestMethod.GET)
     public String joinfrm() {
         log.info("회원가입 화면 이동");
