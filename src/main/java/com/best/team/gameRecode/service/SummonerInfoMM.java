@@ -129,7 +129,7 @@ public class SummonerInfoMM {
 
         //mav.addObject("recodeGameList",recodeGameList);
         mav.addObject("si",si);
-        mav.setViewName("info");
+        mav.setViewName("summoner_info");
 
 
 

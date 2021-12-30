@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@RequestMapping("/summoner")
 public class ControllerV1 {
 
     ModelAndView mav;
@@ -24,15 +25,17 @@ public class ControllerV1 {
 
 
 
-    @GetMapping("test")
+    @GetMapping()
     public String test(){
-        return "test";
+        return "summoner";
     }
-    @GetMapping("test1" )
-    public ModelAndView test1(String champ_name) throws Exception {
+
+    @GetMapping("summoner_info" )
+    public ModelAndView test1(String userName) throws Exception {
+
         mav=new ModelAndView();
 
-        mav=sm.getSummonerGameRecode(champ_name,mav);
+        mav=sm.getSummonerGameRecode(userName,mav);
 
         return mav;
     }

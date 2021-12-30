@@ -1,46 +1,35 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: MinwooKim
+  Date: 2021-12-29
+  Time: 오전 11:42
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <html>
 <head>
-<title>Home</title>
-<script type="text/javascript">
-	window.onload = function() {
-		let chk = '${check}';
-		if (chk === '1') {
-			alert('회원가입 성공');
-		} else if (chk === '2') {
-			alert('로그인 실패');
-		}
-	};
-</script>
-
+    <title>Title</title>
+    <link rel="stylesheet" href="/resources/css/home.css">
 </head>
 <body>
-<div>
-	<img src="/resources/image/lol_image.png" alt="lol_image"> lol_image
+<div class="container">
+    <div class="test">First.gg</div>
+    <div class="box">
+        <a href="/champion"><img src="/resources/images/uhdpaper.com-2750e-pc-2k.jpg"/></a>
+        <span>챔피언정보</span>
+    </div>
+    <div class="box">
+        <a href="/summoner"><img src="/resources/images/uhdpaper.com-2891f-pc-2kjayce.jpg"></a>
+        <span>전적검색</span>
+    </div>
+    <div class="box">
+        <a href="/community"><img src="/resources/images/Jarvan-League-of-Legends-purple-LoL_jarban.jpg"></a>
+        <span>커뮤니티</span>
+    </div>
+    <div class="box">
+        <a href="/manager"><img src="/resources/images/vi.jpg"></a>
+        <span></span>
+    </div>
 </div>
-<h1>Home.jsp -로그인 페이지--</h1>
-	<form action="access" method="post">
-		<table border="1">
-			<tr>
-				<td colspan="2" align="center" bgcolor="skyblue">로그인</td>
-			</tr>
-			<tr>
-				<td><input type="text" name="m_id"></td>
-				<td rowspan="2"><button>로그인</button></td>
-			</tr>
-			<tr>
-				<td><input type="text" name="m_pwd"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center" bgcolor="skyblue">com.best.team</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><a href="join">회원가입</a></td>
-			</tr>
-		</table>
-	</form>
-
 </body>
 </html>
