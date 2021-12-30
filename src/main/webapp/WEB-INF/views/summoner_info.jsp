@@ -93,5 +93,19 @@
     })
 
 </script>
+
+<%--  url 직접접근 막는 로직    <%--%>
+<%--        String summoner_info = request.getHeader("summoner_info");   //이전 url가져오기--%>
+<%--                if(summoner_info == null){--%>
+<%--                    %>--%>
+<%--    <script language="javascript">--%>
+<%--        alert("URL을 직접 입력해서 접근하셨습니다.\n정상적인 경로를 통해 다시 접근해 주세요.");--%>
+<%--        document.location.href="/";--%>
+<%--    </script>--%>
+<%--    <%--%>
+<%--        return;--%>
+<%--                }--%>
+<%--    %>--%>
+
 </body>
 </html>
