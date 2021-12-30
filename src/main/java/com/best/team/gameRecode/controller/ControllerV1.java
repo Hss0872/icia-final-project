@@ -28,7 +28,7 @@ public class ControllerV1 {
     public String test(){
         return "test";
     }
-    @PostMapping("test1" )
+    @GetMapping("test1" )
     public ModelAndView test1(String champ_name) throws Exception {
         mav=new ModelAndView();
 

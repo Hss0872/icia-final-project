@@ -16,7 +16,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="test1" id="test1" enctype="application/x-www-form-urlencoded" method="post">
+    <form action="test1" id="test1" enctype="application/x-www-form-urlencoded" method="get">
         <input type="text" id="champ_name" name="champ_name">
         <input type="submit" value='가자가자'>
     </form>
