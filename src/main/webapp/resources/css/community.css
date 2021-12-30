@@ -1,0 +1,260 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+
+.header_logo img{
+    float: left;
+    width: 160px;
+    height: 145px;
+}
+
+
+.header{
+    height: 146px;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #999;
+
+}
+
+.header_logo h1{
+    margin-right: 150px;
+    display: inline-block;
+    font: bold 40px 'arial';
+    padding-top: 14px;
+    letter-spacing: 2px;
+}
+
+.header_logo p{
+    margin-right: 150px;
+    font: bold 12px 'arial';
+    letter-spacing: 2px;
+    margin-top: -1px;
+}
+
+.header_gnb ul{
+    margin-right: 150px;
+    margin-top: 39px;
+}
+
+.header_gnb ul li{
+    display: inline-block;
+}
+
+.header_gnb ul li a{
+    display: block;
+    font: bold 14px 'arial';
+    color: #999;
+    margin: 0px 16px;
+    letter-spacing: 1px;
+}
+
+
+
+/* login버튼시작 */
+.dropdown{
+    float: right;
+    margin-right: 10px;
+}
+
+.dropbtn{
+    margin-bottom: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: larger;
+}
+
+
+.dropdown-content{
+    display : none;
+    padding-top: 21px;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+#loginBtn{
+    opacity: 0.5;
+    color: rgb(1, 12, 8);
+    background-color: rgb(206, 206, 192);
+    display : inline-block;
+    position: relative;
+}
+
+
+/* modal login */
+
+
+.login_id {
+    margin-top: 20px;
+    width: 80%;
+}
+h4{
+    text-align: left;
+    margin-left: 40px;
+}
+
+.login_id input {
+    margin-left: 40px ;
+    width: 90%;
+    height: 50px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+}
+
+.login_pw {
+    margin-top: 20px;
+    width: 80%;
+}
+
+.login_pw input {
+    margin-left: 40px ;
+    width: 90%;
+    height: 50px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+}
+
+.forgot_pw a {
+    margin-top: 30px;
+    margin-left:50px ;
+
+}
+
+.signUp a{
+    margin-left: 90px;
+    padding: 2px ;
+
+}
+
+
+
+
+
+
+.login_etc {
+    padding: 10px;
+    width: 80%;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.submit {
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 170px;
+    margin-bottom: 30px;
+    width: 70%;
+}
+.submit input {
+    width: 40%;
+    height: 50px;
+    border: 0;
+    outline: none;
+    border-radius: 40px;
+    background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
+    color: white;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+
+/* section영역 시작 */
+
+.main{
+    text-align: center;
+    float:left ;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 300px;
+    height: 700px;
+    border: 3px;
+    border-style: groove;
+    border-color: rgb(54, 54, 138);
+    overflow: hidden;
+}
+
+.main_chat{
+    margin: 10px 0px;
+    display: inline-block;
+    width: 270px;
+    height: 210px;
+    border: 2px;
+    border-style: groove;
+    border-color: rgb(54, 54, 138);
+}
+
+.main_views{
+    margin: 10px 0px;
+    display: inline-block;
+    width: 270px;
+    height: 210px;
+    border: 2px;
+    border-style: groove;
+    border-color: rgb(54, 54, 138);
+}
+
+.main_likes{
+    margin: 10px 0px;
+    display: inline-block;
+    width: 270px;
+    height: 210px;
+    border: 2px;
+    border-style: groove;
+    border-color: rgb(54, 54, 138);
+
+}
+
+
+/* boardmain */
+
+.board{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 5px;
+    text-align: center;
+    width: 900px;
+    height: 700px;
+    border: 3px;
+    border-style: groove;
+    border-color: rgb(54, 54, 138);
+    overflow: hidden;
+}
+
+.board span{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 150px ;
+    margin-right: 150px ;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.mainboard{
+    margin: 40px 0px;
+    display: block;
+    border: 2px;
+    border-style: groove;
+    border-color: rgb(54, 54, 138);
+    overflow: hidden;
+    width: 920px;
+    height: 650px;
+}
