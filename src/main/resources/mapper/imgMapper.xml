@@ -4,5 +4,14 @@
     <select id="getChampionList" resultType="Champion">
         SELECT * FROM CHAMPION_NAME_INFO
     </select>
+    <select id="getItemInfo" resultType="Item">
+        SELECT * FROM ITEM_INFO
+    </select>
+    <select id="getSkillInfo" resultType="Skill">
+        SELECT * FROM CHAMPION_SKILL_INFO
+    </select>
+    <select id="getRuneInfo" resultType="Rune">
+        SELECT * FROM RUNE_NAME_INFO
+    </select>
 
 </mapper>
