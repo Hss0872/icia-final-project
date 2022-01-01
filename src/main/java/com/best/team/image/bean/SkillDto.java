@@ -4,7 +4,7 @@ package com.best.team.image.bean;
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
-@Alias("SkillDto")
+@Alias("Skill")
 @Data
 public class SkillDto {
 

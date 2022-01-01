@@ -3,7 +3,7 @@ package com.best.team.image.bean;
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
-@Alias("ItemDto")
+@Alias("Item")
 @Data
 public class ItemDto {
 
