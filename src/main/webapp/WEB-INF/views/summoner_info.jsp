@@ -34,7 +34,7 @@
 <form class="search-bar" onsubmit="return false">  <!--자동으로 submit방지-->
   <i class="fas fa-search"></i>
   <input id="userName" class="search-bar__input" type="search" placeholder="전적검색" onKeypress="javascript:if(event.keyCode==13) {summoner_name(event);}"/>
-  <!-- 아스키코드 13번은 엔터, 엔터했을때 함수실행 코드 -->
+  <!-- 아스키코드 13번 함수실행  -->
 </form>
 
 <script>
