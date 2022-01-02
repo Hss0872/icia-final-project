@@ -29,8 +29,10 @@ public class ControllerV1 {
     public String test(){
         return "summoner";
     }
+
     @GetMapping("summoner_info" )
     public ModelAndView test1(String userName) throws Exception {
+
         mav=new ModelAndView();
 
         mav=sm.getSummonerGameRecode(userName,mav);

@@ -5,7 +5,9 @@
 
 <configuration>
 	<typeAliases>
-<!-- 		<typeAlias alias="Member" type="com.best.team.community.Member"/> -->
+
+
 		<package name="com.best.team.community.bean"/>
-	</typeAliases>	
+		<package name="com.best.team.image.bean"/>
+	</typeAliases>
 </configuration>

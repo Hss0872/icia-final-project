@@ -34,13 +34,13 @@
 	</logger>
 
 	<!-- Root Logger -->
-	<root>
+	<!--<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
 	</root>
 
-	<!-- logger로 출력할 내용 설정 -->
-<!--	<logger name="jdbc.resultsettable">
+	&lt;!&ndash; logger로 출력할 내용 설정 &ndash;&gt;
+	<logger name="jdbc.resultsettable">
 		<level value="trace" />
 	</logger>
 	<logger name="jdbc.sqlonly">
