@@ -45,14 +45,14 @@
     </div>
     <label for="email">Email</label>
     <div class="duplebtn"><input class="form-styling1" id="email" type="text" name="email" value="" required data-value="false">
-        <button onclick="dupleCheck()" class="emailBtn" type="button" >중복확인</button>
+        <button onclick="emailDupleCheck()" class="emailBtn" type="button" >중복확인</button>
         <button  id="emailCheck"onclick="certificationCheck()" class="emailBtn" type="button" style="display: none;" >이메일인증</button>
     </div>
     <label for="phoneNumber">PhoneNumber</label>
     <input class="form-styling" id="phonenumber"type="text" name="phonenumber" placeholder="" required/>
-    <label for="password">Password</label>
+    <label for="pw">Password</label>
     <input class="form-styling" id="pw" type="password" name="password" placeholder="" required/>
-    <label for="confirmpassword">Confirm password</label>
+    <label for="confirmpw">Confirm password</label>
     <input class="form-styling" id="confirmpw" type="password" name="confirmpassword" placeholder="" required/>
     <button class="submitBtn" id="join" type="submit">submit</button>
 </form>
