@@ -162,6 +162,7 @@ window.onload = function() {   //dom element가 그려지기전에 실행하게�
 
 
 
+
 // values = "/championinfo"
 // chapionInfo(HttpRequest request, ModelAndView mav) {
 // 	String champ = request.getParameter("champ")//Teemo
