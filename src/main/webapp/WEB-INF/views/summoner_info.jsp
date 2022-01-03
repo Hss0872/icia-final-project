@@ -129,6 +129,10 @@
 
 
 <script>
+    console.log("${championInfo}")
+    console.log("${itemInfo}")
+    console.log("${skillInfo}")
+    console.log("${runeInfo}")
     let puuid;
 
     $.ajax({

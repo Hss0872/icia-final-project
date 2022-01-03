@@ -36,23 +36,9 @@ public class RestControllerV1 {
         recodeGameList=sm.getGameRecode(puuid);
         Map<String, Object> hMap=new HashMap<>();
 
-        List<ChampionDto> championDtoList;
-        championDtoList=im.getChampionImg();
 
-        List<ItemDto> itemDtoList;
-        itemDtoList=im.getItemInfo();
-        
-        List<SkillDto> skillDtoList;
-        skillDtoList=im.getSkillInfo();
-
-        List<RuneDto> runeDtoList;
-
-        runeDtoList=im.getRuneInfo();
         hMap.put("recodeGameList",recodeGameList);
-        hMap.put("championinfo",championDtoList);
-        hMap.put("iteminfo",itemDtoList);
-        hMap.put("skillinfo",skillDtoList);
-        hMap.put("runeinfo",runeDtoList);
+
         return hMap;
     }
 }

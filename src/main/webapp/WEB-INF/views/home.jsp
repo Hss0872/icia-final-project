@@ -31,5 +31,12 @@
         <span></span>
     </div>
 </div>
+
+<script>
+    console.log("${championInfo}")
+    console.log("${itemInfo}")
+    console.log("${skillInfo}")
+    console.log("${runeInfo}")
+</script>
 </body>
 </html>
