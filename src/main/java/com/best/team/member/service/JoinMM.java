@@ -1,19 +1,22 @@
 package com.best.team.member.service;
 
 
-import com.best.team.community.bean.Member;
+import com.best.team.member.bean.Member;
 import com.best.team.member.dao.JoinDao;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class JoinMM {
 
     @Autowired
     private JoinDao jDao;
 
-    public String idDupleCheck(Member member){
-        String idCheckResult = jDao.idDupleCheck(member);
+    public Boolean idDupleCheck(String m_id){
+        Boolean idCheckResult = jDao.idDupleCheck(m_id);
+        System.out.println("idCheckResult = " + idCheckResult);
         return idCheckResult;
     }
 

@@ -1,12 +1,11 @@
 package com.best.team.member.dao;
 
-import com.best.team.community.bean.Member;
+import com.best.team.member.bean.Member;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JoinDao {
-    String idDupleCheck(Member member);
+    Boolean idDupleCheck(String member);
     String nickNameDupleCheck(Member member);
     String emailDupleCheck(Member membeer);
-
 }

@@ -7,7 +7,7 @@
 	<typeAliases>
 
 
-		<package name="com.best.team.community.bean"/>
+		<package name="com.best.team.member.bean"/>
 		<package name="com.best.team.image.bean"/>
 	</typeAliases>
 </configuration>

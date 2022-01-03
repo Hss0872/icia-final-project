@@ -85,19 +85,22 @@ function idDupleCheck(){
 	let id_value = document.querySelector('#id').value;
 	return fetch('idDupleCheck',
 		{
-			method : 'get',
-			headers : {"ContentType" : "application/json"},
+			method : 'post',    //json 형태로 보낼때는 post만 가능
+			headers : {"Accept" : "application/json;",
+			"ContentType" : "application/json;"},
 			body : JSON.stringify({
-				id : id_value
+				m_id : id_value
 			})
-
 		}).then((response)=>{
-		if(response == 1 ){
-			alert('존재하는 닉네임입니다.')
+		if(response.status == 200 ){  //보내지기만하면 200으로 뜨니까 서버단에 entity 사용해서 정해주자
+			return response.json();
 		}else{
-			$('#id').attr('data-value', 'true');
+			alert('사용가능합니다.')
+			//$('#id').attr('data-value', 'true');
 			//formdata안에 data-value 체인지를 통한 아이디 중복여부 최종확인
 		}
+	}).then((response)=>{
+			console.log(response);
 	})
 }
 
