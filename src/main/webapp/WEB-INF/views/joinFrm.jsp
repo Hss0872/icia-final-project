@@ -11,8 +11,8 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="/resources/css/joinFrm.css">
-    <script src="/resources/js/joinFrm.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/resources/js/joinFrm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -35,8 +35,8 @@
 <form class="form-signup" onsubmit="return joinFrm(event)" >
     <label for="id">Id</label>
     <div class= "duplebtn">
-        <input class="form-styling" id="id" type="id" name="id" placeholder="" required data-value="false"/>
-        <button  id="idCheck"onclick="idDupleCheck()" class="emailBtn" type="button" style="display: inline-block;" >중복확인</button>
+        <input class="form-styling" id="id" type="text" name="id" placeholder="" required data-value="false" onblur="id_check(event)"/>
+        <div class="idMsg" id="id_check"></div>
     </div>
     <label for="nickname">NickName</label>
     <div class="duplebtn">

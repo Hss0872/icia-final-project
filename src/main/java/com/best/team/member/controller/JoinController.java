@@ -29,16 +29,16 @@ public class JoinController {
         Member member = objectMapper.readValue(json_m_id, Member.class); //json -> object
         log.info("member.getM_id() = {}", member.getM_id());
         System.out.println(json_m_id);
-        Boolean idDupleResult = joinMM.idDupleCheck(member.getM_id());
+        Boolean idDupleResult = joinMM.idDupleCheck(member.getM_id()); //중복일때 true 들어옴
         ResponseEntity<?> result = null;
 
         if (idDupleResult) {    //중복일 때
 
             result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
-                    body(objectMapper.writeValueAsString("중복된 아이디 입니다."));
+                    body(objectMapper.writeValueAsString("1"));
             /*result = "duple";*/
         } else {    //중복이 아닐 때
-            result = ResponseEntity.ok(objectMapper.writeValueAsString("사용가능한 아이디 입니다."));
+            result = ResponseEntity.ok(objectMapper.writeValueAsString("0"));
         }
         return result;
     }

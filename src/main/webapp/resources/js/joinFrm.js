@@ -1,4 +1,4 @@
-src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+src="https://code.jquery.com/jquery-3.6.0.js"
 
 
 //joinFrm js
@@ -81,28 +81,54 @@ function joinFrm(e){  //유효성 검사   //회원가입 폼
 	}
 }
 //아이디 중복확인
-function idDupleCheck(){
-	let id_value = document.querySelector('#id').value;
-	return fetch('idDupleCheck',
-		{
-			method : 'post',    //json 형태로 보낼때는 post만 가능
-			headers : {"Accept" : "application/json;",
-			"ContentType" : "application/json;"},
-			body : JSON.stringify({
-				m_id : id_value
-			})
-		}).then((response)=>{
-		if(response.status == 200 ){  //보내지기만하면 200으로 뜨니까 서버단에 entity 사용해서 정해주자
-			return response.json();
-		}else{
-			alert('사용가능합니다.')
-			//$('#id').attr('data-value', 'true');
-			//formdata안에 data-value 체인지를 통한 아이디 중복여부 최종확인
-		}
-	}).then((response)=>{
-			console.log(response);
-	})
+
+function id_check(e) {  	//blur 포커싱 끝났을때 실행되게
+	e.preventDefault()
+	let id = document.querySelector('#id');
+	if (id.value.length < 4) {   //추가사항 * 아이디 중복검사 필요
+		Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: '아이디는 최소 4글자 입니다!',
+		})
+		id.value = null;
+		 $('#id').attr('data-value', 'false');
+
+	} else {
+		let id_value = $('#id').val();
+		return fetch('idDupleCheck',
+			{
+				method: 'post',    //json 형태로 보낼때는 post만 가능
+				headers: {
+					"Accept": "application/json;",
+					"ContentType": "application/json;"
+				},
+				body: JSON.stringify({
+					m_id: id_value
+				})
+			}).then((response) => {
+			if (response.status == 200) {  //보내지기만하면 200으로 뜨니까 서버단에 entity 사용해서 정해주자
+				console.log(response.status);
+				return response.json();
+			} else {
+				$('#id_check').text("사용중인 아이디입니다.");
+				$('#id_check').css("color", "#FFB400");
+				$('#id_check').css("font-weight", "600");
+				$('#id_check').css("display", "none");
+				return
+
+			}
+		}).then((response) => { 	//formdata안에 data-value 체인지를 통한 아이디 중복여부 최종확인
+			if (response === "0") {  //중복x
+				return $('#id').attr('data-value', 'true'), $('#id_check').css("display", "none");
+
+			} else {			//중복o
+				return $('#id').attr('data-value', 'false'), $('#id_check').show();  //display show
+			}
+		})
+	}
 }
+
 
 
 //닉네임 중복확인
