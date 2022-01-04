@@ -35,17 +35,17 @@
 <form class="form-signup" onsubmit="return joinFrm(event)" >
     <label for="id">Id</label>
     <div class= "duplebtn">
-        <input class="form-styling" id="id" type="text" name="id" placeholder="" required data-value="false" onblur="id_check(event)"/>
+        <input class="form-styling" id="id" type="text" name="id" required data-value="false" onblur="id_check(event)"/>
         <div class="idMsg" id="id_check"></div>
     </div>
     <label for="nickname">NickName</label>
     <div class="duplebtn">
-        <input class="form-styling" id="nickname"type="text" name="nickname" placeholder="" required data-value="false"/>
-        <button  id="nicknameCheck"onclick="nickNameDupleCheck()" class="emailBtn" type="button" style="display: inline-block;" >중복확인</button>
+        <input class="form-styling" id="nickname"type="text" name="nickname" required data-value="false" onblur="nickname_check(event)"/>
+        <div class="idMsg" id="nickname_check"></div>
     </div>
     <label for="email">Email</label>
-    <div class="duplebtn"><input class="form-styling1" id="email" type="text" name="email" value="" required data-value="false">
-        <button onclick="emailDupleCheck()" class="emailBtn" type="button" >중복확인</button>
+    <div class="duplebtn"><input class="form-styling1" id="email" type="text" name="email"  required data-value="false" >
+        <div class="idMsg" id="email_check"></div>
         <button  id="emailCheck"onclick="certificationCheck()" class="emailBtn" type="button" style="display: none;" >이메일인증</button>
     </div>
     <label for="phoneNumber">PhoneNumber</label>

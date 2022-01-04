@@ -14,20 +14,35 @@ public class JoinMM {
     @Autowired
     private JoinDao jDao;
 
-    public Boolean idDupleCheck(String m_id){
-        System.out.println("m_id = " + m_id);
-        Boolean idCheckResult = jDao.idDupleCheck(m_id);
+    public Boolean dupleCheck(Member member) {
+        System.out.println("member = " + member);
+
+        //중복 검사 매개변수 두개 만들어서 던지기
+        String duple_type = null;
+        String duple_member = null;
+
+        if (member.getM_id() == null) {
+            if(member.getM_nickname() == null) {
+                if (member.getM_email() == null) {
+                    duple_type = null;
+                    duple_member = null;
+                } else {
+                    duple_type = "m_email";
+                    duple_member = member.getM_email();
+                }
+            } else {
+                duple_type = "m_nickname";
+                duple_member = member.getM_nickname();
+            }
+        } else {
+            duple_type = "m_id";
+            duple_member = member.getM_id();
+        }
+        System.out.println("duple_type = " + duple_type);
+        System.out.println("duple_member = " + duple_member);
+
+        Boolean idCheckResult = jDao.idDupleCheck(duple_type, duple_member);
         System.out.println("idCheckResult = " + idCheckResult);
         return idCheckResult;
-    }
-
-    public String nickNameDupleCheck(Member member){
-        String nickNameDupleResult = jDao.nickNameDupleCheck(member);
-        return nickNameDupleResult;
-    }
-
-    public String emailDupleCheck(Member member){
-        String emailDupleResult = jDao.emailDupleCheck(member);
-        return emailDupleResult;
     }
 }

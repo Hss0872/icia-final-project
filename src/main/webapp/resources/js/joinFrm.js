@@ -81,22 +81,23 @@ function joinFrm(e){  //유효성 검사   //회원가입 폼
 	}
 }
 //아이디 중복확인
-
 function id_check(e) {  	//blur 포커싱 끝났을때 실행되게
 	e.preventDefault()
 	let id = document.querySelector('#id');
 	if (id.value.length < 4) {   //추가사항 * 아이디 중복검사 필요
-		Swal.fire({
-			icon: 'error',
-			title: 'Oops...',
-			text: '아이디는 최소 4글자 입니다!',
-		})
+		$('#id_check').text('아이디는 3글자 이상입니다.');
+		$('#id_check').css("color", "#FFB400");
+		$('#id_check').css("font-weight", "600");
+		$('#id_check').show();
 		id.value = null;
 		 $('#id').attr('data-value', 'false');
+		setTimeout(()=>{  //3초뒤에 div 가리기
+			$('#id_check').css("display", "none");
+		},2000);
 
-	} else {
+	} else {   //비동기 시작
 		let id_value = $('#id').val();
-		return fetch('idDupleCheck',
+		return fetch('dupleCheck',
 			{
 				method: 'post',    //json 형태로 보낼때는 post만 가능
 				headers: {
@@ -110,7 +111,11 @@ function id_check(e) {  	//blur 포커싱 끝났을때 실행되게
 			if (response.status == 200) {  //보내지기만하면 200으로 뜨니까 서버단에 entity 사용해서 정해주자
 				console.log(response.status);
 				$('#id').attr('data-value', 'true');
-				$('#id_check').css("display", "none");
+				$('#id_check').text("사용가능합니다.");
+				$('#id_check').css("color", "#06f809");
+				$('#id_check').css("font-weight", "600");
+				$('#id_check').show();
+
 			} else {
 				$('#id_check').text("사용중인 아이디입니다.");
 				$('#id_check').css("color", "#FFB400");
@@ -126,23 +131,50 @@ function id_check(e) {  	//blur 포커싱 끝났을때 실행되게
 
 
 //닉네임 중복확인
-function nickNameDupleCheck(){
-	let nickname_value = document.querySelector('#nickname').value;
-	return fetch('nickNameDupleCheck',
-		{
-			method : 'post',
-			headers : {"ContentType" : "application/json"},
-			body : JSON.stringify({
-				nickname : nickname_value
-			})
+function nickname_check(e) {  	//blur 포커싱 끝났을때 실행되게
+	e.preventDefault()
+	let nickname = document.querySelector('#nickname');
+	if (nickname.value.length < 4) {   //추가사항 * 아이디 중복검사 필요
+		$('#nickname_check').text('아이디는 3글자 이상입니다.');
+		$('#nickname_check').css("color", "#EB0000");
+		$('#nickname_check').css("font-weight", "600");
+		$('#nickname_check').show();
+		nickname.value = null;
+		$('#nickname').attr('data-value', 'false');
+		setTimeout(()=>{
+			$('#nickname_check').css("display", "none");
+		},2000);
 
-		}).then((response)=>{
-		if(response !== true){
-			alert('존재하는 닉네임입니다.')
-		}else{
-			$('#nickname').attr('data-value', 'true');
-		}
-	})
+	} else {   
+		let nickname_value = $('#nickname').val();
+		return fetch('dupleCheck',
+			{
+				method: 'post',
+				headers: {
+					"Accept": "application/json;",
+					"ContentType": "application/json;"
+				},
+				body: JSON.stringify({
+					m_nickname: nickname_value
+				})
+			}).then((response) => {
+			if (response.status == 200) {  //보내지기만하면 200으로 뜨니까 서버단에 entity 사용해서 정해주자
+				console.log(response.status);
+				$('#nickname').attr('data-value', 'true');
+				$('#nickname_check').text("사용가능합니다.");
+				$('#nickname_check').css("color", "#06f809");
+				$('#nickname_check').css("font-weight", "600");
+				$('#nickname_check').show();
+			} else {
+				$('#nickname_check').text("사용중인 닉네임입니다.");
+				$('#nickname_check').css("color", "#EB0000");
+				$('#nickname_check').css("font-family", "Arial Black");
+				$('#nickname_check').css("font-weight", "600");
+				$('#nickname_check').css("display", "none");
+				$('#nickname').attr('data-value', 'false'), $('#nickname_check').show();  //display show
+			}
+		})
+	}
 }
 
 
