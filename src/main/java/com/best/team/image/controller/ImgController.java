@@ -20,7 +20,7 @@ public class ImgController {
     private ImgMM im;
 
     @RequestMapping("/champ_img")
-    public List<String> itemImg(){
+    public List<String> championImg(){
 
 
         List<String> cList=new ArrayList<>();
@@ -29,4 +29,5 @@ public class ImgController {
 
         return cList;
     }
+
 }

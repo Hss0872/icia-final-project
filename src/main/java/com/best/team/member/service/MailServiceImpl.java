@@ -1,6 +1,7 @@
-package com.best.team.community.service;
-import com.best.team.community.bean.Member;
-import com.best.team.community.dao.EmailDao;
+package com.best.team.member.service;
+import com.best.team.member.bean.Member;
+import com.best.team.member.dao.EmailDao;
+import com.best.team.member.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;

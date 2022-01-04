@@ -1,4 +1,4 @@
-package com.best.team.community.bean;
+package com.best.team.member.bean;
 
 import lombok.Getter;
 import lombok.Setter;
