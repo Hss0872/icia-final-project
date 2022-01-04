@@ -109,21 +109,15 @@ function id_check(e) {  	//blur 포커싱 끝났을때 실행되게
 			}).then((response) => {
 			if (response.status == 200) {  //보내지기만하면 200으로 뜨니까 서버단에 entity 사용해서 정해주자
 				console.log(response.status);
-				return response.json();
+				$('#id').attr('data-value', 'true');
+				$('#id_check').css("display", "none");
 			} else {
 				$('#id_check').text("사용중인 아이디입니다.");
 				$('#id_check').css("color", "#FFB400");
 				$('#id_check').css("font-weight", "600");
 				$('#id_check').css("display", "none");
-				return
-
-			}
-		}).then((response) => { 	//formdata안에 data-value 체인지를 통한 아이디 중복여부 최종확인
-			if (response === "0") {  //중복x
-				return $('#id').attr('data-value', 'true'), $('#id_check').css("display", "none");
-
-			} else {			//중복o
-				return $('#id').attr('data-value', 'false'), $('#id_check').show();  //display show
+				$('#id').attr('data-value', 'false'), $('#id_check').show();  //display show
+				//formdata안에 data-value 체인지를 통한 아이디 중복여부 최종확인
 			}
 		})
 	}

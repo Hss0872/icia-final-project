@@ -15,6 +15,7 @@ public class JoinMM {
     private JoinDao jDao;
 
     public Boolean idDupleCheck(String m_id){
+        System.out.println("m_id = " + m_id);
         Boolean idCheckResult = jDao.idDupleCheck(m_id);
         System.out.println("idCheckResult = " + idCheckResult);
         return idCheckResult;

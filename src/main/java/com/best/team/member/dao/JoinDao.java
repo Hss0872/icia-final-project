@@ -1,5 +1,4 @@
 package com.best.team.member.dao;
-
 import com.best.team.member.bean.Member;
 import org.springframework.stereotype.Repository;
 
@@ -7,5 +6,5 @@ import org.springframework.stereotype.Repository;
 public interface JoinDao {
     Boolean idDupleCheck(String member);
     String nickNameDupleCheck(Member member);
-    String emailDupleCheck(Member membeer);
+    String emailDupleCheck(Member member);
 }

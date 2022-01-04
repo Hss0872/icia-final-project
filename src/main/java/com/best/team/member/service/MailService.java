@@ -1,4 +1,4 @@
-package com.best.team.community.service;
+package com.best.team.member.service;
 
 import com.best.team.member.bean.Member;
 

@@ -27,13 +27,13 @@ public class JoinController {
     public ResponseEntity idDupleCheck(@RequestBody() String json_m_id) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();  //객체를 json , json을 객체로 바꿔주는 jackson꺼
         Member member = objectMapper.readValue(json_m_id, Member.class); //json -> object
-        log.info("member.getM_id() = {}", member.getM_id());
-        System.out.println(json_m_id);
+        System.out.println("member.getM_id() = " + member.getM_id());
         Boolean idDupleResult = joinMM.idDupleCheck(member.getM_id()); //중복일때 true 들어옴
         ResponseEntity<?> result = null;
 
-        if (idDupleResult) {    //중복일 때
+        System.out.println("idDupleResult = " + idDupleResult);
 
+        if (idDupleResult) {    //중복일 때
             result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
                     body(objectMapper.writeValueAsString("1"));
             /*result = "duple";*/
@@ -56,7 +56,4 @@ public class JoinController {
 
         return emailDuple;
     }
-
-
-
 }

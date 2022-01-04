@@ -1,7 +1,7 @@
-package com.best.team.community.controller;
+package com.best.team.member.controller;
 
 import com.best.team.member.bean.Member;
-import com.best.team.community.service.MailService;
+import com.best.team.member.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

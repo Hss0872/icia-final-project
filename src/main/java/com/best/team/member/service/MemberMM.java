@@ -1,8 +1,8 @@
-package com.best.team.community.service;
+package com.best.team.member.service;
 
 import com.best.team.member.bean.Member;
-import com.best.team.community.dao.MemberDao;
-import com.best.team.community.userClass.Tempkey;
+import com.best.team.member.dao.MemberDao;
+import com.best.team.member.userClass.Tempkey;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
