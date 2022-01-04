@@ -11,7 +11,6 @@ public class CommunityController {
 
     @RequestMapping()
     public String community(){
-        return "community";
-
+        return "main_community";
     }
 }
