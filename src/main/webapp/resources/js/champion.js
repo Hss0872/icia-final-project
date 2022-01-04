@@ -134,11 +134,11 @@ window.onload = function() {   //dom element가 그려지기전에 실행하게�
 				$('<img>').attr('src', '/resources/images/LOL_CHAMPION_ICON/lol_champion_' + id + '.png').attr('alt', id).appendTo(a);
 				a.attr('href', `http://localhost:8090/champion/${id}`).appendTo(div);
 				div.attr('class','cl').appendTo(champ_div);
-		},
-		error: function (err) {
+		}
+		error: function test (err) {
 			console.log(err)
 		}
-	});
+	}
 	/*let champ_div = $('#champ_img');
 	for(id of champion_list){
 		let a = $('<a>');
@@ -153,7 +153,7 @@ window.onload = function() {   //dom element가 그려지기전에 실행하게�
 	//	|-> 
 	//프론트에서 다 해결함
 	
-}
+});
 }
 
 

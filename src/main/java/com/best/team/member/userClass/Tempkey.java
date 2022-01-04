@@ -1,4 +1,4 @@
-package com.best.team.community.userClass;
+package com.best.team.member.userClass;
 
 import java.util.Random;
 
