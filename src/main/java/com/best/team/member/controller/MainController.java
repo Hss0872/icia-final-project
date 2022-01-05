@@ -22,7 +22,6 @@ public class MainController {
     @RequestMapping("/")
     public String home(HttpServletRequest request) {
 
-
         ServletContext application=request.getServletContext();
         List<ChampionDto> championDtoList;
         championDtoList=im.getChampionImg();
