@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MinwooKim
-  Date: 2021-12-29
-  Time: 오후 1:25
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -50,9 +43,9 @@
     </div>
     <label for="phoneNumber">PhoneNumber</label>
     <input class="form-styling" id="phonenumber"type="text" name="phonenumber" placeholder="" required/>
-    <label for="password">Password</label>
+    <label for="pw">Password</label>
     <input class="form-styling" id="pw" type="password" name="password" placeholder="" required/>
-    <label for="confirmpassword">Confirm password</label>
+    <label for="confirmpw">Confirm password</label>
     <input class="form-styling" id="confirmpw" type="password" name="confirmpassword" placeholder="" required/>
     <button class="submitBtn" id="join" type="submit">submit</button>
 </form>
