@@ -1,9 +1,6 @@
 package com.best.team.member.controller;
 
-import com.best.team.image.bean.ChampionDto;
-import com.best.team.image.bean.ItemDto;
-import com.best.team.image.bean.RuneDto;
-import com.best.team.image.bean.SkillDto;
+import com.best.team.image.bean.*;
 import com.best.team.image.sevice.ImgMM;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -54,11 +51,17 @@ public class MainController {
         String json4="";
         json4=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(runeDtoList);
 
+        List<SpellDto> spellDtoList;
+        spellDtoList=im.getSpellInfo();
+        String json5="";
+        json5=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(spellDtoList);
+
 
         application.setAttribute("championInfo",json2);
         application.setAttribute("itemInfo",json1);
         application.setAttribute("skillInfo",json3);
         application.setAttribute("runeInfo",json4);
+        application.setAttribute("spellInfo",json5);
         return "home";
     }
 }

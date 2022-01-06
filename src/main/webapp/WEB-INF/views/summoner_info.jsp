@@ -23,10 +23,11 @@
 
     <style>
         .container {
-            background-color: rgba(255, 0, 0, 0.53);
+            background-color: rgba(187, 243, 24, 0.71);
 
 
         }
+        
         .summoner_info{
             border-radius: 20px;
         }
@@ -40,7 +41,15 @@
             width: 100px;
             height: 100px;
         }
-
+        .sum{
+            width: 100%;
+            
+            display: inline-flex;
+        }
+        .c{
+            width: 30px;
+            height: 30px;
+        }
         .info {
             width: 40%;
             height: 40%;
@@ -58,6 +67,30 @@
             background-attachment: fixed; /* 스크롤바 움직일때 이미지가 따라다님 */
             overflow: auto;
         }
+        .champimg{
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            border-style:groove;
+        }
+        .spellimg{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            border-style:groove;
+        }
+        .runeimg{
+            width: 30px;
+            height: 30px;
+        }
+        .itemimg{
+            width: 50px;
+            height: 50px;
+        }
+        .champ{
+            display: inline-flex;
+        }
+        
     </style>
 </head>
 
@@ -171,6 +204,7 @@
         let skillInfo = ${skillInfo};
         let itemInfo = ${itemInfo};
         let runeInfo = ${runeInfo};
+        let spellInfo = ${spellInfo};
 
 
 
@@ -277,36 +311,122 @@
                     console.log(matchdata);
                     let row = $('<div>').attr("class", "row");
                     //let test1 = document.getElementById('nameA').getAttribute('')
-
+                    let colmd1=$('<div>').attr("class", "col-md-2");
+                    let colmd2=$('<div>').attr("class", "col-md-2");
+                    let champ=$('<div>').attr('id', 'champ');
+                    let spell=$('<div>').attr('id','spell');
+                    let rune=$('<div>').attr('id','rune');
+                    
                     for (let y of matchdata.info.participants) {
-
+                        //console.log(y.perks.styles[0].style)
                         if (y.summonerName == userName) {
-
+                            
                             for (let z of championNameInfo) {
                                 //console.log(y.championId);
                                 //console.log(z);
                                 if (y.championId == z.championid) {
                                     //console.log(userName);
-                                    let champ=$('<div>').attr('id', 'champ');
-                                    champ.attr("class", "col-md-3").appendTo(row);
-                                    $('<div>').attr("class","img").html(
-                                    " <img src='/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
+                                    
+                                    champ.attr("class", "col-md-3 champ").appendTo(row);
+                                    $('<div>').attr("class","champinfo").html(
+                                    " <img class='champimg' src='/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
                                     z.champion_name_eng + ".png'>").appendTo(champ);
                                     for(let w of spellInfo) {
-                                        $('<div>').attr("class", "spell1").html("<img src='/resources/images/spell/" + dfd + ".png'>").appendTo(champ)
-                                        $('<div>').attr("class", "spell2").html("<img src='/resources/images/spell/" + dfd + ".png'>").appendTo(champ)
-
+                                        if(w.key==y.summoner1Id){
+                                            $('<div>').attr("class", "spell1").html("<img class='spellimg' src='/resources/images/spellimg/" + w.id + ".png'>").appendTo(spell)
+                                        }else if(w.key==y.summoner2Id){
+                                            $('<div>').attr("class", "spell2").html("<img class='spellimg' src='/resources/images/spellimg/" + w.id + ".png'>").appendTo(spell)
+                                            }
+                                    }spell.appendTo(champ)
+                                    for(let d of runeInfo){
+                                        
+                                        if(d.id==y.perks.styles[0].selections[0].perk){
+                                            $('<div>').attr("class", "rune1").html("<img class='runeimg' src='/resources/images/perk_images/Styles/" + d.rune_category +"/Keystone/"+
+                                                d.name_eng+".png'>").appendTo(rune)
+                                        }
+                                    
                                     }
+                                    let substyle=y.perks.styles[1].style;
+                                    if(substyle==8100){
+                                        $('<div>').attr("class", "rune2").html("<img class='runeimg' src='/resources/images/perk_images/Styles/Domination/Domination.png'>").appendTo(rune)
+                                    }else if(substyle==8200){
+                                        $('<div>').attr("class", "rune2").html("<img class='runeimg' src='/resources/images/perk_images/Styles/Sorcery/Sorcery.png'>").appendTo(rune)
+                                    
+                                    }else if(substyle==8000){
+                                        $('<div>').attr("class", "rune2").html("<img class='runeimg' src='/resources/images/perk_images/Styles/Precision/Precision.png'>").appendTo(rune)
+                                    
+                                    }else if(substyle==8300) {
+                                        $('<div>').attr("class", "rune2").html("<img class='runeimg' src='/resources/images/perk_images/Styles/Inspiration/Inspiration.png'>").appendTo(rune)
+                                    
+                                    }else if(substyle==8400) {
+                                        $('<div>').attr("class", "rune2").html("<img class='runeimg' src='/resources/images/perk_images/Styles/Resolve/Resolve.png'>").appendTo(rune)
+                                    }
+
+                                    rune.appendTo(champ)
 
                                 }
                             }
-                            $('<div>').attr("class", "col-md-9").appendTo(row);
-                            row.appendTo(recodeInfo);
+                            
+                            let kda=$('<div>').attr("class", "col-md-5");
+                            if(y.deaths!= 0){
+                                kda.attr('id','kda').html("<p>"+y.kills+"/"+y.deaths+"/"+y.assists+"<br>"+
+                                   ((y.kills+y.assists)/y.deaths).toFixed(2) +"</p>").appendTo(row);
+                            }else if(y.deaths== 0) {
+                                kda.attr('id','kda').html("<p>"+y.kills+"/"+y.deaths+"/"+y.assists+"<br>perfact</p>").appendTo(row);
+                            }
+                            for(let m of itemInfo){
+                                if(m.item_code==y.item0){
+                                    $('<img>').attr('class','itemimg').attr("src","/resources/images/LOL_ITEM_ICON/"+ m.item_name_eng+".png").appendTo(kda)
+                                }else if(m.item_code==y.item1){
+                                    $('<img>').attr('class','itemimg').attr("src","/resources/images/LOL_ITEM_ICON/"+ m.item_name_eng+".png").appendTo(kda)
+                                }else if(m.item_code==y.item2){
+                                    $('<img>').attr('class','itemimg').attr("src","/resources/images/LOL_ITEM_ICON/"+ m.item_name_eng+".png").appendTo(kda)
+                                }else if(m.item_code==y.item3){
+                                    $('<img>').attr('class','itemimg').attr("src","/resources/images/LOL_ITEM_ICON/"+ m.item_name_eng+".png").appendTo(kda)
+                                }else if(m.item_code==y.item4){
+                                    $('<img>').attr('class','itemimg').attr("src","/resources/images/LOL_ITEM_ICON/"+ m.item_name_eng+".png").appendTo(kda)
+                                }else if(m.item_code==y.item5){
+                                    $('<img>').attr('class','itemimg').attr("src","/resources/images/LOL_ITEM_ICON/"+ m.item_name_eng+".png").appendTo(kda)
+                                }else if(m.item_code==y.item6){
+                                    $('<img>').attr('class','itemimg').attr("src","/resources/images/LOL_ITEM_ICON/"+ m.item_name_eng+".png").appendTo(kda)
+                                }
+                            }
+
+
+                            
 
 
 
-                        }
+                        }if(y.teamId==100){
+                            let div=$('<div>').attr('class','sum');
+                            for(let t of championNameInfo){
+                                if(y.championId==t.championid){
+                                    $('<img>').attr('class','c').attr("src","/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
+                                    t.champion_name_eng + ".png").appendTo(div);
+                                    $('<p>').html(y.summonerName+"<br>").appendTo(div)
+                                    div.appendTo(colmd1)
+                                }
+                            }  
+                        }else if(y.teamId==200){
+                            let div=$('<div>').attr('class','sum');
+                            for(let t of championNameInfo){
+                                if(y.championId==t.championid){
+                                    $('<img>').attr('class','c').attr("src","/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
+                                    t.champion_name_eng + ".png").appendTo(div);
+                                    $('<p>').html(y.summonerName+"<br>").appendTo(div)
+                                    div.appendTo(colmd2)
+                                }
+                            }  
+                        }  
+
+                        
                     }
+                    
+                          
+                        colmd1.appendTo(row)
+                        colmd2.appendTo(row)
+                            
+                        row.appendTo(recodeInfo);
 
                 },
                 error: function (err) {
