@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmailDao {
 
-    public boolean confirmEmail(Member member);
+    boolean confirmEmail(Member member);
 
     void updateAuthstatus(Member member);
 }

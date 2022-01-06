@@ -1,5 +1,6 @@
 package com.best.team.member.service;
 
+
 import com.best.team.member.bean.Member;
 
 public interface MailService {

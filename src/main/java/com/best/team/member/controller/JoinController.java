@@ -12,11 +12,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/member")
 @Slf4j
 public class JoinController {
+    ModelAndView mav;
 
     @Autowired
     private JoinMM joinMM;
@@ -24,7 +27,7 @@ public class JoinController {
     @RequestMapping(value = "/dupleCheck", produces = "application/json; charset=utf8",
             method= RequestMethod.POST)
     @ResponseBody   // 응답 헤더로 리턴 값이 넘어감
-    public ResponseEntity idDupleCheck(@RequestBody() String json_duple) throws JsonProcessingException {
+    public ResponseEntity dupleCheck(@RequestBody() String json_duple) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();  //객체를 json , json을 객체로 바꿔주는 jackson꺼
         Member member = objectMapper.readValue(json_duple, Member.class); //json -> object
         Boolean dupleResult = joinMM.dupleCheck(member); //중복일때 true 들어옴
@@ -40,6 +43,15 @@ public class JoinController {
             result = ResponseEntity.ok(objectMapper.writeValueAsString("0"));
         }
         return result;
+    }
+
+    @RequestMapping(value = "/join", method = RequestMethod.POST)
+    public ModelAndView joinComplete(Member member, RedirectAttributes rttr){
+        mav = joinMM.joinComplete(member, rttr);
+        return mav;
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("community");
+//        return mav;
     }
 
 }

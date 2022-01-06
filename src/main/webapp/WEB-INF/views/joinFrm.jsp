@@ -32,28 +32,37 @@
 
 
 <!-- joinTable -->
-<form class="form-signup" onsubmit="return joinFrm(event)" >
+<form class="form-signup" onsubmit="return joinFrm()" action="/member/join" method="post" >
     <label for="id">Id</label>
     <div class= "duplebtn">
-        <input class="form-styling" id="id" type="text" name="id" required data-value="false" onblur="id_check(event)"/>
+        <input class="form-styling" id="id" type="text" name="m_id" required data-value="false" onblur="id_check(event)"
+        value="minwoo"/>
         <div class="idMsg" id="id_check"></div>
     </div>
     <label for="nickname">NickName</label>
     <div class="duplebtn">
-        <input class="form-styling" id="nickname"type="text" name="nickname" required data-value="false" onblur="nickname_check(event)"/>
+        <input class="form-styling" id="nickname"type="text" name="m_nickname" data-value="false" onblur="nickname_check(event)"
+        value="김민우"/>
         <div class="idMsg" id="nickname_check"></div>
-    </div>
+    </div>1
     <label for="email">Email</label>
-    <div class="duplebtn"><input class="form-styling1" id="email" type="text" name="email"  required data-value="false" >
+    <div class="duplebtn">\
+        <input class="form-styling1" id="email" type="text" name="m_email"  data-value="false" onblur="email_check(event)"
+    value="rlaalsdn6238@naver.com"/>
         <div class="idMsg" id="email_check"></div>
-        <button  id="emailCheck"onclick="certificationCheck()" class="emailBtn" type="button" style="display: none;" >이메일인증</button>
     </div>
     <label for="phoneNumber">PhoneNumber</label>
-    <input class="form-styling" id="phonenumber"type="text" name="phonenumber" placeholder="" required/>
+    <input class="form-styling" id="phonenumber"type="text" name="m_phone" onblur="phone_check(event)"
+    value="010-2323-2323"/>
+    <div class="idMsg" id="phoneNumber_check"></div>
     <label for="pw">Password</label>
-    <input class="form-styling" id="pw" type="password" name="password" placeholder="" required/>
+    <input class="form-styling" id="pw" type="password" name="m_pw" onblur="password_check(event)"
+    value="qwer1234"/>
+    <div class="idMsg" id="pw_check"></div>
     <label for="confirmpw">Confirm password</label>
-    <input class="form-styling" id="confirmpw" type="password" name="confirmpassword" placeholder="" required/>
+    <input class="form-styling" id="confirmpw" type="password" name="m_confirmpassword" data-value="false" onblur="confirm_password(event)"
+    value="qwer1234"/>
+    <div class="idMsg" id="confirmpw_check"></div>
     <button class="submitBtn" id="join" type="submit">submit</button>
 </form>
 <!-- 닉네임, 폰 -->

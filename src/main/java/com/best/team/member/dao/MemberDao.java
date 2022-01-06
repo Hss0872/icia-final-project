@@ -6,5 +6,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberDao {
 
-    public abstract boolean join(Member member);
+    boolean join(Member member);
+
+    boolean checkValue(Member member);
+
+    boolean confirmEmail(Member member);
+
+    boolean doAccept(Member member);
 }

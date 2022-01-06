@@ -34,11 +34,6 @@
 		<level value="info" />
 	</logger>
 
-	<!-- Root Logger -->
-<!--	<root>
-		<priority value="warn" />
-		<appender-ref ref="console" />
-	</root>
 
 	<logger name="jdbc.resultsettable">
 		<level value="trace" />
@@ -57,6 +52,12 @@
 	</logger>
 	<logger name="jdbc.sqltiming">
 		<level value="off" />
-	</logger>-->
+	</logger>
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="console" />
+	</root>
 
 </log4j:configuration>

@@ -66,14 +66,14 @@
                         </div>
                         <div class="login_etc">
                             <div class="forgot_pw">
-                                <a href="">Forgot Password?</a>
+                                <a href="member/pw/search">Forgot Password?</a>
                             </div>
                             <div class="signUp">
-                                <a href="/member/access">SignUp</a>
+                                <a href="/member/join">SignUp</a>
                             </div>
                         </div>
                         <div class="submit">
-                            <input type="submit" value="submit">
+                            <input type="submit" value="submit"/>
                         </div>
                     </form>
                 </div>
@@ -109,5 +109,56 @@
         <div></div>
     </div>
 </div>
+
+<script>
+        let $check = '${check}';
+
+        if ($check === '1') {
+            Swal.fire({
+                title: '이메일 인증을 해주세요.',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+
+        } else if ($check === '2') {
+            alert('로그인 실패');
+        }
+
+
+        let $accept = '${emailCheck}';
+
+        if($accept === '1'){
+
+                Swal.fire({
+                    title: '이메일 인증에 성공했습니다.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+
+        }else if($accept === '2'){
+            alert('이메일 인증 실패');
+
+        }else if($accept === '3'){
+            Swal.fire({
+                title: '이메일 인증을 이미 하셨습니다.',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        }
+
+
+</script>
 </body>
 </html>
