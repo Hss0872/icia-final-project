@@ -1,10 +1,7 @@
 package com.best.team.image.sevice;
 
 
-import com.best.team.image.bean.ChampionDto;
-import com.best.team.image.bean.ItemDto;
-import com.best.team.image.bean.RuneDto;
-import com.best.team.image.bean.SkillDto;
+import com.best.team.image.bean.*;
 import com.best.team.image.dao.IImgDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,5 +56,10 @@ public class ImgMM {
         List<RuneDto> runeDtoList;
         runeDtoList=iDao.getRuneInfo();
         return runeDtoList;
+    }
+    public List<SpellDto> getSpellInfo(){
+        List<SpellDto> spellDtoList;
+        spellDtoList=iDao.getSpellInfo();
+        return spellDtoList;
     }
 }

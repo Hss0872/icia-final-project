@@ -13,5 +13,8 @@
     <select id="getRuneInfo" resultType="Rune">
         SELECT * FROM RUNE_NAME_INFO
     </select>
+    <select id="getSpellInfo" resultType="Spell">
+        SELECT * FROM SUMMONER_SPELLS_INFO
+    </select>
 
 </mapper>
