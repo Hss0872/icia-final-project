@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.best.team.community.dao.BoardDao">
+    <select id="getLaneBoardList" resultType="LaneBoard">
+        <![CDATA[
+        SELECT * FROM
+                (SELECT * FROM COMMUNITY_LANEB ORDER BY b_lane_num DESC)
+        WHERE ROWNUM <= 20
+        ]]>
+    </select>
+
+    <select id="getFreeBoardList" resultType="FreeBoard">
+        <![CDATA[
+        SELECT * FROM
+                (SELECT * FROM COMMUNITY_FREEB ORDER BY b_free_num DESC)
+        WHERE ROWNUM <= 15
+        ]]>
+    </select>
+
+    <select id="getboardList" resultType="FreeBoard">
+        <![CDATA[
+        SELECT * FROM (
+                          SELECT /*+INDEX_DESC(COMMUNITY_FREEB PK_B_FREE_NUM)*/ ROWNUM RN, COMMUNITY_FREEB.*
+                          FROM COMMUNITY_FREEB
+                          WHERE ROWNUM<=#{pageNum}*10)
+        WHERE RN>=#{pageNum}*10-9
+        ]]>
+    </select>
+
+    <select id="getBoardCount" resultType="int">
+        SELECT COUNT(*) FROM COMMUNITY_LANEB
+    </select>
+</mapper>
