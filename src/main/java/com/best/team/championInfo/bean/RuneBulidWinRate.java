@@ -7,14 +7,17 @@ import org.apache.ibatis.type.Alias;
 
 @Getter
 @Setter
-@Alias("ItemBulidWinRate")
+@Alias("RuneBulidWinRate")
 @ToString
-public class ItemBulidWinRate {
+public class RuneBulidWinRate {
 
     private String championName;    //챔피언 이름
-    private String item_Bulid;      //아이템 빌드
+    private String main_Runes;      //메인 룬
+    private String sub_Runes;       //서브 룬
+    private String stats_Runes;     //스탯 룬
     private String cnt;             //채용횟수
     private String win_cnt;         //승리횟수
-    private float win_rate;         //승률
+    private float win_Rate;         //승률
+
 
 }

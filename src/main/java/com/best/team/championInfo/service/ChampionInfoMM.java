@@ -32,4 +32,5 @@ public class ChampionInfoMM {
         mav.setViewName("champion_info");
         return mav;
     }
+
 }
