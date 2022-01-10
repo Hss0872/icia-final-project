@@ -33,10 +33,14 @@
 </div>
 
 <script>
-    console.log("${championInfo}")
-    console.log("${itemInfo}")
-    console.log("${skillInfo}")
-    console.log("${runeInfo}")
+    let cham=${championInfo};
+    console.log(cham);
+    //console.log("${itemInfo}")
+    //console.log("${skillInfo}")
+    //console.log("${runeInfo}")
+
+    //console.log(championInfo);
+
 </script>
 </body>
 </html>

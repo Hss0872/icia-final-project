@@ -1,10 +1,7 @@
 package com.best.team.image.dao;
 
-import com.best.team.image.bean.ChampionDto;
+import com.best.team.image.bean.*;
 
-import com.best.team.image.bean.ItemDto;
-import com.best.team.image.bean.RuneDto;
-import com.best.team.image.bean.SkillDto;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,4 +18,6 @@ public interface IImgDao {
     List<SkillDto> getSkillInfo();
 
     List<RuneDto> getRuneInfo();
+
+    List<SpellDto> getSpellInfo();
 }
