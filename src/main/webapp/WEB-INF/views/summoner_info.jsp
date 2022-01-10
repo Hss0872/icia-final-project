@@ -238,7 +238,7 @@
 
 
 
-
+	let ddd;
         let riot_api_key = "RGAPI-e2c3b20e-ae8c-462e-868a-8e7185c9b12f";
         let name = "${summonerName}";
 
