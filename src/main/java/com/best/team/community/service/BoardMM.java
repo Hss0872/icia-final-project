@@ -27,10 +27,10 @@ public class BoardMM {
     public String getPriviewBoard(String boardType) throws JsonProcessingException {
         List<?> boardList;
         if (boardType.equals("free")) {
-            boardList = boardDao.getFreeBoardList();
+            boardList = boardDao.getFreeBoardList(1);
             System.out.println("boardList = " + boardList);
         } else {
-            boardList = boardDao.getLaneBoardList();
+            boardList = boardDao.getLaneBoardList(1);
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -38,10 +38,10 @@ public class BoardMM {
         return boardListJson;
     }
 
-    public boolean getboard(Integer pageNum, Model model, String type) {
+    public boolean getFreeboard(Integer pageNum, Model model) {
         log.info("getFreeboard call");
         pageNum = (pageNum == null) ? 1 : pageNum;
-        List<FreeBoard> boardList = boardDao.getboardList(pageNum);
+        List<FreeBoard> boardList = boardDao.getFreeBoardList(pageNum);
         if (boardList != null && boardList.size() != 0) {
             model.addAttribute("boardList", boardList);
             model.addAttribute("paging", getPaging(pageNum));

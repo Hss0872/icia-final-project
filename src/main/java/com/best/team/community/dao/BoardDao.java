@@ -10,11 +10,7 @@ import java.util.List;
 @Repository
 public interface BoardDao {
 
-    List<FreeBoard> getFreeBoardList();
-
-    List<LaneBoard> getLaneBoardList();
-
-    List<FreeBoard> getboardList(@Param("pageNum") Integer pageNum);
+    List<FreeBoard> getFreeBoardList(@Param("pageNum") Integer pageNum);
 
     int getBoardCount();
 }

@@ -27,11 +27,10 @@ public class CommunityController {
         return "main_community";
     }
 
-    @RequestMapping(value = "/{type}/board", method = RequestMethod.GET)
-    public String getboard(@PathVariable("type") String type, Integer pageNum, Model model) {
+    @RequestMapping(value = "/free/board", method = RequestMethod.GET)
+    public String getFreeboard(Integer pageNum, Model model) {
         log.info("getboard call");
-        log.info("type = {}", type);
-        boolean result = boardMM.getboard(pageNum, model, type);
-        return result ? type + "board" : "redirect:/community";
+        boolean result = boardMM.getFreeboard(pageNum, model);
+        return result ? "freeboard" : "redirect:/community";
     }
 }
