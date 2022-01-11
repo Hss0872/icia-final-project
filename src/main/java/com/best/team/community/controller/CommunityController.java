@@ -27,10 +27,11 @@ public class CommunityController {
         return "main_community";
     }
 
-    @RequestMapping(value = "/free/board", method = RequestMethod.GET)
-    public String getFreeboard(Integer pageNum, Model model) {
-        log.info("getboard call");
-        boolean result = boardMM.getFreeboard(pageNum, model);
-        return result ? "freeboard" : "redirect:/community";
+    @RequestMapping(value = "/{type}/board", method = RequestMethod.GET)
+    public String getBList(@PathVariable("type") String type, String lane, Integer pageNum, Model model) {
+        log.info("getBList call");
+        log.info("type = {}", type);
+        boolean result = boardMM.getBList(type, lane, pageNum, model);
+        return result ? type + "board" : "redirect:/community";
     }
 }

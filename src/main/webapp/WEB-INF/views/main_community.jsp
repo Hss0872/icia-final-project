@@ -237,8 +237,8 @@
 </div>
 </body>
 <script>
-    window.onload = function append_freeboard() {
-        getBoardList('free').then(
+    window.onload = function append_preview_list() {
+        getPreviewList('free').then(
             function(result) {
                 let $free_board = $('#free_board')
                 for (let row of result) {
@@ -247,7 +247,7 @@
             }
         )
 
-        getBoardList('lane').then(
+        getPreviewList('lane').then(
             function(result) {
                 let $lane_board = $('#lane_board')
                 for (let row of result) {
@@ -257,8 +257,8 @@
         )
     }
 
-        function getBoardList(boardType) {
-        return fetch('/community/boardlist',
+    function getPreviewList(boardType) {
+        return fetch('/community/board/preview',
             {
                 method : 'post',
                 headers : {

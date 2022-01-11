@@ -18,9 +18,9 @@ public class CommunityRestController {
         this.boardMM = boardMM;
     }
 
-    @PostMapping(value = "/boardlist", produces = "application/json;utf-8")
-    public ResponseEntity<?> getPriviewBoard(@RequestBody() BoardType boardType) throws JsonProcessingException {
-        String boardListJson = boardMM.getPriviewBoard(boardType.getBoardType());
-        return ResponseEntity.ok(boardListJson);
+    @PostMapping(value = "/board/preview", produces = "application/json;utf-8")
+    public ResponseEntity<?> getPriviewBList(@RequestBody() BoardType boardType) throws JsonProcessingException {
+        String previewBListJson = boardMM.getPreviewBList(boardType.getBoardType());
+        return ResponseEntity.ok(previewBListJson);
     }
 }
