@@ -525,7 +525,7 @@ h4{
     width: 20%;
     height: 87%;
     margin-top: 2%;
-    background-color: greenyellow;
+    background-color: #0b5aad;
     float: left;
 }
 .wArea{
@@ -533,7 +533,7 @@ h4{
     height: 87%;
     margin-top: 2%;
     margin-left: 1%;
-    background-color: aliceblue;
+    background-color: white;
     float: left;
     padding: 8px 10px;
     border: 1px solid #D6D6D6;

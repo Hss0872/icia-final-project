@@ -66,7 +66,7 @@
 <div class="back">
     <div class="out">
         <div class="leftMenu">
-            <a class="Logo" href="community" width="100%">
+            <a class="Logo" href="/community" width="100%">
                 <img src="/resources/images/Full.png" alt="First in Last out Logo" width="100%">
             </a>
             <div class="coment">댓글 많이 쓴 회원 Top10
@@ -232,13 +232,73 @@
                     <div>
                         <input type="button"  value="작성">
                     </div>
-                </div>
-                <div class="wArea" contenteditable="true">
+                    <div class="editor-menu">
+                        <button id="btn-bold">
+                            <b>B</b>
+                        </button>
+                        <button id="btn-italic">
+                            <i>I</i>
+                        </button>
+                        <button id="btn-underline">
+                            <u>U</u>
+                        </button>
+                        <button id="btn-strike">
+                            <s>S</s>
+                        </button>
+                        <button id="btn-ordered-list">
+                            OL
+                        </button>
+                        <button id="btn-unordered-list">
+                            UL
+                        </button>
+                        <button id="btn-image">
+                            IMG
+                        </button>
+                    </div>
+
+                </div> <%--왼쪽매뉴 DIV 끝--%>
+                <div class="wArea" class="editor" contenteditable="true">
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    const editor = document.getElementById('editor');
+    const btnBold = document.getElementById('btn-bold');
+    const btnItalic = document.getElementById('btn-italic');
+    const btnUnderline = document.getElementById('btn-underline');
+    const btnStrike = document.getElementById('btn-strike');
+    const btnOrderedList = document.getElementById('btn-ordered-list');
+    const btnUnorderedList = document.getElementById('btn-unordered-list');
+
+    btnBold.addEventListener('click', function () {
+        setStyle('bold');
+    });
+    btnItalic.addEventListener('click', function () {
+        setStyle('italic');
+    });
+    btnUnderline.addEventListener('click', function () {
+        setStyle('underline');
+    });
+    btnStrike.addEventListener('click', function () {
+        setStyle('strikeThrough');
+    });
+    btnOrderedList.addEventListener('click', function () {
+        setStyle('insertOrderedList');
+    });
+    btnUnorderedList.addEventListener('click', function () {
+        setStyle('insertUnorderedList');
+    });
+
+    function setStyle(style) {
+        document.execCommand(style);
+        focusEditor(); }
+
+    function focusEditor() {
+        editor.focus({preventScroll: true});
+    }
+</script>
 
 
 </body>

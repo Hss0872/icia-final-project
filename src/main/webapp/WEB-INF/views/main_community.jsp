@@ -70,7 +70,7 @@
 <div class="back">
     <div class="out">
         <div class="leftMenu">
-            <a class="Logo" href="pMain.html" width="100%">
+            <a class="Logo" href="/community" width="100%">
                 <img src="/resources/images/Full.png" alt="First in Last out Logo">
             </a>
             <div class="coment">댓글 많이 쓴 회원 Top10

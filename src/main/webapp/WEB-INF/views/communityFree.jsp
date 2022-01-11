@@ -77,7 +77,7 @@
 <div class="back">
     <div class="out">
         <div class="leftMenu">
-            <a class="Logo" href="community" width="100%">
+            <a class="Logo" href="/community" width="100%">
                 <img src="/resources/images/Full.png" alt="First in Last out Logo" width="100%">
             </a>
             <div class="coment">댓글 많이 쓴 회원 Top10
@@ -216,8 +216,8 @@
         </div>
         <div class="Main">
             <div class="topMenu">
-                <div class="allboard" style="cursor: pointer;" onclick="location.href='communityFree';">자유 게시판</div>
-                <div class="tierboard" style="cursor: pointer;" onclick="location.href='communityLine';">라인별 게시판</div>
+                <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/free/board';">자유 게시판</div>
+                <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/lane/board';">라인별 게시판</div>
             </div>
             <div class="boardA">
                 <div class="MainFree">
