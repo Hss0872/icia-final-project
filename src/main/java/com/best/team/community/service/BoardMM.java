@@ -1,5 +1,8 @@
 package com.best.team.community.service;
+import com.best.team.community.bean.BoardPaging;
+import com.best.team.community.bean.BoardType;
 import com.best.team.community.bean.FreeBoard;
+import com.best.team.community.bean.LaneBoard;
 import com.best.team.community.dao.BoardDao;
 import com.best.team.community.userClass.Paging;
 import com.best.team.member.bean.Member;
@@ -9,9 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Slf4j
@@ -24,39 +25,49 @@ public class BoardMM {
         this.boardDao = boardDao;
     }
 
-    public String getPriviewBoard(String boardType) throws JsonProcessingException {
-        List<?> boardList;
+    public String getPreviewBList(String boardType) throws JsonProcessingException {
+        log.info("getPreviewBList call");
+        List<?> previewBList;
         if (boardType.equals("free")) {
-            boardList = boardDao.getFreeBoardList();
-            System.out.println("boardList = " + boardList);
+            previewBList = boardDao.getPreviewFreeBList();
         } else {
-            boardList = boardDao.getLaneBoardList();
+            previewBList = boardDao.getPreviewLaneBList();
         }
-
         ObjectMapper objectMapper = new ObjectMapper();
-        String boardListJson = objectMapper.writeValueAsString(boardList);
-        return boardListJson;
+        String previewBListJson = objectMapper.writeValueAsString(previewBList);
+        return previewBListJson;
     }
 
-    public boolean getboard(Integer pageNum, Model model, String type) {
-        log.info("getFreeboard call");
+    public boolean getBList(BoardType boardType, Integer pageNum, Model model) {
+        log.info("getBList call");
+        log.info("boardType = {}", boardType.getBoardType());
         pageNum = (pageNum == null) ? 1 : pageNum;
-        List<FreeBoard> boardList = boardDao.getboardList(pageNum);
-        if (boardList != null && boardList.size() != 0) {
-            model.addAttribute("boardList", boardList);
-            model.addAttribute("paging", getPaging(pageNum));
+        List<?> bList;
+
+        if (boardType.getBoardType().equals("free")) {
+            bList = boardDao.getFreeBList(pageNum);
+        } else {
+            if (boardType.getLane() == null) {
+                boardType.setLane("TOP");
+            }
+            bList = boardDao.getLaneBList(pageNum, boardType.getLane());
+        }
+
+        if (bList != null && bList.size() != 0) {
+            model.addAttribute("bList", bList);
+            model.addAttribute("boardPaging", getPaging(pageNum, boardType));
             return true;
         } else {
             return false;
         }
     }
 
-    private String getPaging(Integer pageNum) {
-        int maxNum = boardDao.getBoardCount(); // 전체 글의 수
+    private BoardPaging getPaging(Integer pageNum, BoardType boardType) {
+        int maxNum = boardType.getBoardType().equals("free") ? boardDao.getFreeBoardCount() :
+                boardDao.getLaneBoardCount(boardType.getLane());
         int listCount = 10;
         int pageCount = 2;
-        String boardName = "/community/free/board"; // url
-        Paging paging = new Paging(maxNum, pageNum, listCount, pageCount, boardName);
-        return paging.makeHtmlPaging(); // return <a href ...1,2
+        Paging paging = new Paging(maxNum, pageNum, listCount, pageCount, boardType.getBoardType(), boardType.getLane());
+        return paging.getBoardPaging();
     }
 }
