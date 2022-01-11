@@ -71,6 +71,7 @@
                 </form>
             </div>
         </div>
+<<<<<<< HEAD
     </div>
 </header>
 <div class="back">
@@ -84,6 +85,16 @@
                     <div>
                         <div class="BLeft">사과</div>
                         <div class="BRight">100</div>
+=======
+
+        <!-- Modal박스 -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Join</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+>>>>>>> master
                     </div>
                     <div>
                         <div class="BLeft">사과</div>

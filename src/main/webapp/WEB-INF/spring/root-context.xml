@@ -13,8 +13,8 @@
         <property name="driverClassName"
                   value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
         <property name="url"
-                  value="jdbc:log4jdbc:oracle:thin:@127.0.0.1:1521:XE" />
-        <property name="username" value="icia" />
+                  value="jdbc:log4jdbc:oracle:thin:@121.65.47.77:5000:XE" />
+        <property name="username" value="BESTTEAM" />
         <property name="password" value="1111" />
     </bean>
 
@@ -25,11 +25,12 @@
         <property name="configLocation"
                   value="classpath:/mybatis-config.xml" />
         <property name="mapperLocations"
-                  value="classpath:/mapper/*.xml" />
+                  value="classpath*:/mapper/*/*.xml" />
     </bean>
 
     <!-- 인터페이스 검색위한 패키지 등록 -->
     <!-- 인터페이스 검색 후 매퍼를 이용해서 IMemberDao의 구현체를 생성해서 Ioc 컨테이너에 등록 -->
     <mybatis-spring:scan
-            base-package="com.best.team.community.dao" />
+            base-package="com.best.team"
+            />
 </beans>

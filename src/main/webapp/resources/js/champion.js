@@ -3,7 +3,7 @@
 
 
 //win5
-window.onload = function appendChampByTier(data) {
+/*window.onload = function appendChampByTier(data) {
 
 	const champDiv = 
 	'<span class="test">'+data.champ[0]+'</span>'
@@ -14,7 +14,7 @@ window.onload = function appendChampByTier(data) {
 	$('#lainvalue').append(champDiv);
 	
 
-}
+}*/
 
 
 
@@ -94,7 +94,7 @@ function champinfo(champname){
 
 
 //champion_lst 
-const champion_list = ['Annie',
+/*const champion_list = ['Annie',
 'Olaf','Galio','TwistedFate','XinZhao','Urgot','LeBlanc',
 'Vladimir','Fiddlesticks','Kayle','MasterYi','Alistar','Ryze',
 'Sion','Sivir','Soraka','Teemo','Tristana','Warwick','Nunu',
@@ -114,11 +114,32 @@ const champion_list = ['Annie',
 'Vi','Aatrox','Nami','Azir','Yuumi','Samira','Thresh','Illaoi','RekSai','Ivern',
 'Kalista','Bard','Rakan','Xayah','Ornn','Sylas','Neeko','Aphelios','Rell','Pyke','Vex',
 'Yone','Sett','Lillia','Gwen'
-];
+];*/
 
 
 window.onload = function() {   //dom element가 그려지기전에 실행하게끔 하는 코드
 	let champ_div = $('#champ_img');
+	$.ajax({
+		type: "GET",
+		url: '/champ_img',
+
+		dataType: 'json',
+		success: function (data) {
+			console.log(data)
+
+			for(id of data){
+				let a = $('<a>');
+				let div = $('<div>');
+
+				$('<img>').attr('src', '/resources/images/LOL_CHAMPION_ICON/lol_champion_' + id + '.png').attr('alt', id).appendTo(a);
+				a.attr('href', `http://localhost:8090/champion/${id}`).appendTo(div);
+				div.attr('class','cl').appendTo(champ_div);
+		}
+		error: function test (err) {
+			console.log(err)
+		}
+	}
+	/*let champ_div = $('#champ_img');
 	for(id of champion_list){
 		let a = $('<a>');
 		let div = $('<div>');
@@ -126,13 +147,13 @@ window.onload = function() {   //dom element가 그려지기전에 실행하게�
 	$('<img>').attr('src', '/resources/images/LOL_CHAMPION_ICON/lol_champion_' + id + '.png').attr('alt', id).appendTo(a);
 	a.attr('href', `http://localhost:8090/champion/${id}`).appendTo(div);
 	div.attr('class','cl').appendTo(champ_div);
-
+*/
 	//jsp 페이지 다이렉트로 호출
 	//--> spring servlet 들렸다가 옴
 	//	|-> 
 	//프론트에서 다 해결함
 	
-}
+});
 }
 
 

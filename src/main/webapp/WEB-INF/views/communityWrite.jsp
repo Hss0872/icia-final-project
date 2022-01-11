@@ -28,16 +28,6 @@
                 </div>
         </a>
     </div>
-    <div class="header_gnb">
-        <ul>
-            <li><a href="#">something</a></li>
-            <li><a href="#">something</a></li>
-            <li><a href="#">something</a></li>
-            <li><a href="#">something</a></li>
-            <li><a href="#">something</a></li>
-        </ul>
-    </div>
-
     <!-- Modal박스 -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -215,8 +205,8 @@
         </div>
         <div class="Main">
             <div class="topMenu">
-                <div class="allboard" style="cursor: pointer;" onclick="location.href='communityFree';">자유 게시판</div>
-                <div class="tierboard" style="cursor: pointer;" onclick="location.href='communityLine';">라인별 게시판</div>
+                <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/free/board';">자유 게시판</div>
+                <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/lane/board';">라인별 게시판</div>
             </div>
             <div class="boardA">
                 <div class="title">

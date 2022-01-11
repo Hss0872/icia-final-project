@@ -37,7 +37,6 @@
         </beans:property>
     </beans:bean>
 
-
     <!-- tx설정: root-context.xml 설정가능 -->
 <!--    <beans:bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <beans:property name="dataSource" ref="dataSource" />

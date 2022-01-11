@@ -31,5 +31,16 @@
         <span></span>
     </div>
 </div>
+
+<script>
+    let cham=${championInfo};
+    console.log(cham);
+    //console.log("${itemInfo}")
+    //console.log("${skillInfo}")
+    //console.log("${runeInfo}")
+
+    //console.log(championInfo);
+
+</script>
 </body>
 </html>

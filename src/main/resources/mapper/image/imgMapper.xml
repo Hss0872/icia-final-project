@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.best.team.image.dao.IImgDao">
+    <select id="getChampionList" resultType="Champion">
+        SELECT * FROM CHAMPION_NAME_INFO
+    </select>
+    <select id="getItemInfo" resultType="Item">
+        SELECT * FROM ITEM_INFO
+    </select>
+    <select id="getSkillInfo" resultType="Skill">
+        SELECT * FROM CHAMPION_SKILL_INFO
+    </select>
+    <select id="getRuneInfo" resultType="Rune">
+        SELECT * FROM RUNE_NAME_INFO
+    </select>
+    <select id="getSpellInfo" resultType="Spell">
+        SELECT * FROM SUMMONER_SPELLS_INFO
+    </select>
+
+</mapper>
