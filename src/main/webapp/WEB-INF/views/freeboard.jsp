@@ -224,7 +224,7 @@
                             <div class="bLiket"><b>좋아요</b></div>
                         </div>
                     </div>
-                    <c:forEach var="board" items="${boardList}">
+                    <c:forEach var="board" items="${bList}">
                         <div>
                             <div class="post">
                                 <div class="bNo">${board.b_free_num}</div>
@@ -237,11 +237,11 @@
                         </div>
                     </c:forEach>
                     <div class="pageout">
-                        ${paging}
+
                     </div>
                 </div>
                 <div class="LowMenu">
-                    <input type="button" class="write" value="글작성" style="cursor: pointer;" onclick="location.href='pwrite.html';" >
+                    <input type="button" class="write" value="글작성" style="cursor: pointer;" onclick="location.href='/community/write'" >
                     <div class="searchA">
                         <SElect class="search">
                             <option value="작성자" selected="selected">작성자</option>
@@ -257,4 +257,12 @@
     </div>
 </div>
 </body>
+<script>
+    let boardPagingStart = '${boardPaging.start}';
+    console.log(boardPagingStart);
+    let boardPagingType = '${boardPaging.type}';
+    console.log(boardPagingType);
+    let boardPagingLane = '${boardPaging.lane}';
+    console.log(boardPagingLane);
+</script>
 </html>

@@ -1,5 +1,7 @@
 package com.best.team.community.userClass;
 
+import com.best.team.community.bean.BoardPaging;
+
 public class Paging {
     private int maxNum; // 전체 글의 개수
     private int pageNum; // 현재 페이지 번호
@@ -18,23 +20,27 @@ public class Paging {
     }
 
     @SuppressWarnings("unused")
-    public String makeHtmlPaging() {
-        // 전체 페이지 갯수  30          10
+    public BoardPaging getBoardPaging() {
+        BoardPaging boardPaging = new BoardPaging();
+        boardPaging.setType(type);
+        boardPaging.setLane(lane);
+        boardPaging.setPageNum(pageNum);
+        // 전체 페이지 갯수
         int totalPage = (maxNum % listCount > 0) ? maxNum / listCount + 1 : maxNum / listCount;
-        // 전체 페이지 그룹 갯수  3           2
+        // 전체 페이지 그룹 갯수
         int totalGroup = (totalPage % pageCount > 0) ? totalPage / pageCount + 1 : totalPage / pageCount;
         // 현재 페이지가 속해 있는 그룹 번호
         int currentGroup = (pageNum % pageCount > 0) ? pageNum / pageCount + 1 : pageNum / pageCount;
-        return makeHtml(currentGroup, totalPage, type, lane);
+        // 현재그룹의 시작 페이지 번호
+        int start = (currentGroup * pageCount) - (pageCount - 1);
+        boardPaging.setStart(start);
+        // 현재그룹의 끝 페이지 번호
+        int end = (currentGroup * pageCount >= totalPage) ? totalPage : currentGroup * pageCount;
+        boardPaging.setEnd(end);
+        return boardPaging;
     }
 
-    private String makeHtml(int currentGroup, int totalPage, String type, String lane) {
-        StringBuffer sb = new StringBuffer();
-        // 현재그룹의 시작 페이지 번호 1 * 2 - (2 - 1)
-        int start = (currentGroup * pageCount) - (pageCount - 1);
-        // 현재그룹의 끝 페이지 번호 2 * 2
-        int end = (currentGroup * pageCount >= totalPage) ? totalPage : currentGroup * pageCount;
-        //페이징 관련 빈을 만들어서 값을 던져준 다음 자바스크립트에서 처리하자
+/*
         if (start != 1) {
             sb.append("<a href='" + boardType + "?pageNum=" + (start - 1) + "'>");
             sb.append("[이전]");
@@ -61,6 +67,6 @@ public class Paging {
             sb.append("[다음]");
             sb.append("</a>");
         }
-        return sb.toString();
-    }
+        return sb.toString();*/
+
 }

@@ -1,5 +1,5 @@
 package com.best.team.community.controller;
-
+import com.best.team.community.bean.BoardType;
 import com.best.team.community.service.BoardMM;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +28,11 @@ public class CommunityController {
     }
 
     @RequestMapping(value = "/{type}/board", method = RequestMethod.GET)
-    public String getBList(@PathVariable("type") String type, String lane, Integer pageNum, Model model) {
+    public String getBList(@PathVariable() String type, BoardType boardType, Integer pageNum, Model model) {
         log.info("getBList call");
-        log.info("type = {}", type);
-        boolean result = boardMM.getBList(type, lane, pageNum, model);
+        boardType.setBoardType(type);
+        boolean result = boardMM.getBList(boardType, pageNum, model);
+        log.info(type + "board");
         return result ? type + "board" : "redirect:/community";
     }
 }

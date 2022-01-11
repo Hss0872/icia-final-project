@@ -16,7 +16,7 @@ public interface BoardDao {
 
     List<FreeBoard> getFreeBList(@Param("pageNum") Integer pageNum);
 
-    List<LaneBoard> getLaneBList(@Param("pageNum") Integer pageNum, String lane);
+    List<LaneBoard> getLaneBList(@Param("pageNum") Integer pageNum,@Param("lane") String lane);
 
     int getFreeBoardCount();
 

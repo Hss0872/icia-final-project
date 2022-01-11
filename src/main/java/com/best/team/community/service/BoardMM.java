@@ -1,4 +1,6 @@
 package com.best.team.community.service;
+import com.best.team.community.bean.BoardPaging;
+import com.best.team.community.bean.BoardType;
 import com.best.team.community.bean.FreeBoard;
 import com.best.team.community.bean.LaneBoard;
 import com.best.team.community.dao.BoardDao;
@@ -36,33 +38,36 @@ public class BoardMM {
         return previewBListJson;
     }
 
-    public boolean getBList(String type, String lane, Integer pageNum, Model model) {
+    public boolean getBList(BoardType boardType, Integer pageNum, Model model) {
         log.info("getBList call");
-        log.info("boardType = {}", type);
+        log.info("boardType = {}", boardType.getBoardType());
         pageNum = (pageNum == null) ? 1 : pageNum;
-        if (type.equals("free")) {
-            List<FreeBoard> bList = boardDao.getFreeBList(pageNum);
-            String freeBPaging = getPaging(pageNum, type, lane);
+        List<?> bList;
+
+        if (boardType.getBoardType().equals("free")) {
+            bList = boardDao.getFreeBList(pageNum);
         } else {
-            lane = (lane == null) ? "top" : lane;
-            List<LaneBoard> bList = boardDao.getLaneBList(pageNum, lane);
-            String laneBPaging = getPaging(pageNum, type, lane);
+            if (boardType.getLane() == null) {
+                boardType.setLane("TOP");
+            }
+            bList = boardDao.getLaneBList(pageNum, boardType.getLane());
         }
 
-        if (boardList != null && boardList.size() != 0) {
-            model.addAttribute("boardList", boardList);
-            model.addAttribute("paging", getPaging(pageNum));
+        if (bList != null && bList.size() != 0) {
+            model.addAttribute("bList", bList);
+            model.addAttribute("boardPaging", getPaging(pageNum, boardType));
             return true;
         } else {
             return false;
         }
     }
 
-    private String getPaging(Integer pageNum, String type, String lane) {
-        int maxNum = type.equals("free") ? boardDao.getFreeBoardCount() : boardDao.getLaneBoardCount(lane);
+    private BoardPaging getPaging(Integer pageNum, BoardType boardType) {
+        int maxNum = boardType.getBoardType().equals("free") ? boardDao.getFreeBoardCount() :
+                boardDao.getLaneBoardCount(boardType.getLane());
         int listCount = 10;
         int pageCount = 2;
-        Paging paging = new Paging(maxNum, pageNum, listCount, pageCount, type, lane);
-        return paging.makeHtmlPaging(); // return <a href ...1,2
+        Paging paging = new Paging(maxNum, pageNum, listCount, pageCount, boardType.getBoardType(), boardType.getLane());
+        return paging.getBoardPaging();
     }
 }
