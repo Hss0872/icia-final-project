@@ -237,7 +237,9 @@
                         </div>
                     </c:forEach>
                     <div class="pageout">
+                        <ul class="pageNo" id="pageNo">
 
+                        </ul>
                     </div>
                 </div>
                 <div class="LowMenu">
@@ -258,11 +260,47 @@
 </div>
 </body>
 <script>
-    let boardPagingStart = '${boardPaging.start}';
-    console.log(boardPagingStart);
+    let boardPagingStart = Object('${boardPaging.start}');
+    console.log("boardPagingStart" + boardPagingStart);
+    let boardPagingEnd = Object('${boardPaging.end}')
+    console.log("boardPagingEnd" + boardPagingEnd)
     let boardPagingType = '${boardPaging.type}';
     console.log(boardPagingType);
     let boardPagingLane = '${boardPaging.lane}';
     console.log(boardPagingLane);
+    let boardPagingNum = Object('${boardPaging.pageNum}');
+    console.log(boardPagingNum);
+    let boardPageNo = document.querySelector('#pageNo');
+
+    if (boardPagingStart != 1) {
+        let li_pre = document.createElement('li');
+        li_pre.setAttribute('class', 'pagingNoS');
+        let a_pre = document.createElement('a');
+        a_pre.setAttribute('href', '/community/free/board?pageNum=' + (boardPagingStart - 1));
+        a_pre.innerText = '이전';
+        li_pre.append(a_pre);
+        boardPageNo.append(li_pre);
+    }
+
+    for (let i = boardPagingStart; i < boardPagingEnd; i++) {
+        if (boardPagingNum != i) {
+            let li_paging = document.createElement('li');
+            li_paging.setAttribute('class', 'pagingNoS');
+            let a_paging = document.createElement('a');
+            a_paging.setAttribute('href', '/community/free/board?pageNum=' + i);
+            a_paging.innerText = i;
+            li_paging.append(a_paging);
+            boardPageNo.append(li_paging);
+        } else {
+            let li_paging = document.createElement('li');
+            li_paging.setAttribute('class', 'pagingNoS');
+            let font_paging = document.createElement('font');
+            font_paging.style.color = red;
+            font_paging.innerText = i;
+            li_paging.append(font_paging);
+            boardPageNo.append(li_paging);
+        }
+    }
+
 </script>
 </html>
