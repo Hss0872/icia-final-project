@@ -219,62 +219,31 @@
                 <div class="tierboard" style="cursor: pointer;" onclick="location.href='communityLine';">라인별 게시판</div>
             </div>
             <div class="boardA">
-                <div class="allboardHot">
-                    <div style="height: 100%;">
-                        <div class="HotFree">자유게시판 hot 글1</div>
-                        <div class="HotFree">자유게시판 hot 글2</div>
-                        <div class="HotFree">자유게시판 hot 글3</div>
-                        <div class="HotFree">자유게시판 hot 글4</div>
-                        <div class="HotFree">자유게시판 hot 글5</div>
-                        <div class="HotFree">자유게시판 hot 글6</div>
-                        <div class="HotFree">자유게시판 hot 글7</div>
-                        <div class="HotFree">자유게시판 hot 글8</div>
-                        <div class="HotFree">자유게시판 hot 글9</div>
-                        <div class="HotFree">자유게시판 hot 글10</div>
-                        <div class="HotFree">자유게시판 hot 글11</div>
-                        <div class="HotFree">자유게시판 hot 글12</div>
-                        <div class="HotFree">자유게시판 hot 글13</div>
-                        <div class="HotFree">자유게시판 hot 글14</div>
-                        <div class="HotFree">자유게시판 hot 글15</div>
-                        <div class="HotFree">자유게시판 hot 글16</div>
-                        <div class="HotFree">자유게시판 hot 글17</div>
-                        <div class="HotFree">자유게시판 hot 글18</div>
-                        <div class="HotFree">자유게시판 hot 글19</div>
-                        <div class="HotFree">자유게시판 hot 글20</div>
+                <div class="title">
+                    <input type="text" class="titlew" placeholder="글 제목">
+                </div>
+                <div class="leftWmenu">
+                    <div class="selectBox">
+                        <SElect class="wBoard">
+                            <option value="free" selected="selected">자유게시판</option>
+                            <option value="line">라인게시판</option>
+                        </SElect>
+                    </div>
+                    <div class="selectBox">
+                        <SElect class="wLine">
+                            <option value="non" selected="selected">라인을 선택해주세요</option>
+                            <option value="top">탑</option>
+                            <option value="mid">미드</option>
+                            <option value="jungle">정글</option>
+                            <option value="bot">원딜</option>
+                            <option value="sup">서폿</option>
+                        </SElect>
+                    </div>
+                    <div>
+                        <input type="button"  value="작성">
                     </div>
                 </div>
-                <div class="lineMenu">
-                    <ul class="line">
-                        <li class="top">top</li>
-                        <li class="mid">mid</li>
-                        <li class="jungle">jungle</li>
-                        <li class="bot">bot</li>
-                        <li class="sup">sup</li>
-                    </ul>
-                </div>
-                <div class="lineMenuHot">
-                    <div style="height: 100%;">
-                        <div class="HotLine">라인게시판 Hot 글1</div>
-                        <div class="HotLine">라인게시판 Hot 글2</div>
-                        <div class="HotLine">라인게시판 Hot 글3</div>
-                        <div class="HotLine">라인게시판 Hot 글4</div>
-                        <div class="HotLine">라인게시판 Hot 글5</div>
-                        <div class="HotLine">라인게시판 Hot 글6</div>
-                        <div class="HotLine">라인게시판 Hot 글7</div>
-                        <div class="HotLine">라인게시판 Hot 글8</div>
-                        <div class="HotLine">라인게시판 Hot 글9</div>
-                        <div class="HotLine">라인게시판 Hot 글10</div>
-                        <div class="HotLine">라인게시판 Hot 글11</div>
-                        <div class="HotLine">라인게시판 Hot 글12</div>
-                        <div class="HotLine">라인게시판 Hot 글13</div>
-                        <div class="HotLine">라인게시판 Hot 글14</div>
-                        <div class="HotLine">라인게시판 Hot 글15</div>
-                        <div class="HotLine">라인게시판 Hot 글16</div>
-                        <div class="HotLine">라인게시판 Hot 글17</div>
-                        <div class="HotLine">라인게시판 Hot 글18</div>
-                        <div class="HotLine">라인게시판 Hot 글19</div>
-                        <div class="HotLine">라인게시판 Hot 글20</div>
-                    </div>
+                <div class="wArea" contenteditable="true">
                 </div>
             </div>
         </div>
