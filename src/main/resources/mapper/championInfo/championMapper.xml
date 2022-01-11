@@ -5,6 +5,10 @@
         select * from item_bulid_win_rate where championname = #{championName}
     </select>
 
+    <select id="getRuneBulidWinRate" resultType="RuneBulidWinRate">
+        select * from rune_bulid_win_rate where championname = #{championName}
+    </select>
+
     <select id="getSkillWinRate" resultType="SkillWinRate">
         select * from skill_bulid_win_rate where championname = #{championName}
     </select>
@@ -13,7 +17,4 @@
         select * from start_item_win_rate where championname = #{championName}
     </select>
 
-    <select id="getRuneBulidWinRate" resultType="RuneBulidWinRate">
-        select * from rune_bulid_win_rate where championname = #{championName}
-    </select>
 </mapper>

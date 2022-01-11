@@ -31,4 +31,5 @@ public class ChampionController {
         mav = championInfoMM.getChampionInfo(championName);
         return mav;
     }
+
 }
