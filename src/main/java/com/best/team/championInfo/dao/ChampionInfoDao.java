@@ -1,9 +1,6 @@
 package com.best.team.championInfo.dao;
 
-import com.best.team.championInfo.bean.ItemBulidWinRate;
-import com.best.team.championInfo.bean.RuneBulidWinRate;
-import com.best.team.championInfo.bean.SkillWinRate;
-import com.best.team.championInfo.bean.StartItemWinRate;
+import com.best.team.championInfo.bean.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -19,5 +16,9 @@ public interface ChampionInfoDao {
     List<SkillWinRate> getSkillWinRate(@Param("championName") String championName);
 
     List<StartItemWinRate> getStartItemWinRate(@Param("championName") String championName);
+
+    List<MasterPoint> getMasterPoint(@Param("championName") String championName);
+
+    ChampionPassive getChampionPassive(@Param("ChampionPassiveName") String ChampionPassiveName);
 
 }

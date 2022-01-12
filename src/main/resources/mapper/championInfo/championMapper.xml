@@ -17,4 +17,14 @@
         select * from start_item_win_rate where championname = #{championName}
     </select>
 
+    <select id="getMasterPoint" resultType="MasterPoint">
+        <![CDATA[
+            select * from (select * from master_point_data where championname = #{championName} order by championpoints desc) where rownum <=5
+        ]]>
+    </select>
+
+    <select id="getChampionPassive" resultType="ChampionPassive">
+        select * from champion_passive_info where champion_passive_eng = #{ChampionPassiveName}
+    </select>
+
 </mapper>

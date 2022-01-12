@@ -1,9 +1,6 @@
 package com.best.team.championInfo.service;
 
-import com.best.team.championInfo.bean.ItemBulidWinRate;
-import com.best.team.championInfo.bean.RuneBulidWinRate;
-import com.best.team.championInfo.bean.SkillWinRate;
-import com.best.team.championInfo.bean.StartItemWinRate;
+import com.best.team.championInfo.bean.*;
 import com.best.team.championInfo.dao.ChampionInfoDao;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,28 +23,36 @@ public class ChampionInfoMM {
     public ModelAndView getChampionInfo(String championName) throws JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper();
-
+        String ChampionPassiveName = championName+"Passive";
         List<ItemBulidWinRate> itemBulidWinRates = championInfoDao.getItemBulidWinRate(championName);
-        List<RuneBulidWinRate> runeBulidWinRates = championInfoDao.getRuneBulidWinRate(championName);       //01-11
-        List<SkillWinRate> skillWinRates = championInfoDao.getSkillWinRate(championName);                   //01-11
-        List<StartItemWinRate> startItemWinRates = championInfoDao.getStartItemWinRate(championName);       //01-11
+        List<RuneBulidWinRate> runeBulidWinRates = championInfoDao.getRuneBulidWinRate(championName);
+        List<SkillWinRate> skillWinRates = championInfoDao.getSkillWinRate(championName);
+        List<StartItemWinRate> startItemWinRates = championInfoDao.getStartItemWinRate(championName);
+        List<MasterPoint> masterPoints = championInfoDao.getMasterPoint(championName);                  //01-12
+        ChampionPassive championPassives = championInfoDao.getChampionPassive(ChampionPassiveName);      //01-12
 
         System.out.println("itemBulidWinRates = " + itemBulidWinRates);
-        System.out.println("runeBulidWinRates = " + runeBulidWinRates);     //01-11
-        System.out.println("skillWinRates = " + skillWinRates);             //01-11
-        System.out.println("startItemWinRates = " + startItemWinRates);     //01-11
+        System.out.println("runeBulidWinRates = " + runeBulidWinRates);
+        System.out.println("skillWinRates = " + skillWinRates);
+        System.out.println("startItemWinRates = " + startItemWinRates);
+        System.out.println("masterPoints = " + masterPoints);           //01-12
+        System.out.println("championPassive = " + championPassives);    //01-12
 
         mav = new ModelAndView();
 
         String itemBulidWinRates_json = objectMapper.writeValueAsString(itemBulidWinRates);
-        String runeBulidWinRates_json = objectMapper.writeValueAsString(runeBulidWinRates);     //01-11
-        String skillWinRates_json = objectMapper.writeValueAsString(skillWinRates);             //01-11
-        String startItemWinRates_json = objectMapper.writeValueAsString(startItemWinRates);     //01-11
+        String runeBulidWinRates_json = objectMapper.writeValueAsString(runeBulidWinRates);
+        String skillWinRates_json = objectMapper.writeValueAsString(skillWinRates);
+        String startItemWinRates_json = objectMapper.writeValueAsString(startItemWinRates);
+        String masterPoints_json = objectMapper.writeValueAsString(masterPoints);           //01-12
+        String championPassive_json = objectMapper.writeValueAsString(championPassives);    //01-12
 
         mav.addObject("itemBulidWinRates", itemBulidWinRates_json);
-        mav.addObject("runeBulidWinRates", runeBulidWinRates_json);     //01-11
-        mav.addObject("skillWinRates", skillWinRates_json);             //01-11
-        mav.addObject("startItemWinRates", startItemWinRates_json);     //01-11
+        mav.addObject("runeBulidWinRates", runeBulidWinRates_json);
+        mav.addObject("skillWinRates", skillWinRates_json);
+        mav.addObject("startItemWinRates", startItemWinRates_json);
+        mav.addObject("masterPoints", masterPoints_json);           //01-12
+        mav.addObject("championPassives", championPassive_json);    //01-12
 
         mav.setViewName("champion_info");
         return mav;

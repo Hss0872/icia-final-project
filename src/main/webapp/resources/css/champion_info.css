@@ -17,7 +17,6 @@
 
 .ChampSkill_Passive img {
     display: flex;
-    cursor: pointer;
 }
 
 .Explain_box {
@@ -25,6 +24,7 @@
     position: absolute;
     width: 100px;
     padding: 8px;
+    /*top: 27%;*/
     left: 0;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -40,7 +40,7 @@
     left: 50%;
     width: 0;
     height: 0;
-    margin-left: -10px;
+    margin-left: 10px;
     border: solid transparent;
     border-color: rgba(51, 51, 51, 0);
     border-bottom-color: #333;
@@ -50,4 +50,450 @@
 }
 .ChampSkill_Passive img:hover + p.Explain_box {
     display: block;
+}
+
+/*챔피언 백그라운드 창 css*/
+.Background_back__29qGw {
+    pointer-events: none;
+    opacity: .3;
+    top: 48px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: 100% 0;
+    position: fixed;
+    z-index: -1;
+}
+
+.Background_back__29qGw:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent,#111) 0 repeat;
+}
+
+/*챔피언 스킬 설명 말풍선*/
+/*따로 로직 구성하기/
+
+/*챔피언 헤더 css*/
+.ChampionHeader_champion__2ZqIZ {
+    grid-template-columns: 171px 375px 80px 400px;
+}
+
+.ChampionHeader_header__TkIzw {
+    min-height: 225px;
+    margin-top: 120px;
+    margin-bottom: 10px;
+    display: grid;
+}
+
+.ChampionHeader_header__TkIzw>div:first-child {
+    margin-top: 10px;
+}
+
+.CircleBig_wrapper__3hOuX {
+    position: relative;
+    display: inline-block;
+    width: 174px;
+    height: 147px;
+    overflow: hidden;
+}
+
+.Champ_champ140c__ZSREE {
+    top: 3px;
+    left: 2px;
+    width: 140px;
+    height: 140px;
+}
+
+.Champ_champ100c__24pmL, .Champ_champ140c__ZSREE {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 12;
+}
+
+.CircleBig_border__3QsNj {
+    position: absolute;
+    overflow: visible;
+    top: 1px;
+    left: 0;
+    margin-right: -140px;
+    z-index: 11;
+    width: 146px;
+    pointer-events: none;
+}
+
+.CircleBig_lane__2qKzs {
+    position: absolute;
+    top: 11px;
+    left: 134px;
+    width: 33px;
+    height: 27px;
+    z-index: 8;
+}
+
+.CircleBig_laneborder__2kf6I {
+    position: absolute;
+    overflow: visible;
+    top: 1px;
+    left: 127px;
+    width: 46px;
+    height: 46px;
+    z-index: 7;
+}
+
+.CircleBig_tier__ul2zF {
+    text-align: center;
+    position: absolute;
+    top: 110px;
+    left: 135px;
+    width: 29px;
+    height: 29px;
+    z-index: 8;
+    font-size: 20px;
+    color: #fff;
+}
+
+.CircleBig_tierborder__16GoL {
+    position: absolute;
+    overflow: visible;
+    top: 100px;
+    left: 127px;
+    width: 46px;
+    height: 46px;
+    z-index: 7;
+}
+
+.SkillList_wrapper__1HtlM {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 12px;
+}
+
+.Skill_skill30__CEeFI, .Skill_skill30__CEeFI img {
+    width: 30px;
+    height: 30px;
+}
+
+.Skill_skill30__CEeFI {
+    border: 1px solid #666;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 0;
+}
+
+img {
+    font-size: 0;
+}
+
+.ChampionHeader_header__TkIzw>div:nth-child(2) {
+    padding-left: 20px;
+    text-shadow: 2px 2px 4px #000;
+    font-size: 14px;
+}
+
+.ChampionHeader_header__TkIzw h1 {
+    font-size: 28px;
+    line-height: 28px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.ChampionHeader_header__TkIzw h2 {
+    font-size: 17px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.ChampionHeader_header__TkIzw p {
+    font-size: 13px;
+    line-height: 18px;
+    background-color: rgba(0,0,0,.2);
+    width: 345px;
+    text-align: justify;
+}
+
+.Circle_circle__1UKAB {
+    height: 80px;
+}
+
+.ChampionHeader_champion__2ZqIZ>div:nth-child(4) {
+    display: grid;
+    grid-template-columns: 65px 65px 50px 70px 70px 70px;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 0 0 10px;
+}
+
+.ChampionHeader_stats__f84LW>div {
+    font-size: 12px;
+    color: #bbb;
+    height: 270px;
+}
+
+.Any_champion__d4yj0 {
+    position: relative;
+    top: -230px;
+    right: -636px;
+    margin-bottom: -225px;
+}
+
+.Any_champion__d4yj0, .Any_front__3IKmB {
+    overflow: hidden;
+    width: 400px;
+    height: 225px;
+    background: #000;
+    z-index: 99;
+}
+
+.Skill_skill30__CEeFI div {
+    text-align: center;
+    color: #ccc;
+    font-size: 12px;
+    background-color: #000;
+    width: 12px;
+    line-height: 14px;
+    position: relative;
+    top: -16px;
+    right: -16px;
+    pointer-events: none;
+}
+
+/*챔피언 분석 창 css*/
+.Summary_quick__3le_e {
+    padding-top: 6px;
+    overflow: hidden;
+    color: #fff;
+    min-height: 40px;
+    background: linear-gradient(90deg,rgba(16,16,16,.8),rgba(33,33,38,.8));
+    margin: 0 0 8px;
+    border: 1px solid #333;
+    border-radius: 3px;
+}
+
+.Summary_row1__3rZk8 {
+    display: grid;
+    grid-template-columns: 194px 327px 152px 192px 152px;
+    font-size: 14px;
+    line-height: 29px;
+    text-align: center;
+}
+
+.Tip_q__3v_Eo, .Tip_qinline__3rgRn {
+    display: inline-block;
+    font-weight: 700;
+    color: #333;
+    text-shadow: 0 2px 2px rgb(0 0 0 / 40%);
+    cursor: help;
+    border-radius: 100%;
+    background-color: #eee;
+    font-size: 10px;
+    border: 1px solid #333;
+    width: 14px;
+    height: 14px;
+    top: -8px;
+    position: relative;
+    line-height: 14px;
+    text-align: center;
+}
+
+.Summary_row2__3iVg7 {
+    display: grid;
+    grid-template-columns: 194px 326px 154px 190px 154px;
+    text-align: center;
+}
+
+.SkillPriority_skillpriority__oC3Z5>div {
+    display: inline-block;
+}
+
+.Skill_skill36__yk-DO, .Skill_skill36__yk-DO img {
+    height: 36px;
+    width: 36px;
+}
+
+.Skill_skill36__yk-DO {
+    border-radius: 6px;
+    border: 1px solid #666;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.SkillPriority_skillnext__38Exi {
+    font-size: 24px;
+    vertical-align: top;
+    margin: 0 8px;
+}
+
+.Summary_pickwin__PRaVa {
+    font-size: 10px;
+    margin-top: 6px;
+    width: 100%;
+}
+
+.Summary_title__1Mkrz {
+    font-size: 14px;
+    line-height: 28px;
+    display: inline-block;
+    text-align: center;
+}
+
+.Summary_items__1Hq4v {
+    text-align: center;
+}
+
+.Spell_spell32br__og7Xy {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #666;
+    border-radius: 5px;
+}
+
+.Summary_items__1Hq4v>div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.Summary_pickwin__PRaVa span {
+    font-size: 10px;
+    color: #aaa;
+    margin: 6px 0;
+}
+
+.SkillOrder_light__2BKVU {
+    color: #fff;
+}
+
+.SkillOrder_dark__a0lv0>div>div:first-child, .SkillOrder_light__2BKVU>div>div:first-child {
+    margin-right: 5px;
+}
+
+.SkillOrder_dark__a0lv0>div>div, .SkillOrder_light__2BKVU>div>div {
+    font-size: 10px;
+    display: inline-block;
+    height: 24px;
+    vertical-align: top;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.Skill_skill24__272D3, .Skill_skill24__272D3 img {
+    width: 24px;
+    height: 24px;
+}
+
+.Skill_skill24__272D3 {
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.SkillOrder_light__2BKVU>div>div:not(:first-child) {
+    border: 1px solid #30687a;
+    width: 15px;
+}
+
+.SkillOrder_light__2BKVU .SkillOrder_active__1t7oF {
+    background-color: #3a7e93;
+    line-height: 22px;
+}
+
+.SkillOrder_dark__a0lv0>div>div, .SkillOrder_light__2BKVU>div>div {
+    font-size: 10px;
+    display: inline-block;
+    height: 24px;
+    vertical-align: top;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.Summary_pickwin__PRaVa {
+    font-size: 10px;
+    margin-top: 6px;
+    width: 100%;
+}
+
+.Summary_pickwin__PRaVa div:first-child {
+    margin: 1px 0;
+}
+
+.Summary_pickwin__PRaVa>div, .Summary_pickwin__PRaVa>div>div {
+    display: inline-block;
+}
+
+.Summary_runes__1b7qR {
+    width: 120px;
+    margin: 0 auto;
+}
+
+.RuneSet_rune__3PQbj {
+    max-width: 120px;
+    margin: 0 auto;
+}
+
+.RuneSet_rune__3PQbj>div {
+    display: flex;
+    flex-flow: row;
+    align-content: flex-start;
+}
+
+span.Summary_keystonegames__3ypEL {
+    display: block;
+    margin: 2px 0 0;
+}
+
+.Summary_row3__3lr5H {
+    display: grid;
+    grid-template-columns: 188px 216px 172px 216px 232px;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    margin-top: -1px;
+}
+
+.Summary_itemsrow__27AYY {
+    display: grid;
+    grid-template-columns: 188px 216px 172px 216px 232px;
+    margin-bottom: 8px;
+}
+
+.Item_item32br__3G4j0 {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #666;
+    border-radius: 5px;
+}
+
+img {
+    font-size: 0;
+}
+
+.Summary_spacer__2XFIf {
+    width: 6px;
+}
+
+.Summary_skillnext__1dEk0 {
+    margin: 0 10px;
+}
+
+.Summary_win__2epkg {
+    margin: 4px 0;
+    font-size: 10px;
+    display: block!important;
+}
+
+.Summary_pick__1tuJG {
+    font-size: 10px;
+    color: #aaa;
+    display: block!important;
+}
+
+.Summary_or__2BEIC {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 10px 0;
+    font-size: 12px;
 }
