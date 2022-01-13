@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>first.gg</title>
+    <link rel="stylesheet" href="/resources/css/Hboard.css?ver=2">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://kit.fontawesome.com/f9589fd651.js?ver=1"></script>
     <link rel="stylesheet" href="/resources/css/community.css?ver=1">
@@ -208,8 +209,8 @@
         </div>
         <div class="Main">
             <div class="topMenu">
-                <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/free/board';">자유 게시판</div>
-                <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/lane/board';">라인별 게시판</div>
+                <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/board/free';">자유 게시판</div>
+                <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/board/lane';">라인별 게시판</div>
             </div>
             <div class="">
                 <div class="allboardHot">
@@ -218,13 +219,11 @@
                     </div>
                 </div>
                 <div class="lineMenu">
-                    <ul class="line">
-                        <li class="top">top</li>
-                        <li class="mid">mid</li>
-                        <li class="jungle">jungle</li>
-                        <li class="bot">bot</li>
-                        <li class="sup">sup</li>
-                    </ul>
+                    <button class="button-56" onclick="append_lane_preview_list('TOP')">TOP</button>
+                    <button class="button-56" onclick="append_lane_preview_list('MIDDLE')">MIDDLE</button>
+                    <button class="button-56" onclick="append_lane_preview_list('JUNGLE')">JUNGLE</button>
+                    <button class="button-56" onclick="append_lane_preview_list('BUTTOM')">BUTTOM</button>
+                    <button class="button-56" onclick="append_lane_preview_list('SUPPOTER')">SUPPOTER</button>
                 </div>
                 <div class="lineMenuHot">
                     <div id="lane_board" style="height: 100%;">
@@ -247,7 +246,7 @@
             }
         )
 
-        getPreviewList('lane').then(
+        getPreviewList('lane', 'TOP').then(
             function(result) {
                 let $lane_board = $('#lane_board')
                 for (let row of result) {
@@ -257,7 +256,20 @@
         )
     }
 
-    function getPreviewList(boardType) {
+    function append_lane_preview_list(lane) {
+        let $lane_board = $('#lane_board');
+        $lane_board.empty();
+        getPreviewList('lane', lane).then(
+            function(result) {
+                let $lane_board = $('#lane_board')
+                for (let row of result) {
+                    $('<div>').text(row['b_lane_title']).attr('class', 'HotLine').appendTo($lane_board);
+                }
+            }
+        )
+    }
+
+    function getPreviewList(boardType, lane) {
         return fetch('/community/board/preview',
             {
                 method : 'post',
@@ -267,6 +279,7 @@
                 },
                 body : JSON.stringify({
                     boardType : boardType,
+                    lane : lane
                 })
             }).then(response => response.json())
     };

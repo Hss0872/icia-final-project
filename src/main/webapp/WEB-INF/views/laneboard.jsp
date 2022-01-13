@@ -10,8 +10,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
     <link rel="stylesheet" href="/resources/css/board.css?ver=2">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css?ver=2" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?ver=2" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/resources/css/Hboard.css?ver=2">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css?ver=2" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?ver=2"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
     <script src="/resources/js/login.js?ver=2"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=2"></script>
 </head>
@@ -20,14 +24,16 @@
     <div class="header_logo">
         <a href="#">
             <a href="/">
-                <img src= "/resources/images/pngwing.com (3).png">
+                <img src="/resources/images/pngwing.com (3).png">
             </a>
             <h1>Community</h1>
             <p>You Are Free</p>
             <div class="dropdown">
                 <span class="dropbtn">Login</span>
                 <div class="dropdown-content">
-                    <button id="loginBtn" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal">Join</button>
+                    <button id="loginBtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Join
+                    </button>
                 </div>
         </a>
     </div>
@@ -209,19 +215,19 @@
         </div>
         <div class="Main">
             <div class="topMenu">
-                <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/free/board';">자유 게시판</div>
-                <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/lane/board';">라인별 게시판</div>
+                <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/board/free';">자유 게시판
+                </div>
+                <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/board/lane';">라인별 게시판
+                </div>
             </div>
 
             <div class="boardA">
                 <div class="MainLineS">
-                    <ul class="mline">
-                        <li class="mtop">top</li>
-                        <li class="mmid">mid</li>
-                        <li class="mjungle">jungle</li>
-                        <li class="mbot">bot</li>
-                        <li class="msup">sup</li>
-                    </ul>
+                    <button class="button-56" onclick="location.href='/community/board/lane?lane=TOP'">TOP</button>
+                    <button class="button-56" onclick="location.href='/community/board/lane?lane=MIDDLE'">MIDDLE</button>
+                    <button class="button-56" onclick="location.href='/community/board/lane?lane=JUNGLE'">JUNGLE</button>
+                    <button class="button-56" onclick="location.href='/community/board/lane?lane=BUTTOM'">BUTTOM</button>
+                    <button class="button-56" onclick="location.href='/community/board/lane?lane=SUPPOTER'">SUPPOTER</button>
                 </div>
                 <div class="MainFree">
                     <div class="boardtop">
@@ -247,11 +253,14 @@
                         </div>
                     </c:forEach>
                     <div class="pageout">
+                        <ul class="pageNo" id="pageNo">
 
+                        </ul>
                     </div>
                 </div>
                 <div class="LowMenu">
-                    <input type="button" class="write" value="글작성" style="cursor: pointer;" onclick="location.href='/community/write'" >
+                    <input type="button" class="write" value="글작성" style="cursor: pointer;"
+                           onclick="location.href='/community/write'">
                     <div class="searchA">
                         <SElect class="search">
                             <option value="작성자" selected="selected">작성자</option>
@@ -268,11 +277,60 @@
 </div>
 </body>
 <script>
-    let boardPagingStart = '${boardPaging.start}';
-    console.log(boardPagingStart);
+    let boardPagingStart = Number('${boardPaging.start}');
+    console.log("boardPagingStart = " + boardPagingStart);
+    let boardPagingEnd = Number('${boardPaging.end}')
+    console.log("boardPagingEnd = " + boardPagingEnd)
+    let boardPagingTotalPage = Number('${boardPaging.totalPage}')
+    console.log("boardPagingTotalPage = " + boardPagingTotalPage);
     let boardPagingType = '${boardPaging.type}';
-    console.log(boardPagingType);
+    console.log("boardPagingType = " + boardPagingType);
     let boardPagingLane = '${boardPaging.lane}';
-    console.log(boardPagingLane);
+    console.log("boardPagingLane = " + boardPagingLane);
+    let boardPagingNum = Number('${boardPaging.pageNum}');
+    console.log("boardPagingNum = " + boardPagingNum);
+    let boardPageNo = document.querySelector('#pageNo');
+
+    if (boardPagingStart != 1) {
+        let li_pre = document.createElement('li');
+        li_pre.setAttribute('class', 'pagingNoS');
+        let a_pre = document.createElement('a');
+        a_pre.setAttribute('href', '/community/board/lane?pageNum=' + (boardPagingStart - 1) + '&lane=' + boardPagingLane);
+        a_pre.innerText = '이전';
+        li_pre.append(a_pre);
+        boardPageNo.append(li_pre);
+    }
+
+    for (let i = boardPagingStart; i <= boardPagingEnd; i++) {
+
+        if (boardPagingNum != i) {
+            let li_paging = document.createElement('li');
+            li_paging.setAttribute('class', 'pagingNoS');
+            let a_paging = document.createElement('a');
+            a_paging.setAttribute('href', '/community/board/lane?pageNum=' + i + '&lane=' + boardPagingLane);
+            a_paging.innerText = i;
+            li_paging.append(a_paging);
+            boardPageNo.append(li_paging);
+        } else {
+            console.log("boardPagingNum = " + boardPagingNum + " ; else문 넘어왔다.");
+            let li_paging = document.createElement('li');
+            li_paging.setAttribute('class', 'pagingNoS');
+            let font_paging = document.createElement('font');
+            font_paging.style.color = '#646464';
+            font_paging.innerText = i;
+            li_paging.append(font_paging);
+            boardPageNo.append(li_paging);
+        }
+    }
+
+    if (boardPagingTotalPage != boardPagingEnd) {
+        let li_next = document.createElement('li');
+        li_next.setAttribute('class', 'pagingNoS');
+        let a_next = document.createElement('a');
+        a_next.setAttribute('href', '/community/board/lane?pageNum=' + (boardPagingEnd + 1) + '&lane=' + boardPagingLane);
+        a_next.innerText = '다음';
+        li_next.append(a_next);
+        boardPageNo.append(li_next);
+    }
 </script>
 </html>

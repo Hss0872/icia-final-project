@@ -11,6 +11,7 @@ public class BoardPaging {
     private int start;
     private int end;
     private int pageNum;
+    private int totalPage;
     private String type;
     private String lane;
 }

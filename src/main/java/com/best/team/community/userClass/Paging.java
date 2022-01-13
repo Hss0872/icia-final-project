@@ -27,6 +27,7 @@ public class Paging {
         boardPaging.setPageNum(pageNum);
         // 전체 페이지 갯수
         int totalPage = (maxNum % listCount > 0) ? maxNum / listCount + 1 : maxNum / listCount;
+        boardPaging.setTotalPage(totalPage);
         // 전체 페이지 그룹 갯수
         int totalGroup = (totalPage % pageCount > 0) ? totalPage / pageCount + 1 : totalPage / pageCount;
         // 현재 페이지가 속해 있는 그룹 번호

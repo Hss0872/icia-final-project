@@ -4,7 +4,7 @@
     <select id="getPreviewLaneBList" resultType="LaneBoard">
         <![CDATA[
         SELECT * FROM
-                (SELECT * FROM COMMUNITY_LANEB ORDER BY b_lane_num DESC)
+                (SELECT * FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane} ORDER BY b_lane_num DESC)
         WHERE ROWNUM <= 15
         ]]>
     </select>
@@ -31,6 +31,20 @@
         SELECT COUNT(*) FROM COMMUNITY_FREEB
     </select>
 
+    <select id="getFreeBSearchList" resultType="FreeBoard">
+                <![CDATA[
+        SELECT * FROM (
+                          SELECT /*+INDEX_DESC(COMMUNITY_FREEB PK_B_FREE_NUM)*/ ROWNUM RN, COMMUNITY_FREEB.*
+                          FROM COMMUNITY_FREEB
+                          WHERE ROWNUM<=#{pageNum}*10 AND UPPER(${boardSearch.b_search}) LIKE UPPER('%${boardSearch.keyword}%'))
+        WHERE RN>=#{pageNum}*10-9
+        ]]>
+    </select>
+
+    <select id="getFreeBSearchCount" resultType="int">
+        SELECT COUNT(*) FROM COMMUNITY_FREEB WHERE UPPER(${b_search}) LIKE UPPER('%${keyword}%')
+    </select>
+
     <select id="getLaneBList" resultType="LaneBoard">
         <![CDATA[
         SELECT * FROM (
@@ -44,4 +58,5 @@
     <select id="getLaneBoardCount" resultType="int">
         SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane}
     </select>
+
 </mapper>

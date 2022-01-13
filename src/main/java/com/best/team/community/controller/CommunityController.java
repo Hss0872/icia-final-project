@@ -1,4 +1,5 @@
 package com.best.team.community.controller;
+import com.best.team.community.bean.BoardSearch;
 import com.best.team.community.bean.BoardType;
 import com.best.team.community.service.BoardMM;
 import lombok.extern.slf4j.Slf4j;
@@ -27,12 +28,14 @@ public class CommunityController {
         return "main_community";
     }
 
-    @RequestMapping(value = "/{type}/board", method = RequestMethod.GET)
-    public String getBList(@PathVariable() String type, BoardType boardType, Integer pageNum, Model model) {
+    @RequestMapping(value = "/board/{type}", method = RequestMethod.GET)
+    public String getBList(@PathVariable() String type, BoardType boardType, Integer pageNum, Model model,
+                           BoardSearch boardSearch) {
         log.info("getBList call");
         boardType.setBoardType(type);
-        boolean result = boardMM.getBList(boardType, pageNum, model);
+        boolean result = boardMM.getBList(boardType, pageNum, model, boardSearch);
         log.info(type + "board");
         return result ? type + "board" : "redirect:/community";
     }
+
 }
