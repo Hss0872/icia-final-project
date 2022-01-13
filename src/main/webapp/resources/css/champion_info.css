@@ -1,3 +1,4 @@
+/* 마우스 오버 (말풍선) css */
 .ChampSkill {
     padding: 10px;
     float: left;
@@ -53,6 +54,19 @@
 }
 
 /*챔피언 백그라운드 창 css*/
+body {
+    background-image: url("/resources/images/space_image(1).jpg");
+    background-color: #111;
+    margin: 48px 0 0;
+    color: #fff;
+    font-family: "Roboto",Arial,sans-serif;
+    font-display: optional;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+}
+
 .Background_back__29qGw {
     pointer-events: none;
     opacity: .3;
@@ -79,14 +93,28 @@
 /*따로 로직 구성하기/
 
 /*챔피언 헤더 css*/
+.Wrapper_wrapper__3izJT, .Wrapper_wrapperstep__1Gsea {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1036px;
+}
+
+.Wrapper_content__1wGv- {
+    margin-left: 180px;
+    margin-right: 180px;
+    min-height: calc(110vh - 10px);
+}
+
 .ChampionHeader_champion__2ZqIZ {
     grid-template-columns: 171px 375px 80px 400px;
 }
 
 .ChampionHeader_header__TkIzw {
     min-height: 225px;
-    margin-top: 120px;
+    margin-top: 100px;
     margin-bottom: 10px;
+    background: black linear-gradient(90deg, rgba(16, 16, 16.8), rgba(33, 33, 38, .8));
+    border: 3px solid #333333;
     display: grid;
 }
 
@@ -196,8 +224,8 @@ img {
 }
 
 .ChampionHeader_header__TkIzw h1 {
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 35px;
+    line-height: 30px;
     margin-top: 0;
     margin-bottom: 8px;
 }
@@ -210,9 +238,9 @@ img {
 
 .ChampionHeader_header__TkIzw p {
     font-size: 13px;
-    line-height: 18px;
-    background-color: rgba(0,0,0,.2);
-    width: 345px;
+    line-height: 20px;
+    background-color: rgba(0,0,0,.5);
+    width: 500px;
     text-align: justify;
 }
 
@@ -264,13 +292,15 @@ img {
 
 /*챔피언 분석 창 css*/
 .Summary_quick__3le_e {
-    padding-top: 6px;
+    padding-top: 10px;
+    padding-bottom: 400px;
+    padding-inline: 100px;
     overflow: hidden;
     color: #fff;
     min-height: 40px;
     background: linear-gradient(90deg,rgba(16,16,16,.8),rgba(33,33,38,.8));
     margin: 0 0 8px;
-    border: 1px solid #333;
+    border: 3px solid #333;
     border-radius: 3px;
 }
 
@@ -302,7 +332,7 @@ img {
 
 .Summary_row2__3iVg7 {
     display: grid;
-    grid-template-columns: 194px 326px 154px 190px 154px;
+    grid-template-columns: 220px 400px 200px 200px 200px;
     text-align: center;
 }
 
@@ -496,4 +526,23 @@ img {
     vertical-align: top;
     margin: 10px 10px 0;
     font-size: 12px;
+}
+
+.Skill_skill24__272D3 div {
+    text-align: center;
+    color: #ccc;
+    font-size: 10px;
+    line-height: 12px;
+    background-color: #000;
+    width: 10px;
+    position: relative;
+    top: -12px;
+    right: -14px;
+    pointer-events: none;
+}
+
+.Summary_row2__3iVg7 {
+    display: grid;
+    grid-template-columns: 220px 400px 200px 200px 200px;
+    text-align: center;
 }

@@ -23,20 +23,21 @@ public class ChampionInfoMM {
     public ModelAndView getChampionInfo(String championName) throws JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper();
+
         String ChampionPassiveName = championName+"Passive";
         List<ItemBulidWinRate> itemBulidWinRates = championInfoDao.getItemBulidWinRate(championName);
         List<RuneBulidWinRate> runeBulidWinRates = championInfoDao.getRuneBulidWinRate(championName);
         List<SkillWinRate> skillWinRates = championInfoDao.getSkillWinRate(championName);
         List<StartItemWinRate> startItemWinRates = championInfoDao.getStartItemWinRate(championName);
-        List<MasterPoint> masterPoints = championInfoDao.getMasterPoint(championName);                  //01-12
-        ChampionPassive championPassives = championInfoDao.getChampionPassive(ChampionPassiveName);      //01-12
+        List<MasterPoint> masterPoints = championInfoDao.getMasterPoint(championName);
+        ChampionPassive championPassives = championInfoDao.getChampionPassive(ChampionPassiveName);
 
         System.out.println("itemBulidWinRates = " + itemBulidWinRates);
         System.out.println("runeBulidWinRates = " + runeBulidWinRates);
         System.out.println("skillWinRates = " + skillWinRates);
         System.out.println("startItemWinRates = " + startItemWinRates);
-        System.out.println("masterPoints = " + masterPoints);           //01-12
-        System.out.println("championPassive = " + championPassives);    //01-12
+        System.out.println("masterPoints = " + masterPoints);
+        System.out.println("championPassive = " + championPassives);
 
         mav = new ModelAndView();
 
@@ -44,15 +45,15 @@ public class ChampionInfoMM {
         String runeBulidWinRates_json = objectMapper.writeValueAsString(runeBulidWinRates);
         String skillWinRates_json = objectMapper.writeValueAsString(skillWinRates);
         String startItemWinRates_json = objectMapper.writeValueAsString(startItemWinRates);
-        String masterPoints_json = objectMapper.writeValueAsString(masterPoints);           //01-12
-        String championPassive_json = objectMapper.writeValueAsString(championPassives);    //01-12
+        String masterPoints_json = objectMapper.writeValueAsString(masterPoints);
+        String championPassive_json = objectMapper.writeValueAsString(championPassives);
 
         mav.addObject("itemBulidWinRates", itemBulidWinRates_json);
         mav.addObject("runeBulidWinRates", runeBulidWinRates_json);
         mav.addObject("skillWinRates", skillWinRates_json);
         mav.addObject("startItemWinRates", startItemWinRates_json);
-        mav.addObject("masterPoints", masterPoints_json);           //01-12
-        mav.addObject("championPassives", championPassive_json);    //01-12
+        mav.addObject("masterPoints", masterPoints_json);
+        mav.addObject("championPassives", championPassive_json);
 
         mav.setViewName("champion_info");
         return mav;
