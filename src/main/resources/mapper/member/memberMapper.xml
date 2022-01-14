@@ -17,4 +17,33 @@
     <update id="doAccept">
         update member set m_auth = 1 where m_email = #{m_email}
     </update>
+
+    <!--   -->
+    <select id="getSecurityPwd" resultType="String">
+        SELECT M_PW FROM member WHERE M_ID=#{m_id}
+    </select>
+
+    <select id="getValueEamilAccept" resultType="boolean">
+        select count(*) from member where m_id = #{m_id} and m_auth = 1
+    </select>
+
+    <select id="hasEmail" resultType="boolean">
+        select count(*) from member where m_email = #{m_email}
+    </select>
+
+    <select id="getPw" resultType="String">
+        select m_pw from member where m_email = #{m_email}
+    </select>
+
+    <select id="hasId" resultType="boolean">
+        select count(*) from member where  m_id = #{m_id}
+    </select>
+
+    <update id="changePw">
+        update member set m_pw = #{m_pw} where m_id = #{m_id}
+    </update>
+
+    <select id="getId" resultType="String">
+        select m_id from member where m_email = #{m_email}
+    </select>
 </mapper>

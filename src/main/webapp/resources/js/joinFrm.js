@@ -3,6 +3,8 @@ src = "https://code.jquery.com/jquery-3.6.0.js"
 
 //joinFrm js
 function joinFrm() {  //유효성 검사   //회원가입 폼
+    console.log("joinFrm call");
+
     const id_value = document.getElementById('id').getAttribute('data-value');
     const nickname_value = document.getElementById('nickname').getAttribute('data-value');
     const email_value = document.getElementById('email').getAttribute('data-value');
@@ -10,6 +12,12 @@ function joinFrm() {  //유효성 검사   //회원가입 폼
     const pw_value = document.getElementById('pw').getAttribute('data-value');
     const confirm_value = document.getElementById('confirmpw').getAttribute('data-value');
 
+    console.log((id_value == 'true'));
+    console.log((nickname_value == 'true'));
+    console.log((email_value == 'true'));
+    console.log((phone_value == 'true'));
+    console.log((pw_value == 'true'));
+    console.log((confirm_value == 'true'));
 
     if((id_value == 'true') && (nickname_value == 'true') && (email_value == 'true') &&
         (phone_value == 'true') && (pw_value == 'true') && (confirm_value == 'true')){
@@ -32,7 +40,7 @@ function joinFrm() {  //유효성 검사   //회원가입 폼
 
 //아이디 중복확인
 function id_check(e) {  	//blur 포커싱 끝났을때 실행되게
-    e.preventDefault()  //불필요함
+    e.preventDefault();
     let id = document.querySelector('#id');
     if (id.value.length < 4) {   //추가사항 * 아이디 중복검사 필요
         const $idCheck = $('#id_check')  //전체의 dom에서 불필요하게 조회를 해버리기때문에 이렇게 자바스크립트 변수로 담아뒀다.
@@ -131,6 +139,7 @@ function email_check(e) {  	//blur 포커싱 끝났을때 실행되게
     e.preventDefault()
     let email = document.querySelector('#email');
     let emailRegExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;   //이메일 정규식
+    let email_check = document.querySelector('#email_check');
     if (!emailRegExp.test(email.value)) {
         $('#email_check').text('이메일 @ 형식에 맞게쓰시오.');
         $('#email_check').css("color", "#EB0000");
@@ -149,24 +158,23 @@ function email_check(e) {  	//blur 포커싱 끝났을때 실행되게
                     "ContentType": "application/json;"
                 },
                 body: JSON.stringify({
-                    m_email: email_value
+                    m_email: email_value    //m_email --> name이름을 정확히 일치해서 쓰자.
                 })
             }).then((response) => {
             if (response.status == 200) {
+
                 console.log(response.status);
-                $('#email').attr('data-value', 'true');
-                $('#email_check').text("사용가능합니다.");
-                $('#email_check').css("color", "#06f809");
-                $('#email_check').css("font-weight", "600");
-                $('#email_check').show();
+                email.setAttribute('data-value','true');
+                email_check.innerHTML = '사용가능합니다.'
+                email_check.style.color ='#06f809';
+                email_check.style.fontWeight = '600';
+                email_check.style.display = '';
             } else {
-                $('#email_check').text("사용중인 이메일입니다.");
-                $('#email_check').css("color", "#EB0000");
-                $('#email_check').css("font-family", "Arial Black");
-                $('#email_check').css("font-weight", "600");
-                $('#email_check').css("display", "none");
-                $('#email').attr('data-value', 'false');
-                $('#email_check').show();
+                email.setAttribute('data-value','false');
+                email_check.innerHTML = '사용중인 이메일입니다.'
+                email_check.style.color ='#EB0000';
+                email_check.style.fontWeight = '600';
+                email_check.style.display = '';
             }
         })
     }

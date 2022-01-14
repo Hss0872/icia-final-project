@@ -8,7 +8,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
 
 
 // modal login
-  function loginFrm(e){  //유효성 검사 시작 
+  function loginFrm2(e){  //유효성 검사 시작
 	e.preventDefault();  //위에 폼태그에있는 submit함수 실행되기전
 						//submit자체를 안하겠다
 						//이 코드가 먼저 실행되게 한다.
