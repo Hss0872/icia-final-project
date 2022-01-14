@@ -213,130 +213,14 @@
                 <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/board/lane';">라인별 게시판</div>
             </div>
             <div class="boardA">
-                <div class="MainFree">
-                    <div class="boardtop">
-                        <div class="bTN">
-                            <div class="bNot"><b>번호</b></div>
-                            <div class="bTitlet"><b>글 제목</b></div>
-                            <div class="bWrt"><b>글작성자</b></div>
-                            <div class="bDatet"><b>글작성일</b></div>
-                            <div class="bLookt"><b>조회수</b></div>
-                            <div class="bLiket"><b>좋아요</b></div>
-                        </div>
-                    </div>
-                    <c:forEach var="board" items="${bList}">
-                        <div>
-                            <div class="post">
-                                <div class="bNo">${board.b_free_num}</div>
-                                <div class="bTitle">${board.b_free_title}</div>
-                                <div class="bWr">${board.b_free_nickname}</div>
-                                <div class="bDate">${board.b_free_date}</div>
-                                <div class="bLook">${board.b_free_view}</div>
-                                <div class="bLike">${board.b_free_like}</div>
-                            </div>
-                        </div>
-                    </c:forEach>
-                    <div class="pageout">
-                        <div class="pageNo" id="pageNo">
-
-                        </div>
-                    </div>
+                <div class="board">
+                    아놔
                 </div>
-                <div class="LowMenu">
-                    <input type="button" class="write" value="글작성" style="cursor: pointer;" onclick="location.href='/community/write'" >
-                    <div class="searchA">
-                        <form action="/community/board/free">
-                            <select class="search" name="searchType">
-                                <option value="b_free_nickname" selected="selected">작성자</option>
-                                <option value="b_free_title" >제목</option>
-                                <option value="b_free_content" >내용</option>
-                            </select>
-                            <input type="text" name="keyword" class="searchText">
-                            <input type="submit" class="searchB" value="검색">
-                        </form>
-                    </div>
+                <div class="table">
+                    아놔
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
-<script>
-    let boardSearchKeyword = '${boardSearch.keyword}';
-    console.log("boardSearchKeyword = " + boardSearchKeyword);
-    let boardSearchType = '${boardSearch.searchType}';
-    console.log("boardSearchType = " + boardSearchType);
-    let boardPagingStart = Number('${boardPaging.start}');
-    console.log("boardPagingStart = " + boardPagingStart);
-    let boardPagingEnd = Number('${boardPaging.end}');
-    console.log("boardPagingEnd = " + boardPagingEnd);
-    let boardPagingTotalPage = Number('${boardPaging.totalPage}');
-    console.log("boardPagingTotalPage = " + boardPagingTotalPage);
-    let boardPagingType = '${boardPaging.type}';
-    console.log("boardPagingType = " + boardPagingType);
-    let boardPagingLane = '${boardPaging.lane}';
-    console.log("boardPagingLane = " + boardPagingLane);
-    let boardPagingNum = Number('${boardPaging.pageNum}');
-    console.log("boardPagingNum = " + boardPagingNum);
-    let boardPageNo = document.querySelector('#pageNo');
-
-    if (boardPagingStart != 1 && boardPagingStart != 0) {
-        let div_pre = document.createElement('div');
-        div_pre.setAttribute('class', 'pagingNoS');
-        let a_pre = document.createElement('a');
-        if (boardSearchType != '') {
-            a_pre.setAttribute('href', '/community/board/free?pageNum=' + (boardPagingStart - 1) + '&searchType=' + boardSearchType +
-                '&keyword=' + boardSearchKeyword);
-        } else {
-            a_pre.setAttribute('href', '/community/board/free?pageNum=' + (boardPagingStart - 1));
-        }
-        a_pre.innerText = '이전';
-        div_pre.append(a_pre);
-        boardPageNo.append(div_pre);
-    }
-
-    for (let i = boardPagingStart; i <= boardPagingEnd; i++) {
-
-        if (boardPagingStart == 0) {
-            break;
-        }
-
-        if (boardPagingNum != i) {
-            let div_paging = document.createElement('div');
-            div_paging.setAttribute('class', 'pagingNoS');
-            let a_paging = document.createElement('a');
-            if (boardSearchType != '') {
-                a_paging.setAttribute('href', '/community/board/free?pageNum=' + i + '&searchType=' + boardSearchType +
-                '&keyword=' + boardSearchKeyword);
-            } else {
-                a_paging.setAttribute('href', '/community/board/free?pageNum=' + i);
-            }
-            a_paging.innerText = i;
-            div_paging.append(a_paging);
-            boardPageNo.append(div_paging);
-        } else {
-            let div_paging = document.createElement('div');
-            div_paging.setAttribute('class', 'pagingNoS');
-            let font_paging = document.createElement('font');
-            font_paging.style.color = '#646464';
-            font_paging.innerText = i;
-            div_paging.append(font_paging);
-            boardPageNo.append(div_paging);
-        }
-    }
-
-    if (boardPagingTotalPage != boardPagingEnd) {
-        let div_next = document.createElement('div');
-        div_next.setAttribute('class', 'pagingNoS');
-        let a_next = document.createElement('a');
-        if (boardSearchType != '') {
-            a_next.setAttribute('href', '/community/board/free?pageNum=' + (boardPagingEnd + 1) + '&searchType=' + boardSearchType +
-                '&keyword=' + boardSearchKeyword);
-        } else {
-            a_next.setAttribute('href', '/community/board/free?pageNum=' + (boardPagingEnd + 1));
-        }
-        a_next.innerText = '다음';
-        div_next.append(a_next);
-        boardPageNo.append(div_next);
-    }
-</script>
 </html>

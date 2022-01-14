@@ -38,18 +38,19 @@ public class BoardMM {
     public boolean getBList(BoardType boardType, Integer pageNum, Model model, BoardSearch boardSearch) {
         log.info("getBList call");
         log.info("boardType = {}", boardType.getBoardType());
-        log.info("boardSearch = {}", boardSearch.getB_search());
+        log.info("boardSearch = {}", boardSearch.getSearchType());
         pageNum = (pageNum == null) ? 1 : pageNum;
         List<?> bList;
 
         if (boardType.getBoardType().equals("free")) {
-            bList = (boardSearch.getB_search() == null) ? boardDao.getFreeBList(pageNum) :
+            bList = (boardSearch.getSearchType() == null) ? boardDao.getFreeBList(pageNum) :
                     boardDao.getFreeBSearchList(pageNum, boardSearch);
         } else {
             if (boardType.getLane() == null) {
                 boardType.setLane("TOP");
             }
-            bList = boardDao.getLaneBList(pageNum, boardType.getLane());
+            bList = (boardSearch.getSearchType() == null) ? boardDao.getLaneBList(pageNum, boardType.getLane()) :
+                    boardDao.getLaneBSearchList(pageNum, boardType.getLane(), boardSearch);
         }
 
         if (bList != null && bList.size() != 0) {
@@ -66,12 +67,12 @@ public class BoardMM {
     private BoardPaging getPaging(Integer pageNum, BoardType boardType, BoardSearch boardSearch) {
         log.info("getPaging call");
         int maxNum;
-        if (boardSearch.getB_search() == null) {
-            maxNum = boardType.getBoardType().equals("free") ? boardDao.getFreeBoardCount() :
-                    boardDao.getLaneBoardCount(boardType.getLane());
+        if (boardType.getBoardType().equals("free")) {
+            maxNum = (boardSearch.getSearchType() == null) ? boardDao.getFreeBoardCount() :
+                    boardDao.getFreeBSearchCount(boardSearch);
         } else {
-            maxNum = boardType.getBoardType().equals("free") ? boardDao.getFreeBSearchCount(boardSearch) :
-                    boardDao.getLaneBoardCount(boardType.getLane());
+            maxNum = (boardSearch.getSearchType() == null) ? boardDao.getLaneBoardCount(boardType.getLane()) :
+                    boardDao.getLaneBSearchCount(boardType.getLane(), boardSearch);
         }
         int listCount = 10;
         int pageCount = 10;

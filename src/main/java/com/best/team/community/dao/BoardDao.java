@@ -21,9 +21,13 @@ public interface BoardDao {
 
     List<LaneBoard> getLaneBList(@Param("pageNum") Integer pageNum,@Param("lane") String lane);
 
+    List<LaneBoard> getLaneBSearchList(@Param("pageNum")Integer pageNum,@Param("lane") String lane,@Param("boardSearch") BoardSearch boardSearch);
+
     int getFreeBoardCount();
+
+    int getFreeBSearchCount(BoardSearch boardSearch);
 
     int getLaneBoardCount(@Param("lane") String lane);
 
-    int getFreeBSearchCount(BoardSearch boardSearch);
+    int getLaneBSearchCount(@Param("lane") String lane,@Param("boardSearch") BoardSearch boardSearch);
 }

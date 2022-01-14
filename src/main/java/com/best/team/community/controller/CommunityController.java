@@ -35,7 +35,7 @@ public class CommunityController {
         boardType.setBoardType(type);
         boolean result = boardMM.getBList(boardType, pageNum, model, boardSearch);
         log.info(type + "board");
-        return result ? type + "board" : "redirect:/community";
+        return type + "board";
     }
 
 }

@@ -36,13 +36,13 @@
         SELECT * FROM (
                           SELECT /*+INDEX_DESC(COMMUNITY_FREEB PK_B_FREE_NUM)*/ ROWNUM RN, COMMUNITY_FREEB.*
                           FROM COMMUNITY_FREEB
-                          WHERE ROWNUM<=#{pageNum}*10 AND UPPER(${boardSearch.b_search}) LIKE UPPER('%${boardSearch.keyword}%'))
+                          WHERE ROWNUM<=#{pageNum}*10 AND UPPER(${boardSearch.searchType}) LIKE UPPER('%${boardSearch.keyword}%'))
         WHERE RN>=#{pageNum}*10-9
         ]]>
     </select>
 
     <select id="getFreeBSearchCount" resultType="int">
-        SELECT COUNT(*) FROM COMMUNITY_FREEB WHERE UPPER(${b_search}) LIKE UPPER('%${keyword}%')
+        SELECT COUNT(*) FROM COMMUNITY_FREEB WHERE UPPER(${searchType}) LIKE UPPER('%${keyword}%')
     </select>
 
     <select id="getLaneBList" resultType="LaneBoard">
@@ -57,6 +57,20 @@
 
     <select id="getLaneBoardCount" resultType="int">
         SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane}
+    </select>
+
+    <select id="getLaneBSearchList" resultType="LaneBoard">
+                <![CDATA[
+        SELECT * FROM (
+                          SELECT /*+INDEX_DESC(COMMUNITY_LANEB PK_B_LANE_NUM)*/ ROWNUM RN, COMMUNITY_LANEB.*
+                          FROM COMMUNITY_LANEB
+                          WHERE ROWNUM<=#{pageNum}*10 AND B_LANE_TYPE = #{lane} AND UPPER(${boardSearch.searchType}) LIKE UPPER('%${boardSearch.keyword}%'))
+        WHERE RN>=#{pageNum}*10-9
+        ]]>
+    </select>
+
+    <select id="getLaneBSearchCount" resultType="int">
+        SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane} AND UPPER(${boardSearch.searchType}) LIKE UPPER('%${boardSearch.keyword}%')
     </select>
 
 </mapper>

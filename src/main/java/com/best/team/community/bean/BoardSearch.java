@@ -11,7 +11,7 @@ import org.apache.ibatis.type.Alias;
 @ToString
 public class BoardSearch {
 
-    private String b_search;
+    private String searchType;
     private String keyword;
 
 }

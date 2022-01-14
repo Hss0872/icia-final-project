@@ -262,13 +262,16 @@
                     <input type="button" class="write" value="글작성" style="cursor: pointer;"
                            onclick="location.href='/community/write'">
                     <div class="searchA">
-                        <SElect class="search">
-                            <option value="작성자" selected="selected">작성자</option>
-                            <option value="제목">제목</option>
-                            <option value="내용">내용</option>
-                        </SElect>
-                        <input type="text" class="searchText">
-                        <input type="button" class="searchB" value="검색">
+                        <form action="/community/board/lane">
+                            <select class="search" name="searchType">
+                                <option value="b_lane_nickname" selected="selected">작성자</option>
+                                <option value="b_lane_title" >제목</option>
+                                <option value="b_lane_content" >내용</option>
+                            </select>
+                            <input type="text" name="lane" value="${boardPaging.lane}" style="display: none">
+                            <input type="text" name="keyword" class="searchText">
+                            <input type="submit" class="searchB" value="검색">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -277,6 +280,10 @@
 </div>
 </body>
 <script>
+    let boardSearchKeyword = '${boardSearch.keyword}';
+    console.log("boardSearchKeyword = " + boardSearchKeyword);
+    let boardSearchType = '${boardSearch.searchType}';
+    console.log("boardSearchType = " + boardSearchType);
     let boardPagingStart = Number('${boardPaging.start}');
     console.log("boardPagingStart = " + boardPagingStart);
     let boardPagingEnd = Number('${boardPaging.end}')
@@ -291,11 +298,16 @@
     console.log("boardPagingNum = " + boardPagingNum);
     let boardPageNo = document.querySelector('#pageNo');
 
-    if (boardPagingStart != 1) {
+    if (boardPagingStart != 1 && boardPagingStart != 0) {
         let li_pre = document.createElement('li');
         li_pre.setAttribute('class', 'pagingNoS');
         let a_pre = document.createElement('a');
-        a_pre.setAttribute('href', '/community/board/lane?pageNum=' + (boardPagingStart - 1) + '&lane=' + boardPagingLane);
+        if (boardSearchType != '') {
+            a_pre.setAttribute('href', '/community/board/lane?pageNum=' + (boardPagingStart - 1) + '&lane=' + boardPagingLane + '&searchType=' + boardSearchType +
+                '&keyword=' + boardSearchKeyword);
+        } else {
+            a_pre.setAttribute('href', '/community/board/lane?pageNum=' + (boardPagingStart - 1) + '&lane=' + boardPagingLane);
+        }
         a_pre.innerText = '이전';
         li_pre.append(a_pre);
         boardPageNo.append(li_pre);
@@ -303,16 +315,24 @@
 
     for (let i = boardPagingStart; i <= boardPagingEnd; i++) {
 
+        if (boardPagingStart == 0) {
+            break;
+        }
+
         if (boardPagingNum != i) {
             let li_paging = document.createElement('li');
             li_paging.setAttribute('class', 'pagingNoS');
             let a_paging = document.createElement('a');
-            a_paging.setAttribute('href', '/community/board/lane?pageNum=' + i + '&lane=' + boardPagingLane);
+            if (boardSearchType != '') {
+                a_paging.setAttribute('href', '/community/board/lane?pageNum=' + i + '&lane=' + boardPagingLane + '&searchType=' + boardSearchType +
+                    '&keyword=' + boardSearchKeyword);
+            } else {
+                a_paging.setAttribute('href', '/community/board/lane?pageNum=' + i + '&lane=' + boardPagingLane);
+            }
             a_paging.innerText = i;
             li_paging.append(a_paging);
             boardPageNo.append(li_paging);
         } else {
-            console.log("boardPagingNum = " + boardPagingNum + " ; else문 넘어왔다.");
             let li_paging = document.createElement('li');
             li_paging.setAttribute('class', 'pagingNoS');
             let font_paging = document.createElement('font');
@@ -327,7 +347,12 @@
         let li_next = document.createElement('li');
         li_next.setAttribute('class', 'pagingNoS');
         let a_next = document.createElement('a');
-        a_next.setAttribute('href', '/community/board/lane?pageNum=' + (boardPagingEnd + 1) + '&lane=' + boardPagingLane);
+        if (boardSearchType != '') {
+            a_next.setAttribute('href', '/community/board/lane?pageNum=' + (boardPagingEnd + 1) + '&lane=' + boardPagingLane + '&searchType=' + boardSearchType +
+                '&keyword=' + boardSearchKeyword);
+        } else {
+            a_next.setAttribute('href', '/community/board/lane?pageNum=' + (boardPagingEnd + 1) + '&lane=' + boardPagingLane);
+        }
         a_next.innerText = '다음';
         li_next.append(a_next);
         boardPageNo.append(li_next);
