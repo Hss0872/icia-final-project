@@ -38,4 +38,9 @@ public class CommunityController {
         return type + "board";
     }
 
+    @RequestMapping("/board/{type}/{bNum}")
+    public String getBoardInfo(@PathVariable String type, @PathVariable int bNum, Model model) {
+        boolean result = boardMM.getBoardInfo(type, bNum, model);
+        return result ? "boardContents" : "community";
+    }
 }

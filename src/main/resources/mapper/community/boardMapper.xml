@@ -73,4 +73,12 @@
         SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane} AND UPPER(${boardSearch.searchType}) LIKE UPPER('%${boardSearch.keyword}%')
     </select>
 
+    <select id="getFreeBoardInfo" resultType="FreeBoard">
+        SELECT * FROM COMMUNITY_FREEB WHERE B_FREE_NUM = #{bNum}
+    </select>
+
+    <select id="getLaneBoardInfo" resultType="LaneBoard">
+        SELECT * FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum}
+    </select>
+
 </mapper>

@@ -1,0 +1,234 @@
+.contentsInfo{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+    padding: 14px 10px 16px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+}
+.contentsWriter{
+    width : 30%;
+    text-align: left;
+}
+.contentsDate{
+    width : 40%;
+    text-align: center;
+}
+.contentsHit{
+    width : 30%;
+    text-align: right;
+}
+.topmenuInfo{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 20px;
+    width: calc(100% - 59px);
+}
+.contentsCategory{
+    width : 30%;
+    text-align: left;
+}
+.contentsIp{
+    width : 40%;
+    text-align: center;
+}
+.contentsTopMenu{
+    width : 30%;
+    text-align: right;
+}
+.boardSubject{
+    display: flex;
+    margin: 140px 50px 20px;
+    width: calc(100% - 59px);
+    min-height: 200px;
+}
+
+#boardSubjectH1{
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 33px;
+    color: brown;
+}
+
+.contentBody {
+    margin: 0 50px 100px;
+    width: calc(100% - 59px);
+    position: relative;
+    font-family: "Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+}
+.bbsViewRecom{
+    margin: 0px auto 20px !important;
+    width: calc(100% - 59px);
+}
+.contentsBotMenu{
+    overflow: auto;
+    margin: 0 0 0 0;
+    position: relative;
+    width: 100%;
+    height: 90px;
+}
+.botMenuCenter{
+    margin: 0 auto;
+    text-align: center;
+}
+.bttnRecom{
+    display: inline-block;
+    margin: 0;
+    width: 90px;
+    height: 55px;
+}
+.bttnRecom a{
+    position: relative;
+    width: 90px;
+    height: 55px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.botMenuLeft{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+}
+.contentsBottomMenu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline;
+    float: left;
+    clear: both;
+    width: 214px;
+}
+.botMenuRight{
+    overflow: hidden;
+    width: 183px;
+    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+}
+.bttn84Report{
+    position: relative;
+    float: left;
+    margin-bottom: 8px;
+    width: auto;
+    height: 15px;
+}
+.bottn84list{
+    position: relative;
+    float: left;
+    margin: 0;
+    width: auto;
+    height: 15px;
+}
+
+.bttn84Report a{
+    margin: 0 4px 0 0;
+    padding: 0 3px;
+    width: auto;
+    height: 15px;
+    background-image: none;
+    text-indent: 0;
+    color: #686868;
+}
+
+.bottn84list a{
+    margin: 0;
+    padding: 0 3px;
+    width: auto;
+    height: 15px;
+    background-image: none;
+    text-indent: 0;
+    color: #686868;
+}
+
+.boardBotMenu{
+    height: 70px;
+}
+
+.rightMenu{
+    float: right;
+    width: 200px;
+}
+
+.rightMenu button{
+    display: inline-block;
+    padding: 0 10px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #686868;
+    line-height: 30px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.replyList{
+    margin : 20px 20px 20px 30px;
+    width: 95%;
+}
+
+.addreply{
+    margin : 20px 20px 20px 30px;
+    width: 95%;
+}
+
+.replyTextarea textarea{
+    width: 100%;
+    border-color: #ccc;
+    font-family: inherit;
+    outline: none;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 66px;
+    max-height: 600px;
+}
+.replySubmit button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    font-size: 13px;
+    text-indent: 0;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.replySubmit{
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 70px;
+    margin-left: 9px;
+    width: 68px;
+}
+.replyTextareaTd {
+    width: 100%;
+}
+.reply_setTr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.reply_innerTr {
+    margin-bottom: 10px;
+}
+
+.reply_id {
+    width: 25%;
+}
+.reply_date {
+    width: 20%;
+}
+.reply_delete {
+    width: 55%;
+    text-align: right;
+}

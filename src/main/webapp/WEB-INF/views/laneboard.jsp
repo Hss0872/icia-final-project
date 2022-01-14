@@ -244,7 +244,11 @@
                         <div>
                             <div class="post">
                                 <div class="bNo">${board.b_lane_num}</div>
-                                <div class="bTitle">${board.b_lane_title}</div>
+                                <div class="bTitle">
+                                        <a href="/community/board/lane/${board.b_lane_num}">
+                                                ${board.b_lane_title}
+                                        </a>
+                                </div>
                                 <div class="bWr">${board.b_lane_nickname}</div>
                                 <div class="bDate">${board.b_lane_date}</div>
                                 <div class="bLook">${board.b_lane_view}</div>

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BoardDao {
@@ -30,4 +31,8 @@ public interface BoardDao {
     int getLaneBoardCount(@Param("lane") String lane);
 
     int getLaneBSearchCount(@Param("lane") String lane,@Param("boardSearch") BoardSearch boardSearch);
+
+    FreeBoard getFreeBoardInfo(@Param("bNum") int bNum);
+
+    LaneBoard getLaneBoardInfo(@Param("bNum") int bNum);
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -78,5 +79,31 @@ public class BoardMM {
         int pageCount = 10;
         Paging paging = new Paging(maxNum, pageNum, listCount, pageCount, boardType.getBoardType(), boardType.getLane());
         return paging.getBoardPaging();
+    }
+
+    public boolean getBoardInfo(String type, int bNum, Model model) {
+        Optional<?> Op_boardInfo;
+        if (type.equals("free")) {
+            FreeBoard freeBoardInfo = boardDao.getFreeBoardInfo(bNum);
+            Op_boardInfo = Optional.ofNullable(freeBoardInfo);
+        } else {
+            LaneBoard laneBoardInfo = boardDao.getLaneBoardInfo(bNum);
+            Op_boardInfo = Optional.ofNullable(laneBoardInfo);
+        }
+
+        log.info("Op_boardInfo = {}" , Op_boardInfo.isPresent());
+        log.info("Op_boardInfo.get() = {}", Op_boardInfo.get());
+
+        if (Op_boardInfo.isPresent()) {
+            if (type.equals("free")) {
+                model.addAttribute("freeBoardInfo", Op_boardInfo.get());
+            } else {
+                model.addAttribute("laneBoardInfo", Op_boardInfo.get());
+            }
+            model.addAttribute("boardType", type);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

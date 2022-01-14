@@ -4,7 +4,7 @@
     <title>Title</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
-    <link rel="stylesheet" hrefㄴ="/resources/css/Hboard.css?ver=2">
+    <link rel="stylesheet" href="/resources/css/Hboard.css?ver=2">
     <link rel="stylesheet" href="/resources/css/community.css?ver=3">
     <link rel="stylesheet" href="/resources/css/board.css?ver=3">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"

@@ -228,7 +228,11 @@
                         <div>
                             <div class="post">
                                 <div class="bNo">${board.b_free_num}</div>
-                                <div class="bTitle">${board.b_free_title}</div>
+                                <div class="bTitle">
+                                    <a href="/community/board/free/${board.b_free_num}">
+                                            ${board.b_free_title}
+                                    </a>
+                                </div>
                                 <div class="bWr">${board.b_free_nickname}</div>
                                 <div class="bDate">${board.b_free_date}</div>
                                 <div class="bLook">${board.b_free_view}</div>
@@ -238,7 +242,6 @@
                     </c:forEach>
                     <div class="pageout">
                         <div class="pageNo" id="pageNo">
-
                         </div>
                     </div>
                 </div>
