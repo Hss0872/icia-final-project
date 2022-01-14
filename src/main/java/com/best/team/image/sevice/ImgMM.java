@@ -1,7 +1,7 @@
 package com.best.team.image.sevice;
 
 
-import com.best.team.image.bean.ChampionDto;
+import com.best.team.image.bean.*;
 import com.best.team.image.dao.IImgDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +32,34 @@ public class ImgMM {
         }
 
         return champList;
+    }
+
+    public List<ChampionDto> getChampionImg() {
+
+        List<ChampionDto> championDtoList;
+        championDtoList=iDao.getChampionList();
+
+        return championDtoList;
+    }
+    public List<ItemDto> getItemInfo(){
+        List<ItemDto> itemDtoList;
+        itemDtoList=iDao.getItemInfo();
+        return itemDtoList;
+    }
+
+    public List<SkillDto> getSkillInfo(){
+        List<SkillDto> skillDtoList;
+        skillDtoList=iDao.getSkillInfo();
+        return skillDtoList;
+    }
+    public List<RuneDto> getRuneInfo(){
+        List<RuneDto> runeDtoList;
+        runeDtoList=iDao.getRuneInfo();
+        return runeDtoList;
+    }
+    public List<SpellDto> getSpellInfo(){
+        List<SpellDto> spellDtoList;
+        spellDtoList=iDao.getSpellInfo();
+        return spellDtoList;
     }
 }

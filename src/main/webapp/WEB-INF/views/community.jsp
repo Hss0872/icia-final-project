@@ -29,6 +29,7 @@
                 <button class="logout_btn" onclick="logout()">Logout</button>   <!--logout-->
             </div>
         </div>
+
         <div class="header_gnb">
             <ul>
                 <li><a href="#">something</a></li>
@@ -47,6 +48,16 @@
                         <h4>ID</h4>
                         <input type="id" name="m_id" id="id" placeholder="Id" onblur="inspectId()" data-value="false">
                         <div class="idMsg" id="id_check"></div>
+
+
+        <!-- Modal박스 -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Join</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                     </div>
                     <div class="login_pw">
                         <h4>Password</h4>

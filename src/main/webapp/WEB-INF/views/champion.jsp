@@ -9,9 +9,9 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/champion.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="/resources/js/champion.js"></script>
+    <link rel="stylesheet" href="/resources/css/champion.css?ver=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1"></script>
+    <script type="text/javascript" src="/resources/js/champion.js?ver=1"></script>
 </head>
 <body>
 <div class="outer">
