@@ -13,8 +13,8 @@ public class StartItemWinRate {
 
     private String championName;    //챔피언 이름
     private String start_Item;      //시작 아이템
-    private String cnt;             //채용횟수
-    private String win_cnt;         //승리횟수
+    private int cnt;             //채용횟수
+    private int win_cnt;         //승리횟수
     private float win_rate;         //승률
 
 }

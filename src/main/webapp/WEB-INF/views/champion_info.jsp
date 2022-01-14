@@ -37,6 +37,10 @@
             console.log(skillWinRates[0]);
             console.log(skillWinRates[0].skill_Bulid);
             console.log(skillWinRates[0].skill_Bulid.split('|'));
+            console.log(skillWinRates[1].skill_Bulid);
+            console.log(skillWinRates[1].skill_Bulid.split('|'));
+            console.log(skillWinRates[2].skill_Bulid);
+            console.log(skillWinRates[2].skill_Bulid.split('|'));
 
             //시작 아이템 (승률)
             let startItemWinRates = ${startItemWinRates};
@@ -64,6 +68,28 @@
 
             //룬
             let runeInfo = ${runeInfo};
+
+            //아이템 빌드
+            function getIt() {
+                for (let m of itemInfo) {
+                    if (m.item_code == item0) {
+                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
+                    } else if (m.item_code == item1) {
+                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
+                    } else if (m.item_code == item2) {
+                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
+                    } else if (m.item_code == item3) {
+                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
+                    } else if (m.item_code == item4) {
+                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
+                    } else if (m.item_code == item5) {
+                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
+                    } else if (m.item_code == item6) {
+                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
+                    }
+                }
+                return getKda;
+            }
         </script>
     </head>
 
@@ -184,6 +210,7 @@
                 <div>
                     <h1>${championName} Build</h1>
                     <h2>${championName} Introduction</h2>
+                    <!-- 챔피언 info 부분은 riot developer json에서 따로 추출해서 적용하기 -->
                     <p>쉔은 '킨코우'라고 하는 아이오니아 비밀결사단의 수장이자, '황혼의 눈'이다. 감정, 편견, 아집에서 벗어나는 자유로운 정신을 유지하려 노력하며, 영적 세계와 현실 세계 사이에서 감정에 흔들리지 않는 공명정대함을 실현하기 위해 그 누구도 걷지 않았던 길을 걷는다. 두 세계 사이의 균형을 맞추는 임무를 맡았기에, 그 균형을 위협하려는 자에게 강철검을 휘두르고 신비한 기운을 사용한다.</p>
                 </div>
                 <div>
@@ -209,10 +236,13 @@
                         <div class="Tip_q__3v_Eo">?</div>
                     </div>
                     <div>
-                        Skill Order
+                        Item Build
                         <div class="Tip_q__3v_Eo">?</div>
                     </div>
-                    <div>Primary Runes</div>
+                    <div>
+                        Primary Runes
+                        <div class="Tip_q__3v_Eo">?</div>
+                    </div>
                     <div>Secondary</div>
                     <div>Stat Mods</div>
                 </div>
@@ -221,8 +251,72 @@
                     <div>
                         <div>
                             <div class="SkillPriority_skillpriority__oC3Z5">
+                                <div class="Skill_Tree_Div1">
+                                    <table class="Skill_Tree1">
+                                        <tr>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                            <th>6</th>
+                                            <th>7</th>
+                                            <th>8</th>
+                                            <th>9</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                            <th>15</th>
+                                        </tr>
+                                    </table>
+                                </div>
 
-                                <!-- 스킬 선마에 대한 db에 따라 조정해야 함 일단 Q-E-W 로 고정 후 나중에 로직 재구성 -->
+                                <div class="Skill_Tree_Div2">
+                                    <table class="Skill_Tree2">
+                                        <tr>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                            <th>6</th>
+                                            <th>7</th>
+                                            <th>8</th>
+                                            <th>9</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                            <th>15</th>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="Skill_Tree_Div3">
+                                    <table class="Skill_Tree3">
+                                        <tr>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                            <th>6</th>
+                                            <th>7</th>
+                                            <th>8</th>
+                                            <th>9</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                            <th>15</th>
+                                        </tr>
+                                    </table>
+                                </div>
+
                                 <div class="Skill_skill36__yk-DO">
                                     <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png" alt="Shen Q">
                                     <div>Q</div>
@@ -242,11 +336,12 @@
                                     <div>W</div>
                                 </div>
                             </div>
+
                             <div class="Summary_pickwin__PRaVa">
                                 <!-- DB 정보에 있는 CNT와 WIN_RATE 컬럼값을 불러와서 이에 따른 동적 DIV를 구성해야 함 -->
                                 <div style="color: rgb(70, 175, 46);">53.1% Win Rate</div>
-                                <span> 100,454 Games</span>
-                            </div>
+                                <span>죽을맛이다.</span>
+                           </div>
                         </div>
 
                         <!-- 소환사 주문 데이터 분석 로직 구성창 (일단 제외하되 나중에 시간남아서 로직을 구성할 수 있으면 구성하기 -->
@@ -750,4 +845,157 @@
             </div>
         </div>
     </body>
+    <script>
+        //스킬트리 로직 코드 정리할수 있으면 정리하기
+        //스킬트리 로직에 사용하는 변수들
+        let cnt1 = skillWinRates[0].cnt;
+        let cnt2 = skillWinRates[1].cnt;
+        let cnt3 = skillWinRates[2].cnt;
+
+        let win_rate1 = skillWinRates[0].win_rate;
+        let win_rate2 = skillWinRates[1].win_rate;
+        let win_rate3 = skillWinRates[2].win_rate;
+
+        let lst1 = skillWinRates[0].skill_Bulid.split('|');
+        let lst2 = skillWinRates[1].skill_Bulid.split('|');
+        let lst3 = skillWinRates[2].skill_Bulid.split('|');
+
+        let $Skill_Div1 = $('.Skill_Tree_Div1');
+        let $Skill_Div2 = $('.Skill_Tree_Div2');
+        let $Skill_Div3 = $('.Skill_Tree_Div3');
+
+        let $table1 = $('.Skill_Tree1');
+        let $table2 = $('.Skill_Tree2');
+        let $table3 = $('.Skill_Tree3');
+
+        let $tr1 = $('<tr>');
+        let $tr2 = $('<tr>');
+        let $tr3 = $('<tr>');
+
+        let Q_count1 = 0;
+        let W_count1 = 0;
+        let E_count1 = 0;
+
+        let Q_count2 = 0;
+        let W_count2 = 0;
+        let E_count2 = 0;
+
+        let Q_count3 = 0;
+        let W_count3 = 0;
+        let E_count3 = 0;
+
+        //스킬트리 1
+        for (let idx in lst1) {
+            if (idx == 15) {
+                break;
+            }
+            if (lst1[idx] == "1") {
+                Q_count1 = Q_count1 + 1;
+                if (Q_count1 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png");
+                    $('<td>').append($img).appendTo($tr1);
+                } else {
+                    $('<td>').text("Q").appendTo($tr1);
+                }
+            } else if (lst1[idx] == "2") {
+                W_count1 = W_count1 + 1;
+                if (W_count1 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png");
+                    $('<td>').append($img).appendTo($tr1);
+                } else {
+                    $('<td>').text("W").appendTo($tr1);
+                }
+            } else if (lst1[idx] == "3") {
+                E_count1 = E_count1 + 1;
+                if (E_count1 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png");
+                    $('<td>').append($img).appendTo($tr1);
+                } else {
+                    $('<td>').text("E").appendTo($tr1);
+                }
+            } else if (lst1[idx] == "4") {
+                <!-- 스킬트리를 15까지만 출력하기 때문에 궁극기(R) 이미지 출력은 제외 -->
+                $('<td>').text("R").appendTo($tr1);
+            }
+        }
+        $table1.append($tr1);
+        $('<div>').attr("class", "skill_rate").text(win_rate1+"% Win Rate").appendTo($Skill_Div1);
+        $('<div>').attr("class", "skill_cnt").text(cnt1+" Games").appendTo($Skill_Div1);
+
+        //스킬트리 2
+        for (let idx in lst2) {
+            if (idx == 15) {
+                break;
+            }
+            if (lst2[idx] == "1") {
+                Q_count2 = Q_count2 + 1;
+                if (Q_count2 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png");
+                    $('<td>').append($img).appendTo($tr2);
+                } else {
+                    $('<td>').text("Q").appendTo($tr2);
+                }
+            } else if (lst2[idx] == "2") {
+                W_count2 = W_count2 + 1;
+                if (W_count2 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png");
+                    $('<td>').append($img).appendTo($tr2);
+                } else {
+                    $('<td>').text("W").appendTo($tr2);
+                }
+            } else if (lst2[idx] == "3") {
+                E_count2 = E_count2 + 1;
+                if (E_count2 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png");
+                    $('<td>').append($img).appendTo($tr2);
+                } else {
+                    $('<td>').text("E").appendTo($tr2);
+                }
+            } else if (lst2[idx] == "4") {
+                <!-- 스킬트리를 15까지만 출력하기 때문에 궁극기(R) 이미지 출력은 제외 -->
+                $('<td>').text("R").appendTo($tr2);
+            }
+        }
+        $table2.append($tr2);
+        $('<div>').attr("class", "skill_rate").text(win_rate2+"% Win Rate").appendTo($Skill_Div2);
+        $('<div>').attr("class", "skill_cnt").text(cnt2+" Games").appendTo($Skill_Div2);
+
+        //스킬트리 3
+        for (let idx in lst3) {
+            if (idx == 15) {
+                break;
+            }
+            if (lst3[idx] == "1") {
+                Q_count3 = Q_count3 + 1;
+                if (Q_count3 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png");
+                    $('<td>').append($img).appendTo($tr3);
+                } else {
+                    $('<td>').text("Q").appendTo($tr3);
+                }
+            } else if (lst3[idx] == "2") {
+                W_count3 = W_count3 + 1;
+                if (W_count3 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png");
+                    $('<td>').append($img).appendTo($tr3);
+                } else {
+                    $('<td>').text("W").appendTo($tr3);
+                }
+            } else if (lst3[idx] == "3") {
+                E_count3 = E_count3 + 1;
+                if (E_count3 == 5) {
+                    let $img = $('<img>').attr('class', 'Skillimg').attr("src", "/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png");
+                    $('<td>').append($img).appendTo($tr3);
+                } else {
+                    $('<td>').text("E").appendTo($tr3);
+                }
+            } else if (lst3[idx] == "4") {
+                <!-- 스킬트리를 15까지만 출력하기 때문에 궁극기(R) 이미지 출력은 제외 -->
+                $('<td>').text("R").appendTo($tr3);
+            }
+        }
+        $table3.append($tr3);
+        $('<div>').attr("class", "skill_rate").text(win_rate3+"% Win Rate").appendTo($Skill_Div3);
+        $('<div>').attr("class", "skill_cnt").text(cnt3+" Games").appendTo($Skill_Div3);
+    </script>
 </html>
