@@ -4,7 +4,9 @@
     <title>Title</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
+    <link rel="stylesheet" hrefㄴ="/resources/css/Hboard.css?ver=2">
     <link rel="stylesheet" href="/resources/css/community.css?ver=3">
+    <link rel="stylesheet" href="/resources/css/board.css?ver=3">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -30,15 +32,6 @@
             </div>
         </div>
 
-        <div class="header_gnb">
-            <ul>
-                <li><a href="#">something</a></li>
-                <li><a href="#">something</a></li>
-                <li><a href="#">something</a></li>
-                <li><a href="#">something</a></li>
-                <li><a href="#">something</a></li>
-            </ul>
-        </div>
         <div class="modal" >
             <div class="modal_body">Modal
                 <button class="fas fa-times" onclick="back()"></button>
@@ -48,17 +41,6 @@
                         <h4>ID</h4>
                         <input type="id" name="m_id" id="id" placeholder="Id" onblur="inspectId()" data-value="false">
                         <div class="idMsg" id="id_check"></div>
-
-
-        <!-- Modal박스 -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Join</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-                    </div>
                     <div class="login_pw">
                         <h4>Password</h4>
                         <input type="password" name="m_pw" id="pw" placeholder="Password" onblur="inspectPw()" data-value="false">
@@ -78,12 +60,13 @@
 
                         <input type="submit" value="submit"/>
                     </div>
+                    </div>
                 </form>
                 <form method="post" class="searchId" style="display: none">
                     <input id="id_search" onblur="inspectEmail()" name="m_email" data-value="false" placeholder="이메일 입력" required>
                     <button type="button" id="id_search_btn" onclick="idSearch()">아이디 찾기</button>
-
                 </form>
+
                 <form method="get" class="certify" style="display: none">
                     <input id="certifyInput"  onblur="certifyInspect()" data-value="false" placeholder="인증번호 입력" required>
                     <button type="button" id="certifyBtn" onclick="certifyCation()">확인</button>
@@ -102,7 +85,7 @@
 
 </header>
 
-<!-- main -->
+<!-- main --><%--
 <div class="main">
     <div class="main_chat" id="topmember" name="topmember">
 
@@ -129,9 +112,174 @@
         </div>
         <div></div>
     </div>
+</div>--%>
+<div class="back">
+    <div class="out">
+        <div class="leftMenu">
+            <a class="Logo" href="pMain.html" width="100%">
+                <img src="/resources/images/Full.png" alt="First in Last out Logo">
+            </a>
+            <div class="coment">댓글 많이 쓴 회원 Top10
+                <div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">100</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">90</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">80</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">70</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">60</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">50</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">40</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">30</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">20</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">10</div>
+                    </div>
+                </div>
+            </div>
+            <div class="look">조회수 많은 글 Top10
+                <div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">100</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">90</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">80</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">70</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">60</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">50</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">40</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">30</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">20</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">10</div>
+                    </div>
+                </div>
+            </div>
+            <div class="like">좋아요 많은 글 Top10
+                <div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">100</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">90</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">80</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">70</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">60</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">50</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">40</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">30</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">20</div>
+                    </div>
+                    <div>
+                        <div class="BLeft">사과</div>
+                        <div class="BRight">10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Main">
+            <div class="topMenu">
+                <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/board/free';">자유 게시판</div>
+                <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/board/lane';">라인별 게시판</div>
+            </div>
+            <div class="">
+                <div class="allboardHot">
+                    <div id="free_board" style="height: 100%;">
+                        <%--<div class="HotFree">자유게시판 hot 글1</div>--%>
+                    </div>
+                </div>
+                <div class="lineMenu">
+                    <button class="button-56" onclick="append_lane_preview_list('TOP')">TOP</button>
+                    <button class="button-56" onclick="append_lane_preview_list('MIDDLE')">MIDDLE</button>
+                    <button class="button-56" onclick="append_lane_preview_list('JUNGLE')">JUNGLE</button>
+                    <button class="button-56" onclick="append_lane_preview_list('BUTTOM')">BUTTOM</button>
+                    <button class="button-56" onclick="append_lane_preview_list('SUPPOTER')">SUPPOTER</button>
+                </div>
+                <div class="lineMenuHot">
+                    <div id="lane_board" style="height: 100%;">
+                        <%--<div class="HotLine">라인게시판 Hot 글1</div>--%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
+</body>
 
 <script>
     //회원가입시
@@ -269,6 +417,7 @@
     //세션객체를 통한 새로고침 문제 해결
 
     window.onload = function(){
+
         let joinBtnStyle = document.querySelector('.btn-open-popup');
         let logoutStyle = document.querySelector('.logout_btn');
         //let id = "<%=session.getAttribute("id")%>"  //문자열로해서 담아주려고
@@ -282,6 +431,24 @@
             logoutStyle.style.display = 'none';
         }
 
+        getPreviewList('free').then(
+            function(result) {
+                let $free_board = $('#free_board')
+                for (let row of result) {
+                    $('<div>').text(row['b_free_title']).attr('class', 'HotFree').appendTo($free_board);
+                }
+            }
+        )
+
+        getPreviewList('lane', 'TOP').then(
+            function(result) {
+                let $lane_board = $('#lane_board')
+                for (let row of result) {
+                    $('<div>').text(row['b_lane_title']).attr('class', 'HotLine').appendTo($lane_board);
+                }
+            }
+        )
+
     }
 
 
@@ -290,5 +457,4 @@
 
 
 </script>
-</body>
 </html>

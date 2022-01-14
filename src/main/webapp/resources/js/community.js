@@ -66,10 +66,12 @@ function loginFrm(){
 
 //id찾기 모달창
 function searchId() {
+    console.log('야야투레레레');
     let login_modal = document.querySelector('.login_modal');
     login_modal.style.display ='none';
     let searchIdForm = document.querySelector('.searchId');
     searchIdForm.style.display ='block';
+    console.log('야야투레');
 
     let modal = document.querySelector('.modal');
     let modal_body = document.querySelector('.modal_body');
@@ -472,3 +474,33 @@ function modal_open(){
 
 
 }
+
+
+//게시판 관련
+function append_lane_preview_list(lane) {
+    let $lane_board = $('#lane_board');
+    $lane_board.empty();
+    getPreviewList('lane', lane).then(
+        function(result) {
+            let $lane_board = $('#lane_board')
+            for (let row of result) {
+                $('<div>').text(row['b_lane_title']).attr('class', 'HotLine').appendTo($lane_board);
+            }
+        }
+    )
+};
+
+function getPreviewList(boardType, lane) {
+    return fetch('/community/board/preview',
+        {
+            method : 'post',
+            headers : {
+                "Content-Type" : "application/json",
+                "accept" : "application/json;charset=utf-8"
+            },
+            body : JSON.stringify({
+                boardType : boardType,
+                lane : lane
+            })
+        }).then(response => response.json())
+};

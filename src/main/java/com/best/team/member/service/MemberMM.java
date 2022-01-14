@@ -37,6 +37,7 @@ public class MemberMM {
 
     //이메일 인증 로직
     public ModelAndView checkValue(Member member, RedirectAttributes ettr) {
+        mav = new ModelAndView();
         if (memberDao.checkValue(member)) {    //auth 번호 0인지 1인지 체크
             if (memberDao.confirmEmail(member)) {  //email주소와 key값이 같은지 체크
                 if (memberDao.doAccept(member)) {    //auth번호 1로 업데이트해주기

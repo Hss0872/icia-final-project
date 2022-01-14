@@ -25,7 +25,7 @@ public class CommunityController {
     @RequestMapping()
     public String community() {
         log.info("community call");
-        return "main_community";
+        return "community";
     }
 
     @RequestMapping(value = "/board/{type}", method = RequestMethod.GET)
