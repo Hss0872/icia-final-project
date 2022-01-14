@@ -1,8 +1,5 @@
 package com.best.team.community.service;
-import com.best.team.community.bean.BoardPaging;
-import com.best.team.community.bean.BoardType;
-import com.best.team.community.bean.FreeBoard;
-import com.best.team.community.bean.LaneBoard;
+import com.best.team.community.bean.*;
 import com.best.team.community.dao.BoardDao;
 import com.best.team.community.userClass.Paging;
 import com.best.team.member.bean.Member;
@@ -25,48 +22,60 @@ public class BoardMM {
         this.boardDao = boardDao;
     }
 
-    public String getPreviewBList(String boardType) throws JsonProcessingException {
+    public String getPreviewBList(BoardType boardType) throws JsonProcessingException {
         log.info("getPreviewBList call");
         List<?> previewBList;
-        if (boardType.equals("free")) {
+        if (boardType.getBoardType().equals("free")) {
             previewBList = boardDao.getPreviewFreeBList();
         } else {
-            previewBList = boardDao.getPreviewLaneBList();
+            previewBList = boardDao.getPreviewLaneBList(boardType.getLane());
         }
         ObjectMapper objectMapper = new ObjectMapper();
         String previewBListJson = objectMapper.writeValueAsString(previewBList);
         return previewBListJson;
     }
 
-    public boolean getBList(BoardType boardType, Integer pageNum, Model model) {
+    public boolean getBList(BoardType boardType, Integer pageNum, Model model, BoardSearch boardSearch) {
         log.info("getBList call");
         log.info("boardType = {}", boardType.getBoardType());
+        log.info("boardSearch = {}", boardSearch.getSearchType());
         pageNum = (pageNum == null) ? 1 : pageNum;
         List<?> bList;
 
         if (boardType.getBoardType().equals("free")) {
-            bList = boardDao.getFreeBList(pageNum);
+            bList = (boardSearch.getSearchType() == null) ? boardDao.getFreeBList(pageNum) :
+                    boardDao.getFreeBSearchList(pageNum, boardSearch);
         } else {
             if (boardType.getLane() == null) {
                 boardType.setLane("TOP");
             }
-            bList = boardDao.getLaneBList(pageNum, boardType.getLane());
+            bList = (boardSearch.getSearchType() == null) ? boardDao.getLaneBList(pageNum, boardType.getLane()) :
+                    boardDao.getLaneBSearchList(pageNum, boardType.getLane(), boardSearch);
         }
 
         if (bList != null && bList.size() != 0) {
+            log.info("bList select success");
+            model.addAttribute("boardSearch", boardSearch);
             model.addAttribute("bList", bList);
-            model.addAttribute("boardPaging", getPaging(pageNum, boardType));
+            model.addAttribute("boardPaging", getPaging(pageNum, boardType, boardSearch));
             return true;
         } else {
             return false;
         }
     }
 
-    private BoardPaging getPaging(Integer pageNum, BoardType boardType) {
-        int maxNum = boardType.getBoardType().equals("free") ? boardDao.getFreeBoardCount() :
-                boardDao.getLaneBoardCount(boardType.getLane());
+    private BoardPaging getPaging(Integer pageNum, BoardType boardType, BoardSearch boardSearch) {
+        log.info("getPaging call");
+        int maxNum;
+        if (boardType.getBoardType().equals("free")) {
+            maxNum = (boardSearch.getSearchType() == null) ? boardDao.getFreeBoardCount() :
+                    boardDao.getFreeBSearchCount(boardSearch);
+        } else {
+            maxNum = (boardSearch.getSearchType() == null) ? boardDao.getLaneBoardCount(boardType.getLane()) :
+                    boardDao.getLaneBSearchCount(boardType.getLane(), boardSearch);
+        }
         int listCount = 10;
-        int pageCount = 2;
+        int pageCount = 10;
         Paging paging = new Paging(maxNum, pageNum, listCount, pageCount, boardType.getBoardType(), boardType.getLane());
         return paging.getBoardPaging();
     }

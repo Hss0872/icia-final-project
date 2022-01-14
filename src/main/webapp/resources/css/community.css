@@ -6,20 +6,17 @@
     color: black;
 }
 
-
 .header_logo img{
     float: left;
     width: 160px;
     height: 145px;
 }
 
-
 .header{
     height: 146px;
     text-align: center;
     box-sizing: border-box;
     border-bottom: 1px solid #999;
-
 }
 
 .header_logo h1{

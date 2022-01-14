@@ -20,7 +20,7 @@ public class CommunityRestController {
 
     @PostMapping(value = "/board/preview", produces = "application/json;utf-8")
     public ResponseEntity<?> getPriviewBList(@RequestBody() BoardType boardType) throws JsonProcessingException {
-        String previewBListJson = boardMM.getPreviewBList(boardType.getBoardType());
+        String previewBListJson = boardMM.getPreviewBList(boardType);
         return ResponseEntity.ok(previewBListJson);
     }
 }
