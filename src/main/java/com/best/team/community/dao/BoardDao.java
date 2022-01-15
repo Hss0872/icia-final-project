@@ -41,4 +41,8 @@ public interface BoardDao {
     boolean deleteCountFreeBReply(@Param("bNum") int bNum);
 
     boolean deleteCountLaneBReply(@Param("bNum") int bNum);
+
+    int addCountFreeBLike(@Param("bNum") int bNum);
+
+    int addCountLaneBLike(@Param("bNum") int bNum);
 }

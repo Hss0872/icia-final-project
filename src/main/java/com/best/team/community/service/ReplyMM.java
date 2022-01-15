@@ -54,11 +54,11 @@ public class ReplyMM {
         log.info("addReply call");
         Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
         log.info("op_id = {}", op_id.orElse("sessionId does not exist"));
-        List<?> replyList;
         if (!op_id.isPresent()) {
             return false;
         }
 
+        List<?> replyList;
         Member member = memberDao.getMemberInfo(op_id.get().toString());
         if (type.equals("free")) {
             if (!replyParam.getContent().isEmpty()) {
@@ -88,11 +88,11 @@ public class ReplyMM {
         log.info("deleteReply call");
         Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
         log.info("op_id = {}", op_id.orElse("sessionId does not exist"));
-        List<?> replyList;
         if (!op_id.isPresent()) {
             return false;
         }
 
+        List<?> replyList;
         if (type.equals("free")) {
             if (replyParam.getR_type_num() != 0) {
                 replyDao.deleteFreeReply(bNum, replyParam.getR_type_num(), op_id.get().toString());

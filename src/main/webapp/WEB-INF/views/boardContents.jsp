@@ -258,7 +258,8 @@
                                 </div>
                                 <div class="botMenuCenter">
                                     <div class="bttnRecom">
-                                        <a class="bttnRecommend" title="추천하기">따봉업</a>
+                                        <button class="like_button" onclick="add_like_count()" ></button>
+                                        <button class="dislike_button" onclick="delete_like_count()"></button>
                                     </div>
                                 </div>
                                 <div class="botMenuRight">
@@ -279,24 +280,6 @@
                     <div class="replyFrm">
                         <div class="replyList">
                             <table id="add_reply_list">
-
-                                <%--                                    <tr class="reply_setTr">
-                                                                        <tr class="reply_innerTr">
-                                                                            <td class="reply_id">
-                                                                                    ${board.r_free_nickname}
-                                                                            </td>
-                                                                            <td class="reply_date">
-                                                                                    ${board.r_free_date}
-                                                                            </td>
-                                                                            <td class="reply_delete">
-                                                                                <button>삭제하기</button>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td colspan="3">${board.r_free_content}</td>
-                                                                        </tr>
-                                                                    </tr>--%>
-
                             </table>
                         </div>
                         <div class="addreply">
@@ -335,6 +318,7 @@
         $('.contentsHit').text('조회수 : ' + '${freeBoardInfo.b_free_view}' + ' 좋아요 : ' + '${freeBoardInfo.b_free_lcount}');
         $('.contentsCategory').text('[자유게시판]');
         board_number = '${freeBoardInfo.b_free_num}';
+        $('.like_button').text('추천 ' + '${freeBoardInfo.b_free_lcount}');
         $('#boardSubjectH1').text('${freeBoardInfo.b_free_title}');
         $('#maincontentBody').text('${freeBoardInfo.b_free_content}');
         getReplyList(boardType, '${freeBoardInfo.b_free_num}').then(
@@ -348,6 +332,7 @@
         $('.contentsHit').text('조회수 : ' + '${laneBoardInfo.b_lane_view}' + ' 좋아요 : ' + '${laneBoardInfo.b_lane_lcount}');
         $('.contentsCategory').text('[라인게시판] [' + '${laneBoardInfo.b_lane_type}' + ']');
         board_number = '${laneBoardInfo.b_lane_num}';
+        $('.like_button').text('추천 ' + '${laneBoardInfo.b_lane_lcount}');
         $('#boardSubjectH1').text('${laneBoardInfo.b_lane_title}');
         $('#maincontentBody').text('${laneBoardInfo.b_lane_content}');
         getReplyList(boardType, '${laneBoardInfo.b_lane_num}').then(
@@ -409,7 +394,7 @@
                 alert("로그인 해주세요.");
             })
     }
-    
+
     function DBAddReply() {
         let replyTextarea = $('#replyTextarea').val();
         return fetch('/community/board/' + boardType + '/' + board_number + '/reply',
@@ -424,6 +409,28 @@
                 })
             }).then(response => response.json())
             .then(result => add_reply(result, boardType))
+            .catch((err) => {
+                alert("로그인 해주세요.");
+            })
+    }
+
+    function add_like_count(){
+        return fetch('/community/board/' + boardType + '/' + board_number + '/like',
+            {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json;charset=utf-8"
+                }
+            })
+            .then(response => response.json())
+            .then((result) =>{
+                $('.like_button').css('display', 'none');
+                $('.like_button').empty();
+                $('.dislike_button').css('display', 'inline-block') ;
+                $('.dislike_button').empty();
+                $('.dislike_button').text('추천 ' + result);
+            })
             .catch((err) => {
                 alert("로그인 해주세요.");
             })

@@ -96,4 +96,19 @@
     <update id="deleteCountLaneBReply">
         UPDATE COMMUNITY_LANEB SET B_LANE_RYCOUNT = B_LANE_RYCOUNT - 1 WHERE B_LANE_NUM = #{bNum}
     </update>
+
+    <update id="addCountFreeBLike">
+        UPDATE COMMUNITY_FREEB SET B_FREE_LCOUNT = B_FREE_LCOUNT + 1 WHERE B_FREE_NUM = #{bNum}
+        <selectKey keyProperty="B_FREE_LCOUNT" resultType="int" order="AFTER">
+            SELECT B_FREE_LCOUNT FROM COMMUNITY_FREEB WHERE B_FREE_NUM = #{bNum}
+        </selectKey>
+    </update>
+
+    <update id="addCountLaneBLike">
+        UPDATE COMMUNITY_LANEB SET B_LANE_LCOUNT = B_LANE_LCOUNT + 1 WHERE B_LANE_NUM = #{bNum}
+        <selectKey keyProperty="B_LANE_LCOUNT" resultType="int" order="AFTER">
+            SELECT B_LANE_LCOUNT FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum}
+        </selectKey>
+    </update>
+
 </mapper>

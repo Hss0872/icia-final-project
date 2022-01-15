@@ -239,3 +239,30 @@
 #add_reply_list{
     width: 100%;
 }
+.like_button{
+    display: inline-block;
+    padding: 0 10px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #686868;
+    line-height: 30px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.dislike_button {
+    display: none;
+    padding: 0 10px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: red;
+    line-height: 30px;
+    text-align: center;
+    transition: 0.2s;
+}

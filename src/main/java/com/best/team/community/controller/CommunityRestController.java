@@ -2,8 +2,10 @@ package com.best.team.community.controller;
 import com.best.team.community.bean.BoardType;
 import com.best.team.community.bean.ReplyParam;
 import com.best.team.community.service.BoardMM;
+import com.best.team.community.service.LikeMM;
 import com.best.team.community.service.ReplyMM;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +21,13 @@ public class CommunityRestController {
 
     private BoardMM boardMM;
     private ReplyMM replyMM;
+    private LikeMM likeMM;
 
     @Autowired
-    public CommunityRestController(BoardMM boardMM, ReplyMM replyMM) {
+    public CommunityRestController(BoardMM boardMM, ReplyMM replyMM, LikeMM likeMM) {
         this.boardMM = boardMM;
         this.replyMM = replyMM;
+        this.likeMM = likeMM;
     }
 
     @PostMapping(value = "/board/preview", produces = "application/json;utf-8")
@@ -52,5 +56,13 @@ public class CommunityRestController {
         boolean getReplyListJson = replyMM.deleteReply(type, bNum, replyParam, session, model);
         return getReplyListJson ? ResponseEntity.ok(model.getAttribute("replyListJson").toString())
                 : ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("");
+    }
+
+    @RequestMapping(value = "/board/{type}/{bNum}/like", method = RequestMethod.POST, produces = "application/json;utf-8")
+    public ResponseEntity<?> addBoardLike(@PathVariable String type, @PathVariable int bNum, HttpSession session, Model model) throws JsonProcessingException {
+        boolean result = likeMM.addBoardLike(type, bNum, session, model);
+        return result ? ResponseEntity.ok(
+                new ObjectMapper().writeValueAsString(model.getAttribute("likeCount").toString())) :
+                ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("");
     }
 }
