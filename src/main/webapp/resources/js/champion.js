@@ -96,7 +96,7 @@ function champinfo(champname){
 //champion_lst 
 /*const champion_list = ['Annie',
 'Olaf','Galio','TwistedFate','XinZhao','Urgot','LeBlanc',
-'Vladimir','Fiddlesticks','Kayle','MasterYi','Alistar','Ryze',
+'Vladimir','FiddleSticks','Kayle','MasterYi','Alistar','Ryze',
 'Sion','Sivir','Soraka','Teemo','Tristana','Warwick','Nunu',
 'MissFortune','Ashe','Tryndamere','Jax','Morgana','Zilean',
 'Singed','Evelynn','Twitch','Karthus','ChoGath','Amumu','Rammus','Anivia',
