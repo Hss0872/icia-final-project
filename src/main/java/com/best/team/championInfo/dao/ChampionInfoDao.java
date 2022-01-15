@@ -25,4 +25,6 @@ public interface ChampionInfoDao {
 
     ChampionSkillDesc getChampionSkillDesc(@Param("championName") String championName);
 
+    ChampionTitle getChampionTitle(@Param("championName") String championName);
+
 }

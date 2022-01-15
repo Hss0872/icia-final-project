@@ -43,4 +43,8 @@
         select * from champion_skill_desc where champion_name_eng = #{championName}
     </select>
 
+    <select id="getChampionTitle" resultType="ChampionTitle">
+        select * from champion_title_info where champion_name_eng = #{championName}
+    </select>
+
 </mapper>

@@ -67,6 +67,10 @@
             let championSkillDesc = ${championSkillDesc};
             console.log(championSkillDesc)
 
+            //챔피언별 타이틀
+            let championTitle = ${championTitle};
+            console.log(championTitle)
+
             //챔피언별 초상화
             let championNameInfo = ${championInfo};
 
@@ -78,8 +82,6 @@
 
             //룬
             let runeInfo = ${runeInfo};
-
-
         </script>
     </head>
 
@@ -199,11 +201,8 @@
 
                 <div>
                     <h1>${championName} Build</h1>
-                    <h2>${championName} Introduction</h2>
-                    <!-- 챔피언 info 부분은 riot developer json에서 따로 추출해서 적용하기 -->
-                    <div class="champion_desc">
-                        <p>쉔은 '킨코우'라고 하는 아이오니아 비밀결사단의 수장이자, '황혼의 눈'이다. 감정, 편견, 아집에서 벗어나는 자유로운 정신을 유지하려 노력하며, 영적 세계와 현실 세계 사이에서 감정에 흔들리지 않는 공명정대함을 실현하기 위해 그 누구도 걷지 않았던 길을 걷는다. 두 세계 사이의 균형을 맞추는 임무를 맡았기에, 그 균형을 위협하려는 자에게 강철검을 휘두르고 신비한 기운을 사용한다.</p>
-                    </div>
+                    <div class="champion_Intro"></div>
+                    <div class="champion_desc"></div>
                 </div>
                 <div>
                     <div class="Circle_circle__1UKAB">
@@ -333,26 +332,26 @@
 <%--                            <div class="Summary_pickwin__PRaVa">--%>
 <%--                                <!-- DB 정보에 있는 CNT와 WIN_RATE 컬럼값을 불러와서 이에 따른 동적 DIV를 구성해야 함 -->--%>
 <%--                                <div style="color: rgb(70, 175, 46);">53.1% Win Rate</div>--%>
-<%--                                <span>죽을맛이다.</span>--%>
+<%--                                <span>53.5%</span>--%>
 <%--                           </div>--%>
                             </div>
                         </div>
 
                         <!-- 소환사 주문 데이터 분석 로직 구성창 (일단 제외하되 나중에 시간남아서 로직을 구성할 수 있으면 구성하기 -->
-                        <div class="Summary_title__1Mkrz">Summoner Spells</div>
-                        <div class="Summary_items__1Hq4v">
-                            <div>
-                                <img class="Spell_spell32br__og7Xy" src="https://cdn.lolalytics.com/generated/summonerspell64px/4.jpg" alt="Flash">
-                            </div>
-                            <div class="Summary_spacer__2XFIf"></div>
-                            <div>
-                                <img class="Spell_spell32br__og7Xy" src="https://cdn.lolalytics.com/generated/summonerspell64px/14.jpg" alt="Ignite">
-                            </div>
-                            <div class="Summary_pickwin__PRaVa">
-                                <div style="color: rgb(36, 163, 0);">54.3% Win Rate</div>
-                                <span> 38,109 Games</span>
-                            </div>
-                        </div>
+<%--                        <div class="Summary_title__1Mkrz">Summoner Spells</div>--%>
+<%--                        <div class="Summary_items__1Hq4v">--%>
+<%--                            <div>--%>
+<%--                                <img class="Spell_spell32br__og7Xy" src="https://cdn.lolalytics.com/generated/summonerspell64px/4.jpg" alt="Flash">--%>
+<%--                            </div>--%>
+<%--                            <div class="Summary_spacer__2XFIf"></div>--%>
+<%--                            <div>--%>
+<%--                                <img class="Spell_spell32br__og7Xy" src="https://cdn.lolalytics.com/generated/summonerspell64px/14.jpg" alt="Ignite">--%>
+<%--                            </div>--%>
+<%--                            <div class="Summary_pickwin__PRaVa">--%>
+<%--                                <div style="color: rgb(36, 163, 0);">54.3% Win Rate</div>--%>
+<%--                                <span> 38,109 Games</span>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                     </div>
 
                     <!-- 주요 룬 선택 로직 콘솔에 찍힌 값을 토대로 이미지를 불러오도록 로직을 짜야함 -->
@@ -623,15 +622,37 @@
 
                 <!-- 아이템 빌드 콘솔에 찍힌 값을 토대로 이미지를 불러오도록 로직을 짜야함 -->
                 <div class="Summary_row3__3lr5H">
-                    <div>
-                        Starting Items
-                        <div>Build 1</div>
-                        <div>Build 1</div>
+                    <div class="Staring_Item_Build">
+                        <p>Starting Items</p>
+                        <div class="Starting_Build_Tree1">
+                            <div class="Starting_Build_Div1">
+                                <p>Starting Build 1</p>
+                            </div>
+                        </div>
+                        <div class="Starting_Build_Tree2">
+                            <div class="Starting_Build_Div2">
+                                <p>Starting Build 2</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>Item Build
-                        <div>Item Bulild 1</div>
-                        <div>Item Bulild 2</div>
-                        <div>Item Bulild 3</div>
+
+                    <div class="Item_Build">
+                        <p>Item Build</p>
+                        <div class="Item_Build_Tree1">
+                            <div class="Item_Build_Div1">
+                                <p>Item Build 1</p>
+                            </div>
+                        </div>
+                        <div class="Item_Build_Tree2">
+                            <div class="Item_Build_Div2">
+                                <p>Item Build 2</p>
+                            </div>
+                        </div>
+                        <div class="Item_Build_Tree3">
+                            <div class="Item_Build_Div3">
+                                <p>Item Build 3</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -751,8 +772,14 @@
             </div>
         </div>
     </body>
+
     <script>
-        //스킬트리 로직 코드 정리할수 있으면 정리하기
+        //챔피언 소개 로직에 사용하는 변수들 (챔피언 인트로, 챔피언 타이틀)
+
+
+
+        //─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  로직 구분 주석 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
         //스킬트리 로직에 사용하는 변수들
         let cnt1 = skillWinRates[0].cnt;
         let cnt2 = skillWinRates[1].cnt;
@@ -766,10 +793,12 @@
         let lst2 = skillWinRates[1].skill_Bulid.split('|');
         let lst3 = skillWinRates[2].skill_Bulid.split('|');
 
+        //상위 div
         let $Skill_Div1 = $('.Skill_Tree_Div1');
         let $Skill_Div2 = $('.Skill_Tree_Div2');
         let $Skill_Div3 = $('.Skill_Tree_Div3');
 
+        //하위 div
         let $table1 = $('.Skill_Tree1');
         let $table2 = $('.Skill_Tree2');
         let $table3 = $('.Skill_Tree3');
@@ -903,5 +932,159 @@
         $table3.append($tr3);
         $('<div>').attr("class", "skill_rate").text(win_rate3+"% Win Rate").appendTo($Skill_Div3);
         $('<div>').attr("class", "skill_cnt").text(cnt3+" Games").appendTo($Skill_Div3);
+
+        //─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  로직 구분 주석 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+        //시작 아이템 로직에 사용하는 변수들
+        let SI_cnt1 = startItemWinRates[0].cnt;
+        let SI_cnt2 = startItemWinRates[1].cnt;
+
+        let SI_rate1 = startItemWinRates[0].win_rate;
+        let SI_rate2 = startItemWinRates[1].win_rate;
+
+        let SI_lst1 = startItemWinRates[0].start_Item.split('|');
+        let SI_lst2 = startItemWinRates[1].start_Item.split('|');
+
+        let SI_Tree1 = $('.Starting_Build_Tree1');
+        let SI_Tree2 = $('.Starting_Build_Tree2');
+
+        let SI_Div1 = $('.Starting_Build_Div1');
+        let SI_Div2 = $('.Starting_Build_Div2');
+
+        //시작 아이템 1
+        for (let m of itemInfo) {
+            if (m.item_code == SI_lst1[0]) {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(SI_Div1);
+            } else if (m.item_code == SI_lst1[1])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(SI_Div1);
+            } else if (m.item_code == SI_lst1[2])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(SI_Div1);
+            } else if (m.item_code == SI_lst1[3])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(SI_Div1);
+            }
+        }
+        $('<div>').attr("class", "start_item_rate").text(SI_rate1+"% Win Rate").appendTo(SI_Tree1);
+        $('<div>').attr("class", "start_cnt").text(SI_cnt1+" Games").appendTo(SI_Tree1);
+
+        //시작 아이템 2
+        for (let m of itemInfo) {
+            if (m.item_code == SI_lst2[0]) {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(SI_Div2);
+            } else if (m.item_code == SI_lst2[1])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(SI_Div2);
+            } else if (m.item_code == SI_lst2[2])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(SI_Div2);
+            } else if (m.item_code == SI_lst2[3])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(SI_Div2);
+            }
+        }
+        $('<div>').attr("class", "start_item_rate").text(SI_rate2+"% Win Rate").appendTo(SI_Tree2);
+        $('<div>').attr("class", "start_cnt").text(SI_cnt2+" Games").appendTo(SI_Tree2);
+
+        //─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  로직 구분 주석 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+        //아이템 빌드 로직에 사용하는 변수들
+        let IB_cnt1 = itemBulidWinRates[0].cnt;
+        let IB_cnt2 = itemBulidWinRates[1].cnt;
+        let IB_cnt3 = itemBulidWinRates[2].cnt;
+
+        let IB_rate1 = itemBulidWinRates[0].win_rate
+        let IB_rate2 = itemBulidWinRates[1].win_rate;
+        let IB_rate3 = itemBulidWinRates[2].win_rate;
+
+        let IB_lst1 = itemBulidWinRates[0].item_Bulid.split('|');
+        let IB_lst2 = itemBulidWinRates[1].item_Bulid.split('|');
+        let IB_lst3 = itemBulidWinRates[2].item_Bulid.split('|');
+
+        let IB_Tree1 = $('.Item_Build_Tree1');
+        let IB_Tree2 = $('.Item_Build_Tree2');
+        let IB_Tree3 = $('.Item_Build_Tree3');
+
+        let IB_Div1 = $('.Item_Build_Div1');
+        let IB_Div2 = $('.Item_Build_Div2');
+        let IB_Div3 = $('.Item_Build_Div3');
+
+        //아이템 빌드 1
+        for (let m of itemInfo) {
+            if (m.item_code == IB_lst1[0]) {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div1);
+            } else if (m.item_code == IB_lst1[1])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div1);
+            } else if (m.item_code == IB_lst1[2])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div1);
+            } else if (m.item_code == IB_lst1[3])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div1);
+            } else if (m.item_code == IB_lst1[4])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div1);
+            } else if (m.item_code == IB_lst1[5])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div1);
+            }
+        }
+        $('<div>').attr("class", "item_build_rate").text(IB_rate1+"% Win Rate").appendTo(IB_Tree1);
+        $('<div>').attr("class", "item_cnt").text(IB_cnt1+" Games").appendTo(IB_Tree1);
+
+        //아이템 빌드 2
+        for (let m of itemInfo) {
+            if (m.item_code == IB_lst2[0]) {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div2);
+            } else if (m.item_code == IB_lst2[1])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div2);
+            } else if (m.item_code == IB_lst2[2])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div2);
+            } else if (m.item_code == IB_lst2[3])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div2);
+            } else if (m.item_code == IB_lst2[4])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div2);
+            } else if (m.item_code == IB_lst2[5])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div2);
+            }
+        }
+        $('<div>').attr("class", "item_build_rate").text(IB_rate2+"% Win Rate").appendTo(IB_Tree2);
+        $('<div>').attr("class", "item_cnt").text(IB_cnt2+" Games").appendTo(IB_Tree2);
+
+        //아이템 빌드 3
+        for (let m of itemInfo) {
+            if (m.item_code == IB_lst3[0]) {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div3);
+            } else if (m.item_code == IB_lst3[1])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div3);
+            } else if (m.item_code == IB_lst3[2])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div3);
+            } else if (m.item_code == IB_lst3[3])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div3);
+            } else if (m.item_code == IB_lst3[4])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div3);
+            } else if (m.item_code == IB_lst3[5])   {
+                let $img = $('<img>').attr("class", "start_item_img").attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png");
+                $('<div>').append($img).appendTo(IB_Div3);
+            }
+        }
+        $('<div>').attr("class", "item_build_rate").text(IB_rate3+"% Win Rate").appendTo(IB_Tree3);
+        $('<div>').attr("class", "item_cnt").text(IB_cnt3+" Games").appendTo(IB_Tree3);
     </script>
 </html>
