@@ -31,6 +31,8 @@ public class ChampionInfoMM {
         List<StartItemWinRate> startItemWinRates = championInfoDao.getStartItemWinRate(championName);
         List<MasterPoint> masterPoints = championInfoDao.getMasterPoint(championName);
         ChampionPassive championPassives = championInfoDao.getChampionPassive(ChampionPassiveName);
+        ChampionBlurb championBlurbs = championInfoDao.getChampionBlurb(championName);
+        ChampionSkillDesc championSkillDescs = championInfoDao.getChampionSkillDesc(championName);
 
         System.out.println("itemBulidWinRates = " + itemBulidWinRates);
         System.out.println("runeBulidWinRates = " + runeBulidWinRates);
@@ -38,6 +40,8 @@ public class ChampionInfoMM {
         System.out.println("startItemWinRates = " + startItemWinRates);
         System.out.println("masterPoints = " + masterPoints);
         System.out.println("championPassive = " + championPassives);
+        System.out.println("championBlurb = " + championBlurbs);
+        System.out.println("championSkillDesc = " + championSkillDescs);
 
         mav = new ModelAndView();
 
@@ -47,6 +51,8 @@ public class ChampionInfoMM {
         String startItemWinRates_json = objectMapper.writeValueAsString(startItemWinRates);
         String masterPoints_json = objectMapper.writeValueAsString(masterPoints);
         String championPassive_json = objectMapper.writeValueAsString(championPassives);
+        String championBlurb_json = objectMapper.writeValueAsString(championBlurbs);
+        String championSkillDesc_json = objectMapper.writeValueAsString(championSkillDescs);
 
         mav.addObject("itemBulidWinRates", itemBulidWinRates_json);
         mav.addObject("runeBulidWinRates", runeBulidWinRates_json);
@@ -54,6 +60,8 @@ public class ChampionInfoMM {
         mav.addObject("startItemWinRates", startItemWinRates_json);
         mav.addObject("masterPoints", masterPoints_json);
         mav.addObject("championPassives", championPassive_json);
+        mav.addObject("championBlurb", championBlurb_json);
+        mav.addObject("championSkillDesc", championSkillDesc_json);
 
         mav.setViewName("champion_info");
         return mav;

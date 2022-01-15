@@ -21,4 +21,8 @@ public interface ChampionInfoDao {
 
     ChampionPassive getChampionPassive(@Param("ChampionPassiveName") String ChampionPassiveName);
 
+    ChampionBlurb getChampionBlurb(@Param("championName") String championName);
+
+    ChampionSkillDesc getChampionSkillDesc(@Param("championName") String championName);
+
 }

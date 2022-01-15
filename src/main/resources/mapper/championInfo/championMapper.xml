@@ -35,4 +35,12 @@
         select * from champion_passive_info where champion_passive_eng = #{ChampionPassiveName}
     </select>
 
+    <select id="getChampionBlurb" resultType="ChampionBlurb">
+        select * from champion_blurb where champion_eng = #{championName}
+    </select>
+
+    <select id="getChampionSkillDesc" resultType="ChampionSkillDesc">
+        select * from champion_skill_desc where champion_name_eng = #{championName}
+    </select>
+
 </mapper>

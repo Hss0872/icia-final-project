@@ -56,6 +56,16 @@
             //챔피언 패시브
             let championPassives = ${championPassives};
             console.log(championPassives);
+            console.log(championPassives.champion_passive_kor);
+            console.log(championPassives.split);
+
+            //챔피언 배경 (championInfo)
+            let championBlurb = ${championBlurb};
+            console.log(championBlurb);
+
+            //챔피언별 스킬 설명 (Q, W, E, R)
+            let championSkillDesc = ${championSkillDesc};
+            console.log(championSkillDesc)
 
             //챔피언별 초상화
             let championNameInfo = ${championInfo};
@@ -69,27 +79,7 @@
             //룬
             let runeInfo = ${runeInfo};
 
-            //아이템 빌드
-            function getIt() {
-                for (let m of itemInfo) {
-                    if (m.item_code == item0) {
-                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
-                    } else if (m.item_code == item1) {
-                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
-                    } else if (m.item_code == item2) {
-                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
-                    } else if (m.item_code == item3) {
-                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
-                    } else if (m.item_code == item4) {
-                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
-                    } else if (m.item_code == item5) {
-                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
-                    } else if (m.item_code == item6) {
-                        $('<img>').attr('class', 'itemimg').attr("src", "/resources/images/LOL_ITEM_ICON/" + m.item_name_eng + ".png")
-                    }
-                }
-                return getKda;
-            }
+
         </script>
     </head>
 
@@ -211,7 +201,9 @@
                     <h1>${championName} Build</h1>
                     <h2>${championName} Introduction</h2>
                     <!-- 챔피언 info 부분은 riot developer json에서 따로 추출해서 적용하기 -->
-                    <p>쉔은 '킨코우'라고 하는 아이오니아 비밀결사단의 수장이자, '황혼의 눈'이다. 감정, 편견, 아집에서 벗어나는 자유로운 정신을 유지하려 노력하며, 영적 세계와 현실 세계 사이에서 감정에 흔들리지 않는 공명정대함을 실현하기 위해 그 누구도 걷지 않았던 길을 걷는다. 두 세계 사이의 균형을 맞추는 임무를 맡았기에, 그 균형을 위협하려는 자에게 강철검을 휘두르고 신비한 기운을 사용한다.</p>
+                    <div class="champion_desc">
+                        <p>쉔은 '킨코우'라고 하는 아이오니아 비밀결사단의 수장이자, '황혼의 눈'이다. 감정, 편견, 아집에서 벗어나는 자유로운 정신을 유지하려 노력하며, 영적 세계와 현실 세계 사이에서 감정에 흔들리지 않는 공명정대함을 실현하기 위해 그 누구도 걷지 않았던 길을 걷는다. 두 세계 사이의 균형을 맞추는 임무를 맡았기에, 그 균형을 위협하려는 자에게 강철검을 휘두르고 신비한 기운을 사용한다.</p>
+                    </div>
                 </div>
                 <div>
                     <div class="Circle_circle__1UKAB">
@@ -317,31 +309,33 @@
                                     </table>
                                 </div>
 
-                                <div class="Skill_skill36__yk-DO">
-                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png" alt="Shen Q">
-                                    <div>Q</div>
-                                </div>
-                                <div class="SkillPriority_skillnext__38Exi">
-                                    <i>▷</i>
-                                </div>
-                                <div class="Skill_skill36__yk-DO">
-                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png" alt="Shen E">
-                                    <div>E</div>
-                                </div>
-                                <div class="SkillPriority_skillnext__38Exi">
-                                    <i>▷</i>
-                                </div>
-                                <div class="Skill_skill36__yk-DO">
-                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png" alt="Shen W">
-                                    <div>W</div>
-                                </div>
-                            </div>
+                                    <!-- 챔피언 스킬 선마순서 로직 -->
+<%--                                <div class="Skill_skill36__yk-DO">--%>
+<%--                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png" alt="Shen Q">--%>
+<%--                                    <div>Q</div>--%>
+<%--                                </div>--%>
+<%--                                <div class="SkillPriority_skillnext__38Exi">--%>
+<%--                                    <i>▷</i>--%>
+<%--                                </div>--%>
+<%--                                <div class="Skill_skill36__yk-DO">--%>
+<%--                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png" alt="Shen E">--%>
+<%--                                    <div>E</div>--%>
+<%--                                </div>--%>
+<%--                                <div class="SkillPriority_skillnext__38Exi">--%>
+<%--                                    <i>▷</i>--%>
+<%--                                </div>--%>
+<%--                                <div class="Skill_skill36__yk-DO">--%>
+<%--                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png" alt="Shen W">--%>
+<%--                                    <div>W</div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
 
-                            <div class="Summary_pickwin__PRaVa">
-                                <!-- DB 정보에 있는 CNT와 WIN_RATE 컬럼값을 불러와서 이에 따른 동적 DIV를 구성해야 함 -->
-                                <div style="color: rgb(70, 175, 46);">53.1% Win Rate</div>
-                                <span>죽을맛이다.</span>
-                           </div>
+<%--                            <div class="Summary_pickwin__PRaVa">--%>
+<%--                                <!-- DB 정보에 있는 CNT와 WIN_RATE 컬럼값을 불러와서 이에 따른 동적 DIV를 구성해야 함 -->--%>
+<%--                                <div style="color: rgb(70, 175, 46);">53.1% Win Rate</div>--%>
+<%--                                <span>죽을맛이다.</span>--%>
+<%--                           </div>--%>
+                            </div>
                         </div>
 
                         <!-- 소환사 주문 데이터 분석 로직 구성창 (일단 제외하되 나중에 시간남아서 로직을 구성할 수 있으면 구성하기 -->
@@ -358,99 +352,6 @@
                                 <div style="color: rgb(36, 163, 0);">54.3% Win Rate</div>
                                 <span> 38,109 Games</span>
                             </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <!-- 소환사 스킬 트리 로직 구성하기 -->
-                        <div class="SkillOrder_light__2BKVU">
-                            <div>
-                                <div class="Skill_skill24__272D3">
-                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png" alt="Shen Q">
-                                    <div>Q</div>
-                                </div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">2</div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">4</div>
-                                <div class="SkillOrder_active__1t7oF">5</div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">7</div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">9</div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                            </div>
-                            <div>
-                                <div class="Skill_skill24__272D3">
-                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png" alt="Shen W">
-                                    <div>W</div>
-                                </div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">3</div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">14</div>
-                                <div class="SkillOrder_active__1t7oF">15</div>
-                            </div>
-                            <div>
-                                <div class="Skill_skill24__272D3">
-                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png" alt="Shen E">
-                                    <div>E</div>
-                                </div>
-                                <div class="SkillOrder_active__1t7oF">1</div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">8</div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">10</div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">12</div>
-                                <div class="SkillOrder_active__1t7oF">13</div>
-                                <div class=""></div>
-                                <div class=""></div>
-                            </div>
-                            <div>
-                                <div class="Skill_skill24__272D3">
-                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}R.png" alt="Shen R">
-                                    <div>R</div>
-                                </div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">6</div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class="SkillOrder_active__1t7oF">11</div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                                <div class=""></div>
-                            </div>
-                        </div>
-                        <div class="Summary_pickwin__PRaVa">
-                            <div style="color: rgb(36, 163, 0);">64.0% Win Rate</div><span> 6,623 Games</span>
                         </div>
                     </div>
 
@@ -722,11 +623,16 @@
 
                 <!-- 아이템 빌드 콘솔에 찍힌 값을 토대로 이미지를 불러오도록 로직을 짜야함 -->
                 <div class="Summary_row3__3lr5H">
-                    <div>Starting Items</div>
-                    <div>Core Build</div>
-                    <div>Item 4</div>
-                    <div>Item 5</div>
-                    <div>Item 6</div>
+                    <div>
+                        Starting Items
+                        <div>Build 1</div>
+                        <div>Build 1</div>
+                    </div>
+                    <div>Item Build
+                        <div>Item Bulild 1</div>
+                        <div>Item Bulild 2</div>
+                        <div>Item Bulild 3</div>
+                    </div>
                 </div>
 
                 <div class="Summary_itemsrow__27AYY">
