@@ -4,16 +4,15 @@
     <title>Title</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
-    <link rel="stylesheet" hrefㄴ="/resources/css/Hboard.css?ver=2">
-    <link rel="stylesheet" href="/resources/css/community.css?ver=3">
-    <link rel="stylesheet" href="/resources/css/board.css?ver=3">
+    <link rel="stylesheet" href="/resources/css/community.css?ver=2">
+    <link rel="stylesheet" href="/resources/css/board.css?ver=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-    <script src="/resources/js/login.js?ver=3"></script>
-    <script src="/resources/js/community.js?ver=3"></script>
+    <script src="/resources/js/login.js?ver=2"></script>
+    <script src="/resources/js/community.js?ver=2"></script>
     <script src = "https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
@@ -22,13 +21,14 @@
         <a href="/">
             <img src="/resources/images/pngwing.com (3).png">
         </a>
-        <h1>Community</h1>
+        <h1><a href="/community">Community</a></h1>
         <p>You Are Free</p>
         <div class="dropdown">
             <span class="dropbtn">Login</span>
             <div class="dropdown-content">
                 <button class="btn-open-popup" onclick="modal_open()">Join</button>   <!--login -->
                 <button class="logout_btn" onclick="logout()">Logout</button>   <!--logout-->
+                <button class="myPage_btn" onclick="myPage()">myPage</button>   <!--myPage-->
             </div>
         </div>
 
@@ -41,6 +41,7 @@
                         <h4>ID</h4>
                         <input type="id" name="m_id" id="id" placeholder="Id" onblur="inspectId()" data-value="false">
                         <div class="idMsg" id="id_check"></div>
+                    </div>
                     <div class="login_pw">
                         <h4>Password</h4>
                         <input type="password" name="m_pw" id="pw" placeholder="Password" onblur="inspectPw()" data-value="false">
@@ -56,10 +57,8 @@
                             <a href="/member/join">SignUp</a>
                         </div>
                     </div>
-                    <div class="submit">
-
+                    <div class="submit" id="loginSubmitBtn">
                         <input type="submit" value="submit"/>
-                    </div>
                     </div>
                 </form>
                 <form method="post" class="searchId" style="display: none">
@@ -79,40 +78,22 @@
                     <button type="button" id="new_pw_submit" onclick="changePw()">비밀번호 변경</button>
                     <div id="new_pw2_comment" style="display: none">동일한 비밀번호를 입력해주세요.</div>
                 </form>
+                    <div class="myPage_form" style="display: none">
+                        <div class="client_photo">
+                            <img src="/resources/images/pngwing.com%20(5).png">
+                        </div>
+                        <div class="client_info">사용자 가입정보 수정</div>
+                        <div>
+                            <button>내가 작성한 글 목록</button>
+                            <button>내가 작성한 댓글 목록</button>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
 
 </header>
 
-<!-- main --><%--
-<div class="main">
-    <div class="main_chat" id="topmember" name="topmember">
-
-    </div>
-    <div class="main_views" id="topviews" name="topviews">
-
-    </div>
-    <div class="main_likes" id="toplikes" name="toplikes">
-
-    </div>
-</div>
-
-<div class="board">
-    <span>자유게시판</span>
-    <span>라인별게시판</span>
-    <div class="mainboard">
-        <div class="mainboard_free"></div>
-        <div class="mainboard_lane">
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-        </div>
-        <div></div>
-    </div>
-</div>--%>
 <div class="back">
     <div class="out">
         <div class="leftMenu">
@@ -337,6 +318,7 @@
     let $checkLogin = '${checkLogin}';
     let joinBtn = document.querySelector('.btn-open-popup'); //조인버튼
     let logoutBtn = document.querySelector('.logout_btn');  //로그아웃
+    let myPageBtn = document.querySelector('.myPage_btn'); //마이페이지
 
 
     if($checkLogin === '1') {
@@ -377,15 +359,15 @@
             text: 'first.gg',
             imageUrl: '/resources/images/2880x1620_league-of-legends-ekko-4k.jpg',
             imageWidth: 400,
-            imageHeight: 200,
+            imageHeight: 250,
             imageAlt: 'Custom image',
         })
-
-
 
         joinBtn.setAttribute('data-value','false');
         joinBtn.style.display = 'none';
         logoutBtn.style.display = 'block';
+        myPageBtn.style.display ='block';
+
 
 
     }
@@ -420,15 +402,18 @@
 
         let joinBtnStyle = document.querySelector('.btn-open-popup');
         let logoutStyle = document.querySelector('.logout_btn');
+        let myPageBtn = document.querySelector('.myPage_btn');
         //let id = "<%=session.getAttribute("id")%>"  //문자열로해서 담아주려고
         let id = "${sessionScope.id}";
         console.log(id);
-        if(id != ""){
+        if(id != ""){ //세션객체 null이 아닐때
             joinBtnStyle.style.display = 'none';
             logoutStyle.style.display = 'block';
+            myPageBtn.style.display ='block';
         }else if(id == ""){
             joinBtnStyle.style.display = 'block';
             logoutStyle.style.display = 'none';
+            myPageBtn.style.display ='none';
         }
 
         getPreviewList('free').then(

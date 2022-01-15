@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
     <link rel="stylesheet" href="/resources/css/board.css?ver=1">
+    <link rel="stylesheet" href="/resources/css/community.css?ver=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css?ver=1" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?ver=1" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/resources/js/login.js?ver=1"></script>
@@ -18,54 +19,69 @@
 <body>
 <header class="header">
     <div class="header_logo">
-        <a href="#">
-            <a href="/">
-                <img src= "/resources/images/pngwing.com (3).png">
-            </a>
-            <h1>Community</h1>
-            <p>You Are Free</p>
-            <div class="dropdown">
-                <span class="dropbtn">Login</span>
-                <div class="dropdown-content">
-                    <button id="loginBtn" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal">Join</button>
-                </div>
+        <a href="/">
+            <img src="/resources/images/pngwing.com (3).png">
         </a>
-    </div>
+        <h1><a href="/community">Community</a></h1>
+        <p>You Are Free</p>
+        <div class="dropdown">
+            <span class="dropbtn">Login</span>
+            <div class="dropdown-content">
+                <button class="btn-open-popup" onclick="modal_open()">Join</button>   <!--login -->
+                <button class="logout_btn" onclick="logout()">Logout</button>   <!--logout-->
+            </div>
+        </div>
 
-    <!-- Modal박스 -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Join</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
+        <div class="modal" >
+            <div class="modal_body">Modal
+                <button class="fas fa-times" onclick="back()"></button>
                 <!-- 로그인 form태그 -->
-                <form onsubmit="return loginFrm(event)">
+                <form class= "login_modal" onsubmit="return loginFrm()" action="/member/access" method="post">
                     <div class="login_id">
                         <h4>ID</h4>
-                        <input type="id" name="" id="id" placeholder="Id">
+                        <input type="id" name="m_id" id="id" placeholder="Id" onblur="inspectId()" data-value="false">
+                        <div class="idMsg" id="id_check"></div>
                     </div>
                     <div class="login_pw">
                         <h4>Password</h4>
-                        <input type="password" name="" id="pw" placeholder="Password">
+                        <input type="password" name="m_pw" id="pw" placeholder="Password" onblur="inspectPw()" data-value="false">
+                        <div class="idMsg" id="pw_check"></div>
                     </div>
                     <div class="login_etc">
                         <div class="forgot_pw">
-                            <a href="">Forgot Password?</a>
+                            <button type="button" onclick="searchId()" >Forgot ID?</button>
+                            <button type="button" onclick="searchPw()" >
+                                Forgot Password?</button>
                         </div>
                         <div class="signUp">
-                            <a href="/member/access">SignUp</a>
+                            <a href="/member/join">SignUp</a>
                         </div>
                     </div>
-                    <div class="submit">
-                        <input type="submit" value="submit">
+                    <div class="submit" id="loginSubmitBtn">
+                        <input type="submit" value="submit"/>
                     </div>
+                </form>
+                <form method="post" class="searchId" style="display: none">
+                    <input id="id_search" onblur="inspectEmail()" name="m_email" data-value="false" placeholder="이메일 입력" required>
+                    <button type="button" id="id_search_btn" onclick="idSearch()">아이디 찾기</button>
+                </form>
+
+                <form method="get" class="certify" style="display: none">
+                    <input id="certifyInput"  onblur="certifyInspect()" data-value="false" placeholder="인증번호 입력" required>
+                    <button type="button" id="certifyBtn" onclick="certifyCation()">확인</button>
+                </form>
+                <form method="get" class="new_total_form" style="display: none">
+                    <input id="change_by_id" class="changeById" type="text" required name="m_id" placeholder="아이디">
+                    <input id="new_pw1" class="new_pw" type="password" onblur="new_pw1_inspect()" name="m_pw" data-value="false" placeholder="새비밀번호 설정">
+                    <div id="new_pw1_comment" style="display: none">8~16자 영문, 숫자 조합</div>
+                    <input id="new_pw2" class="new_pw" type="password" onblur="new_pw2_inspect()" data-value="false" placeholder="새비밀번호 확인">
+                    <button type="button" id="new_pw_submit" onclick="changePw()">비밀번호 변경</button>
+                    <div id="new_pw2_comment" style="display: none">동일한 비밀번호를 입력해주세요.</div>
                 </form>
             </div>
         </div>
     </div>
+
 </header>
 <div class="back">
     <div class="out">
@@ -207,7 +223,7 @@
             </div>
 
         </div>
-        <div class="Main">
+        <div class="Main2">
             <div class="topMenu">
                 <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/board/free';">자유 게시판</div>
                 <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/board/lane';">라인별 게시판</div>

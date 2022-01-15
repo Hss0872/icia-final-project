@@ -66,12 +66,10 @@ function loginFrm(){
 
 //id찾기 모달창
 function searchId() {
-    console.log('야야투레레레');
     let login_modal = document.querySelector('.login_modal');
     login_modal.style.display ='none';
     let searchIdForm = document.querySelector('.searchId');
     searchIdForm.style.display ='block';
-    console.log('야야투레');
 
     let modal = document.querySelector('.modal');
     let modal_body = document.querySelector('.modal_body');
@@ -430,6 +428,20 @@ function logout(){
         location.href ="/community"
     })
 }
+
+//마이페이지
+function myPage(){
+    let modal = document.querySelector('.modal');
+    modal.style.display ='block';
+    let login_modal = document.querySelector('.login_modal');
+    login_modal.style.display ='none';
+    let myPage_form = document.querySelector('.myPage_form');
+    myPage_form.style.display ='block';
+}
+
+
+
+
 
 
 

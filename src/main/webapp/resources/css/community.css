@@ -23,14 +23,22 @@ body{
 .modal_body {
     position: absolute;
     top: 50%; left: 50%;
-    width: 400px;
-    height: 500px;
+    width: 500px;
+    height: 550px;
     padding: 40px;
     text-align: center;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
     transform: translateX(-50%) translateY(-50%);
+}
+
+.login_modal{
+    height: 400px;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+
 }
 
 
@@ -63,6 +71,11 @@ body{
     font: bold 40px 'arial';
     padding-top: 14px;
     letter-spacing: 2px;
+}
+
+.header_logo a{
+    text-decoration-line: none;
+    color: #f8b80e;
 }
 
 .header_logo p{
@@ -124,7 +137,14 @@ body{
     display : inline-block;
     position: relative;
 }
-.logout_btn{
+.logout_btn {
+    display: none;
+    opacity: 0.5;
+    color: rgb(1, 12, 8);
+    background-color: rgb(206, 206, 192);
+    position: relative;
+}
+.mypage_btn{
     display: none;
     opacity: 0.5;
     color: rgb(1, 12, 8);
@@ -171,6 +191,14 @@ h4{
     border: 1px solid lightgray;
     outline: none;
 }
+.forgot_pw button{
+    background-color:transparent;
+    border: 0;
+    outline: 0;
+    font-weight: 700;
+    color: #0b3cd2;
+    margin: 10px 0 0 0;
+}
 
 .forgot_pw a {
     margin-top: 30px;
@@ -179,17 +207,16 @@ h4{
 }
 
 .signUp a{
-    margin-left: 90px;
+    float:right;
     padding: 2px ;
+    text-decoration-line: none;
+    color: #0b3cd2;
 
 }
 
 
-
-
-
-
 .login_etc {
+    margin-top : 20px;
     padding: 10px;
     width: 80%;
     font-size: 14px;
@@ -199,15 +226,16 @@ h4{
     font-weight: bold;
 }
 
-.submit {
-    text-align: left;
-    margin-top: 20px;
-    margin-left: 170px;
+#loginSubmitBtn {
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
     margin-bottom: 30px;
-    width: 70%;
+    width: 80%;
 }
 .submit input {
-    width: 40%;
+    margin-left: 68px;
+    width: 50%;
     height: 50px;
     border: 0;
     outline: none;

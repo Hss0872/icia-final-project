@@ -1,12 +1,22 @@
 body {
     margin: 0;
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg");
-    background-size: cover;
     backdrop-filter:  brightness(100%);
 }
+video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    overflow: hidden;
+
+}
+
+
 
 canvas {
     display: block;
@@ -45,7 +55,7 @@ img{
     text-align: center;
     width: 420px;
     height: 45px;
-    opacity: 40%;
+    opacity: 50%;
 }
 
 .btn{
