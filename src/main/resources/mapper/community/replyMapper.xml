@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.best.team.community.dao.ReplyDao">
+    <select id="getFreeReplyList" resultType="FreeReply">
+        SELECT * FROM FREE_REPLY WHERE R_FREE_BNUM = #{bNum}
+    </select>
+
+    <select id="getLaneReplyList" resultType="LaneReply">
+        SELECT * FROM LANE_REPLY WHERE R_LANE_BNUM = #{bNum}
+    </select>
+
+    <insert id="addFreeReply">
+        INSERT INTO FREE_REPLY VALUES(FREE_REPLY_SEQ.NEXTVAL, #{member.m_id}, #{bNum}, #{member.m_nickname}, default, #{content}, default)
+    </insert>
+
+    <insert id="addLaneReply">
+        INSERT INTO LANE_REPLY VALUES(LANE_REPLY_SEQ.NEXTVAL, #{member.m_id}, #{bNum}, #{member.m_nickname}, default, #{content}, default)
+    </insert>
+
+    <delete id="deleteFreeReply">
+        DELETE FROM FREE_REPLY WHERE R_FREE_NUM = #{r_type_num} AND R_FREE_BNUM = #{bNum} AND R_FREE_ID = #{r_type_id}
+    </delete>
+
+    <delete id="deleteLaneReply">
+        DELETE FROM LANE_REPLY WHERE R_LANE_NUM = #{r_type_num} AND R_LANE_BNUM = #{bNum} AND R_LANE_ID = #{r_type_id}
+    </delete>
+
+</mapper>

@@ -20,7 +20,7 @@ public class LaneBoard {
     private String b_lane_content;
     private Timestamp b_lane_date; //년월일 시분초 다 나오는 클래스이다.
     private int b_lane_view;
-    private int b_lane_like;
+    private int b_lane_lcount;
     private int b_lane_rcount;
-
+    private int b_lane_rycount;
 }

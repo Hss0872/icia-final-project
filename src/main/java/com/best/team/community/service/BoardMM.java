@@ -1,6 +1,7 @@
 package com.best.team.community.service;
 import com.best.team.community.bean.*;
 import com.best.team.community.dao.BoardDao;
+import com.best.team.community.dao.ReplyDao;
 import com.best.team.community.userClass.Paging;
 import com.best.team.member.bean.Member;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,7 +20,7 @@ public class BoardMM {
     private BoardDao boardDao;
 
     @Autowired
-    public BoardMM(BoardDao boardDao) {
+    public BoardMM(BoardDao boardDao, ReplyDao replyDao) {
         this.boardDao = boardDao;
     }
 
@@ -82,23 +83,23 @@ public class BoardMM {
     }
 
     public boolean getBoardInfo(String type, int bNum, Model model) {
-        Optional<?> Op_boardInfo;
+        Optional<?> op_boardInfo;
         if (type.equals("free")) {
             FreeBoard freeBoardInfo = boardDao.getFreeBoardInfo(bNum);
-            Op_boardInfo = Optional.ofNullable(freeBoardInfo);
+            op_boardInfo = Optional.ofNullable(freeBoardInfo);
         } else {
             LaneBoard laneBoardInfo = boardDao.getLaneBoardInfo(bNum);
-            Op_boardInfo = Optional.ofNullable(laneBoardInfo);
+            op_boardInfo = Optional.ofNullable(laneBoardInfo);
         }
 
-        log.info("Op_boardInfo = {}" , Op_boardInfo.isPresent());
-        log.info("Op_boardInfo.get() = {}", Op_boardInfo.get());
+        log.info("op_boardInfo = {}" , op_boardInfo.isPresent());
+        log.info("op_boardInfo.get() = {}", op_boardInfo.get());
 
-        if (Op_boardInfo.isPresent()) {
+        if (op_boardInfo.isPresent()) {
             if (type.equals("free")) {
-                model.addAttribute("freeBoardInfo", Op_boardInfo.get());
+                model.addAttribute("freeBoardInfo", op_boardInfo.get());
             } else {
-                model.addAttribute("laneBoardInfo", Op_boardInfo.get());
+                model.addAttribute("laneBoardInfo", op_boardInfo.get());
             }
             model.addAttribute("boardType", type);
             return true;

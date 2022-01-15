@@ -46,4 +46,9 @@
     <select id="getId" resultType="String">
         select m_id from member where m_email = #{m_email}
     </select>
+
+    <!-- 맴버 정보 불러오기 -->
+    <select id="getMemberInfo" resultType="Member">
+        SELECT * FROM MEMBER WHERE m_id = #{m_id}
+    </select>
 </mapper>

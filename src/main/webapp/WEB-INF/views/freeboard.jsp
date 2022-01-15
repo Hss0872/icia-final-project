@@ -232,11 +232,14 @@
                                     <a href="/community/board/free/${board.b_free_num}">
                                             ${board.b_free_title}
                                     </a>
+                                    <c:if test="${board.b_free_rycount != 0}">
+                                        [${board.b_free_rycount}]
+                                    </c:if>
                                 </div>
                                 <div class="bWr">${board.b_free_nickname}</div>
                                 <div class="bDate">${board.b_free_date}</div>
                                 <div class="bLook">${board.b_free_view}</div>
-                                <div class="bLike">${board.b_free_like}</div>
+                                <div class="bLike">${board.b_free_lcount}</div>
                             </div>
                         </div>
                     </c:forEach>

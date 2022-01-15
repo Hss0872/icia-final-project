@@ -248,11 +248,14 @@
                                         <a href="/community/board/lane/${board.b_lane_num}">
                                                 ${board.b_lane_title}
                                         </a>
+                                    <c:if test="${board.b_lane_rycount != 0}">
+                                        [${board.b_lane_rycount}]
+                                    </c:if>
                                 </div>
                                 <div class="bWr">${board.b_lane_nickname}</div>
                                 <div class="bDate">${board.b_lane_date}</div>
                                 <div class="bLook">${board.b_lane_view}</div>
-                                <div class="bLike">${board.b_lane_like}</div>
+                                <div class="bLike">${board.b_lane_lcount}</div>
                             </div>
                         </div>
                     </c:forEach>

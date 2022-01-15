@@ -81,4 +81,19 @@
         SELECT * FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum}
     </select>
 
+    <update id="addCountFreeBReply">
+        UPDATE COMMUNITY_FREEB SET B_FREE_RYCOUNT = B_FREE_RYCOUNT + 1 WHERE B_FREE_NUM = #{bNum}
+    </update>
+
+    <update id="addCountLaneBReply">
+        UPDATE COMMUNITY_LANEB SET B_LANE_RYCOUNT = B_FREE_RYCOUNT + 1 WHERE B_LANE_NUM = #{bNum}
+    </update>
+
+    <update id="deleteCountFreeBReply">
+        UPDATE COMMUNITY_FREEB SET B_FREE_RYCOUNT = B_FREE_RYCOUNT - 1 WHERE B_FREE_NUM = #{bNum}
+    </update>
+
+    <update id="deleteCountLaneBReply">
+        UPDATE COMMUNITY_LANEB SET B_LANE_RYCOUNT = B_LANE_RYCOUNT - 1 WHERE B_LANE_NUM = #{bNum}
+    </update>
 </mapper>

@@ -25,7 +25,11 @@
     width: calc(100% - 59px);
 }
 .contentsCategory{
-    width : 30%;
+    width : 20%;
+    text-align: left;
+}
+.boardNumber {
+    width: 10%;
     text-align: left;
 }
 .contentsIp{
@@ -226,9 +230,12 @@
     width: 25%;
 }
 .reply_date {
-    width: 20%;
+    width: 40%;
 }
 .reply_delete {
-    width: 55%;
+    width: 35%;
     text-align: right;
+}
+#add_reply_list{
+    width: 100%;
 }

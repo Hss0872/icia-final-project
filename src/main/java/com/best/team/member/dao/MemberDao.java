@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberDao {
 
+
+
     boolean join(Member member);
 
     boolean checkValue(Member member);
@@ -30,4 +32,6 @@ public interface MemberDao {
     boolean changePw(Member member);
 
     String getId(Member member);
+
+    Member getMemberInfo(@Param("m_id") String m_id);
 }

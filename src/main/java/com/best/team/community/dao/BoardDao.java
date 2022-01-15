@@ -1,8 +1,6 @@
 package com.best.team.community.dao;
 
-import com.best.team.community.bean.BoardSearch;
-import com.best.team.community.bean.FreeBoard;
-import com.best.team.community.bean.LaneBoard;
+import com.best.team.community.bean.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -35,4 +33,12 @@ public interface BoardDao {
     FreeBoard getFreeBoardInfo(@Param("bNum") int bNum);
 
     LaneBoard getLaneBoardInfo(@Param("bNum") int bNum);
+
+    boolean addCountFreeBReply(@Param("bNum") int bNum);
+
+    boolean addCountLaneBReply(@Param("bNum") int bNum);
+
+    boolean deleteCountFreeBReply(@Param("bNum") int bNum);
+
+    boolean deleteCountLaneBReply(@Param("bNum") int bNum);
 }

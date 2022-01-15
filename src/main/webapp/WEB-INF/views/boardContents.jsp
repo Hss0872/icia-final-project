@@ -11,8 +11,11 @@
     <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
     <link rel="stylesheet" href="/resources/css/board.css?ver=1">
     <link rel="stylesheet" href="/resources/css/boardContents.css?ver=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css?ver=1" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?ver=1" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css?ver=1" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?ver=1"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
     <script src="/resources/js/login.js?ver=1"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1"></script>
 </head>
@@ -21,14 +24,16 @@
     <div class="header_logo">
         <a href="#">
             <a href="/">
-                <img src= "/resources/images/pngwing.com (3).png">
+                <img src="/resources/images/pngwing.com (3).png">
             </a>
             <h1>Community</h1>
             <p>You Are Free</p>
             <div class="dropdown">
                 <span class="dropbtn">Login</span>
                 <div class="dropdown-content">
-                    <button id="loginBtn" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal">Join</button>
+                    <button id="loginBtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Join
+                    </button>
                 </div>
         </a>
     </div>
@@ -211,9 +216,11 @@
         <div class="Main">
             <div class="topMenu">
                 <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/board/free';">자유
-                    게시판</div>
+                    게시판
+                </div>
                 <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/board/lane';">라인별
-                    게시판</div>
+                    게시판
+                </div>
             </div>
             <div class="boardContent1">
                 <div class="contentsInfo">
@@ -224,8 +231,12 @@
                 <div class="contentsHeadMenu">
                     <div class="topmenuInfo">
                         <div class="contentsCategory"></div>
+                        <div class="boardNumber"></div>
                         <div class="contentsIp"></div>
-                        <div class="contentsTopMenu">목록 | 댓글</div>
+                        <div class="contentsTopMenu">
+                            <a href=javascript:location.href=document.referrer>목록</a>
+                            |
+                            <a>댓글</a></div>
                     </div>
                 </div>
                 <div class="boardMain">
@@ -239,7 +250,7 @@
                                 <div class="botMenuLeft">
                                     <div class="contentsBottomMenu">
                                             <span>
-                                                <a>목록</a>
+                                                <a href=javascript:location.href=document.referrer>목록</a>
                                                 |
                                                 <a>댓글</a>
                                             </span>
@@ -261,64 +272,31 @@
                     </div>
                     <div class="boardBotMenu">
                         <div class="rightMenu">
-                            <button>목록이동</button>
+                            <button onclick="location.href=document.referrer">목록이동</button>
                             <button>글작성</button>
                         </div>
                     </div>
                     <div class="replyFrm">
                         <div class="replyList">
-                            <table class="">
-                                <tr class="reply_setTr">
-                                <tr class="reply_innerTr">
-                                    <td class="reply_id">
-                                        아이디
-                                    </td>
-                                    <td class="reply_date">
-                                        2021-01-13
-                                    </td>
-                                    <td class="reply_delete">
-                                        <button>삭제하기</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">내용ㅇㅇㅇㅇㅇㅇㅇㅇddddddㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-                                        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-                                </tr>
-                                </tr>
-                                <tr class="reply_setTr">
-                                <tr class="reply_innerTr">
-                                    <td class="reply_id">
-                                        아이디
-                                    </td>
-                                    <td class="reply_date">
-                                        2021-01-13
-                                    </td>
-                                    <td class="reply_delete">
-                                        <button>삭제하기</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">내용ㅇㅇㅇㅇㅇㅇㅇㅇddddddㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-                                        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-                                </tr>
-                                </tr>
-                                <tr class="reply_setTr">
-                                <tr class="reply_innerTr">
-                                    <td class="reply_id">
-                                        아이디
-                                    </td>
-                                    <td class="reply_date">
-                                        2021-01-13
-                                    </td>
-                                    <td class="reply_delete">
-                                        <button>삭제하기</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">내용ㅇㅇㅇㅇㅇㅇㅇㅇddddddㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-                                        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-                                </tr>
-                                </tr>
+                            <table id="add_reply_list">
+
+                                <%--                                    <tr class="reply_setTr">
+                                                                        <tr class="reply_innerTr">
+                                                                            <td class="reply_id">
+                                                                                    ${board.r_free_nickname}
+                                                                            </td>
+                                                                            <td class="reply_date">
+                                                                                    ${board.r_free_date}
+                                                                            </td>
+                                                                            <td class="reply_delete">
+                                                                                <button>삭제하기</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="3">${board.r_free_content}</td>
+                                                                        </tr>
+                                                                    </tr>--%>
+
                             </table>
                         </div>
                         <div class="addreply">
@@ -327,12 +305,12 @@
                                     <tr>
                                         <td class="replyTextareaTd">
                                             <div class="replyTextarea">
-                                                <textarea>dsds</textarea>
+                                                <textarea id="replyTextarea"></textarea>
                                             </div>
                                         </td>
                                         <td class="replySubmitTd">
                                             <div>
-                                                <button class="replySubmit">
+                                                <button type="button" class="replySubmit" onclick="DBAddReply()">
                                                     버튼
                                                 </button>
                                             </div>
@@ -349,21 +327,106 @@
 </body>
 <script>
     let boardType = '${boardType}';
+    let board_number;
     if (boardType == "free") {
         console.log('${freeBoardInfo.b_free_nickname}');
         $('.contentsWriter').text('${freeBoardInfo.b_free_nickname}');
         $('.contentsDate').text('${freeBoardInfo.b_free_date}');
-        $('.contentsHit').text('조회수 : ' + '${freeBoardInfo.b_free_view}' + ' 좋아요 : ' + '${freeBoardInfo.b_free_like}');
+        $('.contentsHit').text('조회수 : ' + '${freeBoardInfo.b_free_view}' + ' 좋아요 : ' + '${freeBoardInfo.b_free_lcount}');
         $('.contentsCategory').text('[자유게시판]');
+        board_number = '${freeBoardInfo.b_free_num}';
         $('#boardSubjectH1').text('${freeBoardInfo.b_free_title}');
         $('#maincontentBody').text('${freeBoardInfo.b_free_content}');
+        getReplyList(boardType, '${freeBoardInfo.b_free_num}').then(
+            function (result) {
+                add_reply(result, boardType);
+            }
+        )
     } else {
         $('.contentsWriter').text('${laneBoardInfo.b_lane_nickname}');
         $('.contentsDate').text('${laneBoardInfo.b_lane_date}');
-        $('.contentsHit').text('조회수 : ' + '${laneBoardInfo.b_lane_view}' + ' 좋아요 : ' + '${laneBoardInfo.b_lane_like}');
+        $('.contentsHit').text('조회수 : ' + '${laneBoardInfo.b_lane_view}' + ' 좋아요 : ' + '${laneBoardInfo.b_lane_lcount}');
         $('.contentsCategory').text('[라인게시판] [' + '${laneBoardInfo.b_lane_type}' + ']');
+        board_number = '${laneBoardInfo.b_lane_num}';
         $('#boardSubjectH1').text('${laneBoardInfo.b_lane_title}');
         $('#maincontentBody').text('${laneBoardInfo.b_lane_content}');
+        getReplyList(boardType, '${laneBoardInfo.b_lane_num}').then(
+            function (result) {
+                add_reply(result, boardType);
+            }
+        )
+    }
+
+    function getReplyList(boardType, bNum) {
+
+        return fetch('/community/board/' + boardType + '/' + bNum,
+            {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json;charset=utf-8"
+                }
+            }).then(response => response.json())
+    }
+
+    function add_reply(result, boardType) {
+        let $add_reply_list = $('#add_reply_list');
+        $add_reply_list.empty();
+        for (let row of result) {
+            let $reply_setTr = $('<tr>').attr('class', 'reply_setTr');
+            let $reply_innerTr = $('<tr>').attr('class', 'reply_innerTr');
+            $('<td>').text(row['r_' + boardType + '_nickname']).attr('class', 'reply_id').appendTo($reply_innerTr);
+            let playTime = new Date(row['r_' + boardType + '_date']);
+            $('<td>').text(playTime.toLocaleString()).attr('class', 'reply_date').appendTo($reply_innerTr);
+            if (row['r_' + boardType + '_id'] == '${id}') {
+                let $reply_delete = $('<td>').attr('class', 'reply_delete');
+                $('<button>').text('삭제').attr('onclick', 'DBDeleteReply(' + row['r_' + boardType + '_num'] + ')').appendTo($reply_delete);
+                $reply_delete.appendTo($reply_innerTr);
+            }
+
+            $reply_innerTr.appendTo($reply_setTr);
+            let $2nd_tr = $('<tr>');
+            $('<td>').attr('colspan', '3').text(row['r_' + boardType + '_content']).appendTo($2nd_tr);
+            $2nd_tr.appendTo($reply_setTr);
+            $reply_setTr.appendTo($add_reply_list);
+        }
+    }
+
+    function DBDeleteReply(r_type_num) {
+        return fetch('/community/board/' + boardType + '/' + board_number + '/reply/delete',
+            {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json;charset=utf-8"
+                },
+                body: JSON.stringify({
+                    r_type_num: r_type_num
+                })
+            }).then(response => response.json())
+            .then(result => add_reply(result, boardType))
+            .catch((err) => {
+                alert("로그인 해주세요.");
+            })
+    }
+    
+    function DBAddReply() {
+        let replyTextarea = $('#replyTextarea').val();
+        return fetch('/community/board/' + boardType + '/' + board_number + '/reply',
+            {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json;charset=utf-8"
+                },
+                body: JSON.stringify({
+                    content: replyTextarea
+                })
+            }).then(response => response.json())
+            .then(result => add_reply(result, boardType))
+            .catch((err) => {
+                alert("로그인 해주세요.");
+            })
     }
 </script>
 </html>
