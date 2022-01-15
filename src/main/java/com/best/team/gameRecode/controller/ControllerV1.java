@@ -47,7 +47,7 @@ public class ControllerV1 {
         mav=new ModelAndView();
 
         mav.addObject("summonerName",userName);
-        mav.setViewName("summoner_info");
+        mav.setViewName("summoner_info_test");
         //mav=sm.getSummonerGameRecode(userName,mav);
 
         return mav;

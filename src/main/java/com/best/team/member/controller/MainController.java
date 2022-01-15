@@ -21,6 +21,11 @@ import java.util.Map;
 public class MainController {
     private final ImgMM im;
 
+    @RequestMapping("/tteesstt")
+    public String testttt() {
+        return "tteesstt";
+    }
+
     @RequestMapping("/")
     public String home(HttpServletRequest request) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();

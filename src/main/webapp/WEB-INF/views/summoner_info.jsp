@@ -22,100 +22,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=1">
     <script src="/resources/js/summoner_info.js?ver=1"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/resources/js/test.js?ver=1"></script>
 
     <script>
+
+        
+
+
         
     </script>
 
-    <style>
-        .container {
-            background-color: rgba(187, 243, 24, 0.71);
-
-
-        }
-
-        .summoner_info {
-            border-radius: 20px;
-        }
-
-        .icon {
-            width: 30%;
-            height: 30%;
-        }
-
-        .img {
-            width: 100px;
-            height: 100px;
-        }
-
-        .sum {
-            width: 100%;
-
-            display: inline-flex;
-        }
-
-        .c {
-            width: 30px;
-            height: 30px;
-        }
-
-        .info {
-            width: 40%;
-            height: 40%;
-            display: inline-block;
-        }
-
-        .background {
-            width: 100%;
-            height: 100%;
-
-            /* 배경이미지는 최소 1920*960으로 제작해야 문제가 안생김 */
-            background-image: url('https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg');
-            background-repeat: no-repeat;
-            /* 배경이미지X */
-            background-size: cover;
-            /* 요소를 비율에 맞게 커버 */
-            background-position: center;
-            /* 이미지를 요소의 정가운데로 처리 */
-            background-attachment: fixed;
-            /* 스크롤바 움직일때 이미지가 따라다님 */
-            overflow: auto;
-        }
-
-        .champimg {
-            width: 100px;
-            height: 100px;
-            border-radius: 100%;
-            border-style: groove;
-        }
-
-        .spellimg {
-            width: 30px;
-            height: 30px;
-            border-radius: 100%;
-            border-style: groove;
-        }
-
-        .runeimg {
-            width: 30px;
-            height: 30px;
-        }
-
-        .itemimg {
-            width: 50px;
-            height: 50px;
-        }
-
-        .champ {
-            display: inline-flex;
-        }
-
-        .btn {
-            width: 63px;
-            height: 50px;
-        }
-    </style>
+    
+       
 </head>
 
 <body>
@@ -202,7 +121,7 @@
                         <div class="rank" id="rank"></div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 inbest">
 
                 </div>
             </div>
@@ -244,6 +163,10 @@
 
 
 
+        
+
+
+
         var summonerdata = getsummoner(name);
         console.log(summonerdata);
         $('<img>').attr('src', "//opgg-static.akamaized.net/images/profile_icons/profileIcon" + summonerdata
@@ -265,24 +188,29 @@
         var matchids = getMatchId(summonerdata.puuid);
         console.log(matchids);
 
-
+        let matchinfo = new Array();
         for (let i of matchids) {
 
 
 
-
+            
             let matchdata;
             let timelinedata;
             matchdata = getMatchData(i, summonerdata.puuid);
+            matchinfo[i]=matchdata;
+
             timelinedata = getTimeLineData(i, summonerdata.puuid);
             console.log(matchdata);
             console.log(timelinedata);
             let container1 = $('<div>').attr("class", "container total").attr('id', 'total');
+            let container2=$('<div>').attr('class','container itembuild');
 
             let row1 = $('<div>').attr("class", "row").attr('id', 'recode');
             let row2 = $('<div>').attr("class", "row select").attr('id', 'select');
             let row4 = $('<div>').attr("class", "row team").attr('id', 'blue');
             let row5 = $('<div>').attr("class", "row team").attr('id', 'red');
+            let row7 = $('<div>').attr("class", "row team").attr('id', 'item');
+           
             //let test1 = document.getElementById('nameA').getAttribute('')
             let colmd1 = $('<div>').attr("class", "col-md-2");
             let colmd2 = $('<div>').attr("class", "col-md-2");
@@ -330,7 +258,7 @@
 
 
         
-
+            let row6 = $('<div>').attr('class','row total');
             let teamside1=$('<div>').attr('class','row teamside');
             let teamside2=$('<div>').attr('class','row teamside');
             for(let v of matchdata.info.teams){
@@ -341,6 +269,9 @@
                 let delt=$('<div>').attr('class','col-md-2')
                 let ward=$('<div>').attr('class','col-md-1')
                 let cs=$('<div>').attr('class','col-md-1')
+                
+                let blueinfo = $('<div>').attr('class','col-md-4 blueinfo');
+                let redinfo = $('<div>').attr('class','col-md-4 redinfo');
                 if(v.teamId==100){
                     if(v.win==true){
                         teaminfo.html("<h5>승리</h5><p>블루</p>").appendTo(teamside1);
@@ -353,7 +284,14 @@
                     delt.html("<p>피해량</p>").appendTo(teamside1);
                     ward.html("<p>와드</p>").appendTo(teamside1);
                     cs.html("<p>cs</p>").appendTo(teamside1);
-                    teamside1.prependTo(row4)
+                    teamside1.prependTo(row4);
+                    $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(blueinfo);
+                    $('<p>').text(v.objectives.baron.kills).appendTo(blueinfo);
+                    $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(blueinfo);
+                    $('<p>').text(v.objectives.dragon.kills).appendTo(blueinfo);
+                    $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(blueinfo);
+                    $('<p>').text(v.objectives.tower.kills).appendTo(blueinfo);
+                    blueinfo.appendTo(row6);
 
 
 
@@ -374,6 +312,14 @@
                     ward.html("<p>와드</p>").appendTo(teamside2);
                     cs.html("<p>cs</p>").appendTo(teamside2);
                     teamside2.prependTo(row5);    
+                    teamside1.prependTo(row4);
+                    $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(blueinfo);
+                    $('<p>').text(v.objectives.baron.kills).appendTo(blueinfo);
+                    $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(blueinfo);
+                    $('<p>').text(v.objectives.dragon.kills).appendTo(blueinfo);
+                    $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(blueinfo);
+                    $('<p>').text(v.objectives.tower.kills).appendTo(blueinfo);
+                    blueinfo.appendTo(row6);
                 }
             }
             for (let y of matchdata.info.participants) {
@@ -392,7 +338,12 @@
 
                     let kda = getKda(y)
                     kda.attr("class", "col-md-4").appendTo(row1);
+
+                    
+
+                    
                 }
+                
                 if (y.teamId == 100) {
                     let div1 = getpartner(y)
                     div1.appendTo(colmd1);
@@ -408,8 +359,17 @@
                     
                     let personkda = getKda(y);
 
-                    personkda.attr('class', 'col-md-3 kda').appendTo(row3);
+                    personkda.attr('class', 'col-md-4 kda').appendTo(row3);
+
+                    let ward = $('<div>').attr('class','col-md-1 ward');
+                    ward.html("<p>"+y.wardsPlaced+"<br> score : "+y.visionScore+"</p>").appendTo(row3);
                     
+                    let cs = $('<div>').attr('class','col-md-1 cs');
+                    cs.html("<p>"+y.totalMinionsKilled+"<br> 분당 cs : "+((y.totalMinionsKilled)/(playTime.getMinutes())).toFixed(2)+"</p>").appendTo(row3);
+                                
+                    
+                    
+
             
 
 
@@ -417,6 +377,7 @@
 
 
                     row3.appendTo(row4);
+                    
                 } else if (y.teamId == 200) {
                     let div2 = getpartner(y)
                     div2.appendTo(colmd2);
@@ -431,16 +392,122 @@
                     
 
                     let personkda = getKda(y);
-                    personkda.attr('class', 'col-md-3 kda').appendTo(row3);
+                    personkda.attr('class', 'col-md-4 kda').appendTo(row3);
+                    let ward = $('<div>').attr('class','col-md-1 ward');
+                    ward.html("<p>"+y.wardsPlaced+"<br> score : "+y.visionScore+"</p>").appendTo(row3);
+
+                    let cs = $('<div>').attr('class','col-md-1 cs');
+                    cs.html("<p>"+y.totalMinionsKilled+"<br> 분당 cs : "+((y.totalMinionsKilled)/(playTime.getMinutes())).toFixed(2)+"</p>").appendTo(row3);
+
+
                     row3.appendTo(row5);
+
+                    
+                    
+
+                    
+
+
+
+
                 }
+                let rowa=$('<div>').attr('class', 'row item');
+                let sumnail = $('<div>').attr('class','col-md-4 persondd');
+                let buyitem = $('<div>').attr('class','col-md-8 personitem').attr('id',"g"+matchdata.info.gameId+"p"+y.participantId);
+                for (let z of championNameInfo) {
+                    //console.log(y.championId);
+                    //console.log(z);
+                    if (y.championId == z.championid) {
+                        $('<div>').attr("class", "col-md-6 champinfo").html(
+                            " <img class='champimg' src='/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
+                            z.champion_name_eng + ".png'>").appendTo(sumnail);
+                    }sumnail.appendTo(rowa)
+                }
+                $('<div>').attr("class", "col-md-6 champinfo").html("<h4>"+y.summonerName +"</h4><h5>"+y.teamPosition+"</h5>").appendTo(sumnail);
+                for(let b of timelinedata.info.frames){
+                    //console.log(b)
+                    for(let q of b.events){
+                        //console.log("y="+y.participantId);
+                        //console.log("b="+b.participantId);
+                        //console.log(q)
+                        
+                        if(q.type=="ITEM_PURCHASED"){
+                            
+                        //if(y.participantId==b.participantId){
+                            //console.log('p='+ y.participantId);
+
+                            if(y.participantId==q.participantId){
+                            //if(b.type=="ITEM_PURCHASED"){
+                                
+                                for(let t of itemInfo){
+                                    if(q.itemId==t.item_code){
+                                        if(q.itemId != 3340 && q.itemId != 3363 && q.itemId != 3364 && q.itemId != 2055&& q.itemId != 2003&& q.itemId != 2031&& q.itemId != 2033&& q.itemId != 2138&& q.itemId != 2139&& q.itemId != 2140&& q.itemId != 2010){    
+                                            let img=$('<img>').attr('class','itemddd');
+                                            img.attr('src',"/resources/images/LOL_ITEM_ICON/" + t.item_name_eng + ".png").appendTo(buyitem);
+                                        }
+                                    }
+                                
+                                }
+                                buyitem.appendTo(rowa);
+                               
+                            }
+                        } else if (q.type=="ITEM_UNDO"){
+                            if(y.participantId==q.participantId){
+                                if(q.beforeId != 3340 && q.beforeId != 3363 && q.beforeId != 3364 && q.beforeId != 2055&& q.beforeId != 2003&& q.itembeforeIdId != 2031&& q.beforeId != 2033&& q.beforeId != 2138&& q.beforeId != 2139&& q.beforeId != 2140&& q.beforeId != 2010)   {
+                                    console.log($("#g"+matchdata.info.gameId+"p"+y.participantId).last());
+                                    $("#g"+matchdata.info.gameId+"p"+y.participantId).last().remove();
+                                } 
+                                        
+                                
+                            }
+                        }
+                        
+                        
+                    }
+                }
+                
+                rowa.appendTo(row7);
 
 
 
-
+                
         
-
+                //drawBasic(y.totalDamageDealtToChampions,document.getElementById('chart'));
             }
+
+            //let test23 = document.getElementById("chart"+matchdata.info.gameId+"p"+x.participantId).getAttribute('id');
+            //for(let x of matchdata.info.participants){
+            //    let chartid=document.getElementById("chart"+matchdata.info.gameId+"p"+x.participantId)
+            //        google.charts.load('current', {packages: ['corechart', 'bar']});
+            //        google.charts.setOnLoadCallback(drawBasic);
+    
+            //        function drawBasic() {
+            //        
+            //            var data = google.visualization.arrayToDataTable([
+            //                ['City', '2010 Population',],
+            //                ['New York City, NY', 8175000]
+            //            ]);
+            //        
+            //            var options = {
+            //                title: 'Population of Largest U.S. Cities',
+            //                chartArea: {width: '50%'},
+            //                hAxis: {
+            //                    title: 'Total Population',
+            //                    minValue: 0
+            //                },
+            //                vAxis: {
+            //                    title: 'City'
+            //                }
+            //            };
+            //        
+            //            var chart = new google.visualization.BarChart(chartid);
+            //        
+            //            chart.draw(data, options);
+            //        }
+            //  
+            //    //drawBasic(x.totalDamageDealtToChampions, test23);
+            //    //document.getElementById("chart"+matchdata.info.gameId+"p"+y.participantId));
+            //}
 
 
 
@@ -472,11 +539,21 @@
             row2.appendTo(recodeInfo);
 
             row4.appendTo(container1);
+            row6.appendTo(container1);
 
             row5.appendTo(container1);
+            row7.appendTo(container2)
+            
+            
             container1.appendTo(recodeInfo);
+            container2.appendTo(recodeInfo);
+            
         }
-
+        
+        
+        
+        
+        
 
 
 
@@ -486,7 +563,7 @@
 
 
 
-
+        
 
 
 
