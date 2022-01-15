@@ -1,3 +1,41 @@
+body{
+    overflow: hidden;
+    overflow: auto;
+}
+
+.modal{
+    display: block;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4); }
+
+
+.modal.show {
+    display: block;
+}
+.modal_body {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 400px;
+    height: 500px;
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+
+
 *{
     margin: 0px;
     padding: 0px;
@@ -6,20 +44,17 @@
     color: black;
 }
 
-
 .header_logo img{
     float: left;
     width: 160px;
     height: 145px;
 }
 
-
 .header{
     height: 146px;
     text-align: center;
     box-sizing: border-box;
     border-bottom: 1px solid #999;
-
 }
 
 .header_logo h1{
@@ -82,11 +117,18 @@
 }
 
 
-#loginBtn{
+.btn-open-popup{
     opacity: 0.5;
     color: rgb(1, 12, 8);
     background-color: rgb(206, 206, 192);
     display : inline-block;
+    position: relative;
+}
+.logout_btn{
+    display: none;
+    opacity: 0.5;
+    color: rgb(1, 12, 8);
+    background-color: rgb(206, 206, 192);
     position: relative;
 }
 
@@ -258,3 +300,21 @@ h4{
     width: 920px;
     height: 650px;
 }
+
+
+
+/*id 찾기 pw 찾기 모달*/
+
+.total_form{
+    width: 100%;
+    height: 100%;
+    border: #382ed5;
+    border: solid 2px;
+    border-radius: 10px;
+}
+
+
+.id_input, .pw_input{
+
+}
+

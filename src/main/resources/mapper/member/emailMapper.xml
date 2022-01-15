@@ -2,13 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.best.team.member.dao.EmailDao">
     <select id="confirmEmail" parameterType="Member" resultType="boolean">
-        SELECT COUNT(*)
-        FROM MEMBERTEST
-        WHERE M_EMAIL = #{m_email}
-          AND AUTHKEY = #{authkey}
+        SELECT COUNT(*) FROM MEMBER WHERE M_EMAIL = #{m_email} AND M_AUTH_KEY = #{m_auth_key}
     </select>
 
     <update id="updateAuthstatus" parameterType="Member">
-        UPDATE MEMBERTEST SET authstatus = 1 WHERE M_EMAIL = #{m_email}
+        UPDATE MEMBER SET authstatus = 1 WHERE M_EMAIL = #{m_email}
     </update>
 </mapper>

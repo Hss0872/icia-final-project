@@ -21,6 +21,6 @@ public class MailController {
     public String emailConfirm(Member member, Model model) {
         String msg = mailService.confirmEmail(member);
         model.addAttribute("msg", msg);
-        return "home";
+        return "/community";
     }
 }

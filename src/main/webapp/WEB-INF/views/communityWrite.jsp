@@ -1,19 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>first.gg</title>
+    <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://kit.fontawesome.com/f9589fd651.js?ver=1"></script>
-    <link rel="stylesheet" href="/resources/css/community.css?ver=1">
-    <link rel="stylesheet" href="/resources/css/board.css?ver=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css?ver=1" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?ver=1" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="/resources/js/login.js?ver=1"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1"></script>
+    <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
+    <link rel="stylesheet" href="/resources/css/board.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="home.js"></script>
 </head>
 <body>
 <header class="header">
@@ -56,7 +53,7 @@
                             <a href="">Forgot Password?</a>
                         </div>
                         <div class="signUp">
-                            <a href="/member/access">SignUp</a>
+                            <a href="./joinFrm.html">SignUp</a>
                         </div>
                     </div>
                     <div class="submit">
@@ -70,8 +67,8 @@
 <div class="back">
     <div class="out">
         <div class="leftMenu">
-            <a class="Logo" href="pMain.html" width="100%">
-                <img src="/resources/images/Full.png" alt="First in Last out Logo">
+            <a class="Logo" href="community" width="100%">
+                <img src="/resources/images/Full.png" alt="First in Last out Logo" width="100%">
             </a>
             <div class="coment">댓글 많이 쓴 회원 Top10
                 <div>
@@ -205,70 +202,45 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="Main">
             <div class="topMenu">
                 <div class="allboard" style="cursor: pointer;" onclick="location.href='/community/free/board';">자유 게시판</div>
                 <div class="tierboard" style="cursor: pointer;" onclick="location.href='/community/lane/board';">라인별 게시판</div>
             </div>
-            <div class="">
-                <div class="allboardHot">
-                    <div id="free_board" style="height: 100%;">
-                        <%--<div class="HotFree">자유게시판 hot 글1</div>--%>
+            <div class="boardA">
+                <div class="title">
+                    <input type="text" class="titlew" placeholder="글 제목">
+                </div>
+                <div class="leftWmenu">
+                    <div class="selectBox">
+                        <SElect class="wBoard">
+                            <option value="free" selected="selected">자유게시판</option>
+                            <option value="line">라인게시판</option>
+                        </SElect>
+                    </div>
+                    <div class="selectBox">
+                        <SElect class="wLine">
+                            <option value="non" selected="selected">라인을 선택해주세요</option>
+                            <option value="top">탑</option>
+                            <option value="mid">미드</option>
+                            <option value="jungle">정글</option>
+                            <option value="bot">원딜</option>
+                            <option value="sup">서폿</option>
+                        </SElect>
+                    </div>
+                    <div>
+                        <input type="button"  value="작성">
                     </div>
                 </div>
-                <div class="lineMenu">
-                    <ul class="line">
-                        <li class="top">top</li>
-                        <li class="mid">mid</li>
-                        <li class="jungle">jungle</li>
-                        <li class="bot">bot</li>
-                        <li class="sup">sup</li>
-                    </ul>
-                </div>
-                <div class="lineMenuHot">
-                    <div id="lane_board" style="height: 100%;">
-                        <%--<div class="HotLine">라인게시판 Hot 글1</div>--%>
-                    </div>
+                <div class="wArea" contenteditable="true">
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 </body>
-<script>
-    window.onload = function append_freeboard() {
-        getBoardList('free').then(
-            function(result) {
-                let $free_board = $('#free_board')
-                for (let row of result) {
-                    $('<div>').text(row['b_free_content']).attr('class', 'HotFree').appendTo($free_board);
-                }
-            }
-        )
-
-        getBoardList('lane').then(
-            function(result) {
-                let $lane_board = $('#lane_board')
-                for (let row of result) {
-                    $('<div>').text(row['b_lane_content']).attr('class', 'HotLine').appendTo($lane_board);
-                }
-            }
-        )
-    }
-
-        function getBoardList(boardType) {
-        return fetch('/community/boardlist',
-            {
-                method : 'post',
-                headers : {
-                    "Content-Type" : "application/json",
-                    "accept" : "application/json;charset=utf-8"
-                },
-                body : JSON.stringify({
-                    boardType : boardType,
-                })
-            }).then(response => response.json())
-    };
-</script>
 </html>

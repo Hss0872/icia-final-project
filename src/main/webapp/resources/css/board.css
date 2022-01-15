@@ -1,5 +1,8 @@
+
+
 body{
     margin: 0;
+    min-width: 900px;
 }
 
 .header_logo img{
@@ -145,15 +148,12 @@ h4{
     background-color: rgb(238, 238, 238);
 }
 .out{
-
-    width: 80%;
+    width: 70%;
+    min-width: 800px;
     height: 1000px;
     background-color: white;
     margin: auto;
 }
-
-
-
 .leftMenu{
     width: 20%;
     height: 1000px;
@@ -323,24 +323,29 @@ h4{
 }
 
 .pageout{
+    border-color: #0b5aad;
+    align-items: center;
     margin:auto;
-    width: 80%;
-    height: 30px;
+    width: 100%;
+    height: 80px;
+    padding-top: 20px;
 }
 
 .pagingNo{
+    border-color: #0b5aad;
     text-align: center;
     float: left;
     width: 8%;
     height: 30px;
 }
 .pagingNoS{
+    display: inline-block;
+    border-color: #0b5aad;
     text-align: center;
     float: left;
-    width: 10%;
+    width: 8%;
     height: 30px;
 }
-
 
 .pageNo{
     list-style: none;
@@ -349,9 +354,8 @@ h4{
 }
 
 .allboardHot{
-    display: inline-block;
-    width: 80%;
-    height: 85%;
+    width: 49%;
+    height: 100%;
     float: left;
     background-color: ghostwhite;
     border-top: 1px solid lightsteelblue;
@@ -427,7 +431,6 @@ h4{
 
 
 
-
 .MainFree{
     width: 100%;
     height: 85%;
@@ -472,7 +475,8 @@ h4{
     background-color: lightblue;
     float: left;
 }
-.MainLineS{
+.MainLineS {
+    margin: auto;
     width: 100%;
     height: 60px;
 }
@@ -538,7 +542,7 @@ h4{
     height: 87%;
     margin-top: 2%;
     margin-left: 1%;
-    background-color: rgb(226, 226, 226);
+    background-color: aliceblue;
     float: left;
     padding: 8px 10px;
     border: 1px solid #D6D6D6;
@@ -551,6 +555,10 @@ h4{
     margin-bottom: 5px;
     margin: auto;
 }
+.searchId{
+
+}
+
 .wBoard{
     width: 100%;
     height: 30px;
@@ -558,4 +566,7 @@ h4{
 .wLine{
     width: 100%;
     height: 30px;
+}
+a li{
+    color: black;
 }

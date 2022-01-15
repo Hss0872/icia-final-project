@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.best.team.community.dao.BoardDao">
-    <select id="getLaneBoardList" resultType="LaneBoard">
+    <select id="getPreviewLaneBList" resultType="LaneBoard">
         <![CDATA[
         SELECT * FROM
-                (SELECT * FROM COMMUNITY_LANEB ORDER BY b_lane_num DESC)
-        WHERE ROWNUM <= 20
+                (SELECT * FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane} ORDER BY b_lane_num DESC)
+        WHERE ROWNUM <= 15
         ]]>
     </select>
 
-    <select id="getFreeBoardList" resultType="FreeBoard">
+    <select id="getPreviewFreeBList" resultType="FreeBoard">
         <![CDATA[
         SELECT * FROM
                 (SELECT * FROM COMMUNITY_FREEB ORDER BY b_free_num DESC)
@@ -17,7 +17,7 @@
         ]]>
     </select>
 
-    <select id="getboardList" resultType="FreeBoard">
+    <select id="getFreeBList" resultType="FreeBoard">
         <![CDATA[
         SELECT * FROM (
                           SELECT /*+INDEX_DESC(COMMUNITY_FREEB PK_B_FREE_NUM)*/ ROWNUM RN, COMMUNITY_FREEB.*
@@ -27,7 +27,50 @@
         ]]>
     </select>
 
-    <select id="getBoardCount" resultType="int">
-        SELECT COUNT(*) FROM COMMUNITY_LANEB
+    <select id="getFreeBoardCount" resultType="int">
+        SELECT COUNT(*) FROM COMMUNITY_FREEB
     </select>
+
+    <select id="getFreeBSearchList" resultType="FreeBoard">
+                <![CDATA[
+        SELECT * FROM (
+                          SELECT /*+INDEX_DESC(COMMUNITY_FREEB PK_B_FREE_NUM)*/ ROWNUM RN, COMMUNITY_FREEB.*
+                          FROM COMMUNITY_FREEB
+                          WHERE ROWNUM<=#{pageNum}*10 AND UPPER(${boardSearch.searchType}) LIKE UPPER('%${boardSearch.keyword}%'))
+        WHERE RN>=#{pageNum}*10-9
+        ]]>
+    </select>
+
+    <select id="getFreeBSearchCount" resultType="int">
+        SELECT COUNT(*) FROM COMMUNITY_FREEB WHERE UPPER(${searchType}) LIKE UPPER('%${keyword}%')
+    </select>
+
+    <select id="getLaneBList" resultType="LaneBoard">
+        <![CDATA[
+        SELECT * FROM (
+                          SELECT /*+INDEX_DESC(COMMUNITY_LANEB PK_B_LANE_NUM)*/ ROWNUM RN, COMMUNITY_LANEB.*
+                          FROM COMMUNITY_LANEB
+                          WHERE ROWNUM<=#{pageNum}*10 and b_lane_type = #{lane})
+        WHERE RN>=#{pageNum}*10-9
+        ]]>
+    </select>
+
+    <select id="getLaneBoardCount" resultType="int">
+        SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane}
+    </select>
+
+    <select id="getLaneBSearchList" resultType="LaneBoard">
+                <![CDATA[
+        SELECT * FROM (
+                          SELECT /*+INDEX_DESC(COMMUNITY_LANEB PK_B_LANE_NUM)*/ ROWNUM RN, COMMUNITY_LANEB.*
+                          FROM COMMUNITY_LANEB
+                          WHERE ROWNUM<=#{pageNum}*10 AND B_LANE_TYPE = #{lane} AND UPPER(${boardSearch.searchType}) LIKE UPPER('%${boardSearch.keyword}%'))
+        WHERE RN>=#{pageNum}*10-9
+        ]]>
+    </select>
+
+    <select id="getLaneBSearchCount" resultType="int">
+        SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane} AND UPPER(${boardSearch.searchType}) LIKE UPPER('%${boardSearch.keyword}%')
+    </select>
+
 </mapper>
