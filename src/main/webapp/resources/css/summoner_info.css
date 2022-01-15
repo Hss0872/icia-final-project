@@ -1,74 +1,90 @@
-.body {
-    margin: 0;
-    
-    width: 100%;
-    height: 300px;
-    background-image: url("https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg");
-    background-size: cover;
-    
-    background-attachment: fixed;
-}
-.home_btn{
-    width: 70px;
-    height: 40px;
-    margin-top: 40px;
-    margin-left: 30px;
-    left: 30%;
+.container {
+  background-color: rgba(187, 243, 24, 0.71);
+
+
 }
 
-.home_btn a{
-    text-decoration:none;
-    font-size: large;
-    color: azure;
+.summoner_info {
+  border-radius: 20px;
+}
+
+.icon {
+  width: 30%;
+  height: 30%;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+}
+
+.sum {
+  width: 100%;
+
+  display: inline-block;
 }
 
 
-
-.search-bar {
-    margin-top: 40px;
-    float: right;
-    width: 260px;
-    height: 90px;
-    border-radius: 5px;
-    border: solid 1px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    opacity: 1;
-    position: relative;
-  }
-  .search-bar input {
-    /* opacity: 70%; */
-    width: 180px;
-    height: 29px;
-    border: none;
-    -webkit-appearance: none;
-    text-align: center;
-    margin-left: 10px;
-    overflow: auto;
-    z-index: -1;
-    font-size: 18px;
-    position: absolute;
-    border-radius: 9px;
-  }
-
-  .search-bar i {
-      position: absolute;
-      font-size: 15px;
-      color: rgb(15, 19, 201);
-      left: 49px;
-  }
-
-
-.search-bar input:focus,
-textarea:focus {
-    width: 230px;
-    height: 39px;
-  opacity: 100%;
-  background: rgba(253, 255, 255, 0.932);
-  border: none;
-  padding-right: 20px;
-  transition: .5s ease;
+.c {
+  width: 30px;
+  height: 30px;
 }
-  
+
+.info {
+  width: 40%;
+  height: 40%;
+  display: inline-block;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+
+  /* 배경이미지는 최소 1920*960으로 제작해야 문제가 안생김 */
+  background-image: url('https://user-images.githubusercontent.com/26748614/96337246-f14d4580-1085-11eb-8793-a86d929e034d.jpg');
+  background-repeat: no-repeat;
+  /* 배경이미지X */
+  background-size: cover;
+  /* 요소를 비율에 맞게 커버 */
+  background-position: center;
+  /* 이미지를 요소의 정가운데로 처리 */
+  background-attachment: fixed;
+  /* 스크롤바 움직일때 이미지가 따라다님 */
+  overflow: auto;
+}
+
+.champimg {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border-style: groove;
+}
+
+.spellimg {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border-style: groove;
+}
+
+.runeimg {
+  width: 30px;
+  height: 30px;
+}
+
+.itemimg {
+  width: 50px;
+  height: 50px;
+}
+
+.champ {
+  display: inline-flex;
+}
+
+.btn {
+  width: 63px;
+  height: 50px;
+}
+.property, .bigrune{
+  display: inline-flex;
+}
