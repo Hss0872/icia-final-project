@@ -30,6 +30,12 @@
             console.log(runeBulidWinRates[0].sub_Runes.split('|'));
             console.log(runeBulidWinRates[0].stats_Runes);
             console.log(runeBulidWinRates[0].stats_Runes.split('|'));
+            console.log(runeBulidWinRates[1].main_Runes);
+            console.log(runeBulidWinRates[1].main_Runes.split('|'));
+            console.log(runeBulidWinRates[1].sub_Runes);
+            console.log(runeBulidWinRates[1].sub_Runes.split('|'));
+            console.log(runeBulidWinRates[1].stats_Runes);
+            console.log(runeBulidWinRates[1].stats_Runes.split('|'));
 
             //스킬 빌드 (승률)
             let skillWinRates = ${skillWinRates};
@@ -361,18 +367,34 @@
                                         <div class="Threeline_Rune1" style="display: flex"></div>
                                         <div class="Fourline_Rune1" style="display: flex"></div>
                                     </div>
-                                    <div class="Second_Rune1"></div>
-                                    <div class="Stats_Rune1"></div>
+                                    <div class="Second_Rune1">
+                                        <div class="Summary_One1" style="display: flex"></div>
+                                        <div class="Summary_Two1" style="display: flex"></div>
+                                        <div class="Summary_Three1" style="display: flex"></div>
+                                    </div>
+                                    <div class="Stats_Rune1">
+                                        <div class="Stats_One1" style="display: flex"></div>
+                                        <div class="Stats_Two1" style="display: flex"></div>
+                                        <div class="Stats_Three1" style="display: flex"></div>
+                                    </div>
                                 </div>
                                 <div class="Rune_Build_Div2">
-                                    <div class="First_Rune2" style="display: flex">
+                                    <div class="First_Rune2">
                                         <div class="Oneline_Rune2" style="display: flex"></div>
                                         <div class="Twoline_Rune2" style="display: flex"></div>
                                         <div class="Threeline_Rune2" style="display: flex"></div>
                                         <div class="Fourline_Rune2" style="display: flex"></div>
                                     </div>
-                                    <div class="Second_Rune2"></div>
-                                    <div class="Stats_Rune2"></div>
+                                    <div class="Second_Rune2">
+                                        <div class="Summary_One2" style="display: flex"></div>
+                                        <div class="Summary_Two2" style="display: flex"></div>
+                                        <div class="Summary_Three2" style="display: flex"></div>
+                                    </div>
+                                    <div class="Stats_Rune2">
+                                        <div class="Stats_One2" style="display: flex"></div>
+                                        <div class="Stats_Two2" style="display: flex"></div>
+                                        <div class="Stats_Three2" style="display: flex"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -904,10 +926,18 @@
         let RB_Rate1 = runeBulidWinRates[0].win_Rate;
         let RB_Rate2 = runeBulidWinRates[1].win_Rate;
 
+        let PM_Rune1 = runeBulidWinRates[0].main_Runes.split('|')[0];
+        let SM_Rune1 = runeBulidWinRates[0].sub_Runes.split('|')[0];
+        let Stats_Rune1 = runeBulidWinRates[0].stats_Runes.split('|');
+
+        let PM_Rune2 = runeBulidWinRates[1].main_Runes.split('|')[0];
+        let SM_Rune2 = runeBulidWinRates[1].sub_Runes.split('|')[0];
+        let Stats_Rune2 = runeBulidWinRates[1].stats_Runes.split('|');
+
         let RB_Div1 = $('.Rune_Build_Div1');
         let RB_Div2 = $('.Rune_Build_Div2');
 
-        //첫번째 룬페이지 변수
+        //첫번째 (Primary Runes) 룬페이지 변수
         let RB_One1 = $('.Oneline_Rune1');
         let RB_Two1 = $('.Twoline_Rune1');
         let RB_Three1 = $('.Threeline_Rune1');
@@ -918,219 +948,351 @@
         let RB_Three2 = $('.Threeline_Rune2');
         let RB_Four2 = $('.Fourline_Rune2');
 
-        //두번째 룬페이지 변수
-        let RBs_One1 = $('.Oneline_Rune1');
+        //두번째 (Summary Runes) 룬페이지 변수
+        let RBs_One1 = $('.Summary_One1');
+        let RBs_Two1 = $('.Summary_Two1');
+        let RBs_Three1 = $('.Summary_Three1');
+
+        let RBs_One2 = $('.Summary_One2');
+        let RBs_Two2 = $('.Summary_Two2');
+        let RBs_Three2 = $('.Summary_Three2');
+
+        //세번째 (Stats Mod) 룬페이지 변수
+        let SM_One1 = $('.Stats_One1');
+        let SM_Two1 = $('.Stats_Two1');
+        let SM_Three1 = $('.Stats_Three1');
+
+        let SM_One2 = $('.Stats_One2');
+        let SM_Two2 = $('.Stats_Two2');
+        let SM_Three2 = $('.Stats_Three2');
 
         //룬 빌드1
-        //Domination (지배)
-        $('<div>').attr("class", "Domination_Keystone_Predator").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Domination_Keystone_Electrocute").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Domination_Keystone_DarkHarvest").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Domination_Keystone_HailOfBlades").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").appendTo(RB_One1);
+        //Primay Runes
+        if (PM_Rune1 == "8112" || PM_Rune1 == "8124" || PM_Rune1 == "8128" || PM_Rune1 == "9923") {     //Domination (지배)
+            $('<div>').attr("class", "Domination_Keystone_Predator").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Domination_Keystone_Electrocute").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Domination_Keystone_DarkHarvest").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Domination_Keystone_HailOfBlades").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-        $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").appendTo(RB_Two1);
+            $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-        $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").appendTo(RB_Three1);
+            $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-        $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").appendTo(RB_Four1);
+            $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+        } else if (PM_Rune1 == "8351" || PM_Rune1 == "8360" || PM_Rune1 == "8369") {    //Inspiration (영감)
+            $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Inspiration_Keystone_FirstStrike").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-        //Inspiration (영감)
-        $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Inspiration_Keystone_FirstStrike").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").appendTo(RB_One1);
+            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-        $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").appendTo(RB_Two1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-        $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").appendTo(RB_Three1);
+            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+        } else if (PM_Rune1 == "8005" || PM_Rune1 == "8008" || PM_Rune1 == "8021" || PM_Rune1 == "8010") {    //Precision (정밀)
+            $('<div>').attr("class", "Precision_Keystone_PressTheAttack").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Precision_Keystone_LethalTempo").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Precision_Keystone_FleetFootwork").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Precision_Keystone_Conqueror").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-        $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").appendTo(RB_Four1);
+            $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-        //Precision (정밀)
-        $('<div>').attr("class", "Precision_Keystone_PressTheAttack").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Precision_Keystone_LethalTempo").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Precision_Keystone_FleetFootwork").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Precision_Keystone_Conqueror").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").appendTo(RB_One1);
+            $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-        $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").appendTo(RB_Two1);
+            $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+        } else if (PM_Rune1 == "8437" || PM_Rune1 == "8439" || PM_Rune1 == "8465") {      //Resolve (결의)
+            $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Resolve_Keystone_Aftershock").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Resolve_Keystone_Guardian").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-        $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").appendTo(RB_Three1);
+            $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-        $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").appendTo(RB_Four1);
+            $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-        //Resolve (결의)
-        $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Resolve_Keystone_Aftershock").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Resolve_Keystone_Guardian").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").appendTo(RB_One1);
+            $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+        } else if (PM_Rune1 == "8214" || PM_Rune1 == "8229" || PM_Rune1 == "8230") {        //Sorcery (마법)
+            $('<div>').attr("class", "Sorcery_Keystone_SummonAery").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Sorcery_Keystone_PhaseRush").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-        $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").appendTo(RB_Two1);
+            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-        $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").appendTo(RB_Three1);
+            $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-        $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").appendTo(RB_Four1);
+            $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+        }
 
-        //Sorcery (마법)
-        $('<div>').attr("class", "Sorcery_Keystone_SummonAery").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").appendTo(RB_One1);
-        $('<div>').attr("class", "Sorcery_Keystone_PhaseRush").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").appendTo(RB_One1);
+        //Summary Runes
+        if (SM_Rune1 == "8126" || SM_Rune1 == "8139" || SM_Rune1 == "8143" || SM_Rune1 == "8136" || SM_Rune1 == "8120" || SM_Rune1 == "8138") {      //Domination (지배)8
+            $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
-        $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").appendTo(RB_Two1);
-        $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").appendTo(RB_Two1);
+            $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
-        $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").appendTo(RB_Three1);
-        $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").appendTo(RB_Three1);
+            $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        } else if (SM_Rune1 == "8306" || SM_Rune1 == "8304" || SM_Rune1 == "8313" || SM_Rune1 == "8321" || SM_Rune1 == "8316" || SM_Rune1 == "8345") {        //Inspiration (영감)
+            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
-        $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").appendTo(RB_Four1);
-        $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").appendTo(RB_Four1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
+            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        } else if (SM_Rune1 == "9101" || SM_Rune1 == "9111" || SM_Rune1 == "8009" || SM_Rune1 == "9104" || SM_Rune1 == "9105" || SM_Rune1 == "9103") {        //Precision (정밀)
+            $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
+            $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
+            $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        } else if (SM_Rune1 == "8446" || SM_Rune1 == "8463" || SM_Rune1 == "8401" || SM_Rune1 == "8429" || SM_Rune1 == "8444" || SM_Rune1 == "8473") {        //Resolve (결의)
+            $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
-        // let substyle = y.perks.styles[1].style;
-        // if (substyle == 8100) {
-        //     $('<div>').attr("class", "rune2").html(
-        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Domination/Domination.png'>"
-        //     ).appendTo(rune)
-        // } else if (substyle == 8200) {
-        //     $('<div>').attr("class", "rune2").html(
-        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Sorcery/Sorcery.png'>")
-        //         .appendTo(rune)
-        //
-        // } else if (substyle == 8000) {
-        //     $('<div>').attr("class", "rune2").html(
-        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Precision/Precision.png'>"
-        //     ).appendTo(rune)
-        //
-        // } else if (substyle == 8300) {
-        //     $('<div>').attr("class", "rune2").html(
-        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Inspiration/Inspiration.png'>"
-        //     ).appendTo(rune)
-        //
-        // } else if (substyle == 8400) {
-        //     $('<div>').attr("class", "rune2").html(
-        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Resolve/Resolve.png'>")
-        //         .appendTo(rune)
-        // }
+            $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
+            $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        } else if (SM_Rune1 == "8224" || SM_Rune1 == "8226" || SM_Rune1 == "8275" || SM_Rune1 == "8210" || SM_Rune1 == "8234" || SM_Rune1 == "8233") {      //Sorcery (마법)
+            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+
+            $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+
+            $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        }
+        //Stats Mods
+        $('<div>').attr("class", "Stats_5008").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
+        $('<div>').attr("class", "Stats_5005").html("<img src='/resources/images/perk_images/Styles/Stats/5005.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
+        $('<div>').attr("class", "Stats_5007").html("<img src='/resources/images/perk_images/Styles/Stats/5007.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
+
+        $('<div>').attr("class", "Stats_5008").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
+        $('<div>').attr("class", "Stats_5002").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
+        $('<div>').attr("class", "Stats_5003").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
+
+        $('<div>').attr("class", "Stats_5001").html("<img src='/resources/images/perk_images/Styles/Stats/5001.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
+        $('<div>').attr("class", "Stats_5002").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
+        $('<div>').attr("class", "Stats_5003").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
 
         $('<p>').attr("class", "Rune_Build_Rate").text(RB_Rate1+"% Win Rate").appendTo(RB_Div1);
         $('<p>').attr("class", "Rune_Build_cnt").text(RB_Cnt1+" Games").appendTo(RB_Div1);
 
         //룬 빌드2
-        //Domination (지배)
-        $('<div>').attr("class", "Domination_Keystone_Predator").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Domination_Keystone_Electrocute").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Domination_Keystone_DarkHarvest").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Domination_Keystone_HailOfBlades").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").appendTo(RB_One2);
+        //Primay Runes
+        if (PM_Rune1 == "8112" || PM_Rune1 == "8124" || PM_Rune1 == "8128" || PM_Rune1 == "9923") {     //Domination (지배)
+            $('<div>').attr("class", "Domination_Keystone_Predator").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Domination_Keystone_Electrocute").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Domination_Keystone_DarkHarvest").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Domination_Keystone_HailOfBlades").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-        $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").appendTo(RB_Two2);
+            $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-        $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").appendTo(RB_Three2);
+            $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-        $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").appendTo(RB_Four2);
+            $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        } else if (PM_Rune1 == "8351" || PM_Rune1 == "8360" || PM_Rune1 == "8369") {    //Inspiration (영감)
+            $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Inspiration_Keystone_FirstStrike").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-        //Inspiration (영감)
-        $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Inspiration_Keystone_FirstStrike").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").appendTo(RB_One2);
+            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-        $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").appendTo(RB_Two2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-        $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").appendTo(RB_Three2);
+            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        } else if (PM_Rune1 == "8005" || PM_Rune1 == "8008" || PM_Rune1 == "8021" || PM_Rune1 == "8010") {    //Precision (정밀)
+            $('<div>').attr("class", "Precision_Keystone_PressTheAttack").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Precision_Keystone_LethalTempo").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Precision_Keystone_FleetFootwork").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Precision_Keystone_Conqueror").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-        $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").appendTo(RB_Four2);
+            $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-        //Precision (정밀)
-        $('<div>').attr("class", "Precision_Keystone_PressTheAttack").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Precision_Keystone_LethalTempo").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Precision_Keystone_FleetFootwork").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Precision_Keystone_Conqueror").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").appendTo(RB_One2);
+            $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-        $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").appendTo(RB_Two2);
+            $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        } else if (PM_Rune1 == "8437" || PM_Rune1 == "8439" || PM_Rune1 == "8465") {      //Resolve (결의)
+            $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Resolve_Keystone_Aftershock").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Resolve_Keystone_Guardian").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-        $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").appendTo(RB_Three2);
+            $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-        $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").appendTo(RB_Four2);
+            $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-        //Resolve (결의)
-        $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Resolve_Keystone_Aftershock").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Resolve_Keystone_Guardian").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").appendTo(RB_One2);
+            $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        } else if (PM_Rune1 == "8214" || PM_Rune1 == "8229" || PM_Rune1 == "8230") {        //Sorcery (마법)
+            $('<div>').attr("class", "Sorcery_Keystone_SummonAery").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Sorcery_Keystone_PhaseRush").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-        $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").appendTo(RB_Two2);
+            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-        $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").appendTo(RB_Three2);
+            $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-        $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").appendTo(RB_Four2);
+            $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        }
+        //Summary Runes
+        if (SM_Rune1 == "8126" || SM_Rune1 == "8139" || SM_Rune1 == "8143" || SM_Rune1 == "8136" || SM_Rune1 == "8120" || SM_Rune1 == "8138") {      //Domination (지배)
+            $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
 
-        //Sorcery (마법)
-        $('<div>').attr("class", "Sorcery_Keystone_SummonAery").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").appendTo(RB_One2);
-        $('<div>').attr("class", "Sorcery_Keystone_PhaseRush").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").appendTo(RB_One2);
+            $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
 
-        $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").appendTo(RB_Two2);
-        $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").appendTo(RB_Two2);
+            $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        } else if (SM_Rune1 == "8306" || SM_Rune1 == "8304" || SM_Rune1 == "8313" || SM_Rune1 == "8321" || SM_Rune1 == "8316" || SM_Rune1 == "8345") {        //Inspiration (영감)
+            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
 
-        $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").appendTo(RB_Three2);
-        $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").appendTo(RB_Three2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
 
-        $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").appendTo(RB_Four2);
-        $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").appendTo(RB_Four2);
+            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        } else if (SM_Rune1 == "9101" || SM_Rune1 == "9111" || SM_Rune1 == "8009" || SM_Rune1 == "9104" || SM_Rune1 == "9105" || SM_Rune1 == "9103") {        //Precision (정밀)
+            $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+
+            $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+
+            $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        } else if (SM_Rune1 == "8446" || SM_Rune1 == "8463" || SM_Rune1 == "8401" || SM_Rune1 == "8429" || SM_Rune1 == "8444" || SM_Rune1 == "8473") {        //Resolve (결의)
+            $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+
+            $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+
+            $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        } else if (SM_Rune1 == "8224" || SM_Rune1 == "8226" || SM_Rune1 == "8275" || SM_Rune1 == "8210" || SM_Rune1 == "8234" || SM_Rune1 == "8233") {      //Sorcery (마법)
+            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+
+            $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+
+            $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        }
+        //Stats Mods
+        $('<div>').attr("class", "Stats_5008").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
+        $('<div>').attr("class", "Stats_5005").html("<img src='/resources/images/perk_images/Styles/Stats/5005.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
+        $('<div>').attr("class", "Stats_5007").html("<img src='/resources/images/perk_images/Styles/Stats/5007.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
+
+        $('<div>').attr("class", "Stats_5008").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
+        $('<div>').attr("class", "Stats_5002").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
+        $('<div>').attr("class", "Stats_5003").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
+
+        $('<div>').attr("class", "Stats_5001").html("<img src='/resources/images/perk_images/Styles/Stats/5001.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
+        $('<div>').attr("class", "Stats_5002").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
+        $('<div>').attr("class", "Stats_5003").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
 
         $('<p>').attr("class", "Rune_Build_Rate").text(RB_Rate2+"% Win Rate").appendTo(RB_Div2);
         $('<p>').attr("class", "Rune_Build_cnt").text(RB_Cnt2+" Games").appendTo(RB_Div2);
