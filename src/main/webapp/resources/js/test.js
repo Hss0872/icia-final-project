@@ -82,7 +82,7 @@ function getMatchId(puuid) {
     $.ajax({
         method: "get",
         url: "https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?api_key=" +
-            riot_api_key + "&start=0&count=20",
+            riot_api_key + "&start=0&count=1",
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         dataType: "json",
         async: false,
@@ -333,11 +333,11 @@ function getWin(y, $recodeSummonerInfo) {
 
     if (y.win == true) {
         gameinfo.children('.win').html("<p>승리</p>");
-        $recodeSummonerInfo.css('background-color', 'blue')
+        $recodeSummonerInfo.css('background-color', 'rgba(0,0,255,0.7)');
 
     } else if (y.win != true) {
         gameinfo.children('.win').html("<p>패배</p>");
-        $recodeSummonerInfo.css('background-color', 'red')
+        $recodeSummonerInfo.css('background-color', 'rgba(255,0,0,0.7)');
     }
 }
 
@@ -356,13 +356,18 @@ function getDealtWardCs(y, $person1,playTime) {
 
     function drawMultSeries() {
         var data = google.visualization.arrayToDataTable([
-            ['피해량', '적에게 가한피해량'],
-            ['피해량', y.totalDamageDealtToChampions]
+            ['피해량', '적에게 가한피해량',{ role: 'style' }],
+            ['총 피해량', y.totalDamageDealtToChampions,'blue'],
+            ['물리 피해량', y.physicalDamageDealtToChampions,'red'],
+            ['마법 피해량', y.magicDamageDealtToChampions,'#87ceeb']
         ]);
 
         var options = {
-            title: '적에게 가한 피해량',
+            title: '',
             chartArea: {
+                backgroundColor:{
+                    fill:  'transparent'
+                },
                 width: '100%',
                 height: '50%'
             },
@@ -372,6 +377,9 @@ function getDealtWardCs(y, $person1,playTime) {
             },
             vAxis: {
                 title: ''
+            },
+            backgroundColor:{
+                fill:  'transparent'
             }
         };
 

@@ -1,5 +1,11 @@
+/* .body  {
+  text-align: center;  
+  vertical-align : middle;
+ } */
+
+
 .container {
-  background-color: rgba(187, 243, 24, 0.71);
+  background-color: rgba(188, 243, 24, 0.575);
 
 
 }
@@ -21,7 +27,7 @@
 .sum {
   width: 100%;
 
-  display: inline-block;
+  display: inline-flex;
 }
 
 
@@ -54,8 +60,8 @@
 }
 
 .champimg {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 100%;
   border-style: groove;
 }
@@ -73,11 +79,11 @@
 }
 
 .itemimg {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 
-.champ {
+.champ, .champd, .champdd, .champs {
   display: inline-flex;
 }
 
@@ -88,4 +94,15 @@
 
 .rune1, .rune2, .flex{
   display: block;
+}
+.recode, .selectBar, .total, .itembuild, .runebuild, .tskillbuild{
+  display: none;
+}
+
+.opentotal, .openitem, .openrune, openskill {
+  text-align: center;  
+}
+.detail{
+  text-align: center;  
+  bottom: 0px;
 }

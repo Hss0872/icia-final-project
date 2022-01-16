@@ -21,8 +21,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/resources/js/test.js?ver=3"></script>
-    <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=3">
+    <script src="/resources/js/test.js?ver=4"></script>
+    <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=4">
 
 
 
@@ -149,10 +149,10 @@
 
 
             <div class="row selectBar">
-                <div class="col-3"><a href="#">종합</a></div>
-                <div class="col-3"><a href="#">개인별 아이템 빌드</a></div>
-                <div class="col-3"><a href="#">개인별 룬빌드</a></div>
-                <div class="col-3"><a href="#">개인별 스킬빌드</a></div>
+                <div class="col-3 opentotal"><a href="#">종합</a></div>
+                <div class="col-3 openitem"><a href="#">개인별 아이템 빌드</a></div>
+                <div class="col-3 openrune"><a href="#">개인별 룬빌드</a></div>
+                <div class="col-3 openskill" ><a href="#">개인별 스킬빌드</a></div>
             </div>
             <div class="container total" id="total">
                 <div class="row teamblue" id="blue">
@@ -353,9 +353,10 @@
                     //승리정보
                     getWin(y, $recodeSummonerInfo);
                     getGameInfo(DataList[i][0], $recodeSummonerInfo);
-
-                    $recodeSummonerInfo.children('.detail').html("<svg xmlns='http://www.w3.org/2000/svg' width='30' height='50' fill='currentColor' class='bi bi-arrow-down-short' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z'/></svg>");
-
+                    let btn=$('<a>').html("<svg xmlns='http://www.w3.org/2000/svg' width='30' height='50' fill='currentColor' class='bi bi-arrow-down-short' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z'/></svg>");
+                    btn.attr('class','opnedetail').attr('href','#');
+                    
+                    $recodeSummonerInfo.children('.detail').append($('<div>').append(btn).css('bottom','0px'));
                 }
                 getPartner(y, $recodeSummonerInfo);
                 //설명 메뉴바
@@ -391,6 +392,13 @@
             $skill.appendTo($('.b'))
 
         }
+
+        $('.recode').remove();
+        $('.selectBar').remove();
+        $('.total').remove();
+        $('.itembuild').remove();
+        $('.runebuild').remove();
+        $('.tskillbuild').remove();
     </script>
 
 </body>
