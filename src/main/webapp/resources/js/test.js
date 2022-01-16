@@ -1,5 +1,9 @@
 src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 
+src = "https://www.gstatic.com/charts/loader.js"
+
+
+
 let riot_api_key_list = ["RGAPI-e2c3b20e-ae8c-462e-868a-8e7185c9b12f",
     "RGAPI-c3e0d6de-963c-4068-a9ed-d38a11a63d7c",
     "RGAPI-8713e443-0ba8-4f91-a543-3ef8c87d3fa3",
@@ -329,71 +333,111 @@ function getWin(y, $recodeSummonerInfo) {
 
     if (y.win == true) {
         gameinfo.children('.win').html("<p>승리</p>");
-        $recodeSummonerInfo.css('background-color','blue')
+        $recodeSummonerInfo.css('background-color', 'blue')
 
     } else if (y.win != true) {
         gameinfo.children('.win').html("<p>패배</p>");
-        $recodeSummonerInfo.css('background-color','red')
+        $recodeSummonerInfo.css('background-color', 'red')
+    }
+}
+
+function getDealtWardCs(y, $person1,playTime) {
+    $person1.children('.dealt').html("<p>" + y.totalDamageDealtToChampions + "</p>")
+    $person1.children('.ward').html("<p>" + y.wardsPlaced + "<br> score : " + y.visionScore + "</p>")
+    $person1.children('.cs').html("<p>" + y.totalMinionsKilled + "<br> 분당 cs : " + ((y.totalMinionsKilled) /
+        (playTime.getMinutes())).toFixed(2) + "</p>")
+
+
+
+    google.charts.load('current', {
+        packages: ['corechart', 'bar']
+    });
+    google.charts.setOnLoadCallback(drawMultSeries);
+
+    function drawMultSeries() {
+        var data = google.visualization.arrayToDataTable([
+            ['피해량', '적에게 가한피해량'],
+            ['피해량', y.totalDamageDealtToChampions]
+        ]);
+
+        var options = {
+            title: '적에게 가한 피해량',
+            chartArea: {
+                width: '100%',
+                height: '50%'
+            },
+            hAxis: {
+                title: '',
+                minValue: 0
+            },
+            vAxis: {
+                title: ''
+            }
+        };
+
+        var chart = new google.visualization.BarChart($person1.children('.dealt')[0]);
+        chart.draw(data, options);
     }
 }
 
 function context(x, y) {
-    let blueinfo=y.find('.blueinfo');
-    let redinfo=y.find('.redinfo');
-    
+    let blueinfo = y.find('.blueinfo');
+    let redinfo = y.find('.redinfo');
+
     for (let i of x) {
-        if (i.teamId == 100){
+        if (i.teamId == 100) {
             if (i.win == true) {
                 y.children('.teamblue').children('.teamside').children('.win').html("<h5>승리</h5><p>블루팀</p>");
             } else if (i.win == false) {
                 y.children('.teamblue').children('.teamside').children('.win').html("<h5>패배</h5><p>블루팀</p>");
             }
-            $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(blueinfo);
+            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(blueinfo);
             $('<p>').text(i.objectives.baron.kills).appendTo(blueinfo);
-            $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(blueinfo);
+            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(blueinfo);
             $('<p>').text(i.objectives.dragon.kills).appendTo(blueinfo);
-            $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(blueinfo);
+            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(blueinfo);
             $('<p>').text(i.objectives.tower.kills).appendTo(blueinfo);
-        
-        
-        }else if (i.teamId == 200) {
+
+
+        } else if (i.teamId == 200) {
             if (i.win == true) {
                 y.children('.teamred').children('.teamside').children('.win').html("<h5>승리</h5><p>레드팀</p>");
             } else if (i.win == false) {
                 y.children('.teamblue').children('.teamside').children('.win').html("<h5>패배</h5><p>레드팀</p>");
             }
-            $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(redinfo);
+            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(redinfo);
             $('<p>').text(i.objectives.baron.kills).appendTo(redinfo);
-            $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(redinfo);
+            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(redinfo);
             $('<p>').text(i.objectives.dragon.kills).appendTo(redinfo);
-            $('<img>').attr('src','//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(redinfo);
+            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(redinfo);
             $('<p>').text(i.objectives.tower.kills).appendTo(redinfo);
         }
     }
 
 }
 //룬빌드
-function getRuneBuild(y,$rune){
-    let perk=y.perks;
-    let runepage=$rune.find('.runePage').clone(true).attr('class',"row runePage"+y.participantId);
+function getRuneBuild(y, $rune) {
+    let perk = y.perks;
+    let runepage = $rune.find('.runePage').clone(true).attr('class', "row runePage" + y.participantId);
     for (let z of championNameInfo) {
         if (y.championId == z.championid) {
             $('<img>').attr('class', 'champimg').attr('src', "/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
                 z.champion_name_eng + ".png").appendTo(runepage.find('.champdd'));
+            $('<p>').text(y.summonerName).appendTo(runepage.find('.champdd'));
         }
     }
-    
-    
-   
-    
+
+
+
+
     if (perk.styles[0].style == 8100) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Domination/Domination.png").appendTo(runepage.find('.property'));
-        
+        $('<img>').attr('class', 'runeimg Domination').attr('src', "/resources/images/perk_images/Styles/Domination/Domination.png").appendTo(runepage.find('.property'));
+
         $('<img>').attr('class', 'runeimg DarkHarvest').attr('src', "/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg Electrocute').attr('src', "/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg HailOfBlades').attr('src', "/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg Predator').attr('src', "/resources/images/perk_images/Styles/Domination/Keystone/Predator.png").appendTo(runepage.find('.bigrune'));
-        
+
         $('<img>').attr('class', 'runeimg CheapShot').attr('src', "/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg TasteOfBlood').attr('src', "/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg SuddenImpact').attr('src', "/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png").appendTo(runepage.find('.arune'));
@@ -401,82 +445,82 @@ function getRuneBuild(y,$rune){
         $('<img>').attr('class', 'runeimg ZombieWard').attr('src', "/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg GhostPoro').attr('src', "/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg EyeballCollection').attr('src', "/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png").appendTo(runepage.find('.brune'));
-        
+
         $('<img>').attr('class', 'runeimg RavenousHunter').attr('src', "/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg IngeniousHunter').attr('src', "/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg RelentlessHunter').attr('src', "/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg UltimateHunter').attr('src', "/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png").appendTo(runepage.find('.crune'));
-        
+
     } else if (perk.styles[0].style == 8200) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Sorcery/Sorcery.png").appendTo(runepage.find('.property'))
+        $('<img>').attr('class', 'runeimg Sorcery').attr('src', "/resources/images/perk_images/Styles/Sorcery/Sorcery.png").appendTo(runepage.find('.property'))
 
         $('<img>').attr('class', 'runeimg SummonAery').attr('src', "/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg ArcaneComet').attr('src', "/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg PhaseRush').attr('src', "/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png").appendTo(runepage.find('.bigrune'));
-        
+
         $('<img>').attr('class', 'runeimg NullifyingOrb').attr('src', "/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg ManaflowBand').attr('src', "/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg NimbusCloak').attr('src', "/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png").appendTo(runepage.find('.arune'));
-        
+
         $('<img>').attr('class', 'runeimg Transcendence').attr('src', "/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg Celerity').attr('src', "/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg AbsoluteFocus').attr('src', "/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png").appendTo(runepage.find('.brune'));
-        
+
         $('<img>').attr('class', 'runeimg Scorch').attr('src', "/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg Waterwalking').attr('src', "/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg GatheringStorm').attr('src', "/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png").appendTo(runepage.find('.crune'));
     } else if (perk.styles[0].style == 8000) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Precision/Precision.png").appendTo(runepage.find('.property'));
+        $('<img>').attr('class', 'runeimg Precision').attr('src', "/resources/images/perk_images/Styles/Precision/Precision.png").appendTo(runepage.find('.property'));
 
         $('<img>').attr('class', 'runeimg PressTheAttack').attr('src', "/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg LethalTempo').attr('src', "/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg FleetFootwork').attr('src', "/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg Conqueror').attr('src', "/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png").appendTo(runepage.find('.bigrune'));
-        
+
         $('<img>').attr('class', 'runeimg Overheal').attr('src', "/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg Triumph').attr('src', "/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg PresenceOfMind').attr('src', "/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png").appendTo(runepage.find('.arune'));
-        
+
         $('<img>').attr('class', 'runeimg LegendAlacrity').attr('src', "/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg LegendTenacity').attr('src', "/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg LegendBloodline').attr('src', "/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png").appendTo(runepage.find('.brune'));
-        
+
         $('<img>').attr('class', 'runeimg CoupDeGrace').attr('src', "/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg CutDown').attr('src', "/resources/images/perk_images/Styles/Precision/Combat/CutDown.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg LastStand').attr('src', "/resources/images/perk_images/Styles/Precision/Combat/LastStand.png").appendTo(runepage.find('.crune'));
     } else if (perk.styles[0].style == 8300) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Inspiration/Inspiration.png").appendTo(runepage.find('.property'));
-        
+        $('<img>').attr('class', 'runeimg Inspiration').attr('src', "/resources/images/perk_images/Styles/Inspiration/Inspiration.png").appendTo(runepage.find('.property'));
+
         $('<img>').attr('class', 'runeimg GlacialAugment').attr('src', "/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg UnsealedSpellbook').attr('src', "/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg FirstStrike').attr('src', "/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png").appendTo(runepage.find('.bigrune'));
-        
+
         $('<img>').attr('class', 'runeimg HextechFlashtraption').attr('src', "/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg MagicalFootwear').attr('src', "/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg PerfectTiming').attr('src', "/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png").appendTo(runepage.find('.arune'));
-        
+
         $('<img>').attr('class', 'runeimg FuturesMarket').attr('src', "/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg MinionDematerializer').attr('src', "/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg BiscuitDelivery').attr('src', "/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png").appendTo(runepage.find('.brune'));
-        
+
         $('<img>').attr('class', 'runeimg CosmicInsight').attr('src', "/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg ApproachVelocity').attr('src', "/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg TimeWarpTonic').attr('src', "/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png").appendTo(runepage.find('.crune'));
     } else if (perk.styles[0].style == 8400) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Resolve/Resolve.png").appendTo(runepage.find('.property'))
-        
+        $('<img>').attr('class', 'runeimg Resolve').attr('src', "/resources/images/perk_images/Styles/Resolve/Resolve.png").appendTo(runepage.find('.property'))
+
         $('<img>').attr('class', 'runeimg GraspOfTheUndying').attr('src', "/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg Aftershock').attr('src', "/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png").appendTo(runepage.find('.bigrune'));
         $('<img>').attr('class', 'runeimg Guardian').attr('src', "/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png").appendTo(runepage.find('.bigrune'));
-        
+
         $('<img>').attr('class', 'runeimg Demolish').attr('src', "/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg FontOfLife').attr('src', "/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png").appendTo(runepage.find('.arune'));
         $('<img>').attr('class', 'runeimg ShieldBash').attr('src', "/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png").appendTo(runepage.find('.arune'));
-        
+
         $('<img>').attr('class', 'runeimg Conditioning').attr('src', "/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg SecondWind').attr('src', "/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png").appendTo(runepage.find('.brune'));
         $('<img>').attr('class', 'runeimg BonePlating').attr('src', "/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png").appendTo(runepage.find('.brune'));
-        
+
         $('<img>').attr('class', 'runeimg Overgrowth').attr('src', "/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg Revitalize').attr('src', "/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png").appendTo(runepage.find('.crune'));
         $('<img>').attr('class', 'runeimg Unflinching').attr('src', "/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png").appendTo(runepage.find('.crune'));
@@ -485,10 +529,10 @@ function getRuneBuild(y,$rune){
 
     ///////////////
     if (perk.styles[1].style == 8100) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Domination/Domination.png").appendTo(runepage.find('.subproperty'));
-        
-        
-        
+        $('<img>').attr('class', 'runeimg Domination').attr('src', "/resources/images/perk_images/Styles/Domination/Domination.png").appendTo(runepage.find('.subproperty'));
+
+
+
         $('<img>').attr('class', 'runeimg CheapShot').attr('src', "/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg TasteOfBlood').attr('src', "/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg SuddenImpact').attr('src', "/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png").appendTo(runepage.find('.sunrune1'));
@@ -496,84 +540,232 @@ function getRuneBuild(y,$rune){
         $('<img>').attr('class', 'runeimg ZombieWard').attr('src', "/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg GhostPoro').attr('src', "/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg EyeballCollection').attr('src', "/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png").appendTo(runepage.find('.sunrune2'));
-        
+
         $('<img>').attr('class', 'runeimg RavenousHunter').attr('src', "/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg IngeniousHunter').attr('src', "/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg RelentlessHunter').attr('src', "/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg UltimateHunter').attr('src', "/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png").appendTo(runepage.find('.sunrune3'));
-        
-    } else if (perk.styles[1].style == 8200) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Sorcery/Sorcery.png").appendTo(runepage.find('.subproperty'))
 
-        
-        
+    } else if (perk.styles[1].style == 8200) {
+        $('<img>').attr('class', 'runeimg Sorcery').attr('src', "/resources/images/perk_images/Styles/Sorcery/Sorcery.png").appendTo(runepage.find('.subproperty'))
+
+
+
         $('<img>').attr('class', 'runeimg NullifyingOrb').attr('src', "/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg ManaflowBand').attr('src', "/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg NimbusCloak').attr('src', "/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png").appendTo(runepage.find('.sunrune1'));
-        
+
         $('<img>').attr('class', 'runeimg Transcendence').attr('src', "/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg Celerity').attr('src', "/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg AbsoluteFocus').attr('src', "/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png").appendTo(runepage.find('.sunrune2'));
-        
+
         $('<img>').attr('class', 'runeimg Scorch').attr('src', "/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg Waterwalking').attr('src', "/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg GatheringStorm').attr('src', "/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png").appendTo(runepage.find('.sunrune3'));
     } else if (perk.styles[1].style == 8000) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Precision/Precision.png").appendTo(runepage.find('.subproperty'));
+        $('<img>').attr('class', 'runeimg Precision').attr('src', "/resources/images/perk_images/Styles/Precision/Precision.png").appendTo(runepage.find('.subproperty'));
 
-        
-        
+
+
         $('<img>').attr('class', 'runeimg Overheal').attr('src', "/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg Triumph').attr('src', "/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg PresenceOfMind').attr('src', "/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png").appendTo(runepage.find('.sunrune1'));
-        
+
         $('<img>').attr('class', 'runeimg LegendAlacrity').attr('src', "/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg LegendTenacity').attr('src', "/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg LegendBloodline').attr('src', "/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png").appendTo(runepage.find('.sunrune2'));
-        
+
         $('<img>').attr('class', 'runeimg CoupDeGrace').attr('src', "/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg CutDown').attr('src', "/resources/images/perk_images/Styles/Precision/Combat/CutDown.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg LastStand').attr('src', "/resources/images/perk_images/Styles/Precision/Combat/LastStand.png").appendTo(runepage.find('.sunrune3'));
     } else if (perk.styles[1].style == 8300) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Inspiration/Inspiration.png").appendTo(runepage.find('.subproperty'));
-    
-        
+        $('<img>').attr('class', 'runeimg Inspiration').attr('src', "/resources/images/perk_images/Styles/Inspiration/Inspiration.png").appendTo(runepage.find('.subproperty'));
+
+
         $('<img>').attr('class', 'runeimg HextechFlashtraption').attr('src', "/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg MagicalFootwear').attr('src', "/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg PerfectTiming').attr('src', "/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png").appendTo(runepage.find('.sunrune1'));
-        
+
         $('<img>').attr('class', 'runeimg FuturesMarket').attr('src', "/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg MinionDematerializer').attr('src', "/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg BiscuitDelivery').attr('src', "/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png").appendTo(runepage.find('.sunrune2'));
-        
+
         $('<img>').attr('class', 'runeimg CosmicInsight').attr('src', "/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg ApproachVelocity').attr('src', "/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg TimeWarpTonic').attr('src', "/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png").appendTo(runepage.find('.sunrune3'));
     } else if (perk.styles[1].style == 8400) {
-        $('<img>').attr('class', 'runeimg').attr('src', "/resources/images/perk_images/Styles/Resolve/Resolve.png").appendTo(runepage.find('.subproperty'));
-        
+        $('<img>').attr('class', 'runeimg Resolve').attr('src', "/resources/images/perk_images/Styles/Resolve/Resolve.png").appendTo(runepage.find('.subproperty'));
+
         $('<img>').attr('class', 'runeimg Demolish').attr('src', "/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg FontOfLife').attr('src', "/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png").appendTo(runepage.find('.sunrune1'));
         $('<img>').attr('class', 'runeimg ShieldBash').attr('src', "/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png").appendTo(runepage.find('.sunrune1'));
-        
+
         $('<img>').attr('class', 'runeimg Conditioning').attr('src', "/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg SecondWind').attr('src', "/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png").appendTo(runepage.find('.sunrune2'));
         $('<img>').attr('class', 'runeimg BonePlating').attr('src', "/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png").appendTo(runepage.find('.sunrune2'));
-        
+
         $('<img>').attr('class', 'runeimg Overgrowth').attr('src', "/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg Revitalize').attr('src', "/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png").appendTo(runepage.find('.sunrune3'));
         $('<img>').attr('class', 'runeimg Unflinching').attr('src', "/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png").appendTo(runepage.find('.sunrune3'));
     }
-    runepage.children('.flex').children()
-    
 
-    
-    runepage.find('.rune1').find('img').css('-webkit-filter','grayscale(100%)');
-    runepage.find('.rune2').find('img').css('-webkit-filter','grayscale(100%)');
-    runepage.find('.flex').find('img').css('-webkit-filter','grayscale(100%)');
-    runepage.appendTo($rune.children('.runeblue'))
-    
+    $('<img>').attr('class', 'runeimg stat5008').attr('src', "/resources/images/perk_images/Styles/Stats/5008.png").appendTo(runepage.children('.flex').children('.offense'))
+    $('<img>').attr('class', 'runeimg stat5005').attr('src', "/resources/images/perk_images/Styles/Stats/5005.png").appendTo(runepage.children('.flex').children('.offense'))
+    $('<img>').attr('class', 'runeimg stat5007').attr('src', "/resources/images/perk_images/Styles/Stats/5007.png").appendTo(runepage.children('.flex').children('.offense'))
+
+    $('<img>').attr('class', 'runeimg stat5008').attr('src', "/resources/images/perk_images/Styles/Stats/5008.png").appendTo(runepage.children('.flex').children('.flex'))
+    $('<img>').attr('class', 'runeimg stat5002').attr('src', "/resources/images/perk_images/Styles/Stats/5002.png").appendTo(runepage.children('.flex').children('.flex'))
+    $('<img>').attr('class', 'runeimg stat5003').attr('src', "/resources/images/perk_images/Styles/Stats/5003.png").appendTo(runepage.children('.flex').children('.flex'))
+
+    $('<img>').attr('class', 'runeimg stat5001').attr('src', "/resources/images/perk_images/Styles/Stats/5001.png").appendTo(runepage.children('.flex').children('.defense'))
+    $('<img>').attr('class', 'runeimg stat5002').attr('src', "/resources/images/perk_images/Styles/Stats/5002.png").appendTo(runepage.children('.flex').children('.defense'))
+    $('<img>').attr('class', 'runeimg stat5003').attr('src', "/resources/images/perk_images/Styles/Stats/5003.png").appendTo(runepage.children('.flex').children('.defense'))
+
+
+
+    runepage.find('.rune1').find('img').css('-webkit-filter', 'grayscale(100%)');
+    runepage.find('.rune2').find('img').css('-webkit-filter', 'grayscale(100%)');
+    runepage.find('.flex').find('img').css('-webkit-filter', 'grayscale(100%)');
+    for (let x of perk.styles[0].selections) {
+        for (let z of runeInfo) {
+            if (x.perk == z.id) {
+                runepage.children('.rune1').find("." + z.name_eng).css('-webkit-filter', 'grayscale(0%)');
+            }
+
+        }
+    }
+    for (let x of perk.styles[1].selections) {
+        for (let z of runeInfo) {
+            if (x.perk == z.id) {
+                runepage.children('.rune2').find("." + z.name_eng).css('-webkit-filter', 'grayscale(0%)');
+            }
+
+        }
+    }
+    runepage.children('.flex').children('.offense').find(".stat" + perk.statPerks.offense).css('-webkit-filter', 'grayscale(0%)');
+    runepage.children('.flex').children('.flex').find(".stat" + perk.statPerks.flex).css('-webkit-filter', 'grayscale(0%)');
+    runepage.children('.flex').children('.defense').find(".stat" + perk.statPerks.defense).css('-webkit-filter', 'grayscale(0%)');
+    runepage.find('.subproperty').children('img').css('-webkit-filter', 'grayscale(0%)');
+
+    if (y.teamId == 100) {
+        runepage.appendTo($rune.children('.runeblue'));
+    } else if (y.teamId == 200) {
+        runepage.appendTo($rune.children('.runered'));
+    }
 
 }
 
+//아이템 빌드 생성 함수
+function getItemBuild(y, w, $item) {
+    let personitembuild = $item.find('.personitem').clone(true).attr('class', "row personitem" + y.participantId);
+    let itemList = new Array();
 
+    for (let z of championNameInfo) {
+        if (y.championId == z.championid) {
+            $('<img>').attr('class', 'champimg').attr('src', "/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
+                z.champion_name_eng + ".png").appendTo(personitembuild.find('.champd'));
+            $('<p>').text(y.summonerName).appendTo(personitembuild.find('.champd'));
+        }
+    }
+
+    for (let i of w.frames) {
+        for (let q of i.events) {
+            if (q.type == "ITEM_PURCHASED") {
+                if (y.participantId == q.participantId) {
+                    for (let t of itemInfo) {
+                        if (q.itemId == t.item_code) {
+                            if (q.itemId != 3340 && q.itemId != 3363 && q.itemId != 3364 && q.itemId != 2055 && q.itemId != 2003 && q.itemId != 2031 && q.itemId != 2033 && q.itemId != 2138 && q.itemId != 2139 && q.itemId != 2140 && q.itemId != 2010) {
+                                $('<img>').attr('class', 'itemimg').attr('src', "/resources/images/LOL_ITEM_ICON/" + t.item_name_eng + ".png").appendTo(personitembuild.children('.peritembuild'));
+                                //console.log('아이템 삿다')
+                            }
+                        }
+                    }
+                }
+            } else if (q.type == "ITEM_UNDO") {
+                if (y.participantId == q.participantId) {
+                    for (let t of itemInfo) {
+                        if (q.beforeId == t.item_code) {
+                            if (q.beforeId != 3340 && q.beforeId != 3363 && q.beforeId != 3364 && q.beforeId != 2055 && q.beforeId != 2003 && q.beforeId != 2031 && q.beforeId != 2033 && q.beforeId != 2138 && q.beforeId != 2139 && q.beforeId != 2140 && q.beforeId != 2010) {
+                                personitembuild.children('.peritembuild').children('img').last().remove();
+                                //console.log('아이템 되돌리기')
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if (y.teamId == 100) {
+        personitembuild.appendTo($item.children('.teamblue'));
+    } else if (y.teamId == 200) {
+        personitembuild.appendTo($item.children('.teamred'));
+    }
+}
+//스킬빌드
+function getSkillBuild(y, timeData, $skill) {
+    let personskill = $skill.find('.personskill').clone(true).attr('class', "row personskill" + y.participantId);
+    let master = personskill.find('.master');
+    let table = personskill.find('.skillbuild').css('background-color', 'white');
+    let skillbuildlist = new Array();
+    for (let i of timeData.frames) {
+        for (let q of i.events) {
+            if (q.levelUpType == "NORMAL") {
+                if (q.participantId == y.participantId) {
+                    skillbuildlist.push(q.skillSlot);
+
+                }
+
+            }
+        }
+
+    }
+    for (let z of championNameInfo) {
+        if (y.championId == z.championid) {
+            $('<td>').attr('class', "Qimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "Q.png'>").appendTo(table.find('.Q'));
+            $('<td>').attr('class', "Qimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "W.png'>").appendTo(table.find('.W'));
+            $('<td>').attr('class', "Qimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "E.png'>").appendTo(table.find('.E'));
+            $('<td>').attr('class', "Qimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "R.png'>").appendTo(table.find('.R'));
+            $('<img>').attr('class', 'champimg').attr('src', "/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
+                z.champion_name_eng + ".png").appendTo(personskill.find('.champs'));
+            $('<p>').text(y.summonerName).appendTo(personskill.find('.champs'));
+        }
+    }
+
+    for (let f in skillbuildlist) {
+        let mastery = new Array()
+        let b = Number(f);
+        if (skillbuildlist[b] == 1) {
+            $('<td>').text(b + 1).attr('class', 'value up').css('background-color', 'orange').appendTo(table.find('.Q'));
+            $('<td>').appendTo(table.find('.W'));
+            $('<td>').appendTo(table.find('.E'));
+            $('<td>').appendTo(table.find('.R'));
+        }
+        if (skillbuildlist[b] == 2) {
+            $('<td>').appendTo(table.find('.Q'));
+            $('<td>').text(b + 1).attr('class', 'value up').css('background-color', 'orange').appendTo(table.find('.W'));
+            $('<td>').appendTo(table.find('.E'));
+            $('<td>').appendTo(table.find('.R'));
+
+        }
+        if (skillbuildlist[b] == 3) {
+            $('<td>').appendTo(table.find('.Q'));
+            $('<td>').appendTo(table.find('.W'));
+            $('<td>').text(b + 1).attr('class', 'value up').css('background-color', 'orange').appendTo(table.find('.E'));
+            $('<td>').appendTo(table.find('.R'));
+        }
+        if (skillbuildlist[b] == 4) {
+            $('<td>').appendTo(table.find('.Q'));
+            $('<td>').appendTo(table.find('.W'));
+            $('<td>').appendTo(table.find('.E'));
+            $('<td>').text(b + 1).attr('class', 'value up').css('background-color', 'orange').appendTo(table.find('.R'));
+        }
+    }
+    table.find('td').css('width', '50px').css('border', '1px solid black');
+
+    if (y.teamId == 100) {
+        personskill.appendTo($skill.children('.buildblue'));
+    } else if (y.teamId == 200) {
+        personskill.appendTo($skill.children('.buildred'));
+    }
+
+}

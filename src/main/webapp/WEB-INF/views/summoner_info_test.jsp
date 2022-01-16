@@ -237,16 +237,14 @@
                 </div>
             </div>
             <div class="container itembuild">
-                <div class="row team" id="item">
-                    <div class="row item">
-                        <div class="col-4 persondd">
-                            <div class="col-6 champinfo"> </div>
-                            <div class="col-6 champinfo">
-
-                            </div>
-                        </div>
-                        <div class="col-8 personitem" id="g5685740469p1"></div>
+                <div class="row teamblue" id="item">                    
+                    <div class="row personitem">
+                        <div class="col-2 champd"></div>
+                        <div class="col-10 peritembuild"></div>
                     </div>
+                </div>
+                <div class="row teamred" id="item">
+                    
 
                 </div>
             </div>
@@ -275,15 +273,41 @@
                             <div class="sunrune3"> </div>
                         </div>
                         <div class="col-3 flex">
-                            <div class="defense"></div>
-                            <div class="flex"></div>
                             <div class="offense"></div>
+                            <div class="flex"></div>
+                            <div class="defense"></div>
                         </div>
                     </div>
                 </div>
                 <div class="row runered">
                     
                 </div>
+
+            </div>
+            <div class="container tskillbuild">
+                <div class="row buildblue">
+                    <div class="row personskill">
+                        <div class="col-2 champs"></div>
+                        <div class="col-2 master"></div>
+                        <div class="col-8 build">
+                            <table class="skillbuild">
+                                <colgroup>
+                                    <col>
+                                </colgroup>
+                                <tbody class="content">
+                                    <tr class="Q"></tr>
+                                    <tr class="W"></tr>
+                                    <tr class="E"></tr>
+                                    <tr class="R"></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row buildred">
+                    
+                </div>
+            </div>
 
             </div>
         </div>
@@ -309,12 +333,15 @@
             let $selectBar = $('.selectBar').clone(true).attr('class', "row selectBar" + i);
             let $total = $('.total').clone(true).attr('class', "container total" + i);
             let $rune = $('.runebuild').clone(true).attr('class', "container runebuild" + i);
+            let $item = $('.itembuild').clone(true).attr('class', "container itembuild" + i);
+            let $skill = $('.tskillbuild').clone(true).attr('class',"container tskillbuild" + i)
             let playTime = new Date(DataList[i][0].info.gameEndTimestamp - DataList[i][0].info.gameStartTimestamp)
             
             context(DataList[i][0].info.teams, $total);
             for (let y of DataList[i][0].info.participants) {
                 let $person1 = $total.find('.person').clone(true).attr('class', "row person" + DataList[i][0].info
                     .gameId + y.participantId);
+                
                 
                 //검색한 소환사와 매치데이터내의 정보 일치시
                 if (y.summonerName == summonerData.name) {
@@ -327,8 +354,7 @@
                     getWin(y, $recodeSummonerInfo);
                     getGameInfo(DataList[i][0], $recodeSummonerInfo);
 
-                    $recodeSummonerInfo.children('.detail').html(
-                        "<span class='glyphicon glyphicon-chevron-down' aria-hidden='true'></span>");
+                    $recodeSummonerInfo.children('.detail').html("<svg xmlns='http://www.w3.org/2000/svg' width='30' height='50' fill='currentColor' class='bi bi-arrow-down-short' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z'/></svg>");
 
                 }
                 getPartner(y, $recodeSummonerInfo);
@@ -336,38 +362,23 @@
 
                 //게임참여한 소환사별 정보
                 getChampInfo(y, $person1);
+                //룬빌드
+                getRuneBuild(y,$rune);
                 if (y.teamId == 100) {
                     $person1.appendTo($total.children('#blue'));
-                    getRuneBuild(y,$rune);
                 } else if (y.teamId == 200) {
                     $person1.appendTo($total.children('#red'));
-                    getRuneBuild(y,$rune);
                 }
                 $person1.children('.partnerName').html("<p>" + y.summonerName + "<br>" + y.teamPosition + "</p>")
                 getkdaInfo(y, $person1);
                 getItemInfo(y, $person1);
+                getDealtWardCs(y,$person1,playTime);
 
-                $person1.children('.dealt').html("<p>" + y.totalDamageDealtToChampions + "</p>")
-                $person1.children('.ward').html("<p>" + y.wardsPlaced + "<br> score : " + y.visionScore + "</p>")
-                $person1.children('.cs').html("<p>" + y.totalMinionsKilled + "<br> 분당 cs : " + ((y.totalMinionsKilled) /
-                    (playTime.getMinutes())).toFixed(2) + "</p>")
-
-                //룬 빌드
-                /*let champdiv=$('<div>').attr('class',"col-2 runechamp");
-                for (let z of championNameInfo) {
-                    if (y.championId == z.championid) {
-                        $('<img>').attr('class', 'champimg').attr('src', "/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
-                            z.champion_name_eng + ".png").appendTo(champdiv);
-                    }
-                }*/
-                //getRuneBuild(y,$rune);
-
-                /*if (y.teamId == 100) {
-                    champdiv.prependTo($rune.children('.runeblue'));
-                }
-                else if (y.teamId == 200) {
-                    champdiv.prependTo($rune.children('.runered'));
-                }*/
+              
+                
+                
+                getItemBuild(y, DataList[i][1].info, $item);
+                getSkillBuild(y, DataList[i][1].info, $skill);
 
 
 
@@ -375,8 +386,9 @@
             $recodeSummonerInfo.appendTo($('.b'));
             $selectBar.appendTo($('.b'));
             $total.appendTo($('.b'));
+            $item.appendTo($('.b'));
             $rune.appendTo($('.b'));
-
+            $skill.appendTo($('.b'))
 
         }
     </script>
