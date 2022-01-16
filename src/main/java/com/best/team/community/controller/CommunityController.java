@@ -47,7 +47,7 @@ public class CommunityController {
     public String getBoardInfo(@PathVariable String type, @PathVariable int bNum, Model model, HttpSession session) {
         log.info("getBoardInfo call");
         log.info("session id = {}", session.getAttribute("id"));
-        boolean result = boardMM.getBoardInfo(type, bNum, model);
+        boolean result = boardMM.getBoardInfo(type, bNum, model, session);
         return result ? "boardContents" : "community";
     }
 }

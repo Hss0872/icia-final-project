@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.best.team.community.dao.LikeDao">
+    <select id="checkFreeBoardLike" resultType="boolean">
+        SELECT COUNT(*) FROM LIKE_COUNT_FREE WHERE LC_FREE_BNUM = #{bNum} AND LC_FREE_ID = #{m_id}
+    </select>
+
+    <select id="checkLaneBoardLike" resultType="boolean">
+        SELECT COUNT(*) FROM LIKE_COUNT_LANE WHERE LC_LANE_BNUM = #{bNum} AND LC_LANE_ID = #{m_id}
+    </select>
+
     <insert id="addFreeBoardLike">
         INSERT INTO LIKE_COUNT_FREE VALUES(#{bNum}, #{member.m_id}, #{member.m_nickname}, default)
     </insert>
@@ -9,11 +17,12 @@
         INSERT INTO LIKE_COUNT_LANE VALUES(#{bNum}, #{member.m_id}, #{member.m_nickname}, default)
     </insert>
 
-    <select id="checkAddFreeBoardLike" resultType="boolean">
-        SELECT COUNT(*) FROM LIKE_COUNT_FREE WHERE LC_FREE_BNUM = #{bNum} AND LC_FREE_ID = #{member.m_id}
-    </select>
+    <insert id="deleteFreeBoardLike">
+        DELETE FROM LIKE_COUNT_FREE WHERE LC_FREE_BNUM = #{bNum} AND LC_FREE_ID = #{member.m_id}
+    </insert>
 
-    <select id="checkAddLaneBoardLike" resultType="boolean">
-        SELECT COUNT(*) FROM LIKE_COUNT_LANE WHERE LC_LANE_BNUM = #{bNum} AND LC_LANE_ID = #{member.m_id}
-    </select>
+    <insert id="deleteLaneBoardLike">
+        DELETE FROM LIKE_COUNT_LANE WHERE LC_LANE_BNUM = #{bNum} AND LC_LANE_ID = #{member.m_id}
+    </insert>
+
 </mapper>

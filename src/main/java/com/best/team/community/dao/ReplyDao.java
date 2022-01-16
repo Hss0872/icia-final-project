@@ -18,7 +18,7 @@ public interface ReplyDao {
 
     boolean addFreeReply(@Param("member") Member member,@Param("bNum") int bNum,@Param("content") String content);
 
-    boolean addLaneReply(Member member,@Param("bNum") int bNum,@Param("content") String content);
+    boolean addLaneReply(@Param("member") Member member,@Param("bNum") int bNum,@Param("content") String content);
 
     boolean deleteFreeReply(@Param("bNum") int bNum,@Param("r_type_num") int r_type_num,@Param("r_type_id") String r_type_id);
 

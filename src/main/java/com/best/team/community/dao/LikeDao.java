@@ -10,7 +10,11 @@ public interface LikeDao {
 
     boolean addLaneBoardLike(@Param("bNum") int bNum,@Param("member") Member member);
 
-    boolean checkAddFreeBoardLike(@Param("bNum") int bNum,@Param("member") Member member);
+    boolean checkFreeBoardLike(@Param("bNum") int bNum,@Param("m_id") String m_id);
 
-    boolean checkAddLaneBoardLike(@Param("bNum") int bNum,@Param("member") Member member);
+    boolean checkLaneBoardLike(@Param("bNum") int bNum,@Param("m_id") String m_id);
+
+    boolean deleteFreeBoardLike(@Param("bNum") int bNum,@Param("member") Member member);
+
+    boolean deleteLaneBoardLike(@Param("bNum") int bNum,@Param("member") Member member);
 }

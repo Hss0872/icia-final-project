@@ -258,13 +258,12 @@
                                 </div>
                                 <div class="botMenuCenter">
                                     <div class="bttnRecom">
-                                        <button class="like_button" onclick="add_like_count()" ></button>
+                                        <button class="like_button" onclick="add_like_count()"></button>
                                         <button class="dislike_button" onclick="delete_like_count()"></button>
                                     </div>
                                 </div>
                                 <div class="botMenuRight">
                                     <div class="bttn84Report">
-                                        <a>신고하기</a>
                                         <a>따봉업확인</a>
                                     </div>
                                 </div>
@@ -293,7 +292,7 @@
                                         </td>
                                         <td class="replySubmitTd">
                                             <div>
-                                                <button type="button" class="replySubmit" onclick="DBAddReply()">
+                                                <button type="button" class="replySubmit" onclick="add_reply()">
                                                     버튼
                                                 </button>
                                             </div>
@@ -311,6 +310,8 @@
 <script>
     let boardType = '${boardType}';
     let board_number;
+    let currentStatus = '${currentStatus}';
+
     if (boardType == "free") {
         console.log('${freeBoardInfo.b_free_nickname}');
         $('.contentsWriter').text('${freeBoardInfo.b_free_nickname}');
@@ -318,12 +319,12 @@
         $('.contentsHit').text('조회수 : ' + '${freeBoardInfo.b_free_view}' + ' 좋아요 : ' + '${freeBoardInfo.b_free_lcount}');
         $('.contentsCategory').text('[자유게시판]');
         board_number = '${freeBoardInfo.b_free_num}';
-        $('.like_button').text('추천 ' + '${freeBoardInfo.b_free_lcount}');
+        change_like_button_tag(currentStatus, '${freeBoardInfo.b_free_lcount}');
         $('#boardSubjectH1').text('${freeBoardInfo.b_free_title}');
         $('#maincontentBody').text('${freeBoardInfo.b_free_content}');
         getReplyList(boardType, '${freeBoardInfo.b_free_num}').then(
             function (result) {
-                add_reply(result, boardType);
+                add_reply_tag(result, boardType);
             }
         )
     } else {
@@ -332,12 +333,12 @@
         $('.contentsHit').text('조회수 : ' + '${laneBoardInfo.b_lane_view}' + ' 좋아요 : ' + '${laneBoardInfo.b_lane_lcount}');
         $('.contentsCategory').text('[라인게시판] [' + '${laneBoardInfo.b_lane_type}' + ']');
         board_number = '${laneBoardInfo.b_lane_num}';
-        $('.like_button').text('추천 ' + '${laneBoardInfo.b_lane_lcount}');
+        change_like_button_tag(currentStatus, '${laneBoardInfo.b_lane_lcount}');
         $('#boardSubjectH1').text('${laneBoardInfo.b_lane_title}');
         $('#maincontentBody').text('${laneBoardInfo.b_lane_content}');
         getReplyList(boardType, '${laneBoardInfo.b_lane_num}').then(
             function (result) {
-                add_reply(result, boardType);
+                add_reply_tag(result, boardType);
             }
         )
     }
@@ -354,7 +355,7 @@
             }).then(response => response.json())
     }
 
-    function add_reply(result, boardType) {
+    function add_reply_tag(result, boardType) {
         let $add_reply_list = $('#add_reply_list');
         $add_reply_list.empty();
         for (let row of result) {
@@ -365,7 +366,7 @@
             $('<td>').text(playTime.toLocaleString()).attr('class', 'reply_date').appendTo($reply_innerTr);
             if (row['r_' + boardType + '_id'] == '${id}') {
                 let $reply_delete = $('<td>').attr('class', 'reply_delete');
-                $('<button>').text('삭제').attr('onclick', 'DBDeleteReply(' + row['r_' + boardType + '_num'] + ')').appendTo($reply_delete);
+                $('<button>').text('삭제').attr('onclick', 'delete_reply(' + row['r_' + boardType + '_num'] + ')').appendTo($reply_delete);
                 $reply_delete.appendTo($reply_innerTr);
             }
 
@@ -377,7 +378,7 @@
         }
     }
 
-    function DBDeleteReply(r_type_num) {
+    function delete_reply(r_type_num) {
         return fetch('/community/board/' + boardType + '/' + board_number + '/reply/delete',
             {
                 method: 'post',
@@ -389,13 +390,13 @@
                     r_type_num: r_type_num
                 })
             }).then(response => response.json())
-            .then(result => add_reply(result, boardType))
+            .then(result => add_reply_tag(result, boardType))
             .catch((err) => {
                 alert("로그인 해주세요.");
             })
     }
 
-    function DBAddReply() {
+    function add_reply() {
         let replyTextarea = $('#replyTextarea').val();
         return fetch('/community/board/' + boardType + '/' + board_number + '/reply',
             {
@@ -408,7 +409,7 @@
                     content: replyTextarea
                 })
             }).then(response => response.json())
-            .then(result => add_reply(result, boardType))
+            .then(result => add_reply_tag(result, boardType))
             .catch((err) => {
                 alert("로그인 해주세요.");
             })
@@ -425,15 +426,45 @@
             })
             .then(response => response.json())
             .then((result) =>{
-                $('.like_button').css('display', 'none');
-                $('.like_button').empty();
-                $('.dislike_button').css('display', 'inline-block') ;
-                $('.dislike_button').empty();
-                $('.dislike_button').text('추천 ' + result);
+                change_like_button_tag('true', result);
             })
             .catch((err) => {
                 alert("로그인 해주세요.");
             })
+    }
+
+    function delete_like_count(){
+        return fetch('/community/board/' + boardType + '/' + board_number + '/dislike',
+            {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json;charset=utf-8"
+                }
+            })
+            .then(response => response.json())
+            .then((result) =>{
+                change_like_button_tag('false', result);
+            })
+            .catch((err) => {
+                alert("로그인 해주세요.");
+            })
+    }
+
+    function change_like_button_tag(status, result) {
+        if (status == 'true') {
+            $('.like_button').css('display', 'none');
+            $('.like_button').empty();
+            $('.dislike_button').css('display', 'inline-block') ;
+            $('.dislike_button').empty();
+            $('.dislike_button').text('추천 ' + result);
+        } else {
+            $('.dislike_button').css('display', 'none');
+            $('.dislike_button').empty();
+            $('.like_button').css('display', 'inline-block') ;
+            $('.like_button').empty();
+            $('.like_button').text('추천 ' + result);
+        }
     }
 </script>
 </html>

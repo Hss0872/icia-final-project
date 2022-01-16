@@ -5,7 +5,6 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface BoardDao {
@@ -42,7 +41,15 @@ public interface BoardDao {
 
     boolean deleteCountLaneBReply(@Param("bNum") int bNum);
 
-    int addCountFreeBLike(@Param("bNum") int bNum);
+    boolean incrCountFreeBLike(@Param("bNum") int bNum);
 
-    int addCountLaneBLike(@Param("bNum") int bNum);
+    boolean incrCountLaneBLike(@Param("bNum") int bNum);
+
+    boolean decrCountFreeBLike(@Param("bNum") int bNum);
+
+    boolean decrCountLaneBLike(@Param("bNum") int bNum);
+
+    int selectCountFreeBLike(@Param("bNum") int bNum);
+
+    int selectCountLaneBLike(@Param("bNum") int bNum);
 }

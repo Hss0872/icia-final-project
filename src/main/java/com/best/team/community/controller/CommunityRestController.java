@@ -42,6 +42,8 @@ public class CommunityRestController {
         return ResponseEntity.ok(getReplyListJson);
     }
 
+    // --- REPLY ---
+
     @RequestMapping(value = "/board/{type}/{bNum}/reply", method = RequestMethod.POST, produces = "application/json;utf-8")
     public ResponseEntity<?> addReply(@PathVariable String type, @PathVariable int bNum,
                                       @RequestBody() ReplyParam replyParam, HttpSession session, Model model) throws JsonProcessingException {
@@ -58,9 +60,19 @@ public class CommunityRestController {
                 : ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("");
     }
 
+    // --- LIKE ---
+
     @RequestMapping(value = "/board/{type}/{bNum}/like", method = RequestMethod.POST, produces = "application/json;utf-8")
     public ResponseEntity<?> addBoardLike(@PathVariable String type, @PathVariable int bNum, HttpSession session, Model model) throws JsonProcessingException {
         boolean result = likeMM.addBoardLike(type, bNum, session, model);
+        return result ? ResponseEntity.ok(
+                new ObjectMapper().writeValueAsString(model.getAttribute("likeCount").toString())) :
+                ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("");
+    }
+
+    @RequestMapping(value = "/board/{type}/{bNum}/dislike", method = RequestMethod.POST, produces = "application/json;utf-8")
+    public ResponseEntity<?> deleteBoardLike(@PathVariable String type, @PathVariable int bNum, HttpSession session, Model model) throws JsonProcessingException {
+        boolean result = likeMM.deleteBoardLike(type, bNum, session, model);
         return result ? ResponseEntity.ok(
                 new ObjectMapper().writeValueAsString(model.getAttribute("likeCount").toString())) :
                 ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("");

@@ -1,6 +1,7 @@
 package com.best.team.community.service;
 import com.best.team.community.bean.*;
 import com.best.team.community.dao.BoardDao;
+import com.best.team.community.dao.LikeDao;
 import com.best.team.community.dao.ReplyDao;
 import com.best.team.community.userClass.Paging;
 import com.best.team.member.bean.Member;
@@ -10,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,10 +21,14 @@ import java.util.Optional;
 public class BoardMM {
 
     private BoardDao boardDao;
+    private ReplyDao replyDao;
+    private LikeDao likeDao;
 
     @Autowired
-    public BoardMM(BoardDao boardDao, ReplyDao replyDao) {
+    public BoardMM(BoardDao boardDao, ReplyDao replyDao, LikeDao likeDao) {
         this.boardDao = boardDao;
+        this.replyDao = replyDao;
+        this.likeDao = likeDao;
     }
 
     public String getPreviewBList(BoardType boardType) throws JsonProcessingException {
@@ -82,7 +89,8 @@ public class BoardMM {
         return paging.getBoardPaging();
     }
 
-    public boolean getBoardInfo(String type, int bNum, Model model) {
+    public boolean getBoardInfo(String type, int bNum, Model model, HttpSession session) {
+        log.info("getBoardInfo call");
         Optional<?> op_boardInfo;
         if (type.equals("free")) {
             FreeBoard freeBoardInfo = boardDao.getFreeBoardInfo(bNum);
@@ -95,10 +103,21 @@ public class BoardMM {
         log.info("op_boardInfo = {}" , op_boardInfo.isPresent());
         log.info("op_boardInfo.get() = {}", op_boardInfo.get());
 
+        Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
+        log.info("op_id = {}", op_id.orElse("sessionId does not exist"));
+
         if (op_boardInfo.isPresent()) {
             if (type.equals("free")) {
+                if (op_id.isPresent()) {
+                    boolean currentStatus = likeDao.checkFreeBoardLike(bNum, op_id.get().toString());
+                    model.addAttribute("currentStatus", currentStatus);
+                }
                 model.addAttribute("freeBoardInfo", op_boardInfo.get());
             } else {
+                if (op_id.isPresent()) {
+                    boolean currentStatus = likeDao.checkLaneBoardLike(bNum, op_id.get().toString());
+                    model.addAttribute("currentStatus", currentStatus);
+                }
                 model.addAttribute("laneBoardInfo", op_boardInfo.get());
             }
             model.addAttribute("boardType", type);
