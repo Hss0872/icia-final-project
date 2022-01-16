@@ -355,272 +355,24 @@
                         <div class="Summary_runes__1b7qR">
                             <div class="RuneSet_rune__3PQbj">
                                 <div class="Rune_Build_Div1">
-                                    <div class="First_Rune1"></div>
+                                    <div class="First_Rune1">
+                                        <div class="Oneline_Rune1" style="display: flex"></div>
+                                        <div class="Twoline_Rune1" style="display: flex"></div>
+                                        <div class="Threeline_Rune1" style="display: flex"></div>
+                                        <div class="Fourline_Rune1" style="display: flex"></div>
+                                    </div>
                                     <div class="Second_Rune1"></div>
                                     <div class="Stats_Rune1"></div>
                                 </div>
                                 <div class="Rune_Build_Div2">
-                                    <div class="First_Rune2"></div>
+                                    <div class="First_Rune2" style="display: flex">
+                                        <div class="Oneline_Rune2" style="display: flex"></div>
+                                        <div class="Twoline_Rune2" style="display: flex"></div>
+                                        <div class="Threeline_Rune2" style="display: flex"></div>
+                                        <div class="Fourline_Rune2" style="display: flex"></div>
+                                    </div>
                                     <div class="Second_Rune2"></div>
                                     <div class="Stats_Rune2"></div>
-                                </div>
-
-                                <div>
-                                    <div style="background-size: 25px;
-                                        background-image: url('/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png');
-                                        background-position: 100%;
-                                        width: 24px;
-                                        height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div style="background-size: 25px;
-                                        background-image: url('/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png');
-                                        background-position: 100%;
-                                        width: 24px;
-                                        height: 24px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div style="background-size: 25px;
-                                        background-image: url('/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png');
-                                        background-position: 100%;
-                                        width: 24px;
-                                        height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div style="background-size: 25px;
-                                        background-image: url('/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png');
-                                        background-position: 100%;
-                                        width: 24px;
-                                        height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 서브 룬 선택 로직 콘솔에 찍힌 값을 토대로 이미지를 불러오도록 로직을 짜야함 -->
-                    <div>
-                        <div class="Summary_runes__1b7qR">
-                            <div class="RuneSet_rune__3PQbj">
-                                <div>
-                                    <div style="background-size: 25px;
-                                        background-image: url('/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png');
-                                        background-position: 100%;
-                                        width: 24px;
-                                        height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div style="background-size: 25px;
-                                        background-image: url('/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png');
-                                        background-position: 100%;
-                                        width: 24px;
-                                        height: 24px;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="Summary_pickwin__PRaVa">
-                            <div>
-                                <div style="color: rgb(70, 175, 46);">52.8% Win Rate</div>
-                                <div class="Tip_q__3v_Eo">?</div>
-                            </div><span class="Summary_keystonegames__3ypEL">101,258 Games</span>
-                        </div>
-                    </div>
-
-                    <!-- 스탯 룬 선택 로직 콘솔에 찍힌 값을 토대로 이미지를 불러오도록 로직을 짜야함 -->
-                    <div>
-                        <div class="Summary_runes__1b7qR">
-                            <div class="RuneSet_mod__1-l2z RuneSet_rune__3PQbj">
-                                <div>
-                                    <div style="background-size: 25px;
-                                        background-image: url('/resources/images/perk_images/Styles/Stats/5008.png');
-                                        background-position: 100%;
-                                        width: 24px;
-                                        height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Stats/5005.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Stats/5007.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Stats/5008.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Stats/5002.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Stats/5003.png');
-                                         background-position: -100%;
-                                         width: 24px;
-                                         height:24px;">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Stats/5001.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Stats/5002.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
-                                    <div class="Rune_grey__39iTw"
-                                         style="background-size: 25px;
-                                         background-image: url('/resources/images/perk_images/Styles/Stats/5003.png');
-                                         background-position: 100%;
-                                         width: 24px;
-                                         height: 24px;">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1155,38 +907,231 @@
         let RB_Div1 = $('.Rune_Build_Div1');
         let RB_Div2 = $('.Rune_Build_Div2');
 
-        let RB_First1 = $('.First_Rune1');
-        let RB_Second1 = $('.Second_Rune1');
-        let RB_Third1 = $('.Stats_Rune1');
+        //첫번째 룬페이지 변수
+        let RB_One1 = $('.Oneline_Rune1');
+        let RB_Two1 = $('.Twoline_Rune1');
+        let RB_Three1 = $('.Threeline_Rune1');
+        let RB_Four1 = $('.Fourline_Rune1');
 
-        let RB_First2 = $('.First_Rune2');
-        let RB_Second2 = $('.Second_Rune2');
-        let RB_Third2 = $('.Stats_Rune2');
+        let RB_One2 = $('.Oneline_Rune2');
+        let RB_Two2 = $('.Twoline_Rune2');
+        let RB_Three2 = $('.Threeline_Rune2');
+        let RB_Four2 = $('.Fourline_Rune2');
+
+        //두번째 룬페이지 변수
+        let RBs_One1 = $('.Oneline_Rune1');
 
         //룬 빌드1
         //Domination (지배)
-        // $('<img>').attr("class", "Domination_Keystone_Predator").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Keystone/Predator.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Keystone_Electrocute").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Keystone_DarkHarvest").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Keystone_HailOfBlades").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png").appendTo(RB_First1);
+        $('<div>').attr("class", "Domination_Keystone_Predator").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Domination_Keystone_Electrocute").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Domination_Keystone_DarkHarvest").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Domination_Keystone_HailOfBlades").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").appendTo(RB_One1);
+
+        $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").appendTo(RB_Two1);
+
+        $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").appendTo(RB_Three1);
+
+        $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").appendTo(RB_Four1);
+
+        //Inspiration (영감)
+        $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Inspiration_Keystone_FirstStrike").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").appendTo(RB_One1);
+
+        $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").appendTo(RB_Two1);
+
+        $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").appendTo(RB_Three1);
+
+        $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").appendTo(RB_Four1);
+
+        //Precision (정밀)
+        $('<div>').attr("class", "Precision_Keystone_PressTheAttack").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Precision_Keystone_LethalTempo").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Precision_Keystone_FleetFootwork").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Precision_Keystone_Conqueror").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").appendTo(RB_One1);
+
+        $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").appendTo(RB_Two1);
+
+        $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").appendTo(RB_Three1);
+
+        $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").appendTo(RB_Four1);
+
+        //Resolve (결의)
+        $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Resolve_Keystone_Aftershock").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Resolve_Keystone_Guardian").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").appendTo(RB_One1);
+
+        $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").appendTo(RB_Two1);
+
+        $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").appendTo(RB_Three1);
+
+        $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").appendTo(RB_Four1);
+
+        //Sorcery (마법)
+        $('<div>').attr("class", "Sorcery_Keystone_SummonAery").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").appendTo(RB_One1);
+        $('<div>').attr("class", "Sorcery_Keystone_PhaseRush").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").appendTo(RB_One1);
+
+        $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").appendTo(RB_Two1);
+        $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").appendTo(RB_Two1);
+
+        $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").appendTo(RB_Three1);
+        $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").appendTo(RB_Three1);
+
+        $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").appendTo(RB_Four1);
+        $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").appendTo(RB_Four1);
+
+
+
+
+        // let substyle = y.perks.styles[1].style;
+        // if (substyle == 8100) {
+        //     $('<div>').attr("class", "rune2").html(
+        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Domination/Domination.png'>"
+        //     ).appendTo(rune)
+        // } else if (substyle == 8200) {
+        //     $('<div>').attr("class", "rune2").html(
+        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Sorcery/Sorcery.png'>")
+        //         .appendTo(rune)
         //
-        // $('<img>').attr("class", "Domination_Malice_CheapShot").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Malice_TasteOfBlood").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Malice_SuddenImpact").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png").appendTo(RB_First1);
+        // } else if (substyle == 8000) {
+        //     $('<div>').attr("class", "rune2").html(
+        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Precision/Precision.png'>"
+        //     ).appendTo(rune)
         //
-        // $('<img>').attr("class", "Domination_Tracking_ZombieWard").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Tracking_GhostPoro").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Tracking_EyeballCollection").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png").appendTo(RB_First1);
+        // } else if (substyle == 8300) {
+        //     $('<div>').attr("class", "rune2").html(
+        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Inspiration/Inspiration.png'>"
+        //     ).appendTo(rune)
         //
-        // $('<img>').attr("class", "Domination_Hunter_RavenousHunter").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Hunter_IngeniousHunter").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Hunter_RelentlessHunter").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png").appendTo(RB_First1);
-        // $('<img>').attr("class", "Domination_Hunter_UltimateHunter").attr("style", "width: 70px").attr("src", "/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png").appendTo(RB_First1);
+        // } else if (substyle == 8400) {
+        //     $('<div>').attr("class", "rune2").html(
+        //         "<img class='runeimg' src='/resources/images/perk_images/Styles/Resolve/Resolve.png'>")
+        //         .appendTo(rune)
+        // }
+
 
         $('<p>').attr("class", "Rune_Build_Rate").text(RB_Rate1+"% Win Rate").appendTo(RB_Div1);
         $('<p>').attr("class", "Rune_Build_cnt").text(RB_Cnt1+" Games").appendTo(RB_Div1);
 
         //룬 빌드2
+        //Domination (지배)
+        $('<div>').attr("class", "Domination_Keystone_Predator").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Domination_Keystone_Electrocute").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Domination_Keystone_DarkHarvest").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Domination_Keystone_HailOfBlades").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").appendTo(RB_One2);
+
+        $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").appendTo(RB_Two2);
+
+        $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").appendTo(RB_Three2);
+
+        $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").appendTo(RB_Four2);
+
+        //Inspiration (영감)
+        $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Inspiration_Keystone_FirstStrike").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").appendTo(RB_One2);
+
+        $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").appendTo(RB_Two2);
+
+        $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").appendTo(RB_Three2);
+
+        $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").appendTo(RB_Four2);
+
+        //Precision (정밀)
+        $('<div>').attr("class", "Precision_Keystone_PressTheAttack").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Precision_Keystone_LethalTempo").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Precision_Keystone_FleetFootwork").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Precision_Keystone_Conqueror").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").appendTo(RB_One2);
+
+        $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").appendTo(RB_Two2);
+
+        $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").appendTo(RB_Three2);
+
+        $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").appendTo(RB_Four2);
+
+        //Resolve (결의)
+        $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Resolve_Keystone_Aftershock").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Resolve_Keystone_Guardian").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").appendTo(RB_One2);
+
+        $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").appendTo(RB_Two2);
+
+        $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").appendTo(RB_Three2);
+
+        $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").appendTo(RB_Four2);
+
+        //Sorcery (마법)
+        $('<div>').attr("class", "Sorcery_Keystone_SummonAery").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").appendTo(RB_One2);
+        $('<div>').attr("class", "Sorcery_Keystone_PhaseRush").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").appendTo(RB_One2);
+
+        $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").appendTo(RB_Two2);
+        $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").appendTo(RB_Two2);
+
+        $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").appendTo(RB_Three2);
+        $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").appendTo(RB_Three2);
+
+        $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").appendTo(RB_Four2);
+        $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").appendTo(RB_Four2);
+
         $('<p>').attr("class", "Rune_Build_Rate").text(RB_Rate2+"% Win Rate").appendTo(RB_Div2);
         $('<p>').attr("class", "Rune_Build_cnt").text(RB_Cnt2+" Games").appendTo(RB_Div2);
     </script>
