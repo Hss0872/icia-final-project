@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.best.team.championInfo.dao.ChampionInfoDao">
+    <select id="getItemBulidWinRate" resultType="ItemBulidWinRate">
+        <![CDATA[
+            select * from (select * from item_bulid_win_rate where championname = #{championName} order by cnt desc) where rownum <=3
+        ]]>
+    </select>
+
+    <select id="getRuneBulidWinRate" resultType="RuneBulidWinRate">
+        <![CDATA[
+            select * from (select * from rune_bulid_win_rate where championname = #{championName} order by cnt desc) where rownum <=2
+        ]]>
+    </select>
+
+    <select id="getSkillWinRate" resultType="SkillWinRate">
+        <![CDATA[
+            select * from (select * from skill_bulid_win_rate where championname = #{championName} order by cnt desc) where rownum <=3
+        ]]>
+    </select>
+
+    <select id="getStartItemWinRate" resultType="StartItemWinRate">
+        <![CDATA[
+            select * from (select * from start_item_win_rate where championname = #{championName} order by cnt desc) where rownum <=2
+        ]]>
+    </select>
+
+    <select id="getMasterPoint" resultType="MasterPoint">
+        <![CDATA[
+            select * from (select * from master_point_data where championname = #{championName} order by championpoints desc) where rownum <=5
+        ]]>
+    </select>
+
+    <select id="getChampionPassive" resultType="ChampionPassive">
+        select * from champion_passive_info where champion_passive_eng = #{ChampionPassiveName}
+    </select>
+
+    <select id="getChampionBlurb" resultType="ChampionBlurb">
+        select * from champion_blurb where champion_eng = #{championName}
+    </select>
+
+    <select id="getChampionSkillDesc" resultType="ChampionSkillDesc">
+        select * from champion_skill_desc where champion_name_eng = #{championName}
+    </select>
+
+</mapper>
