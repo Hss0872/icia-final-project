@@ -52,4 +52,12 @@ public interface BoardDao {
     int selectCountFreeBLike(@Param("bNum") int bNum);
 
     int selectCountLaneBLike(@Param("bNum") int bNum);
+
+    boolean FreeBoardViewCountUp(@Param("bNum") int bNum);
+
+    boolean LaneBoardViewCountUp(@Param("bNum") int bNum);
+
+    boolean checkExistFreeBoard(@Param("bNum") int bNum);
+
+    boolean checkExistLaneBoard(@Param("bNum") int bNum);
 }

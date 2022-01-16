@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @Controller
@@ -30,7 +31,7 @@ public class CommunityController {
     @RequestMapping()
     public String community() {
         log.info("community call");
-        return "freeboard_modify";
+        return "redirect:/community/board/free";
     }
 
     @RequestMapping(value = "/board/{type}", method = RequestMethod.GET)
@@ -40,14 +41,14 @@ public class CommunityController {
         boardType.setBoardType(type);
         boolean result = boardMM.getBList(boardType, pageNum, model, boardSearch);
         log.info(type + "board");
-        return type + "board";
+        return type + "board_modify";
     }
 
     @RequestMapping(value = "/board/{type}/{bNum}", method = RequestMethod.GET)
-    public String getBoardInfo(@PathVariable String type, @PathVariable int bNum, Model model, HttpSession session) {
+    public String getBoardInfo(@PathVariable String type, @PathVariable int bNum, Model model,
+                               HttpServletRequest request, HttpServletResponse response) {
         log.info("getBoardInfo call");
-        log.info("session id = {}", session.getAttribute("id"));
-        boolean result = boardMM.getBoardInfo(type, bNum, model, session);
-        return result ? "boardContents" : "community";
+        boolean result = boardMM.getBoardInfo(type, bNum, model, request, response);
+        return result ? "boardContents_modify" : "redirect:/community/board/free";
     }
 }

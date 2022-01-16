@@ -73,138 +73,6 @@
             <a class="Logo" href="pMain.html" width="100%">
                 <img src="/resources/images/Full.png" alt="First in Last out Logo">
             </a>
-            <div class="coment">댓글 많이 쓴 회원 Top10
-                <div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">100</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">90</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">80</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">70</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">60</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">50</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">40</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">30</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">20</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="look">조회수 많은 글 Top10
-                <div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">100</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">90</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">80</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">70</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">60</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">50</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">40</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">30</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">20</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="like">좋아요 많은 글 Top10
-                <div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">100</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">90</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">80</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">70</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">60</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">50</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">40</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">30</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">20</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">10</div>
-                    </div>
-                </div>
-            </div>
 
         </div>
         <div class="Main">
@@ -346,3 +214,19 @@
     }
 </script>
 </html>
+
+
+<div class="page-box">
+    <a class="btn" href="#">&lt;&lt;</a>
+    <a class="btn" href="#">&lt;</a>
+
+    <!--  숫자 버튼  -->
+    <a class="btn number" href="#">1</a>
+    <a class="btn number" href="#">2</a>
+    <a class="btn number on" href="#">3</a>
+    <a class="btn number" href="#">4</a>
+    <a class="btn number" href="#">5</a>
+
+    <a class="btn" href="#">&gt;</a>
+    <a class="btn" href="#">&gt;&gt;</a>
+</div>

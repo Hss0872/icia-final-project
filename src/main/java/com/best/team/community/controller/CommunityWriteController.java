@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/community")
 public class CommunityWriteController {
 
-    @RequestMapping("/write")
+    @RequestMapping("/board/write")
     public String communityWrite() {
-        return "communityWrite";
+        return "boardWriter_modify";
     }
 }

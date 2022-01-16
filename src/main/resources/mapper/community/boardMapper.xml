@@ -121,4 +121,20 @@
         SELECT B_LANE_LCOUNT FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum}
     </select>
 
+    <select id="checkExistFreeBoard" resultType="boolean">
+        SELECT COUNT(*) FROM COMMUNITY_FREEB WHERE B_FREE_NUM = #{bNum}
+    </select>
+
+    <select id="checkExistLaneBoard" resultType="boolean">
+        SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum}
+    </select>
+
+    <update id="FreeBoardViewCountUp">
+        UPDATE COMMUNITY_FREEB SET B_FREE_VIEW = B_FREE_VIEW + 1 WHERE B_FREE_NUM = #{bNum}
+    </update>
+
+    <update id="LaneBoardViewCountUp">
+        UPDATE COMMUNITY_LANEB SET B_LANE_VIEW = B_LANE_VIEW + 1 WHERE B_LANE_NUM = #{bNum}
+    </update>
+
 </mapper>

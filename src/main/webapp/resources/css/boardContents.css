@@ -1,3 +1,8 @@
+.boardContent1{
+    width: 70%;
+    margin: auto;
+}
+
 .contentsInfo{
     display: flex;
     justify-content: space-between;
