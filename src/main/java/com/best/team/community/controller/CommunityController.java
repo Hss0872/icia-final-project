@@ -30,7 +30,7 @@ public class CommunityController {
     @RequestMapping()
     public String community() {
         log.info("community call");
-        return "community";
+        return "freeboard_modify";
     }
 
     @RequestMapping(value = "/board/{type}", method = RequestMethod.GET)
