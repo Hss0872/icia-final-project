@@ -15,11 +15,26 @@
     </head>
 
     <body>
-        <div class="outer">
+
+        <%-- 애니메이션 배경 적용 video Tag -->
+        <%--<video controls width="250">--%>
+
+        <%--    <source src="/media/cc0-videos/flower.webm"--%>
+        <%--            type="video/webm">--%>
+
+        <%--    <source src="/media/cc0-videos/flower.mp4"--%>
+        <%--            type="video/mp4">--%>
+
+        <%--    Sorry, your browser doesn't support embedded videos.--%>
+        <%--</video>--%>
+        <header class="cham_header">
             <div class="inner">
-                <a href="/">Home</a>
+                <p class="homeTag">
+                    <a href="/" style="color: white ">Home</a>
+                </p>
             </div>
-        </div>
+        </header>
+
 
         <!-- <div class="firstOne" id="test">
             <div class="firstOne2">

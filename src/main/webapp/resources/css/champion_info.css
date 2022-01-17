@@ -5,6 +5,8 @@ body {
     background-image: url("/resources/images/space_image(1).jpg");
     background-color: #111;
     margin: 48px 0 0;
+    height: 100vh;
+    background-size : cover;
     color: #fff;
     font-family: "Roboto",Arial,sans-serif;
     font-display: optional;
