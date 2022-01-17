@@ -165,46 +165,32 @@
                         <svg class="CircleBig_border__3QsNj">
                             <circle cx="72" cy="72" r="72" stroke="#333" stroke-width="2" fill="#111"></circle>
                         </svg>
-<%--                        <div class="CircleBig_lane__2qKzs">--%>
-<%--                            <div class="laneicon"--%>
-<%--                                 style="background-position: 0px 0px;--%>
-<%--                                 width: 27px;--%>
-<%--                                 height: 27px;--%>
-<%--                                 background-repeat: no-repeat;--%>
-<%--                                 margin-left: auto;--%>
-<%--                                 margin-right: auto;--%>
-<%--                                 &lt;%&ndash; 라인 포지션 이미지 &ndash;%&gt;--%>
-<%--                                 background-image: url('/resources/images/LOL_POSITION/top.png');--%>
-<%--                                 background-size: 243px 27px;">--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <svg class="CircleBig_laneborder__2kf6I">--%>
-<%--                            <circle cx="23" cy="23" r="23" stroke="#333" stroke-width="1" fill="#111"></circle>--%>
-<%--                        </svg>--%>
-<%--                        <div class="CircleBig_tier__ul2zF">S+</div><svg class="CircleBig_tierborder__16GoL">--%>
-<%--                            <circle cx="23" cy="23" r="23" stroke="#333" stroke-width="1" fill="#111"></circle>--%>
-<%--                        </svg>--%>
                     </div>
                     <div class="SkillList_wrapper__1HtlM">
                         <div class="Skill_skill30__CEeFI">
-                            <img src="/resources/images/LOL_CHAMPION_PASSIVE/${championName}Passive.png" alt="${championName}P">
+                            <img class="Champ_Passive" src="/resources/images/LOL_CHAMPION_PASSIVE/${championName}Passive.png" alt="${championName}P">
                             <div>P</div>
+                            <p class="Explain_box">${championName}Passive</p>
                         </div>
                         <div class="Skill_skill30__CEeFI">
-                            <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png" alt="${championName}Q">
+                            <img class="Champ_Q" src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png" alt="${championName}Q">
                             <div>Q</div>
+                            <p class="Explain_box">${championName}Q</p>
                         </div>
                         <div class="Skill_skill30__CEeFI">
-                            <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png" alt="${championName}W">
+                            <img class="Champ_W" src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png" alt="${championName}W">
                             <div>W</div>
+                            <p class="Explain_box">${championName}W</p>
                         </div>
                         <div class="Skill_skill30__CEeFI">
-                            <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png" alt="${championName}E">
+                            <img class="Champ_E" src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png" alt="${championName}E">
                             <div>E</div>
+                            <p class="Explain_box">${championName}E</p>
                         </div>
                         <div class="Skill_skill30__CEeFI">
-                            <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}R.png" alt="${championName}R">
+                            <img class="Champ_R" src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}R.png" alt="${championName}R">
                             <div>R</div>
+                            <p class="Explain_box">${championName}R</p>
                         </div>
                     </div>
                 </div>
@@ -213,19 +199,6 @@
                     <h1>${championName} Build</h1>
                     <div class="champion_title"></div>
                     <div class="champion_blurb"></div>
-                </div>
-                <div>
-                    <div class="Circle_circle__1UKAB">
-                        <div>
-                            <svg width="80" height="80">
-    <%--                            <g transform="translate(40,40)">--%>
-    <%--                                <path d="M1.3182269663177186,38.97771514167131A39,39,0,0,1,-17.622486381192008,-34.79149283581695L-10.805147645018803,-20.303910568394073A23,23,0,0,0,0.3128604547662688,22.997872039296233Z" stroke="rgb(193,105,104)" fill-opacity="0.5" fill="rgb(193,105,104)"></path>--%>
-    <%--                                <path d="M1.131805237291119,-38.98357368052396A39,39,0,0,1,3.577370722700992,38.83558186396029L2.572004211149535,22.85573876158522A23,23,0,0,0,1.1318052372911143,-22.972135662685794Z" stroke="rgb(104,185,214)" fill-opacity="0.5" fill="rgb(104,185,214)"></path>--%>
-    <%--                                <path d="M-15.574310387544559,-35.75529130006385A39,39,0,0,1,-1.131805237291089,-38.98357368052396L-1.1318052372910916,-22.972135662685794A23,23,0,0,0,-8.75697165137137,-21.267709032640965Z" stroke="rgb(223,223,223)" fill-opacity="0.5" fill="rgb(223,223,223)"></path>--%>
-    <%--                            </g>--%>
-                            </svg>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -248,6 +221,7 @@
                     <div>Stat Mods</div>
                 </div>
 
+                <!-- 챔피언 스킬 트리 로직 (스킬을 선마한 구간에는 이미지가 표시되도록 로직을 짜야함) -->
                 <div class="Summary_row2__3iVg7">
                     <div>
                         <div>
@@ -317,33 +291,6 @@
                                         </tr>
                                     </table>
                                 </div>
-
-                                    <!-- 챔피언 스킬 선마순서 로직 -->
-<%--                                <div class="Skill_skill36__yk-DO">--%>
-<%--                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png" alt="Shen Q">--%>
-<%--                                    <div>Q</div>--%>
-<%--                                </div>--%>
-<%--                                <div class="SkillPriority_skillnext__38Exi">--%>
-<%--                                    <i>▷</i>--%>
-<%--                                </div>--%>
-<%--                                <div class="Skill_skill36__yk-DO">--%>
-<%--                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png" alt="Shen E">--%>
-<%--                                    <div>E</div>--%>
-<%--                                </div>--%>
-<%--                                <div class="SkillPriority_skillnext__38Exi">--%>
-<%--                                    <i>▷</i>--%>
-<%--                                </div>--%>
-<%--                                <div class="Skill_skill36__yk-DO">--%>
-<%--                                    <img src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png" alt="Shen W">--%>
-<%--                                    <div>W</div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-
-<%--                            <div class="Summary_pickwin__PRaVa">--%>
-<%--                                <!-- DB 정보에 있는 CNT와 WIN_RATE 컬럼값을 불러와서 이에 따른 동적 DIV를 구성해야 함 -->--%>
-<%--                                <div style="color: rgb(70, 175, 46);">53.1% Win Rate</div>--%>
-<%--                                <span>53.5%</span>--%>
-<%--                           </div>--%>
                             </div>
                         </div>
                     </div>
@@ -436,120 +383,6 @@
                         </div>
                     </div>
                 </div>
-
-<%--                <div class="Summary_itemsrow__27AYY">--%>
-<%--                    <div class="Summary_items__1Hq4v">--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/1054.jpg" alt="Doran's Shield" data-id="1054">--%>
-<%--                        </div>--%>
-<%--                        <div class="Summary_spacer__2XFIf"></div>--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/2003.jpg" alt="Health Potion" data-id="2003">--%>
-<%--                        </div>--%>
-<%--                        <div class="Summary_spacer__2XFIf"></div>--%>
-<%--                        <div class="Summary_pickwin__PRaVa">--%>
-<%--                            <div style="color: rgb(70, 175, 46);">52.8% Win Rate</div>--%>
-<%--                            <span> 100,606 Games</span>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="Summary_items__1Hq4v">--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/6662.jpg" alt="Frostfire Gauntlet" data-id="6662">--%>
-<%--                        </div>--%>
-<%--                        <div class="Summary_skillnext__1dEk0">--%>
-<%--                            <i>▷</i>--%>
-<%--                        </div>--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/3047.jpg" alt="Plated Steelcaps" data-id="3047">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">61.56%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">2,094</div>--%>
-<%--                        </div>--%>
-<%--                        <div class="Summary_skillnext__1dEk0">--%>
-<%--                            <i>▷</i>--%>
-<%--                        </div>--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/4637.jpg" alt="Demonic Embrace" data-id="4637">--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="Summary_items__1Hq4v">--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/3748.jpg" alt="Titanic Hydra" data-id="3748">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">62.99%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">4,739</div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="Summary_or__2BEIC"> OR </div>--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/3075.jpg" alt="Thornmail" data-id="3075">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">60.58%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">12,585</div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="Summary_items__1Hq4v">--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/4401.jpg" alt="Force of Nature" data-id="4401">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">61.51%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">1,299</div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="Summary_or__2BEIC"> OR </div>--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/3075.jpg" alt="Thornmail" data-id="3075">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">59.39%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">1,758</div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="Summary_or__2BEIC"> OR </div>--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/3143.jpg" alt="Randuin's Omen" data-id="3143">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">58.87%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">2,509</div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="Summary_items__1Hq4v">--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/3065.jpg" alt="Spirit Visage" data-id="3065">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">63.10%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">168</div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="Summary_or__2BEIC"> OR </div>--%>
-
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/4401.jpg" alt="Force of Nature" data-id="4401">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">58.67%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">196</div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="Summary_or__2BEIC"> OR </div>--%>
-<%--                        <div>--%>
-<%--                            <img class="Item_item32br__3G4j0" src="https://cdn.lolalytics.com/generated/item64px/3143.jpg" alt="Randuin's Omen" data-id="3143">--%>
-<%--                            <div class="Summary_win__2epkg">--%>
-<%--                                <div style="color: rgb(36, 163, 0);">55.94%</div>--%>
-<%--                            </div>--%>
-<%--                            <div class="Summary_pick__1tuJG">286</div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
             </div>
         </div>
     </body>
@@ -927,12 +760,28 @@
         let RB_Rate2 = runeBulidWinRates[1].win_Rate;
 
         let PM_Rune1 = runeBulidWinRates[0].main_Runes.split('|')[0];
+        let PM_Rune1A = runeBulidWinRates[0].main_Runes.split('|')[1];
+        let PM_Rune1B = runeBulidWinRates[0].main_Runes.split('|')[2];
+        let PM_Rune1C = runeBulidWinRates[0].main_Runes.split('|')[3];
+
         let SM_Rune1 = runeBulidWinRates[0].sub_Runes.split('|')[0];
-        let Stats_Rune1 = runeBulidWinRates[0].stats_Runes.split('|');
+        let SM_Rune1A = runeBulidWinRates[0].sub_Runes.split('|')[1];
+
+        let Stats_Rune1 = runeBulidWinRates[0].stats_Runes.split('|')[0];
+        let Stats_Rune1A = runeBulidWinRates[0].stats_Runes.split('|')[1];
+        let Stats_Rune1B = runeBulidWinRates[0].stats_Runes.split('|')[2];
 
         let PM_Rune2 = runeBulidWinRates[1].main_Runes.split('|')[0];
+        let PM_Rune2A = runeBulidWinRates[1].main_Runes.split('|')[1];
+        let PM_Rune2B = runeBulidWinRates[1].main_Runes.split('|')[2];
+        let PM_Rune2C = runeBulidWinRates[1].main_Runes.split('|')[3];
+
         let SM_Rune2 = runeBulidWinRates[1].sub_Runes.split('|')[0];
-        let Stats_Rune2 = runeBulidWinRates[1].stats_Runes.split('|');
+        let SM_Rune2A = runeBulidWinRates[1].sub_Runes.split('|')[1];
+
+        let Stats_Rune2 = runeBulidWinRates[1].stats_Runes.split('|')[0];
+        let Stats_Rune2A = runeBulidWinRates[1].stats_Runes.split('|')[1];
+        let Stats_Rune2B = runeBulidWinRates[1].stats_Runes.split('|')[2];
 
         let RB_Div1 = $('.Rune_Build_Div1');
         let RB_Div2 = $('.Rune_Build_Div2');
@@ -969,330 +818,1043 @@
         //룬 빌드1
         //Primay Runes
         if (PM_Rune1 == "8112" || PM_Rune1 == "8124" || PM_Rune1 == "8128" || PM_Rune1 == "9923") {     //Domination (지배)
-            $('<div>').attr("class", "Domination_Keystone_Predator").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Domination_Keystone_Electrocute").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Domination_Keystone_DarkHarvest").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Domination_Keystone_HailOfBlades").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Domination_Keystone_Predator_A").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").css('-webkit-filter', 'grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Domination_Keystone_Electrocute_A").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").css('-webkit-filter', 'grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Domination_Keystone_DarkHarvest_A").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").css('-webkit-filter', 'grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Domination_Keystone_HailOfBlades_A").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-            $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Domination_Malice_CheapShot_A").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Domination_Malice_TasteOfBlood_A").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Domination_Malice_SuddenImpact_A").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-            $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Domination_Tracking_ZombieWard_A").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Domination_Tracking_GhostPoro_A").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Domination_Tracking_EyeballCollection_A").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-            $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Domination_Hunter_RavenousHunter_A").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter_A").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter_A").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Domination_Hunter_UltimateHunter_A").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
         } else if (PM_Rune1 == "8351" || PM_Rune1 == "8360" || PM_Rune1 == "8369") {    //Inspiration (영감)
-            $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Inspiration_Keystone_FirstStrike").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Inspiration_Keystone_FirstStrike_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
         } else if (PM_Rune1 == "8005" || PM_Rune1 == "8008" || PM_Rune1 == "8021" || PM_Rune1 == "8010") {    //Precision (정밀)
-            $('<div>').attr("class", "Precision_Keystone_PressTheAttack").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Precision_Keystone_LethalTempo").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Precision_Keystone_FleetFootwork").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Precision_Keystone_Conqueror").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Precision_Keystone_PressTheAttack_A").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Precision_Keystone_LethalTempo_A").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Precision_Keystone_FleetFootwork_A").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Precision_Keystone_Conqueror_A").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-            $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Precision_Heroism_Overheal_A").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Precision_Heroism_Triumph_A").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind_A").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-            $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Precision_Legend_LegendAlacrity_A").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Precision_Legend_LegendTenacity_A").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Precision_Legend_LegendBloodline_A").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-            $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Precision_Combat_CoupDeGrace_A").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Precision_Combat_CutDown_A").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Precision_Combat_LastStand_A").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
         } else if (PM_Rune1 == "8437" || PM_Rune1 == "8439" || PM_Rune1 == "8465") {      //Resolve (결의)
-            $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Resolve_Keystone_Aftershock").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Resolve_Keystone_Guardian").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Resolve_Keystone_Aftershock_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Resolve_Keystone_Guardian_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-            $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Resolve_Strength_Demolish_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Resolve_Strength_FontOfLife_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Resolve_Strength_ShieldBash_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-            $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Resolve_Resistance_Conditioning_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Resolve_Resistance_SecondWind_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Resolve_Resistance_BonePlating_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-            $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Resolve_Vitality_Overgrowth_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Resolve_Vitality_Revitalize_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Resolve_Vitality_Unflinching_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
         } else if (PM_Rune1 == "8214" || PM_Rune1 == "8229" || PM_Rune1 == "8230") {        //Sorcery (마법)
-            $('<div>').attr("class", "Sorcery_Keystone_SummonAery").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
-            $('<div>').attr("class", "Sorcery_Keystone_PhaseRush").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Sorcery_Keystone_SummonAery_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
+            $('<div>').attr("class", "Sorcery_Keystone_PhaseRush_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One1);
 
-            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
-            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
+            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two1);
 
-            $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
-            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Sorcery_Excellence_Transcendence_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Sorcery_Excellence_Celerity_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
+            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three1);
 
-            $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
-            $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Sorcery_Power_Scorch_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Sorcery_Power_Waterwalking_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+            $('<div>').attr("class", "Sorcery_Power_GatheringStorm_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four1);
+        }
+
+        //왕룬 선택란
+        if (PM_Rune1 == "8124") {   //지배 왕룬
+            document.querySelector('.Domination_Keystone_Predator_A').style.removeProperty('-webkit-filter');     //포식자
+        } else if (PM_Rune1 == "8112") {
+            document.querySelector('.Domination_Keystone_Electrocute_A').style.removeProperty('-webkit-filter');      //감전
+        } else if (PM_Rune1 == "8128") {
+            document.querySelector('.Domination_Keystone_DarkHarvest_A').style.removeProperty('-webkit-filter');      //수확자
+        } else if (PM_Rune1 == "9923") {
+            document.querySelector('.Domination_Keystone_HailOfBlades_A').style.removeProperty('-webkit-filter');     //칼날비
+        } else if (PM_Rune1 == "8351") {    //영감 왕룬
+            document.querySelector('.Inspiration_Keystone_GlacialAugment_A').style.removeProperty('-webkit-filter');      //빙결강화
+        } else if (PM_Rune1 == "8360") {
+            document.querySelector('.Inspiration_Keystone_UnsealedSpellbook_A').style.removeProperty('-webkit-filter');       //봉인풀린 주문서
+        } else if (PM_Rune1 == "8369") {
+            document.querySelector('.Inspiration_Keystone_FirstStrike_A').style.removeProperty('-webkit-filter');     //선제공격
+        } else if (PM_Rune1 == "8005") {    //정밀 왕룬
+            document.querySelector('.Precision_Keystone_PressTheAttack_A').style.removeProperty('-webkit-filter');        //집중 공격
+        } else if (PM_Rune1 == "8008") {
+            document.querySelector('.Precision_Keystone_LethalTempo_A').style.removeProperty('-webkit-filter');       //치명적인 속도
+        } else if (PM_Rune1 == "8021") {
+            document.querySelector('.Precision_Keystone_FleetFootwork_A').style.removeProperty('-webkit-filter');     //기민한 발놀림
+        } else if (PM_Rune1 == "8010") {
+            document.querySelector('.Precision_Keystone_Conqueror_A').style.removeProperty('-webkit-filter');     //정복자
+        } else if (PM_Rune1 == "8437") {    //결의 왕룬
+            document.querySelector('.Resolve_Keystone_GraspOfTheUndying_A').style.removeProperty('-webkit-filter');       //착취의 손아귀
+        } else if (PM_Rune1 == "8439") {
+            document.querySelector('.Resolve_Keystone_Aftershock_A').style.removeProperty('-webkit-filter');      //여진
+        } else if (PM_Rune1 == "8465") {
+            document.querySelector('.Resolve_Keystone_Guardian_A').style.removeProperty('-webkit-filter');        //수호자
+        } else if (PM_Rune1 == "8214") {    //마법 왕룬
+            document.querySelector('.Sorcery_Keystone_SummonAery_A').style.removeProperty('-webkit-filter');      //콩콩이 소환
+        } else if (PM_Rune1 == "8229") {
+            document.querySelector('.Sorcery_Keystone_ArcaneComet_A').style.removeProperty('-webkit-filter');     //신비로운 유성
+        } else if (PM_Rune1 == "8230") {
+            document.querySelector('.Sorcery_Keystone_PhaseRush_A').style.removeProperty('-webkit-filter');       //난입
+        }
+
+        //두번째 룬 선택란
+        if (PM_Rune1A == "8126") {   //지배룬
+            document.querySelector('.Domination_Malice_CheapShot_A').style.removeProperty('-webkit-filter');     //비열한 한 방
+        } else if (PM_Rune1A == "8139") {
+            document.querySelector('.Domination_Malice_TasteOfBlood_A').style.removeProperty('-webkit-filter');     //피의 맛
+        } else if (PM_Rune1A == "8143") {
+            document.querySelector('.Domination_Malice_SuddenImpact_A').style.removeProperty('-webkit-filter');     //돌발일격
+        } else if (PM_Rune1A == "8306") {   //영감룬
+            document.querySelector('.Inspiration_Contraption_HextechFlashtraption_A').style.removeProperty('-webkit-filter');     //마법공학 점멸기
+        } else if (PM_Rune1A == "8304") {
+            document.querySelector('.Inspiration_Contraption_MagicalFootwear_A').style.removeProperty('-webkit-filter');     //마법의 신발
+        } else if (PM_Rune1A == "8313") {
+            document.querySelector('.Inspiration_Contraption_PerfectTiming_A').style.removeProperty('-webkit-filter');     //완벽한 타이밍
+        } else if (PM_Rune1A == "9101") {   //정밀룬
+            document.querySelector('.Precision_Heroism_Overheal_A').style.removeProperty('-webkit-filter');     //과다치유
+        } else if (PM_Rune1A == "9111") {
+            document.querySelector('.Precision_Heroism_Triumph_A').style.removeProperty('-webkit-filter');     //승전보
+        } else if (PM_Rune1A == "8009") {
+            document.querySelector('.Precision_Heroism_PresenceOfMind_A').style.removeProperty('-webkit-filter');     //침착
+        } else if (PM_Rune1A == "8446") {   //결의룬
+            document.querySelector('.Resolve_Strength_Demolish_A').style.removeProperty('-webkit-filter');     //철거
+        } else if (PM_Rune1A == "8463") {
+            document.querySelector('.Resolve_Strength_FontOfLife_A').style.removeProperty('-webkit-filter');     //생명의 샘
+        } else if (PM_Rune1A == "8401") {
+            document.querySelector('.Resolve_Strength_ShieldBash_A').style.removeProperty('-webkit-filter');     //보호막 강타
+        } else if (PM_Rune1A == "8224") {   //마법룬
+            document.querySelector('.Sorcery_Artefact_NullifyingOrb_A').style.removeProperty('-webkit-filter');     //무효화 구체
+        } else if (PM_Rune1A == "8226") {
+            document.querySelector('.Sorcery_Artefact_ManaflowBand_A').style.removeProperty('-webkit-filter');     //마나순환 팔찌
+        } else if (PM_Rune1A == "8275") {
+            document.querySelector('.Sorcery_Artefact_NimbusCloak_A').style.removeProperty('-webkit-filter');     //빛의 망토
+        }
+
+        //세번째 룬 선택란
+        if (PM_Rune1B == "8136") {   //지배룬
+            document.querySelector('.Domination_Tracking_ZombieWard_A').style.removeProperty('-webkit-filter');     //좀비 와드
+        } else if (PM_Rune1B == "8120") {
+            document.querySelector('.Domination_Tracking_GhostPoro_A').style.removeProperty('-webkit-filter');     //유령 포로
+        } else if (PM_Rune1B == "8138") {
+            document.querySelector('.Domination_Tracking_EyeballCollection_A').style.removeProperty('-webkit-filter');     //사냥의 증표
+        } else if (PM_Rune1B == "8321") {   //영감룬
+            document.querySelector('.Inspiration_Tomorrow_FuturesMarket_A').style.removeProperty('-webkit-filter');     //외상
+        } else if (PM_Rune1B == "8316") {
+            document.querySelector('.Inspiration_Tomorrow_MinionDematerializer_A').style.removeProperty('-webkit-filter');     //미니언 해체분석기
+        } else if (PM_Rune1B == "8345") {
+            document.querySelector('.Inspiration_Tomorrow_BiscuitDelivery_A').style.removeProperty('-webkit-filter');     //비스킷 배달
+        } else if (PM_Rune1B == "9104") {   //정밀룬
+            document.querySelector('.Precision_Legend_LegendAlacrity_A').style.removeProperty('-webkit-filter');     //전설 : 민첩함
+        } else if (PM_Rune1B == "9105") {
+            document.querySelector('.Precision_Legend_LegendTenacity_A').style.removeProperty('-webkit-filter');     //전설 : 강인함
+        } else if (PM_Rune1B == "9103") {
+            document.querySelector('.Precision_Legend_LegendBloodline_A').style.removeProperty('-webkit-filter');     //전설 : 핏빛 길
+        } else if (PM_Rune1B == "8429") {   //결의룬
+            document.querySelector('.Resolve_Resistance_Conditioning_A').style.removeProperty('-webkit-filter');     //사전 준비
+        } else if (PM_Rune1B == "8444") {
+            document.querySelector('.Resolve_Resistance_SecondWind_A').style.removeProperty('-webkit-filter');     //재생의 바람
+        } else if (PM_Rune1B == "8473") {
+            document.querySelector('.Resolve_Resistance_BonePlating_A').style.removeProperty('-webkit-filter');     //뼈 방패
+        } else if (PM_Rune1B == "8210") {   //마법룬
+            document.querySelector('.Sorcery_Excellence_Transcendence_A').style.removeProperty('-webkit-filter');     //깨달음
+        } else if (PM_Rune1B == "8234") {
+            document.querySelector('.Sorcery_Excellence_Celerity_A').style.removeProperty('-webkit-filter');     //기민함
+        } else if (PM_Rune1B == "8233") {
+            document.querySelector('.Sorcery_Excellence_AbsoluteFocus_A').style.removeProperty('-webkit-filter');     //절대 집중
+        }
+
+        //네번째 룬 선택란
+        if (PM_Rune1C == "8135") {   //지배룬
+            document.querySelector('.Domination_Hunter_RavenousHunter_A').style.removeProperty('-webkit-filter');     //굶주린 사냥꾼
+        } else if (PM_Rune1C == "8134") {
+            document.querySelector('.Domination_Hunter_IngeniousHunter_A').style.removeProperty('-webkit-filter');     //영리한 사냥꾼
+        } else if (PM_Rune1C == "8105") {
+            document.querySelector('.Domination_Hunter_RelentlessHunter_A').style.removeProperty('-webkit-filter');     //끈질긴 사냥꾼
+        } else if (PM_Rune1C == "8106") {
+            document.querySelector('.Domination_Hunter_UltimateHunter_A').style.removeProperty('-webkit-filter');     //궁극의 사냥꾼
+        } else if (PM_Rune1C == "8347") {   //영감룬
+            document.querySelector('.Inspiration_Beyond_CosmicInsight_A').style.removeProperty('-webkit-filter');     //우주적 통찰력
+        } else if (PM_Rune1C == "8410") {
+            document.querySelector('.Inspiration_Beyond_ApproachVelocity_A').style.removeProperty('-webkit-filter');     //쾌속 접근
+        } else if (PM_Rune1C == "8352") {
+            document.querySelector('.Inspiration_Beyond_TimeWarpTonic_A').style.removeProperty('-webkit-filter');     //시간 왜곡 물약
+        } else if (PM_Rune1C == "8014") {   //정밀룬
+            document.querySelector('.Precision_Combat_CoupDeGrace_A').style.removeProperty('-webkit-filter');     //최후의 일격
+        } else if (PM_Rune1C == "8017") {
+            document.querySelector('.Precision_Combat_CutDown_A').style.removeProperty('-webkit-filter');     //체력차 극복
+        } else if (PM_Rune1C == "8299") {
+            document.querySelector('.Precision_Combat_LastStand_A').style.removeProperty('-webkit-filter');     //최후의 저항
+        } else if (PM_Rune1C == "8451") {   //결의룬
+            document.querySelector('.Resolve_Vitality_Overgrowth_A').style.removeProperty('-webkit-filter');     //과잉성장
+        } else if (PM_Rune1C == "8453") {
+            document.querySelector('.Resolve_Vitality_Revitalize_A').style.removeProperty('-webkit-filter');     //소생
+        } else if (PM_Rune1C == "8242") {
+            document.querySelector('.Resolve_Vitality_Unflinching_A').style.removeProperty('-webkit-filter');     //불굴의 의지
+        } else if (PM_Rune1C == "8237") {   //마법룬
+            document.querySelector('.Sorcery_Power_Scorch_A').style.removeProperty('-webkit-filter');     //주문 작열
+        } else if (PM_Rune1C == "8232") {
+            document.querySelector('.Sorcery_Power_Waterwalking_A').style.removeProperty('-webkit-filter');     //물 위를 걷는 자
+        } else if (PM_Rune1C == "8236") {
+            document.querySelector('.Sorcery_Power_GatheringStorm_A').style.removeProperty('-webkit-filter');     //폭풍의 결집
         }
 
         //Summary Runes
-        if (SM_Rune1 == "8126" || SM_Rune1 == "8139" || SM_Rune1 == "8143" || SM_Rune1 == "8136" || SM_Rune1 == "8120" || SM_Rune1 == "8138") {      //Domination (지배)8
-            $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+        if (SM_Rune1 == "8126" || SM_Rune1 == "8139" || SM_Rune1 == "8143" || SM_Rune1 == "8136" || SM_Rune1 == "8120" || SM_Rune1 == "8138" || SM_Rune1 == "8135" || SM_Rune1 == "8134" || SM_Rune1 == "8105" || SM_Rune1 == "8106") {      //Domination (지배)8
+            $('<div>').attr("class", "Domination_Malice_CheapShot_A").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Domination_Malice_TasteOfBlood_A").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Domination_Malice_SuddenImpact_A").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
-            $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Domination_Tracking_ZombieWard_A").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Domination_Tracking_GhostPoro_A").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Domination_Tracking_EyeballCollection_A").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
-            $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-        } else if (SM_Rune1 == "8306" || SM_Rune1 == "8304" || SM_Rune1 == "8313" || SM_Rune1 == "8321" || SM_Rune1 == "8316" || SM_Rune1 == "8345") {        //Inspiration (영감)
-            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Domination_Hunter_RavenousHunter_A").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter_A").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter_A").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Domination_Hunter_UltimateHunter_A").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        } else if (SM_Rune1 == "8306" || SM_Rune1 == "8304" || SM_Rune1 == "8313" || SM_Rune1 == "8321" || SM_Rune1 == "8316" || SM_Rune1 == "8345" || SM_Rune1 == "8347" || SM_Rune1 == "8410" || SM_Rune1 == "8352") {        //Inspiration (영감)
+            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
-            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
-            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-        } else if (SM_Rune1 == "9101" || SM_Rune1 == "9111" || SM_Rune1 == "8009" || SM_Rune1 == "9104" || SM_Rune1 == "9105" || SM_Rune1 == "9103") {        //Precision (정밀)
-            $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic_A").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        } else if (SM_Rune1 == "9101" || SM_Rune1 == "9111" || SM_Rune1 == "8009" || SM_Rune1 == "9104" || SM_Rune1 == "9105" || SM_Rune1 == "9103" || SM_Rune1 == "8014" || SM_Rune1 == "8017" || SM_Rune1 == "8299") {        //Precision (정밀)
+            $('<div>').attr("class", "Precision_Heroism_Overheal_A").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Precision_Heroism_Triumph_A").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind_A").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
-            $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Precision_Legend_LegendAlacrity_A").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Precision_Legend_LegendTenacity_A").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Precision_Legend_LegendBloodline_A").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
-            $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-        } else if (SM_Rune1 == "8446" || SM_Rune1 == "8463" || SM_Rune1 == "8401" || SM_Rune1 == "8429" || SM_Rune1 == "8444" || SM_Rune1 == "8473") {        //Resolve (결의)
-            $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Precision_Combat_CoupDeGrace_A").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Precision_Combat_CutDown_A").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Precision_Combat_LastStand_A").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        } else if (SM_Rune1 == "8446" || SM_Rune1 == "8463" || SM_Rune1 == "8401" || SM_Rune1 == "8429" || SM_Rune1 == "8444" || SM_Rune1 == "8473" || SM_Rune1 == "8451" || SM_Rune1 == "8453" || SM_Rune1 == "8242") {        //Resolve (결의)
+            $('<div>').attr("class", "Resolve_Strength_Demolish_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Resolve_Strength_FontOfLife_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Resolve_Strength_ShieldBash_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
-            $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Resolve_Resistance_Conditioning_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Resolve_Resistance_SecondWind_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Resolve_Resistance_BonePlating_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
-            $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-        } else if (SM_Rune1 == "8224" || SM_Rune1 == "8226" || SM_Rune1 == "8275" || SM_Rune1 == "8210" || SM_Rune1 == "8234" || SM_Rune1 == "8233") {      //Sorcery (마법)
-            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
-            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Resolve_Vitality_Overgrowth_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Resolve_Vitality_Revitalize_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Resolve_Vitality_Unflinching_A").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+        } else if (SM_Rune1 == "8224" || SM_Rune1 == "8226" || SM_Rune1 == "8275" || SM_Rune1 == "8210" || SM_Rune1 == "8234" || SM_Rune1 == "8233" || SM_Rune1 == "8237" || SM_Rune1 == "8232" || SM_Rune1 == "8236") {      //Sorcery (마법)
+            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
+            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One1);
 
-            $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
-            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Sorcery_Excellence_Transcendence_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Sorcery_Excellence_Celerity_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
+            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two1);
 
-            $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
-            $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Sorcery_Power_Scorch_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Sorcery_Power_Waterwalking_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
+            $('<div>').attr("class", "Sorcery_Power_GatheringStorm_A").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three1);
         }
+
+        //Summary 첫번째 룬 선택란
+        if (SM_Rune1 == "8126") {   //지배룬
+            document.querySelector('.Domination_Malice_CheapShot_A').style.removeProperty('-webkit-filter');     //비열한 한 방
+        } else if (SM_Rune1 == "8139") {
+            document.querySelector('.Domination_Malice_TasteOfBlood_A').style.removeProperty('-webkit-filter');     //피의 맛
+        } else if (SM_Rune1 == "8143") {
+            document.querySelector('.Domination_Malice_SuddenImpact_A').style.removeProperty('-webkit-filter');     //돌발일격
+        } else if (SM_Rune1 == "8136") {
+            document.querySelector('.Domination_Tracking_ZombieWard_A').style.removeProperty('-webkit-filter');     //좀비 와드
+        } else if (SM_Rune1 == "8120") {
+            document.querySelector('.Domination_Tracking_GhostPoro_A').style.removeProperty('-webkit-filter');     //유령 포로
+        } else if (SM_Rune1 == "8138") {
+            document.querySelector('.Domination_Tracking_EyeballCollection_A').style.removeProperty('-webkit-filter');     //사냥의 증표
+        } else if (SM_Rune1 == "8135") {
+            document.querySelector('.Domination_Hunter_RavenousHunter_A').style.removeProperty('-webkit-filter');     //굶주린 사냥꾼
+        } else if (SM_Rune1 == "8134") {
+            document.querySelector('.Domination_Hunter_IngeniousHunter_A').style.removeProperty('-webkit-filter');     //영리한 사냥꾼
+        } else if (SM_Rune1 == "8105") {
+            document.querySelector('.Domination_Hunter_RelentlessHunter_A').style.removeProperty('-webkit-filter');     //끈질긴 사냥꾼
+        } else if (SM_Rune1 == "8106") {
+            document.querySelector('.Domination_Hunter_UltimateHunter_A').style.removeProperty('-webkit-filter');     //궁극의 사냥꾼
+        } else if (SM_Rune1 == "8306") {    //영감룬
+            document.querySelector('.Inspiration_Contraption_HextechFlashtraption_A').style.removeProperty('-webkit-filter');     //마법공학 점멸기
+        } else if (SM_Rune1 == "8304") {
+            document.querySelector('.Inspiration_Contraption_MagicalFootwear_A').style.removeProperty('-webkit-filter');     //마법의 신발
+        } else if (SM_Rune1 == "8313") {
+            document.querySelector('.Inspiration_Contraption_PerfectTiming_A').style.removeProperty('-webkit-filter');     //완벽한 타이밍
+        } else if (SM_Rune1 == "8321") {
+            document.querySelector('.Inspiration_Tomorrow_FuturesMarket_A').style.removeProperty('-webkit-filter');     //외상
+        } else if (SM_Rune1 == "8316") {
+            document.querySelector('.Inspiration_Tomorrow_MinionDematerializer_A').style.removeProperty('-webkit-filter');     //미니언 해체분석기
+        } else if (SM_Rune1 == "8345") {
+            document.querySelector('.Inspiration_Tomorrow_BiscuitDelivery_A').style.removeProperty('-webkit-filter');     //비스킷 배달
+        } else if (SM_Rune1 == "8347") {
+            document.querySelector('.Inspiration_Beyond_CosmicInsight_A').style.removeProperty('-webkit-filter');     //우주적 통찰력
+        } else if (SM_Rune1 == "8410") {
+            document.querySelector('.Inspiration_Beyond_ApproachVelocity_A').style.removeProperty('-webkit-filter');     //쾌속 접근
+        } else if (SM_Rune1 == "8352") {
+            document.querySelector('.Inspiration_Beyond_TimeWarpTonic_A').style.removeProperty('-webkit-filter');     //시간 왜곡 물약
+        } else if (SM_Rune1 == "9101") {    //정밀룬
+            document.querySelector('.Precision_Heroism_Overheal_A').style.removeProperty('-webkit-filter');     //과다치유
+        } else if (SM_Rune1 == "9111") {
+            document.querySelector('.Precision_Heroism_Triumph_A').style.removeProperty('-webkit-filter');     //승전보
+        } else if (SM_Rune1 == "8009") {
+            document.querySelector('.Precision_Heroism_PresenceOfMind_A').style.removeProperty('-webkit-filter');     //침착
+        } else if (SM_Rune1 == "9104") {
+            document.querySelector('.Precision_Legend_LegendAlacrity_A').style.removeProperty('-webkit-filter');     //전설 : 민첩함
+        } else if (SM_Rune1 == "9105") {
+            document.querySelector('.Precision_Legend_LegendTenacity_A').style.removeProperty('-webkit-filter');     //전설 : 강인함
+        } else if (SM_Rune1 == "9103") {
+            document.querySelector('.Precision_Legend_LegendBloodline_A').style.removeProperty('-webkit-filter');     //전설 : 핏빛 길
+        } else if (SM_Rune1 == "8014") {
+            document.querySelector('.Precision_Combat_CoupDeGrace_A').style.removeProperty('-webkit-filter');     //최후의 일격
+        } else if (SM_Rune1 == "8017") {
+            document.querySelector('.Precision_Combat_CutDown_A').style.removeProperty('-webkit-filter');     //체력차 극복
+        } else if (SM_Rune1 == "8299") {
+            document.querySelector('.Precision_Combat_LastStand_A').style.removeProperty('-webkit-filter');     //최후의 저항
+        } else if (SM_Rune1 == "8446") {    //결의룬
+            document.querySelector('.Resolve_Strength_Demolish_A').style.removeProperty('-webkit-filter');     //철거
+        } else if (SM_Rune1 == "8463") {
+            document.querySelector('.Resolve_Strength_FontOfLife_A').style.removeProperty('-webkit-filter');     //생명의 샘
+        } else if (SM_Rune1 == "8401") {
+            document.querySelector('.Resolve_Strength_ShieldBash_A').style.removeProperty('-webkit-filter');     //보호막 강타
+        } else if (SM_Rune1 == "8429") {
+            document.querySelector('.Resolve_Resistance_Conditioning_A').style.removeProperty('-webkit-filter');     //사전 준비
+        } else if (SM_Rune1 == "8444") {
+            document.querySelector('.Resolve_Resistance_SecondWind_A').style.removeProperty('-webkit-filter');     //재생의 바람
+        } else if (SM_Rune1 == "8473") {
+            document.querySelector('.Resolve_Resistance_BonePlating_A').style.removeProperty('-webkit-filter');     //뼈 방패
+        } else if (SM_Rune1 == "8451") {
+            document.querySelector('.Resolve_Vitality_Overgrowth_A').style.removeProperty('-webkit-filter');     //과잉성장
+        } else if (SM_Rune1 == "8453") {
+            document.querySelector('.Resolve_Vitality_Revitalize_A').style.removeProperty('-webkit-filter');     //소생
+        } else if (SM_Rune1 == "8242") {
+            document.querySelector('.Resolve_Vitality_Unflinching_A').style.removeProperty('-webkit-filter');     //불굴의 의지
+        } else if (SM_Rune1 == "8224") {    //마법룬
+            document.querySelector('.Sorcery_Artefact_NullifyingOrb_A').style.removeProperty('-webkit-filter');     //무효화 구체
+        } else if (SM_Rune1 == "8226") {
+            document.querySelector('.Sorcery_Artefact_ManaflowBand_A').style.removeProperty('-webkit-filter');     //마나순환 팔찌
+        } else if (SM_Rune1 == "8275") {
+            document.querySelector('.Sorcery_Artefact_NimbusCloak_A').style.removeProperty('-webkit-filter');     //빛의 망토
+        } else if (SM_Rune1 == "8210") {
+            document.querySelector('.Sorcery_Excellence_Transcendence_A').style.removeProperty('-webkit-filter');     //깨달음
+        } else if (SM_Rune1 == "8234") {
+            document.querySelector('.Sorcery_Excellence_Celerity_A').style.removeProperty('-webkit-filter');     //기민함
+        } else if (SM_Rune1 == "8233") {
+            document.querySelector('.Sorcery_Excellence_AbsoluteFocus_A').style.removeProperty('-webkit-filter');     //절대 집중
+        } else if (SM_Rune1 == "8237") {
+            document.querySelector('.Sorcery_Power_Scorch_A').style.removeProperty('-webkit-filter');     //주문 작열
+        } else if (SM_Rune1 == "8232") {
+            document.querySelector('.Sorcery_Power_Waterwalking_A').style.removeProperty('-webkit-filter');     //물 위를 걷는 자
+        } else if (SM_Rune1 == "8236") {
+            document.querySelector('.Sorcery_Power_GatheringStorm_A').style.removeProperty('-webkit-filter');     //폭풍의 결집
+        }
+
+        //Summary 두번째 룬 선택란
+        if (SM_Rune1A == "8126") {   //지배룬
+            document.querySelector('.Domination_Malice_CheapShot_A').style.removeProperty('-webkit-filter');     //비열한 한 방
+        } else if (SM_Rune1A == "8139") {
+            document.querySelector('.Domination_Malice_TasteOfBlood_A').style.removeProperty('-webkit-filter');     //피의 맛
+        } else if (SM_Rune1A == "8143") {
+            document.querySelector('.Domination_Malice_SuddenImpact_A').style.removeProperty('-webkit-filter');     //돌발일격
+        } else if (SM_Rune1A == "8136") {
+            document.querySelector('.Domination_Tracking_ZombieWard_A').style.removeProperty('-webkit-filter');     //좀비 와드
+        } else if (SM_Rune1A == "8120") {
+            document.querySelector('.Domination_Tracking_GhostPoro_A').style.removeProperty('-webkit-filter');     //유령 포로
+        } else if (SM_Rune1A == "8138") {
+            document.querySelector('.Domination_Tracking_EyeballCollection_A').style.removeProperty('-webkit-filter');     //사냥의 증표
+        } else if (SM_Rune1A == "8135") {
+            document.querySelector('.Domination_Hunter_RavenousHunter_A').style.removeProperty('-webkit-filter');     //굶주린 사냥꾼
+        } else if (SM_Rune1A == "8134") {
+            document.querySelector('.Domination_Hunter_IngeniousHunter_A').style.removeProperty('-webkit-filter');     //영리한 사냥꾼
+        } else if (SM_Rune1A == "8105") {
+            document.querySelector('.Domination_Hunter_RelentlessHunter_A').style.removeProperty('-webkit-filter');     //끈질긴 사냥꾼
+        } else if (SM_Rune1A == "8106") {
+            document.querySelector('.Domination_Hunter_UltimateHunter_A').style.removeProperty('-webkit-filter');     //궁극의 사냥꾼
+        } else if (SM_Rune1A == "8306") {    //영감룬
+            document.querySelector('.Inspiration_Contraption_HextechFlashtraption_A').style.removeProperty('-webkit-filter');     //마법공학 점멸기
+        } else if (SM_Rune1A == "8304") {
+            document.querySelector('.Inspiration_Contraption_MagicalFootwear_A').style.removeProperty('-webkit-filter');     //마법의 신발
+        } else if (SM_Rune1A == "8313") {
+            document.querySelector('.Inspiration_Contraption_PerfectTiming_A').style.removeProperty('-webkit-filter');     //완벽한 타이밍
+        } else if (SM_Rune1A == "8321") {
+            document.querySelector('.Inspiration_Tomorrow_FuturesMarket_A').style.removeProperty('-webkit-filter');     //외상
+        } else if (SM_Rune1A == "8316") {
+            document.querySelector('.Inspiration_Tomorrow_MinionDematerializer_A').style.removeProperty('-webkit-filter');     //미니언 해체분석기
+        } else if (SM_Rune1A == "8345") {
+            document.querySelector('.Inspiration_Tomorrow_BiscuitDelivery_A').style.removeProperty('-webkit-filter');     //비스킷 배달
+        } else if (SM_Rune1A == "8347") {
+            document.querySelector('.Inspiration_Beyond_CosmicInsight_A').style.removeProperty('-webkit-filter');     //우주적 통찰력
+        } else if (SM_Rune1A == "8410") {
+            document.querySelector('.Inspiration_Beyond_ApproachVelocity_A').style.removeProperty('-webkit-filter');     //쾌속 접근
+        } else if (SM_Rune1A == "8352") {
+            document.querySelector('.Inspiration_Beyond_TimeWarpTonic_A').style.removeProperty('-webkit-filter');     //시간 왜곡 물약
+        } else if (SM_Rune1A == "9101") {    //정밀룬
+            document.querySelector('.Precision_Heroism_Overheal_A').style.removeProperty('-webkit-filter');     //과다치유
+        } else if (SM_Rune1A == "9111") {
+            document.querySelector('.Precision_Heroism_Triumph_A').style.removeProperty('-webkit-filter');     //승전보
+        } else if (SM_Rune1A == "8009") {
+            document.querySelector('.Precision_Heroism_PresenceOfMind_A').style.removeProperty('-webkit-filter');     //침착
+        } else if (SM_Rune1A == "9104") {
+            document.querySelector('.Precision_Legend_LegendAlacrity_A').style.removeProperty('-webkit-filter');     //전설 : 민첩함
+        } else if (SM_Rune1A == "9105") {
+            document.querySelector('.Precision_Legend_LegendTenacity_A').style.removeProperty('-webkit-filter');     //전설 : 강인함
+        } else if (SM_Rune1A == "9103") {
+            document.querySelector('.Precision_Legend_LegendBloodline_A').style.removeProperty('-webkit-filter');     //전설 : 핏빛 길
+        } else if (SM_Rune1A == "8014") {
+            document.querySelector('.Precision_Combat_CoupDeGrace_A').style.removeProperty('-webkit-filter');     //최후의 일격
+        } else if (SM_Rune1A == "8017") {
+            document.querySelector('.Precision_Combat_CutDown_A').style.removeProperty('-webkit-filter');     //체력차 극복
+        } else if (SM_Rune1A == "8299") {
+            document.querySelector('.Precision_Combat_LastStand_A').style.removeProperty('-webkit-filter');     //최후의 저항
+        } else if (SM_Rune1A == "8446") {    //결의룬
+            document.querySelector('.Resolve_Strength_Demolish_A').style.removeProperty('-webkit-filter');     //철거
+        } else if (SM_Rune1A == "8463") {
+            document.querySelector('.Resolve_Strength_FontOfLife_A').style.removeProperty('-webkit-filter');     //생명의 샘
+        } else if (SM_Rune1A == "8401") {
+            document.querySelector('.Resolve_Strength_ShieldBash_A').style.removeProperty('-webkit-filter');     //보호막 강타
+        } else if (SM_Rune1A == "8429") {
+            document.querySelector('.Resolve_Resistance_Conditioning_A').style.removeProperty('-webkit-filter');     //사전 준비
+        } else if (SM_Rune1A == "8444") {
+            document.querySelector('.Resolve_Resistance_SecondWind_A').style.removeProperty('-webkit-filter');     //재생의 바람
+        } else if (SM_Rune1A == "8473") {
+            document.querySelector('.Resolve_Resistance_BonePlating_A').style.removeProperty('-webkit-filter');     //뼈 방패
+        } else if (SM_Rune1A == "8451") {
+            document.querySelector('.Resolve_Vitality_Overgrowth_A').style.removeProperty('-webkit-filter');     //과잉성장
+        } else if (SM_Rune1A == "8453") {
+            document.querySelector('.Resolve_Vitality_Revitalize_A').style.removeProperty('-webkit-filter');     //소생
+        } else if (SM_Rune1A == "8242") {
+            document.querySelector('.Resolve_Vitality_Unflinching_A').style.removeProperty('-webkit-filter');     //불굴의 의지
+        } else if (SM_Rune1A == "8224") {    //마법룬
+            document.querySelector('.Sorcery_Artefact_NullifyingOrb_A').style.removeProperty('-webkit-filter');     //무효화 구체
+        } else if (SM_Rune1A == "8226") {
+            document.querySelector('.Sorcery_Artefact_ManaflowBand_A').style.removeProperty('-webkit-filter');     //마나순환 팔찌
+        } else if (SM_Rune1A == "8275") {
+            document.querySelector('.Sorcery_Artefact_NimbusCloak_A').style.removeProperty('-webkit-filter');     //빛의 망토
+        } else if (SM_Rune1A == "8210") {
+            document.querySelector('.Sorcery_Excellence_Transcendence_A').style.removeProperty('-webkit-filter');     //깨달음
+        } else if (SM_Rune1A == "8234") {
+            document.querySelector('.Sorcery_Excellence_Celerity_A').style.removeProperty('-webkit-filter');     //기민함
+        } else if (SM_Rune1A == "8233") {
+            document.querySelector('.Sorcery_Excellence_AbsoluteFocus_A').style.removeProperty('-webkit-filter');     //절대 집중
+        } else if (SM_Rune1A == "8237") {
+            document.querySelector('.Sorcery_Power_Scorch_A').style.removeProperty('-webkit-filter');     //주문 작열
+        } else if (SM_Rune1A == "8232") {
+            document.querySelector('.Sorcery_Power_Waterwalking_A').style.removeProperty('-webkit-filter');     //물 위를 걷는 자
+        } else if (SM_Rune1A == "8236") {
+            document.querySelector('.Sorcery_Power_GatheringStorm_A').style.removeProperty('-webkit-filter');     //폭풍의 결집
+        }
+
         //Stats Mods
-        $('<div>').attr("class", "Stats_5008").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
-        $('<div>').attr("class", "Stats_5005").html("<img src='/resources/images/perk_images/Styles/Stats/5005.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
-        $('<div>').attr("class", "Stats_5007").html("<img src='/resources/images/perk_images/Styles/Stats/5007.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
+        $('<div>').attr("class", "Stats_5008_A").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
+        $('<div>').attr("class", "Stats_5005_A").html("<img src='/resources/images/perk_images/Styles/Stats/5005.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
+        $('<div>').attr("class", "Stats_5007_A").html("<img src='/resources/images/perk_images/Styles/Stats/5007.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One1);
 
-        $('<div>').attr("class", "Stats_5008").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
-        $('<div>').attr("class", "Stats_5002").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
-        $('<div>').attr("class", "Stats_5003").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
+        $('<div>').attr("class", "Stats_5008_Aa").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
+        $('<div>').attr("class", "Stats_5002_A").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
+        $('<div>').attr("class", "Stats_5003_A").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two1);
 
-        $('<div>').attr("class", "Stats_5001").html("<img src='/resources/images/perk_images/Styles/Stats/5001.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
-        $('<div>').attr("class", "Stats_5002").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
-        $('<div>').attr("class", "Stats_5003").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
+        $('<div>').attr("class", "Stats_5001_A").html("<img src='/resources/images/perk_images/Styles/Stats/5001.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
+        $('<div>').attr("class", "Stats_5002_Aa").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
+        $('<div>').attr("class", "Stats_5003_Aa").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three1);
+
+        //Stats 첫번째 룬 선택란
+        if (Stats_Rune1 == "5001") {
+            document.querySelector('.Stats_5001_A').style.removeProperty('-webkit-filter');     //체력
+        } else if (Stats_Rune1 == "5002") {
+            document.querySelector('.Stats_5002_Aa').style.removeProperty('-webkit-filter');     //방어력
+        } else if (Stats_Rune1 == "5003") {
+            document.querySelector('.Stats_5003_Aa').style.removeProperty('-webkit-filter');     //마법 저항력
+        }
+
+        //Stats 두번째 룬 선택란
+        if (Stats_Rune1A == "5008") {
+            document.querySelector('.Stats_5008_Aa').style.removeProperty('-webkit-filter');     //적응형 능력치
+        } else if (Stats_Rune1A == "5002") {
+            document.querySelector('.Stats_5002_A').style.removeProperty('-webkit-filter');     //방어력
+        } else if (Stats_Rune1A == "5003") {
+            document.querySelector('.Stats_5003_A').style.removeProperty('-webkit-filter');     //마법 저항력
+        }
+
+        //Stats 세번째 룬 선택란
+        if (Stats_Rune1B == "5008") {
+            document.querySelector('.Stats_5008_A').style.removeProperty('-webkit-filter');     //적응형 능력치
+        } else if (Stats_Rune1B == "5005") {
+            document.querySelector('.Stats_5005_A').style.removeProperty('-webkit-filter');     //공격속도
+        } else if (Stats_Rune1B == "5007") {
+            document.querySelector('.Stats_5007_A').style.removeProperty('-webkit-filter');     //스킬가속
+        }
 
         $('<p>').attr("class", "Rune_Build_Rate").text(RB_Rate1+"% Win Rate").appendTo(RB_Div1);
         $('<p>').attr("class", "Rune_Build_cnt").text(RB_Cnt1+" Games").appendTo(RB_Div1);
 
         //룬 빌드2
         //Primay Runes
-        if (PM_Rune1 == "8112" || PM_Rune1 == "8124" || PM_Rune1 == "8128" || PM_Rune1 == "9923") {     //Domination (지배)
-            $('<div>').attr("class", "Domination_Keystone_Predator").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Domination_Keystone_Electrocute").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Domination_Keystone_DarkHarvest").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Domination_Keystone_HailOfBlades").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+        if (PM_Rune2 == "8112" || PM_Rune2 == "8124" || PM_Rune2 == "8128" || PM_Rune2 == "9923") {     //Domination (지배)
+            $('<div>').attr("class", "Domination_Keystone_Predator_B").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Predator.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Domination_Keystone_Electrocute_B").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/Electrocute.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Domination_Keystone_DarkHarvest_B").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/DarkHarvest.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Domination_Keystone_HailOfBlades_B").html("<img src='/resources/images/perk_images/Styles/Domination/Keystone/HailOfBlades.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-            $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Domination_Malice_CheapShot_B").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Domination_Malice_TasteOfBlood_B").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Domination_Malice_SuddenImpact_B").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-            $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Domination_Tracking_ZombieWard_B").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Domination_Tracking_GhostPoro_B").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Domination_Tracking_EyeballCollection_B").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-            $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-        } else if (PM_Rune1 == "8351" || PM_Rune1 == "8360" || PM_Rune1 == "8369") {    //Inspiration (영감)
-            $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Inspiration_Keystone_FirstStrike").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Domination_Hunter_RavenousHunter_B").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter_B").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter_B").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Domination_Hunter_UltimateHunter_B").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        } else if (PM_Rune2 == "8351" || PM_Rune2 == "8360" || PM_Rune2 == "8369") {    //Inspiration (영감)
+            $('<div>').attr("class", "Inspiration_Keystone_GlacialAugment_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/GlacialAugment.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Inspiration_Keystone_UnsealedSpellbook_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/UnsealedSpellbook.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Inspiration_Keystone_FirstStrike_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Keystone/FirstStrike.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-        } else if (PM_Rune1 == "8005" || PM_Rune1 == "8008" || PM_Rune1 == "8021" || PM_Rune1 == "8010") {    //Precision (정밀)
-            $('<div>').attr("class", "Precision_Keystone_PressTheAttack").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Precision_Keystone_LethalTempo").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Precision_Keystone_FleetFootwork").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Precision_Keystone_Conqueror").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        } else if (PM_Rune2 == "8005" || PM_Rune2 == "8008" || PM_Rune2 == "8021" || PM_Rune2 == "8010") {    //Precision (정밀)
+            $('<div>').attr("class", "Precision_Keystone_PressTheAttack_B").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/PressTheAttack.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Precision_Keystone_LethalTempo_B").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/LethalTempo.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Precision_Keystone_FleetFootwork_B").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/FleetFootwork.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Precision_Keystone_Conqueror_B").html("<img src='/resources/images/perk_images/Styles/Precision/Keystone/Conqueror.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-            $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Precision_Heroism_Overheal_B").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Precision_Heroism_Triumph_B").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind_B").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-            $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Precision_Legend_LegendAlacrity_B").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Precision_Legend_LegendTenacity_B").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Precision_Legend_LegendBloodline_B").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-            $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-        } else if (PM_Rune1 == "8437" || PM_Rune1 == "8439" || PM_Rune1 == "8465") {      //Resolve (결의)
-            $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Resolve_Keystone_Aftershock").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Resolve_Keystone_Guardian").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Precision_Combat_CoupDeGrace_B").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Precision_Combat_CutDown_B").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Precision_Combat_LastStand_B").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        } else if (PM_Rune2 == "8437" || PM_Rune2 == "8439" || PM_Rune2 == "8465") {      //Resolve (결의)
+            $('<div>').attr("class", "Resolve_Keystone_GraspOfTheUndying_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/GraspOfTheUndying.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Resolve_Keystone_Aftershock_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Aftershock.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Resolve_Keystone_Guardian_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Keystone/Guardian.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-            $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Resolve_Strength_Demolish_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Resolve_Strength_FontOfLife_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Resolve_Strength_ShieldBash_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-            $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Resolve_Resistance_Conditioning_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Resolve_Resistance_SecondWind_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Resolve_Resistance_BonePlating_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-            $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-        } else if (PM_Rune1 == "8214" || PM_Rune1 == "8229" || PM_Rune1 == "8230") {        //Sorcery (마법)
-            $('<div>').attr("class", "Sorcery_Keystone_SummonAery").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
-            $('<div>').attr("class", "Sorcery_Keystone_PhaseRush").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Resolve_Vitality_Overgrowth_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Resolve_Vitality_Revitalize_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Resolve_Vitality_Unflinching_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+        } else if (PM_Rune2 == "8214" || PM_Rune2 == "8229" || PM_Rune2 == "8230") {        //Sorcery (마법)
+            $('<div>').attr("class", "Sorcery_Keystone_SummonAery_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/SummonAery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Sorcery_Keystone_ArcaneComet_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/ArcaneComet.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
+            $('<div>').attr("class", "Sorcery_Keystone_PhaseRush_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Keystone/PhaseRush.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_One2);
 
-            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
-            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
+            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Two2);
 
-            $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
-            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Sorcery_Excellence_Transcendence_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Sorcery_Excellence_Celerity_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
+            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Three2);
 
-            $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
-            $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Sorcery_Power_Scorch_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Sorcery_Power_Waterwalking_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
+            $('<div>').attr("class", "Sorcery_Power_GatheringStorm_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RB_Four2);
         }
+
+        //왕룬 선택란
+        if (PM_Rune2 == "8124") {   //지배 왕룬
+            document.querySelector('.Domination_Keystone_Predator_B').style.removeProperty('-webkit-filter');     //포식자
+        } else if (PM_Rune2 == "8112") {
+            document.querySelector('.Domination_Keystone_Electrocute_B').style.removeProperty('-webkit-filter');      //감전
+        } else if (PM_Rune2 == "8128") {
+            document.querySelector('.Domination_Keystone_DarkHarvest_B').style.removeProperty('-webkit-filter');      //수확자
+        } else if (PM_Rune2 == "9923") {
+            document.querySelector('.Domination_Keystone_HailOfBlades_B').style.removeProperty('-webkit-filter');     //칼날비
+        } else if (PM_Rune2 == "8351") {    //영감 왕룬
+            document.querySelector('.Inspiration_Keystone_GlacialAugment_B').style.removeProperty('-webkit-filter');      //빙결강화
+        } else if (PM_Rune2 == "8360") {
+            document.querySelector('.Inspiration_Keystone_UnsealedSpellbook_B').style.removeProperty('-webkit-filter');       //봉인풀린 주문서
+        } else if (PM_Rune2 == "8369") {
+            document.querySelector('.Inspiration_Keystone_FirstStrike_B').style.removeProperty('-webkit-filter');     //선제공격
+        } else if (PM_Rune2 == "8005") {    //정밀 왕룬
+            document.querySelector('.Precision_Keystone_PressTheAttack_B').style.removeProperty('-webkit-filter');        //집중 공격
+        } else if (PM_Rune2 == "8008") {
+            document.querySelector('.Precision_Keystone_LethalTempo_B').style.removeProperty('-webkit-filter');       //치명적인 속도
+        } else if (PM_Rune2 == "8021") {
+            document.querySelector('.Precision_Keystone_FleetFootwork_B').style.removeProperty('-webkit-filter');     //기민한 발놀림
+        } else if (PM_Rune2 == "8010") {
+            document.querySelector('.Precision_Keystone_Conqueror_B').style.removeProperty('-webkit-filter');     //정복자
+        } else if (PM_Rune2 == "8437") {    //결의 왕룬
+            document.querySelector('.Resolve_Keystone_GraspOfTheUndying_B').style.removeProperty('-webkit-filter');       //착취의 손아귀
+        } else if (PM_Rune2 == "8439") {
+            document.querySelector('.Resolve_Keystone_Aftershock_B').style.removeProperty('-webkit-filter');      //여진
+        } else if (PM_Rune2 == "8465") {
+            document.querySelector('.Resolve_Keystone_Guardian_B').style.removeProperty('-webkit-filter');        //수호자
+        } else if (PM_Rune2 == "8214") {    //마법 왕룬
+            document.querySelector('.Sorcery_Keystone_SummonAery_B').style.removeProperty('-webkit-filter');      //콩콩이 소환
+        } else if (PM_Rune2 == "8229") {
+            document.querySelector('.Sorcery_Keystone_ArcaneComet_B').style.removeProperty('-webkit-filter');     //신비로운 유성
+        } else if (PM_Rune2 == "8230") {
+            document.querySelector('.Sorcery_Keystone_PhaseRush_B').style.removeProperty('-webkit-filter');       //난입
+        }
+
+        //두번째 룬 선택란
+        if (PM_Rune2A == "8126") {   //지배룬
+            document.querySelector('.Domination_Malice_CheapShot_B').style.removeProperty('-webkit-filter');     //비열한 한 방
+        } else if (PM_Rune2A == "8139") {
+            document.querySelector('.Domination_Malice_TasteOfBlood_B').style.removeProperty('-webkit-filter');     //피의 맛
+        } else if (PM_Rune2A == "8143") {
+            document.querySelector('.Domination_Malice_SuddenImpact_B').style.removeProperty('-webkit-filter');     //돌발일격
+        } else if (PM_Rune2A == "8306") {   //영감룬
+            document.querySelector('.Inspiration_Contraption_HextechFlashtraption_B').style.removeProperty('-webkit-filter');     //마법공학 점멸기
+        } else if (PM_Rune2A == "8304") {
+            document.querySelector('.Inspiration_Contraption_MagicalFootwear_B').style.removeProperty('-webkit-filter');     //마법의 신발
+        } else if (PM_Rune2A == "8313") {
+            document.querySelector('.Inspiration_Contraption_PerfectTiming_B').style.removeProperty('-webkit-filter');     //완벽한 타이밍
+        } else if (PM_Rune2A == "9101") {   //정밀룬
+            document.querySelector('.Precision_Heroism_Overheal_B').style.removeProperty('-webkit-filter');     //과다치유
+        } else if (PM_Rune2A == "9111") {
+            document.querySelector('.Precision_Heroism_Triumph_B').style.removeProperty('-webkit-filter');     //승전보
+        } else if (PM_Rune2A == "8009") {
+            document.querySelector('.Precision_Heroism_PresenceOfMind_B').style.removeProperty('-webkit-filter');     //침착
+        } else if (PM_Rune2A == "8446") {   //결의룬
+            document.querySelector('.Resolve_Strength_Demolish_B').style.removeProperty('-webkit-filter');     //철거
+        } else if (PM_Rune2A == "8463") {
+            document.querySelector('.Resolve_Strength_FontOfLife_B').style.removeProperty('-webkit-filter');     //생명의 샘
+        } else if (PM_Rune2A == "8401") {
+            document.querySelector('.Resolve_Strength_ShieldBash_B').style.removeProperty('-webkit-filter');     //보호막 강타
+        } else if (PM_Rune2A == "8224") {   //마법룬
+            document.querySelector('.Sorcery_Artefact_NullifyingOrb_B').style.removeProperty('-webkit-filter');     //무효화 구체
+        } else if (PM_Rune2A == "8226") {
+            document.querySelector('.Sorcery_Artefact_ManaflowBand_B').style.removeProperty('-webkit-filter');     //마나순환 팔찌
+        } else if (PM_Rune2A == "8275") {
+            document.querySelector('.Sorcery_Artefact_NimbusCloak_B').style.removeProperty('-webkit-filter');     //빛의 망토
+        }
+
+        //세번째 룬 선택란
+        if (PM_Rune2B == "8136") {   //지배룬
+            document.querySelector('.Domination_Tracking_ZombieWard_B').style.removeProperty('-webkit-filter');     //좀비 와드
+        } else if (PM_Rune2B == "8120") {
+            document.querySelector('.Domination_Tracking_GhostPoro_B').style.removeProperty('-webkit-filter');     //유령 포로
+        } else if (PM_Rune2B == "8138") {
+            document.querySelector('.Domination_Tracking_EyeballCollection_B').style.removeProperty('-webkit-filter');     //사냥의 증표
+        } else if (PM_Rune2B == "8321") {   //영감룬
+            document.querySelector('.Inspiration_Tomorrow_FuturesMarket_B').style.removeProperty('-webkit-filter');     //외상
+        } else if (PM_Rune2B == "8316") {
+            document.querySelector('.Inspiration_Tomorrow_MinionDematerializer_B').style.removeProperty('-webkit-filter');     //미니언 해체분석기
+        } else if (PM_Rune2B == "8345") {
+            document.querySelector('.Inspiration_Tomorrow_BiscuitDelivery_B').style.removeProperty('-webkit-filter');     //비스킷 배달
+        } else if (PM_Rune2B == "9104") {   //정밀룬
+            document.querySelector('.Precision_Legend_LegendAlacrity_B').style.removeProperty('-webkit-filter');     //전설 : 민첩함
+        } else if (PM_Rune2B == "9105") {
+            document.querySelector('.Precision_Legend_LegendTenacity_B').style.removeProperty('-webkit-filter');     //전설 : 강인함
+        } else if (PM_Rune2B == "9103") {
+            document.querySelector('.Precision_Legend_LegendBloodline_B').style.removeProperty('-webkit-filter');     //전설 : 핏빛 길
+        } else if (PM_Rune2B == "8429") {   //결의룬
+            document.querySelector('.Resolve_Resistance_Conditioning_B').style.removeProperty('-webkit-filter');     //사전 준비
+        } else if (PM_Rune2B == "8444") {
+            document.querySelector('.Resolve_Resistance_SecondWind_B').style.removeProperty('-webkit-filter');     //재생의 바람
+        } else if (PM_Rune2B == "8473") {
+            document.querySelector('.Resolve_Resistance_BonePlating_B').style.removeProperty('-webkit-filter');     //뼈 방패
+        } else if (PM_Rune2B == "8210") {   //마법룬
+            document.querySelector('.Sorcery_Excellence_Transcendence_B').style.removeProperty('-webkit-filter');     //깨달음
+        } else if (PM_Rune2B == "8234") {
+            document.querySelector('.Sorcery_Excellence_Celerity_B').style.removeProperty('-webkit-filter');     //기민함
+        } else if (PM_Rune2B == "8233") {
+            document.querySelector('.Sorcery_Excellence_AbsoluteFocus_B').style.removeProperty('-webkit-filter');     //절대 집중
+        }
+
+        //네번째 룬 선택란
+        if (PM_Rune2C == "8135") {   //지배룬
+            document.querySelector('.Domination_Hunter_RavenousHunter_B').style.removeProperty('-webkit-filter');     //굶주린 사냥꾼
+        } else if (PM_Rune2C == "8134") {
+            document.querySelector('.Domination_Hunter_IngeniousHunter_B').style.removeProperty('-webkit-filter');     //영리한 사냥꾼
+        } else if (PM_Rune2C == "8105") {
+            document.querySelector('.Domination_Hunter_RelentlessHunter_B').style.removeProperty('-webkit-filter');     //끈질긴 사냥꾼
+        } else if (PM_Rune2C == "8106") {
+            document.querySelector('.Domination_Hunter_UltimateHunter_B').style.removeProperty('-webkit-filter');     //궁극의 사냥꾼
+        } else if (PM_Rune2C == "8347") {   //영감룬
+            document.querySelector('.Inspiration_Beyond_CosmicInsight_B').style.removeProperty('-webkit-filter');     //우주적 통찰력
+        } else if (PM_Rune2C == "8410") {
+            document.querySelector('.Inspiration_Beyond_ApproachVelocity_B').style.removeProperty('-webkit-filter');     //쾌속 접근
+        } else if (PM_Rune2C == "8352") {
+            document.querySelector('.Inspiration_Beyond_TimeWarpTonic_B').style.removeProperty('-webkit-filter');     //시간 왜곡 물약
+        } else if (PM_Rune2C == "8014") {   //정밀룬
+            document.querySelector('.Precision_Combat_CoupDeGrace_B').style.removeProperty('-webkit-filter');     //최후의 일격
+        } else if (PM_Rune2C == "8017") {
+            document.querySelector('.Precision_Combat_CutDown_B').style.removeProperty('-webkit-filter');     //체력차 극복
+        } else if (PM_Rune2C == "8299") {
+            document.querySelector('.Precision_Combat_LastStand_B').style.removeProperty('-webkit-filter');     //최후의 저항
+        } else if (PM_Rune2C == "8451") {   //결의룬
+            document.querySelector('.Resolve_Vitality_Overgrowth_B').style.removeProperty('-webkit-filter');     //과잉성장
+        } else if (PM_Rune2C == "8453") {
+            document.querySelector('.Resolve_Vitality_Revitalize_B').style.removeProperty('-webkit-filter');     //소생
+        } else if (PM_Rune2C == "8242") {
+            document.querySelector('.Resolve_Vitality_Unflinching_B').style.removeProperty('-webkit-filter');     //불굴의 의지
+        } else if (PM_Rune2C == "8237") {   //마법룬
+            document.querySelector('.Sorcery_Power_Scorch_B').style.removeProperty('-webkit-filter');     //주문 작열
+        } else if (PM_Rune2C == "8232") {
+            document.querySelector('.Sorcery_Power_Waterwalking_B').style.removeProperty('-webkit-filter');     //물 위를 걷는 자
+        } else if (PM_Rune2C == "8236") {
+            document.querySelector('.Sorcery_Power_GatheringStorm_B').style.removeProperty('-webkit-filter');     //폭풍의 결집
+        }
+
         //Summary Runes
-        if (SM_Rune1 == "8126" || SM_Rune1 == "8139" || SM_Rune1 == "8143" || SM_Rune1 == "8136" || SM_Rune1 == "8120" || SM_Rune1 == "8138") {      //Domination (지배)
-            $('<div>').attr("class", "Domination_Malice_CheapShot").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Domination_Malice_TasteOfBlood").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Domination_Malice_SuddenImpact").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+        if (SM_Rune2 == "8126" || SM_Rune2 == "8139" || SM_Rune2 == "8143" || SM_Rune2 == "8136" || SM_Rune2 == "8120" || SM_Rune2 == "8138" || SM_Rune2 == "8135" || SM_Rune2 == "8134" || SM_Rune2 == "8105" || SM_Rune2 == "8106") {      //Domination (지배)
+            $('<div>').attr("class", "Domination_Malice_CheapShot_B").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/CheapShot.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Domination_Malice_TasteOfBlood_B").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/TasteOfBlood.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Domination_Malice_SuddenImpact_B").html("<img src='/resources/images/perk_images/Styles/Domination/Malice/SuddenImpact.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
 
-            $('<div>').attr("class", "Domination_Tracking_ZombieWard").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Domination_Tracking_GhostPoro").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Domination_Tracking_EyeballCollection").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Domination_Tracking_ZombieWard_B").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/ZombieWard.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Domination_Tracking_GhostPoro_B").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/GhostPoro.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Domination_Tracking_EyeballCollection_B").html("<img src='/resources/images/perk_images/Styles/Domination/Tracking/EyeballCollection.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
 
-            $('<div>').attr("class", "Domination_Hunter_RavenousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Domination_Hunter_UltimateHunter").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-        } else if (SM_Rune1 == "8306" || SM_Rune1 == "8304" || SM_Rune1 == "8313" || SM_Rune1 == "8321" || SM_Rune1 == "8316" || SM_Rune1 == "8345") {        //Inspiration (영감)
-            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Domination_Hunter_RavenousHunter_B").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RavenousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Domination_Hunter_IngeniousHunter_B").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/IngeniousHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Domination_Hunter_RelentlessHunter_B").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/RelentlessHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Domination_Hunter_UltimateHunter_B").html("<img src='/resources/images/perk_images/Styles/Domination/Hunter/UltimateHunter.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        } else if (SM_Rune2 == "8306" || SM_Rune2 == "8304" || SM_Rune2 == "8313" || SM_Rune2 == "8321" || SM_Rune2 == "8316" || SM_Rune2 == "8345" || SM_Rune2 == "8347" || SM_Rune2 == "8410" || SM_Rune2 == "8352") {        //Inspiration (영감)
+            $('<div>').attr("class", "Inspiration_Contraption_HextechFlashtraption_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/HextechFlashtraption.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Inspiration_Contraption_MagicalFootwear_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/MagicalFootwear.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Inspiration_Contraption_PerfectTiming_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Contraption/PerfectTiming.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
 
-            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_FuturesMarket_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/FuturesMarket.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_MinionDematerializer_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/MinionDematerializer.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Inspiration_Tomorrow_BiscuitDelivery_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Tomorrow/BiscuitDelivery.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
 
-            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-        } else if (SM_Rune1 == "9101" || SM_Rune1 == "9111" || SM_Rune1 == "8009" || SM_Rune1 == "9104" || SM_Rune1 == "9105" || SM_Rune1 == "9103") {        //Precision (정밀)
-            $('<div>').attr("class", "Precision_Heroism_Overheal").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Precision_Heroism_Triumph").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Inspiration_Beyond_CosmicInsight_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/CosmicInsight.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Inspiration_Beyond_ApproachVelocity_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/ApproachVelocity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Inspiration_Beyond_TimeWarpTonic_B").html("<img src='/resources/images/perk_images/Styles/Inspiration/Beyond/TimeWarpTonic.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        } else if (SM_Rune2 == "9101" || SM_Rune2 == "9111" || SM_Rune2 == "8009" || SM_Rune2 == "9104" || SM_Rune2 == "9105" || SM_Rune2 == "9103" || SM_Rune2 == "8014" || SM_Rune2 == "8017" || SM_Rune2 == "8299") {        //Precision (정밀)
+            $('<div>').attr("class", "Precision_Heroism_Overheal_B").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Overheal.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Precision_Heroism_Triumph_B").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/Triumph.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Precision_Heroism_PresenceOfMind_B").html("<img src='/resources/images/perk_images/Styles/Precision/Heroism/PresenceOfMind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
 
-            $('<div>').attr("class", "Precision_Legend_LegendAlacrity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Precision_Legend_LegendTenacity").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Precision_Legend_LegendBloodline").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Precision_Legend_LegendAlacrity_B").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendAlacrity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Precision_Legend_LegendTenacity_B").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendTenacity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Precision_Legend_LegendBloodline_B").html("<img src='/resources/images/perk_images/Styles/Precision/Legend/LegendBloodline.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
 
-            $('<div>').attr("class", "Precision_Combat_CoupDeGrace").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Precision_Combat_CutDown").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Precision_Combat_LastStand").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-        } else if (SM_Rune1 == "8446" || SM_Rune1 == "8463" || SM_Rune1 == "8401" || SM_Rune1 == "8429" || SM_Rune1 == "8444" || SM_Rune1 == "8473") {        //Resolve (결의)
-            $('<div>').attr("class", "Resolve_Strength_Demolish").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Resolve_Strength_FontOfLife").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Resolve_Strength_ShieldBash").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Precision_Combat_CoupDeGrace_B").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CoupDeGrace.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Precision_Combat_CutDown_B").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/CutDown.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Precision_Combat_LastStand_B").html("<img src='/resources/images/perk_images/Styles/Precision/Combat/LastStand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        } else if (SM_Rune2 == "8446" || SM_Rune2 == "8463" || SM_Rune2 == "8401" || SM_Rune2 == "8429" || SM_Rune2 == "8444" || SM_Rune2 == "8473" || SM_Rune2 == "8451" || SM_Rune2 == "8453" || SM_Rune2 == "8242") {        //Resolve (결의)
+            $('<div>').attr("class", "Resolve_Strength_Demolish_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/Demolish.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Resolve_Strength_FontOfLife_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/FontOfLife.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Resolve_Strength_ShieldBash_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Strength/ShieldBash.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
 
-            $('<div>').attr("class", "Resolve_Resistance_Conditioning").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Resolve_Resistance_SecondWind").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Resolve_Resistance_BonePlating").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Resolve_Resistance_Conditioning_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/Conditioning.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Resolve_Resistance_SecondWind_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/SecondWind.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Resolve_Resistance_BonePlating_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Resistance/BonePlating.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
 
-            $('<div>').attr("class", "Resolve_Vitality_Overgrowth").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Resolve_Vitality_Revitalize").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Resolve_Vitality_Unflinching").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-        } else if (SM_Rune1 == "8224" || SM_Rune1 == "8226" || SM_Rune1 == "8275" || SM_Rune1 == "8210" || SM_Rune1 == "8234" || SM_Rune1 == "8233") {      //Sorcery (마법)
-            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
-            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Resolve_Vitality_Overgrowth_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Overgrowth.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Resolve_Vitality_Revitalize_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Revitalize.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Resolve_Vitality_Unflinching_B").html("<img src='/resources/images/perk_images/Styles/Resolve/Vitality/Unflinching.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+        } else if (SM_Rune2 == "8224" || SM_Rune2 == "8226" || SM_Rune2 == "8275" || SM_Rune2 == "8210" || SM_Rune2 == "8234" || SM_Rune2 == "8233" || SM_Rune2 == "8237" || SM_Rune2 == "8232" || SM_Rune2 == "8236") {      //Sorcery (마법)
+            $('<div>').attr("class", "Sorcery_Artefact_NullifyingOrb_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NullifyingOrb.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Sorcery_Artefact_ManaflowBand_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/ManaflowBand.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
+            $('<div>').attr("class", "Sorcery_Artefact_NimbusCloak_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Artefact/NimbusCloak.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_One2);
 
-            $('<div>').attr("class", "Sorcery_Excellence_Transcendence").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Sorcery_Excellence_Celerity").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
-            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Sorcery_Excellence_Transcendence_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Transcendence.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Sorcery_Excellence_Celerity_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/Celerity.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
+            $('<div>').attr("class", "Sorcery_Excellence_AbsoluteFocus_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Excellence/AbsoluteFocus.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Two2);
 
-            $('<div>').attr("class", "Sorcery_Power_Scorch").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Sorcery_Power_Waterwalking").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
-            $('<div>').attr("class", "Sorcery_Power_GatheringStorm").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Sorcery_Power_Scorch_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Scorch.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Sorcery_Power_Waterwalking_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/Waterwalking.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
+            $('<div>').attr("class", "Sorcery_Power_GatheringStorm_B").html("<img src='/resources/images/perk_images/Styles/Sorcery/Power/GatheringStorm.png' style='width: 50px'>").css('-webkit-filter','grayscale(100%)').appendTo(RBs_Three2);
         }
+
+        //Summary 첫번째 룬 선택란
+        if (SM_Rune2 == "8126") {   //지배룬
+            document.querySelector('.Domination_Malice_CheapShot_B').style.removeProperty('-webkit-filter');     //비열한 한 방
+        } else if (SM_Rune2 == "8139") {
+            document.querySelector('.Domination_Malice_TasteOfBlood_B').style.removeProperty('-webkit-filter');     //피의 맛
+        } else if (SM_Rune2 == "8143") {
+            document.querySelector('.Domination_Malice_SuddenImpact_B').style.removeProperty('-webkit-filter');     //돌발일격
+        } else if (SM_Rune2 == "8136") {
+            document.querySelector('.Domination_Tracking_ZombieWard_B').style.removeProperty('-webkit-filter');     //좀비 와드
+        } else if (SM_Rune2 == "8120") {
+            document.querySelector('.Domination_Tracking_GhostPoro_B').style.removeProperty('-webkit-filter');     //유령 포로
+        } else if (SM_Rune2 == "8138") {
+            document.querySelector('.Domination_Tracking_EyeballCollection_B').style.removeProperty('-webkit-filter');     //사냥의 증표
+        } else if (SM_Rune2 == "8135") {
+            document.querySelector('.Domination_Hunter_RavenousHunter_B').style.removeProperty('-webkit-filter');     //굶주린 사냥꾼
+        } else if (SM_Rune2 == "8134") {
+            document.querySelector('.Domination_Hunter_IngeniousHunter_B').style.removeProperty('-webkit-filter');     //영리한 사냥꾼
+        } else if (SM_Rune2 == "8105") {
+            document.querySelector('.Domination_Hunter_RelentlessHunter_B').style.removeProperty('-webkit-filter');     //끈질긴 사냥꾼
+        } else if (SM_Rune2 == "8106") {
+            document.querySelector('.Domination_Hunter_UltimateHunter_B').style.removeProperty('-webkit-filter');     //궁극의 사냥꾼
+        } else if (SM_Rune2 == "8306") {    //영감룬
+            document.querySelector('.Inspiration_Contraption_HextechFlashtraption_B').style.removeProperty('-webkit-filter');     //마법공학 점멸기
+        } else if (SM_Rune2 == "8304") {
+            document.querySelector('.Inspiration_Contraption_MagicalFootwear_B').style.removeProperty('-webkit-filter');     //마법의 신발
+        } else if (SM_Rune2 == "8313") {
+            document.querySelector('.Inspiration_Contraption_PerfectTiming_B').style.removeProperty('-webkit-filter');     //완벽한 타이밍
+        } else if (SM_Rune2 == "8321") {
+            document.querySelector('.Inspiration_Tomorrow_FuturesMarket_B').style.removeProperty('-webkit-filter');     //외상
+        } else if (SM_Rune2 == "8316") {
+            document.querySelector('.Inspiration_Tomorrow_MinionDematerializer_B').style.removeProperty('-webkit-filter');     //미니언 해체분석기
+        } else if (SM_Rune2 == "8345") {
+            document.querySelector('.Inspiration_Tomorrow_BiscuitDelivery_B').style.removeProperty('-webkit-filter');     //비스킷 배달
+        } else if (SM_Rune2 == "8347") {
+            document.querySelector('.Inspiration_Beyond_CosmicInsight_B').style.removeProperty('-webkit-filter');     //우주적 통찰력
+        } else if (SM_Rune2 == "8410") {
+            document.querySelector('.Inspiration_Beyond_ApproachVelocity_B').style.removeProperty('-webkit-filter');     //쾌속 접근
+        } else if (SM_Rune2 == "8352") {
+            document.querySelector('.Inspiration_Beyond_TimeWarpTonic_B').style.removeProperty('-webkit-filter');     //시간 왜곡 물약
+        } else if (SM_Rune2 == "9101") {    //정밀룬
+            document.querySelector('.Precision_Heroism_Overheal_B').style.removeProperty('-webkit-filter');     //과다치유
+        } else if (SM_Rune2 == "9111") {
+            document.querySelector('.Precision_Heroism_Triumph_B').style.removeProperty('-webkit-filter');     //승전보
+        } else if (SM_Rune2 == "8009") {
+            document.querySelector('.Precision_Heroism_PresenceOfMind_B').style.removeProperty('-webkit-filter');     //침착
+        } else if (SM_Rune2 == "9104") {
+            document.querySelector('.Precision_Legend_LegendAlacrity_B').style.removeProperty('-webkit-filter');     //전설 : 민첩함
+        } else if (SM_Rune2 == "9105") {
+            document.querySelector('.Precision_Legend_LegendTenacity_B').style.removeProperty('-webkit-filter');     //전설 : 강인함
+        } else if (SM_Rune2 == "9103") {
+            document.querySelector('.Precision_Legend_LegendBloodline_B').style.removeProperty('-webkit-filter');     //전설 : 핏빛 길
+        } else if (SM_Rune2 == "8014") {
+            document.querySelector('.Precision_Combat_CoupDeGrace_B').style.removeProperty('-webkit-filter');     //최후의 일격
+        } else if (SM_Rune2 == "8017") {
+            document.querySelector('.Precision_Combat_CutDown_B').style.removeProperty('-webkit-filter');     //체력차 극복
+        } else if (SM_Rune2 == "8299") {
+            document.querySelector('.Precision_Combat_LastStand_B').style.removeProperty('-webkit-filter');     //최후의 저항
+        } else if (SM_Rune2 == "8446") {    //결의룬
+            document.querySelector('.Resolve_Strength_Demolish_B').style.removeProperty('-webkit-filter');     //철거
+        } else if (SM_Rune2 == "8463") {
+            document.querySelector('.Resolve_Strength_FontOfLife_B').style.removeProperty('-webkit-filter');     //생명의 샘
+        } else if (SM_Rune2 == "8401") {
+            document.querySelector('.Resolve_Strength_ShieldBash_B').style.removeProperty('-webkit-filter');     //보호막 강타
+        } else if (SM_Rune2 == "8429") {
+            document.querySelector('.Resolve_Resistance_Conditioning_B').style.removeProperty('-webkit-filter');     //사전 준비
+        } else if (SM_Rune2 == "8444") {
+            document.querySelector('.Resolve_Resistance_SecondWind_B').style.removeProperty('-webkit-filter');     //재생의 바람
+        } else if (SM_Rune2 == "8473") {
+            document.querySelector('.Resolve_Resistance_BonePlating_B').style.removeProperty('-webkit-filter');     //뼈 방패
+        } else if (SM_Rune2 == "8451") {
+            document.querySelector('.Resolve_Vitality_Overgrowth_B').style.removeProperty('-webkit-filter');     //과잉성장
+        } else if (SM_Rune2 == "8453") {
+            document.querySelector('.Resolve_Vitality_Revitalize_B').style.removeProperty('-webkit-filter');     //소생
+        } else if (SM_Rune2 == "8242") {
+            document.querySelector('.Resolve_Vitality_Unflinching_B').style.removeProperty('-webkit-filter');     //불굴의 의지
+        } else if (SM_Rune2 == "8224") {    //마법룬
+            document.querySelector('.Sorcery_Artefact_NullifyingOrb_B').style.removeProperty('-webkit-filter');     //무효화 구체
+        } else if (SM_Rune2 == "8226") {
+            document.querySelector('.Sorcery_Artefact_ManaflowBand_B').style.removeProperty('-webkit-filter');     //마나순환 팔찌
+        } else if (SM_Rune2 == "8275") {
+            document.querySelector('.Sorcery_Artefact_NimbusCloak_B').style.removeProperty('-webkit-filter');     //빛의 망토
+        } else if (SM_Rune2 == "8210") {
+            document.querySelector('.Sorcery_Excellence_Transcendence_B').style.removeProperty('-webkit-filter');     //깨달음
+        } else if (SM_Rune2 == "8234") {
+            document.querySelector('.Sorcery_Excellence_Celerity_B').style.removeProperty('-webkit-filter');     //기민함
+        } else if (SM_Rune2 == "8233") {
+            document.querySelector('.Sorcery_Excellence_AbsoluteFocus_B').style.removeProperty('-webkit-filter');     //절대 집중
+        } else if (SM_Rune2 == "8237") {
+            document.querySelector('.Sorcery_Power_Scorch_B').style.removeProperty('-webkit-filter');     //주문 작열
+        } else if (SM_Rune2 == "8232") {
+            document.querySelector('.Sorcery_Power_Waterwalking_B').style.removeProperty('-webkit-filter');     //물 위를 걷는 자
+        } else if (SM_Rune2 == "8236") {
+            document.querySelector('.Sorcery_Power_GatheringStorm_B').style.removeProperty('-webkit-filter');     //폭풍의 결집
+        }
+
+        //Summary 두번째 룬 선택란
+        if (SM_Rune2A == "8126") {   //지배룬
+            document.querySelector('.Domination_Malice_CheapShot_B').style.removeProperty('-webkit-filter');     //비열한 한 방
+        } else if (SM_Rune2A == "8139") {
+            document.querySelector('.Domination_Malice_TasteOfBlood_B').style.removeProperty('-webkit-filter');     //피의 맛
+        } else if (SM_Rune2A == "8143") {
+            document.querySelector('.Domination_Malice_SuddenImpact_B').style.removeProperty('-webkit-filter');     //돌발일격
+        } else if (SM_Rune2A == "8136") {
+            document.querySelector('.Domination_Tracking_ZombieWard_B').style.removeProperty('-webkit-filter');     //좀비 와드
+        } else if (SM_Rune2A == "8120") {
+            document.querySelector('.Domination_Tracking_GhostPoro_B').style.removeProperty('-webkit-filter');     //유령 포로
+        } else if (SM_Rune2A == "8138") {
+            document.querySelector('.Domination_Tracking_EyeballCollection_B').style.removeProperty('-webkit-filter');     //사냥의 증표
+        } else if (SM_Rune2A == "8135") {
+            document.querySelector('.Domination_Hunter_RavenousHunter_B').style.removeProperty('-webkit-filter');     //굶주린 사냥꾼
+        } else if (SM_Rune2A == "8134") {
+            document.querySelector('.Domination_Hunter_IngeniousHunter_B').style.removeProperty('-webkit-filter');     //영리한 사냥꾼
+        } else if (SM_Rune2A == "8105") {
+            document.querySelector('.Domination_Hunter_RelentlessHunter_B').style.removeProperty('-webkit-filter');     //끈질긴 사냥꾼
+        } else if (SM_Rune2A == "8106") {
+            document.querySelector('.Domination_Hunter_UltimateHunter_B').style.removeProperty('-webkit-filter');     //궁극의 사냥꾼
+        } else if (SM_Rune2A == "8306") {    //영감룬
+            document.querySelector('.Inspiration_Contraption_HextechFlashtraption_B').style.removeProperty('-webkit-filter');     //마법공학 점멸기
+        } else if (SM_Rune2A == "8304") {
+            document.querySelector('.Inspiration_Contraption_MagicalFootwear_B').style.removeProperty('-webkit-filter');     //마법의 신발
+        } else if (SM_Rune2A == "8313") {
+            document.querySelector('.Inspiration_Contraption_PerfectTiming_B').style.removeProperty('-webkit-filter');     //완벽한 타이밍
+        } else if (SM_Rune2A == "8321") {
+            document.querySelector('.Inspiration_Tomorrow_FuturesMarket_B').style.removeProperty('-webkit-filter');     //외상
+        } else if (SM_Rune2A == "8316") {
+            document.querySelector('.Inspiration_Tomorrow_MinionDematerializer_B').style.removeProperty('-webkit-filter');     //미니언 해체분석기
+        } else if (SM_Rune2A == "8345") {
+            document.querySelector('.Inspiration_Tomorrow_BiscuitDelivery_B').style.removeProperty('-webkit-filter');     //비스킷 배달
+        } else if (SM_Rune2A == "8347") {
+            document.querySelector('.Inspiration_Beyond_CosmicInsight_B').style.removeProperty('-webkit-filter');     //우주적 통찰력
+        } else if (SM_Rune2A == "8410") {
+            document.querySelector('.Inspiration_Beyond_ApproachVelocity_B').style.removeProperty('-webkit-filter');     //쾌속 접근
+        } else if (SM_Rune2A == "8352") {
+            document.querySelector('.Inspiration_Beyond_TimeWarpTonic_B').style.removeProperty('-webkit-filter');     //시간 왜곡 물약
+        } else if (SM_Rune2A == "9101") {    //정밀룬
+            document.querySelector('.Precision_Heroism_Overheal_B').style.removeProperty('-webkit-filter');     //과다치유
+        } else if (SM_Rune2A == "9111") {
+            document.querySelector('.Precision_Heroism_Triumph_B').style.removeProperty('-webkit-filter');     //승전보
+        } else if (SM_Rune2A == "8009") {
+            document.querySelector('.Precision_Heroism_PresenceOfMind_B').style.removeProperty('-webkit-filter');     //침착
+        } else if (SM_Rune2A == "9104") {
+            document.querySelector('.Precision_Legend_LegendAlacrity_B').style.removeProperty('-webkit-filter');     //전설 : 민첩함
+        } else if (SM_Rune2A == "9105") {
+            document.querySelector('.Precision_Legend_LegendTenacity_B').style.removeProperty('-webkit-filter');     //전설 : 강인함
+        } else if (SM_Rune2A == "9103") {
+            document.querySelector('.Precision_Legend_LegendBloodline_B').style.removeProperty('-webkit-filter');     //전설 : 핏빛 길
+        } else if (SM_Rune2A == "8014") {
+            document.querySelector('.Precision_Combat_CoupDeGrace_B').style.removeProperty('-webkit-filter');     //최후의 일격
+        } else if (SM_Rune2A == "8017") {
+            document.querySelector('.Precision_Combat_CutDown_B').style.removeProperty('-webkit-filter');     //체력차 극복
+        } else if (SM_Rune2A == "8299") {
+            document.querySelector('.Precision_Combat_LastStand_B').style.removeProperty('-webkit-filter');     //최후의 저항
+        } else if (SM_Rune2A == "8446") {    //결의룬
+            document.querySelector('.Resolve_Strength_Demolish_B').style.removeProperty('-webkit-filter');     //철거
+        } else if (SM_Rune2A == "8463") {
+            document.querySelector('.Resolve_Strength_FontOfLife_B').style.removeProperty('-webkit-filter');     //생명의 샘
+        } else if (SM_Rune2A == "8401") {
+            document.querySelector('.Resolve_Strength_ShieldBash_B').style.removeProperty('-webkit-filter');     //보호막 강타
+        } else if (SM_Rune2A == "8429") {
+            document.querySelector('.Resolve_Resistance_Conditioning_B').style.removeProperty('-webkit-filter');     //사전 준비
+        } else if (SM_Rune2A == "8444") {
+            document.querySelector('.Resolve_Resistance_SecondWind_B').style.removeProperty('-webkit-filter');     //재생의 바람
+        } else if (SM_Rune2A == "8473") {
+            document.querySelector('.Resolve_Resistance_BonePlating_B').style.removeProperty('-webkit-filter');     //뼈 방패
+        } else if (SM_Rune2A == "8451") {
+            document.querySelector('.Resolve_Vitality_Overgrowth_B').style.removeProperty('-webkit-filter');     //과잉성장
+        } else if (SM_Rune2A == "8453") {
+            document.querySelector('.Resolve_Vitality_Revitalize_B').style.removeProperty('-webkit-filter');     //소생
+        } else if (SM_Rune2A == "8242") {
+            document.querySelector('.Resolve_Vitality_Unflinching_B').style.removeProperty('-webkit-filter');     //불굴의 의지
+        } else if (SM_Rune2A == "8224") {    //마법룬
+            document.querySelector('.Sorcery_Artefact_NullifyingOrb_B').style.removeProperty('-webkit-filter');     //무효화 구체
+        } else if (SM_Rune2A == "8226") {
+            document.querySelector('.Sorcery_Artefact_ManaflowBand_B').style.removeProperty('-webkit-filter');     //마나순환 팔찌
+        } else if (SM_Rune2A == "8275") {
+            document.querySelector('.Sorcery_Artefact_NimbusCloak_B').style.removeProperty('-webkit-filter');     //빛의 망토
+        } else if (SM_Rune2A == "8210") {
+            document.querySelector('.Sorcery_Excellence_Transcendence_B').style.removeProperty('-webkit-filter');     //깨달음
+        } else if (SM_Rune2A == "8234") {
+            document.querySelector('.Sorcery_Excellence_Celerity_B').style.removeProperty('-webkit-filter');     //기민함
+        } else if (SM_Rune2A == "8233") {
+            document.querySelector('.Sorcery_Excellence_AbsoluteFocus_B').style.removeProperty('-webkit-filter');     //절대 집중
+        } else if (SM_Rune2A == "8237") {
+            document.querySelector('.Sorcery_Power_Scorch_B').style.removeProperty('-webkit-filter');     //주문 작열
+        } else if (SM_Rune2A == "8232") {
+            document.querySelector('.Sorcery_Power_Waterwalking_B').style.removeProperty('-webkit-filter');     //물 위를 걷는 자
+        } else if (SM_Rune2A == "8236") {
+            document.querySelector('.Sorcery_Power_GatheringStorm_B').style.removeProperty('-webkit-filter');     //폭풍의 결집
+        }
+
         //Stats Mods
-        $('<div>').attr("class", "Stats_5008").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
-        $('<div>').attr("class", "Stats_5005").html("<img src='/resources/images/perk_images/Styles/Stats/5005.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
-        $('<div>').attr("class", "Stats_5007").html("<img src='/resources/images/perk_images/Styles/Stats/5007.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
+        $('<div>').attr("class", "Stats_5008_B").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
+        $('<div>').attr("class", "Stats_5005_B").html("<img src='/resources/images/perk_images/Styles/Stats/5005.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
+        $('<div>').attr("class", "Stats_5007_B").html("<img src='/resources/images/perk_images/Styles/Stats/5007.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_One2);
 
-        $('<div>').attr("class", "Stats_5008").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
-        $('<div>').attr("class", "Stats_5002").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
-        $('<div>').attr("class", "Stats_5003").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
+        $('<div>').attr("class", "Stats_5008_Bb").html("<img src='/resources/images/perk_images/Styles/Stats/5008.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
+        $('<div>').attr("class", "Stats_5002_B").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
+        $('<div>').attr("class", "Stats_5003_B").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Two2);
 
-        $('<div>').attr("class", "Stats_5001").html("<img src='/resources/images/perk_images/Styles/Stats/5001.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
-        $('<div>').attr("class", "Stats_5002").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
-        $('<div>').attr("class", "Stats_5003").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
+        $('<div>').attr("class", "Stats_5001_B").html("<img src='/resources/images/perk_images/Styles/Stats/5001.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
+        $('<div>').attr("class", "Stats_5002_Bb").html("<img src='/resources/images/perk_images/Styles/Stats/5002.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
+        $('<div>').attr("class", "Stats_5003_Bb").html("<img src='/resources/images/perk_images/Styles/Stats/5003.png' style='width: 30px'>").css('-webkit-filter','grayscale(100%)').appendTo(SM_Three2);
+
+        //Stats 첫번째 룬 선택란
+        if (Stats_Rune2 == "5001") {
+            document.querySelector('.Stats_5001_B').style.removeProperty('-webkit-filter');     //체력
+        } else if (Stats_Rune2 == "5002") {
+            document.querySelector('.Stats_5002_Bb').style.removeProperty('-webkit-filter');     //방어력
+        } else if (Stats_Rune2 == "5003") {
+            document.querySelector('.Stats_5003_Bb').style.removeProperty('-webkit-filter');     //마법 저항력
+        }
+
+        //Stats 두번째 룬 선택란
+        if (Stats_Rune2A == "5008") {
+            document.querySelector('.Stats_5008_Bb').style.removeProperty('-webkit-filter');     //적응형 능력치
+        } else if (Stats_Rune2A == "5002") {
+            document.querySelector('.Stats_5002_B').style.removeProperty('-webkit-filter');     //방어력
+        } else if (Stats_Rune2A == "5003") {
+            document.querySelector('.Stats_5003_B').style.removeProperty('-webkit-filter');     //마법 저항력
+        }
+
+        //Stats 세번째 룬 선택란
+        if (Stats_Rune2B == "5008") {
+            document.querySelector('.Stats_5008_B').style.removeProperty('-webkit-filter');     //적응형 능력치
+        } else if (Stats_Rune2B == "5005") {
+            document.querySelector('.Stats_5005_B').style.removeProperty('-webkit-filter');     //공격속도
+        } else if (Stats_Rune2B == "5007") {
+            document.querySelector('.Stats_5007_B').style.removeProperty('-webkit-filter');     //스킬가속
+        }
 
         $('<p>').attr("class", "Rune_Build_Rate").text(RB_Rate2+"% Win Rate").appendTo(RB_Div2);
         $('<p>').attr("class", "Rune_Build_cnt").text(RB_Cnt2+" Games").appendTo(RB_Div2);
