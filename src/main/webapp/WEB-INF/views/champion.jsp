@@ -9,9 +9,9 @@
 <html>
     <head>
         <title>Title</title>
-        <link rel="stylesheet" href="/resources/css/champion.css?ver=1">
+        <link rel="stylesheet" href="/resources/css/champion.css?ver=2">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1"></script>
-        <script type="text/javascript" src="/resources/js/champion.js?ver=1"></script>
+        <script type="text/javascript" src="/resources/js/champion.js?ver=2"></script>
     </head>
 
     <body>
@@ -27,14 +27,15 @@
 
         <%--    Sorry, your browser doesn't support embedded videos.--%>
         <%--</video>--%>
-        <header class="cham_header">
-            <div class="inner">
-                <p class="homeTag">
-                    <a href="/" style="color: white ">Home</a>
-                </p>
+        <header>
+            <div class="cham_header">
+                <div class="inner">
+                    <p class="homeTag">
+                        <a href="/" style="color: white ">Home</a>
+                    </p>
+                </div>
             </div>
         </header>
-
 
         <!-- <div class="firstOne" id="test">
             <div class="firstOne2">
@@ -47,7 +48,7 @@
         </div> -->
 
         <!-- 챔피언 이미지 -->
-        <div>
+        <div class="champion_lst">
             <div id="champ_img"></div>
         </div>
 
