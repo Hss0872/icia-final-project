@@ -161,7 +161,7 @@
             <div class="ChampionHeader_champion__2ZqIZ ChampionHeader_header__TkIzw">
                 <div>
                     <div class="CircleBig_wrapper__3hOuX">
-                        <img class="Champ_champ140c__ZSREE" src=/resources/images/LOL_CHAMPION_ICON/lol_champion_${championName}.png alt="${championName}">
+                        <img class="Champ_champ140c__ZSREE" src=/resources/images/CHAMPION_PHOTO/${championName}.jpg alt="${championName}">
                         <svg class="CircleBig_border__3QsNj">
                             <circle cx="72" cy="72" r="72" stroke="#333" stroke-width="2" fill="#111"></circle>
                         </svg>
