@@ -35,12 +35,6 @@ public class CommunityController {
         this.boardWriteMM = boardWriteMM;
     }
 
-    @RequestMapping()
-    public String community() {
-        log.info("community call");
-        return "redirect:/community/board/free";
-    }
-
     @RequestMapping(value = "/board/{type}", method = RequestMethod.GET)
     public String getBList(@PathVariable() String type, BoardType boardType, Integer pageNum, Model model,
                            BoardSearch boardSearch) {
@@ -87,7 +81,7 @@ public class CommunityController {
     @RequestMapping(value = "/board/{type}/{bNum}/delete", method = RequestMethod.GET)
     public String deleteBoard(@PathVariable String type, @PathVariable int bNum, HttpSession session, Model model) {
         boolean result = boardWriteMM.deleteBoard(type, bNum, session, model);
-        return result ? "redirect:/community" : "redirect:/community/board/" + type + "/" + bNum;
+        return "redirect:/community/board/" + type;
     }
 
     @PostMapping(value = "/mypage/profile")

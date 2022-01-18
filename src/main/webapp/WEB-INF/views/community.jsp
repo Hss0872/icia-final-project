@@ -124,7 +124,6 @@
             </div>
         </div>
     </div>
-
 </header>
 
 <div class="back">
@@ -461,8 +460,6 @@
                 }
             }
         )
-
     }
-
 </script>
 </html>

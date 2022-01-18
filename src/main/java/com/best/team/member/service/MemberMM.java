@@ -71,20 +71,24 @@ public class MemberMM {
                     // 로그인 성공 마킹
                     session.setAttribute("id", member.getM_id()); // "id" parameter의 속성 mb.getM_id 인스턴스 가져와서 session객체에 담아주기
                     session.setAttribute("member", member); // "id" parameter의 속성 mb.getM_id 인스턴스 가져와서 session객체에 담아주기
-                    view = "redirect:/community";
+                    /*view = "redirect:/community";*/
                     loginAtr.addFlashAttribute("checkLogin", "0");
                 } else {
-                    view = "community";
-                    mav.addObject("checkLogin", "3");
+//                    view = "community";
+//                    mav.addObject("checkLogin", "3");
+                    loginAtr.addFlashAttribute("checkLogin", "3");
                 }
             } else { //비번 불일치
-                view = "community";
-                mav.addObject("checkLogin", "1");
+//                view = "community";
+//                mav.addObject("checkLogin", "1");
+                loginAtr.addFlashAttribute("checkLogin", "1");
             }
         } else {  //아이디 불일치
-            view = "community";
-            mav.addObject("checkLogin", "2");
+//            view = "community";
+//            mav.addObject("checkLogin", "2");
+            loginAtr.addFlashAttribute("checkLogin", "2");
         }
+        view = "redirect:/community/board/free";
         mav.setViewName(view);
         return mav;
     }

@@ -55,7 +55,8 @@ public class MemberController {
     @PostMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/community";
+//        return "redirect:/community";
+        return "redirect:/community/board/free";
     }
 
 

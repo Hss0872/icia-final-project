@@ -148,7 +148,6 @@
         <input type="text" name="keyword" class="searchText">
         <input type="submit" class="searchB" value="검색">
     </form>
-    <button onclick="location.href='/community/board/write'">글작성</button>
 </div>
 </body>
 <script>

@@ -204,7 +204,7 @@ public class BoardWriteMM {
     }
 
     public boolean deleteBoard(String type, int bNum, HttpSession session, Model model) {
-
+        log.info("deleteBoard call");
         Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
         if (!op_id.isPresent()) {
             log.info("op_id = {}", op_id.orElse("sessionId does not exist"));

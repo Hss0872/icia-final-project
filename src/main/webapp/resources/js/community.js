@@ -434,7 +434,8 @@ function logout(){
         {
             method : 'post',
     }).then((response)=>{
-        location.href ="/community"
+        /*location.href ="/community"*/
+        location.href ="/community/board/free"
     })
 }
 
