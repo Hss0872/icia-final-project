@@ -15,7 +15,6 @@
     </head>
 
     <body>
-
         <%-- 애니메이션 배경 적용 video Tag -->
         <%--<video controls width="250">--%>
 

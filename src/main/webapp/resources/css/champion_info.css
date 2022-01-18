@@ -86,7 +86,7 @@ body {
     width: 174px;
     height: 147px;
     overflow: hidden;
-    margin-left: 15px;
+    margin-left: 8px;
     margin-top: 7px;
 }
 
@@ -257,7 +257,7 @@ img {
 /*챔피언 분석 창 css*/
 .Summary_quick__3le_e {
     padding-top: 10px;
-    padding-bottom: 350px;
+    padding-bottom: 25px;
     padding-inline: 100px;
     overflow: hidden;
     color: #fff;
@@ -441,11 +441,10 @@ span.Summary_keystonegames__3ypEL {
 }
 
 .Summary_row3__3lr5H {
-    display: grid;
+    /*display: grid;*/
     grid-template-columns: 188px 216px 172px 216px 232px;
     font-size: 14px;
     line-height: 28px;
-    text-align: center;
     margin-top: -1px;
 }
 
@@ -517,6 +516,51 @@ img {
     font-size: 20px;
 }
 
+.Master_Point_Div {
+    width: 300px;
+    line-height: 28px;
+    padding-top: 10px;
+    padding-left: 350px;
+    text-shadow: 2px 2px 4px #f2f2f2;
+}
+
+.Master_Ranking {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.Master_Champion_Point {
+    text-align: end;
+}
+
+.Master_Summoner1 {
+    color: gold;
+    display: flex;
+    height: 30px;
+}
+
+.Master_Summoner2 {
+    color: silver;
+    display: flex;
+    height: 30px;
+}
+
+.Master_Summoner3 {
+    color: peru;
+    display: flex;
+    height: 30px;
+}
+
+.Master_Summoner4 {
+    display: flex;
+    height: 30px;
+}
+
+.Master_Summoner5 {
+    display: flex;
+    height: 30px;
+}
+
 .Skill_Tree1 {
     /*border: solid 3px #333333;*/
 }
@@ -540,4 +584,420 @@ td , th{
 .skill_cnt {
     color: #aaa;
     font-size: 13px;
+}
+
+/* --------------------------------- 룬 빌드 css --------------------------------------- */
+
+.rune_build {
+    width: 400px;
+    height: 100px;
+    padding-left: 450px;
+}
+
+.Rune_Build_Div2 {
+    padding-top: 15px;
+}
+
+.Rune_Build_Div1_Rate {
+    height: 60px;
+    padding-left: 163px;
+    white-space: nowrap;
+}
+
+.Rune_Build_Div2_Rate {
+    height: 60px;
+    padding-left: 163px;
+    white-space: nowrap;
+}
+
+.Rune_Build_Div1_CNT {
+    padding-left: 180px;
+    white-space: nowrap;
+}
+
+.Rune_Build_Div2_CNT {
+    padding-left: 180px;
+    white-space: nowrap;
+}
+
+.First_Rune1 {
+    transform: translateX(-15%);
+}
+
+.First_Rune2 {
+    transform: translateX(-15%);
+}
+
+.Second_Rune1 {
+    height: 130px;
+}
+
+.Second_Rune2 {
+    height: 130px;
+}
+
+.Stats_Rune1 {
+    padding-left: 30px;
+}
+
+.Stats_Rune2 {
+    padding-left: 30px;
+}
+
+.Rune_Build_Rate {
+    padding-left: 10px;
+    height: 72px;
+    color: rgb(70, 175, 46);
+    font-size: 13px;
+}
+
+.Rune_Build_Div1_Rate {
+    height: 20px;
+}
+
+.Rune_Build_Div2_Rate {
+    height: 20px;
+}
+
+.Rune_Build_cnt {
+    padding-left: 10px;
+    height: 10px;
+    color: #aaa;
+    font-size: 13px;
+}
+.Domination_Malice_TasteOfBlood_A {
+    padding-left: 25px;
+}
+
+.Domination_Malice_SuddenImpact_A {
+    padding-left: 25px;
+}
+
+.Domination_Tracking_GhostPoro_A {
+    padding-left: 25px;
+}
+
+.Domination_Tracking_EyeballCollection_A {
+    padding-left: 25px;
+}
+
+.Domination_Malice_TasteOfBlood_B {
+    padding-left: 25px;
+}
+
+.Domination_Malice_SuddenImpact_B {
+    padding-left: 25px;
+}
+
+.Domination_Tracking_GhostPoro_B {
+    padding-left: 25px;
+}
+
+.Domination_Tracking_EyeballCollection_B {
+    padding-left: 25px;
+}
+
+.Precision_Heroism_Triumph_A {
+    padding-left: 25px;
+}
+
+.Precision_Heroism_PresenceOfMind_A {
+    padding-left: 25px;
+}
+
+.Precision_Legend_LegendTenacity_A {
+    padding-left: 25px;
+}
+
+.Precision_Legend_LegendBloodline_A {
+    padding-left: 25px;
+}
+
+.Precision_Combat_CutDown_A {
+    padding-left: 25px;
+}
+
+.Precision_Combat_LastStand_A {
+    padding-left: 25px;
+}
+
+.Precision_Heroism_Triumph_B {
+    padding-left: 25px;
+}
+
+.Precision_Heroism_PresenceOfMind_B {
+    padding-left: 25px;
+}
+
+.Precision_Legend_LegendTenacity_B {
+    padding-left: 25px;
+}
+
+.Precision_Legend_LegendBloodline_B {
+    padding-left: 25px;
+}
+
+.Precision_Combat_CutDown_B {
+    padding-left: 25px;
+}
+
+.Precision_Combat_LastStand_B {
+    padding-left: 25px;
+}
+
+.Domination_Malice_TasteOfBlood_As {
+    padding-left: 19px;
+}
+
+.Domination_Malice_SuddenImpact_As {
+    padding-left: 19px;
+}
+
+.Domination_Tracking_GhostPoro_As {
+    padding-left: 19px;
+}
+
+.Domination_Tracking_EyeballCollection_As {
+    padding-left: 19px;
+}
+
+.Domination_Malice_TasteOfBlood_Bs {
+    padding-left: 19px;
+}
+
+.Domination_Malice_SuddenImpact_Bs {
+    padding-left: 19px;
+}
+
+.Domination_Tracking_GhostPoro_Bs {
+    padding-left: 19px;
+}
+
+.Domination_Tracking_EyeballCollection_Bs {
+    padding-left: 19px;
+}
+
+.Twoline_Rune1 {
+    padding-top: 5px;
+}
+
+.Twoline_Rune2 {
+    padding-top: 5px;
+}
+
+.Fourline_Rune1 {
+    padding-top: 5px;
+}
+
+.Fourline_Rune2 {
+    padding-top: 5px;
+}
+
+.Threeline_Rune1 {
+    padding-top: 5px;
+}
+
+.Threeline_Rune2 {
+    padding-top: 5px;
+}
+
+.Summary_Two1 {
+    padding-top: 10px;
+}
+
+.Summary_Two2 {
+    padding-top: 10px;
+}
+
+.Summary_Three1 {
+    padding-top: 10px;
+}
+
+.Summary_Three2 {
+    padding-top: 10px;
+}
+
+.Stats_5008_A {
+    padding-top: 5px;
+}
+
+.Stats_5005_A {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.Stats_5007_A {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.Stats_5008_Aa {
+    padding-top: 10px;
+}
+
+.Stats_5002_A {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5003_A {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5001_A {
+    padding-top: 10px;
+}
+
+.Stats_5002_Aa {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5003_Aa {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5008_B {
+    padding-top: 5px;
+}
+
+.Stats_5005_B {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.Stats_5007_B {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.Stats_5008_Bb {
+    padding-top: 10px;
+}
+
+.Stats_5002_B {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5003_B {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5001_B {
+    padding-top: 10px;
+}
+
+.Stats_5002_Bb {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5003_Bb {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+/* --------------------------------- 시작 아이템 빌드 css --------------------------------------- */
+
+.start_item_img {
+    width: 55px;
+    height: 55px;
+    margin-right: 15px;
+    border: solid 2px sandybrown;
+}
+
+.Staring_Item_Build{
+    display: flex;
+    padding-left: 120px;
+    /*padding-top: 60px;*/
+}
+
+.Starting_Build_Div1 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Starting_Build_Div2 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Starting_Build_Tree1 {
+    /*padding-top: 40px;*/
+}
+
+.Starting_Build_Tree2 {
+    padding-left: 110px;
+    /*padding-top: 40px;*/
+}
+
+.start_item_rate {
+    height: 10px;
+    color: rgb(70, 175, 46);
+    font-size: 13px;
+    text-align: center;
+}
+
+.start_cnt {
+    color: #aaa;
+    font-size: 13px;
+    text-align: center;
+}
+
+.Starting_Build_H {
+    text-align: center;
+}
+
+/* --------------------------------- 아이템 빌드 css --------------------------------------- */
+
+.Item_Build {
+    display: flex;
+}
+
+.Item_Build_Div1 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Item_Build_Div2 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Item_Build_Div3 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Item_Build_H {
+    text-align: center;
+}
+
+.item_build_rate {
+    height: 10px;
+    color: rgb(70, 175, 46);
+    font-size: 13px;
+    text-align: center;
+}
+
+.item_cnt {
+    color: #aaa;
+    font-size: 13px;
+    text-align: center;
+}
+
+.Item_Build_Tree1 {
+    padding-left: 115px;
+}
+
+.Item_Build_Tree2 {
+    padding-left: 115px;
+}
+
+.Item_Build_Tree3 {
+    padding-left: 115px;
 }
