@@ -21,8 +21,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/resources/js/test.js?ver=4"></script>
-    <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=4">
+    <script src="/resources/js/test.js?ver=7"></script>
+    <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=7">
 
 
 
@@ -33,7 +33,7 @@
     <div class="background">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Expand at sm</a>
+                <a class="navbar-brand" href="http://localhost:8090/"><img class="simbol" src="/resources/images/Full.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -43,23 +43,23 @@
                 <div class="collapse navbar-collapse" id="navbarsExample03">
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8090/champion">챔피언 정보</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="http://localhost:8090/summoner">전적 검색</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
+                            <a class="nav-link" href="http://localhost:8090/community">커뮤티니</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
                                 aria-expanded="false">Dropdown</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                     <form>
                         <input name="userName" class="form-control" type="text" placeholder="Search" aria-label="Search"
@@ -82,11 +82,11 @@
 
         <div class="container a summoner_info">
             <div class="row summoner">
-                <div class="col-2">
-                    <div class="icon" id="icon"></div>
+                <div class="col-1 icon">
+                    
 
                 </div>
-                <div class="col-4">
+                <div class="col-2 bro">
                     <div class="info" id="info">
                         <div class="name" id="name">
 
@@ -99,8 +99,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
-
+                <div class="col-3 likeChamp">
+                    
+                </div>
+                <div class="col-3 winRate">
+                    
+                </div>
+                <div class="col-3 likeLane">
+                    
                 </div>
             </div>
 
@@ -157,23 +163,23 @@
             <div class="container total" id="total">
                 <div class="row teamblue" id="blue">
                     <div class="row teamside">
-                        <div class="col-3 win">
+                        <div class="col-2 win">
 
                         </div>
                         <div class="col-2 summonerName">
-                            <p>소환사이름</p>
+                            <h4>소환사이름</h4>
                         </div>
-                        <div class="col-3 summonerKda">
-                            <p>kda</p>
+                        <div class="col-4 summonerKda">
+                            <h4>kda</h4>
                         </div>
                         <div class="col-2 dealt">
-                            <p>피해량</p>
+                            <h4>피해량</h4>
                         </div>
                         <div class="col-1 ward">
-                            <p>와드</p>
+                            <h4>와드</h4>
                         </div>
                         <div class="col-1 cs">
-                            <p>cs</p>
+                            <h4>cs</h4>
                         </div>
                     </div>
                     <div class="row person">
@@ -208,29 +214,34 @@
                     <div class="col-4 blueinfo">
                         
                     </div>
+                    
+                    <div class="col-2 kill"></div>
+                    <div class="col-2 gold"></div>
+
+                    
                     <div class="col-4 redinfo">
                         
                     </div>
                 </div>
                 <div class="row teamred" id="red">
                     <div class="row teamside">
-                        <div class="col-3 win">
+                        <div class="col-2 win">
 
                         </div>
                         <div class="col-2 summonerName">
-                            <p>소환사이름</p>
+                            <h4>소환사이름</h4>
                         </div>
-                        <div class="col-3 summonerKda">
-                            <p>kda</p>
+                        <div class="col-4 summonerKda">
+                            <h4>kda</h4>
                         </div>
                         <div class="col-2 dealt">
-                            <p>피해량</p>
+                            <h4>피해량</h4>
                         </div>
                         <div class="col-1 ward">
-                            <p>와드</p>
+                            <h4>와드</h4>
                         </div>
                         <div class="col-1 cs">
-                            <p>cs</p>
+                            <h4>cs</h4>
                         </div>
                     </div>
 
@@ -239,8 +250,8 @@
             <div class="container itembuild">
                 <div class="row teamblue" id="item">                    
                     <div class="row personitem">
-                        <div class="col-2 champd"></div>
-                        <div class="col-10 peritembuild"></div>
+                        <div class="col-4 champd"></div>
+                        <div class="col-8 peritembuild"></div>
                     </div>
                 </div>
                 <div class="row teamred" id="item">
@@ -287,9 +298,8 @@
             <div class="container tskillbuild">
                 <div class="row buildblue">
                     <div class="row personskill">
-                        <div class="col-2 champs"></div>
-                        <div class="col-2 master"></div>
-                        <div class="col-8 build">
+                        <div class="col-4 champs"></div>
+                        <div class="col-7 build">
                             <table class="skillbuild">
                                 <colgroup>
                                     <col>
@@ -327,6 +337,12 @@
         gameIdList = getMatchId(summonerData.puuid);
         DataList = getMatchDataList(gameIdList);
         console.log(DataList);
+        let winCount = 0;
+        let champList= new Array();
+        let laneList= new Array();
+        let kill=0;
+        let assist=0;
+        let death=0;
 
         for (let i in DataList) {
             let $recodeSummonerInfo = $('.recode').clone(true).attr('class', "row recode" + i);
@@ -336,7 +352,11 @@
             let $item = $('.itembuild').clone(true).attr('class', "container itembuild" + i);
             let $skill = $('.tskillbuild').clone(true).attr('class',"container tskillbuild" + i)
             let playTime = new Date(DataList[i][0].info.gameEndTimestamp - DataList[i][0].info.gameStartTimestamp)
+            let bluegold = 0;
+            let redgold = 0;
             
+            
+
             context(DataList[i][0].info.teams, $total);
             for (let y of DataList[i][0].info.participants) {
                 let $person1 = $total.find('.person').clone(true).attr('class', "row person" + DataList[i][0].info
@@ -345,7 +365,15 @@
                 
                 //검색한 소환사와 매치데이터내의 정보 일치시
                 if (y.summonerName == summonerData.name) {
-
+                    //let champNameInfo=new Object();
+                    
+                    
+                    for(let t of championNameInfo){
+                        if(t.championid==y.championId){
+                            champList.push(t.champion_name_eng);
+                        }
+                    }
+                    laneList.push(y.teamPosition);
                     //소환사의 플래이한 챔피언과 룬,스킬 정보
                     getChampInfo(y, $recodeSummonerInfo);
                     getkdaInfo(y, $recodeSummonerInfo);
@@ -353,10 +381,14 @@
                     //승리정보
                     getWin(y, $recodeSummonerInfo);
                     getGameInfo(DataList[i][0], $recodeSummonerInfo);
-                    let btn=$('<a>').html("<svg xmlns='http://www.w3.org/2000/svg' width='30' height='50' fill='currentColor' class='bi bi-arrow-down-short' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z'/></svg>");
-                    btn.attr('class','opnedetail').attr('href','#');
-                    
-                    $recodeSummonerInfo.children('.detail').append($('<div>').append(btn).css('bottom','0px'));
+                    let btn=$('<div>').html("<svg xmlns='http://www.w3.org/2000/svg' width='30' height='50' fill='currentColor' class='bi bi-arrow-down-short' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z'/></svg>");
+                    if(y.win==true){
+                        winCount+=1;
+                    }
+                    kill+=y.kills;
+                    assist+=y.assists;
+                    death+=y.deaths;
+                    $recodeSummonerInfo.children('.detail').append(btn);
                 }
                 getPartner(y, $recodeSummonerInfo);
                 //설명 메뉴바
@@ -367,8 +399,10 @@
                 getRuneBuild(y,$rune);
                 if (y.teamId == 100) {
                     $person1.appendTo($total.children('#blue'));
+                    bluegold+=y.goldEarned;
                 } else if (y.teamId == 200) {
                     $person1.appendTo($total.children('#red'));
+                    redgold+=y.goldEarned;
                 }
                 $person1.children('.partnerName').html("<p>" + y.summonerName + "<br>" + y.teamPosition + "</p>")
                 getkdaInfo(y, $person1);
@@ -381,18 +415,190 @@
                 getItemBuild(y, DataList[i][1].info, $item);
                 getSkillBuild(y, DataList[i][1].info, $skill);
 
-
+                
+            
 
             }
+
+            
+            getTotalData(DataList[i][0].info.teams,bluegold,redgold,$total);
+
+
+
+
+
+        
+            
+            $recodeSummonerInfo.find('.detail').click(function(){
+                if($selectBar.css('display') =='none'){
+                    $selectBar.show();
+                }else {
+                    $selectBar.hide();
+                    $total.hide();
+                    $item.hide();
+                    $rune.hide();
+                    $skill.hide();
+                }
+            });
+            $selectBar.find('.opentotal').click(function(){
+                if($total.css('display') =='none'){
+                    $total.show();
+                    $item.hide();
+                    $rune.hide();
+                    $skill.hide();
+                }else {
+                    $total.hide();
+                }
+            });
+            $selectBar.find('.openitem').click(function(){
+                if($item.css('display') =='none'){
+                    $total.hide();
+                    $item.show();
+                    $rune.hide();
+                    $skill.hide();
+                }else {
+                    $item.hide();
+                }
+            });$selectBar.find('.openrune').click(function(){
+                if($rune.css('display') =='none'){
+                    $total.hide();
+                    $item.hide();
+                    $rune.show();
+                    $skill.hide();
+                }else {
+                    $rune.hide();
+                }
+            });$selectBar.find('.openskill').click(function(){
+                if($skill.css('display') =='none'){
+                    $total.hide();
+                    $item.hide();
+                    $rune.hide();
+                    $skill.show();
+                }else {
+                    $skill.hide();
+                }
+            });
+
+
+
             $recodeSummonerInfo.appendTo($('.b'));
-            $selectBar.appendTo($('.b'));
+            $selectBar.hide().appendTo($('.b'));
             $total.appendTo($('.b'));
-            $item.appendTo($('.b'));
-            $rune.appendTo($('.b'));
-            $skill.appendTo($('.b'))
-
+            $item.hide().appendTo($('.b'));
+            $rune.hide().appendTo($('.b'));
+            $skill.hide().appendTo($('.b'))
+            
         }
+        
 
+        $('<p>').attr('class','rate').text( "승률 : " + winCount/20*100 + "%").appendTo($('.winRate'));
+        $('<p>').attr('class','killrate').text( "K / D / A : " + (kill/20).toFixed(2) + " / "+(death/20).toFixed(2)+" / "+(assist/20).toFixed(2)).appendTo($('.winRate'));
+        $('<p>').attr('class','kdarate').text( "KDA : " + ((kill+assist)/death).toFixed(2)).appendTo($('.winRate'));
+
+
+
+
+
+
+        laneRate= new Object();
+        laneRate.TOP = 0;
+        laneRate.JUNGLE = 0;
+        laneRate.MIDDLE = 0;
+        laneRate.BOTTOM = 0;
+        laneRate.UTILITY = 0;
+        for(let i of laneList){
+            if(i=="TOP"){
+                laneRate.TOP += 1;
+            }else if(i=="JUNGLE"){
+                laneRate.JUNGLE += 1;
+            }else if(i=="MIDDLE"){
+                laneRate.MIDDLE += 1;
+            }else if(i=="BOTTOM"){
+                laneRate.BOTTOM += 1;
+            }else if(i=="UTILITY"){
+                laneRate.UTILITY +=1;
+            }
+        }
+        let laneInfo=JSON.stringify(laneRate);
+        
+        //const arr = ['a', 'b', 'a', 'b', 'c'];
+        drawlikland(laneRate,$('.a'));
+
+        const result =champList.reduce((accu, curr) => { 
+            accu[curr] = (accu[curr] || 0)+1; 
+            return accu;
+          },{});
+        
+
+        
+        let champNameInfoList=new Array();
+        for(let o of Object.keys(result)){
+            //console.log(o);
+            //console.log(valueOf(o));
+            let champNameInfo=new Object();
+            champNameInfo.name=o;
+            champNameInfo.count=result[o];
+            for(let m of championNameInfo){
+                if(m.champion_name_eng==o){
+                    champNameInfo.name_kr=m.champion_name_kr;
+                }
+            }
+            champNameInfoList.push(champNameInfo);
+        }
+        console.log(champNameInfoList);
+        
+        function custonSort(a, b) {
+            if(a.total == b.total){
+                return 0
+            }
+            return a.total > b.total ? 1 : -1; 
+        }
+        champNameInfoList.sort(custonSort);
+        
+        for(let n in champNameInfoList){
+            if(n==3){
+                break;
+            }
+            let div = $('<div>').attr('class','row like');
+            $('<img>').attr('class','likeimg').attr('src',"/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
+            champNameInfoList[n].name + ".png").appendTo(div);
+            $('<p>').attr('class','likename').text((Number(n)+1)+" 위: "+champNameInfoList[n].name_kr).appendTo(div)
+            div.appendTo($('.likeChamp'));
+            
+        }
+        
+
+
+   
+
+        //구글차트가 안그려져서 dom 생성이후 3초 타이머 실행 함수
+        setTimeout(()=>{
+            $('.total0').css('display','none')
+            $('.total1').css('display','none')
+            $('.total2').css('display','none')
+            $('.total3').css('display','none')
+            $('.total4').css('display','none')
+            $('.total5').css('display','none')
+            $('.total6').css('display','none')
+            $('.total7').css('display','none')
+            $('.total8').css('display','none')
+            $('.total9').css('display','none')
+            $('.total10').css('display','none')
+            $('.total11').css('display','none')
+            $('.total12').css('display','none')
+            $('.total13').css('display','none')
+            $('.total14').css('display','none')
+            $('.total15').css('display','none')
+            $('.total16').css('display','none')
+            $('.total17').css('display','none')
+            $('.total18').css('display','none')
+            $('.total19').css('display','none')
+        }, 3000)
+        
+            
+        
+        
+        
         $('.recode').remove();
         $('.selectBar').remove();
         $('.total').remove();

@@ -62,7 +62,7 @@ function getRank(id) {
 function darwInfo(summonerdata, rank) {
     $('<img>').attr('src', "//opgg-static.akamaized.net/images/profile_icons/profileIcon" + summonerdata
             .profileIconId + ".jpg?image=q_auto:best&v=1518361200")
-        .attr('class', 'img').appendTo($('#icon'));
+        .attr('class', 'img').appendTo($('.icon'));
     $('#name').html(
         "<h5 ><a id='nameA' href='http://localhost:8090/summoner/summoner_info?userName=" +
         summonerdata
@@ -82,7 +82,7 @@ function getMatchId(puuid) {
     $.ajax({
         method: "get",
         url: "https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?api_key=" +
-            riot_api_key + "&start=0&count=1",
+            riot_api_key + "&start=0&count=20",
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         dataType: "json",
         async: false,
@@ -399,11 +399,11 @@ function context(x, y) {
             } else if (i.win == false) {
                 y.children('.teamblue').children('.teamside').children('.win').html("<h5>패배</h5><p>블루팀</p>");
             }
-            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(blueinfo);
+            $('<img>').attr('class','timg').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(blueinfo);
             $('<p>').text(i.objectives.baron.kills).appendTo(blueinfo);
-            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(blueinfo);
+            $('<img>').attr('class','timg').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(blueinfo);
             $('<p>').text(i.objectives.dragon.kills).appendTo(blueinfo);
-            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(blueinfo);
+            $('<img>').attr('class','timg').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(blueinfo);
             $('<p>').text(i.objectives.tower.kills).appendTo(blueinfo);
 
 
@@ -413,11 +413,11 @@ function context(x, y) {
             } else if (i.win == false) {
                 y.children('.teamblue').children('.teamside').children('.win').html("<h5>패배</h5><p>레드팀</p>");
             }
-            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(redinfo);
+            $('<img>').attr('class','timg').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-baron-r.png').appendTo(redinfo);
             $('<p>').text(i.objectives.baron.kills).appendTo(redinfo);
-            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(redinfo);
+            $('<img>').attr('class','timg').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-dragon-r.png').appendTo(redinfo);
             $('<p>').text(i.objectives.dragon.kills).appendTo(redinfo);
-            $('<img>').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(redinfo);
+            $('<img>').attr('class','timg').attr('src', '//opgg-static.akamaized.net/images/site/summoner/icon-tower-r.png').appendTo(redinfo);
             $('<p>').text(i.objectives.tower.kills).appendTo(redinfo);
         }
     }
@@ -676,8 +676,13 @@ function getItemBuild(y, w, $item) {
         }
     }
 
-    for (let i of w.frames) {
-        for (let q of i.events) {
+    for (let i in w.frames) {
+        if (i==15){
+            $('<img>').attr('src',"/resources/images/array_right_15.png").css('width','30px').css('height','30px').appendTo(personitembuild.children('.peritembuild'));
+        }else if (i==25){
+            $('<img>').attr('src',"/resources/images/array_right_25.png").css('width','30px').css('height','30px').appendTo(personitembuild.children('.peritembuild'));
+        }
+        for (let q of w.frames[i].events) {
             if (q.type == "ITEM_PURCHASED") {
                 if (y.participantId == q.participantId) {
                     for (let t of itemInfo) {
@@ -730,30 +735,37 @@ function getSkillBuild(y, timeData, $skill) {
     for (let z of championNameInfo) {
         if (y.championId == z.championid) {
             $('<td>').attr('class', "Qimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "Q.png'>").appendTo(table.find('.Q'));
-            $('<td>').attr('class', "Qimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "W.png'>").appendTo(table.find('.W'));
-            $('<td>').attr('class', "Qimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "E.png'>").appendTo(table.find('.E'));
-            $('<td>').attr('class', "Qimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "R.png'>").appendTo(table.find('.R'));
+            $('<td>').attr('class', "Wimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "W.png'>").appendTo(table.find('.W'));
+            $('<td>').attr('class', "Eimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "E.png'>").appendTo(table.find('.E'));
+            $('<td>').attr('class', "Rimg").html("<img src='/resources/images/LOL_CHAMPION_SPELLS/" + z.champion_name_eng + "/" + z.champion_name_eng + "R.png'>").appendTo(table.find('.R'));
             $('<img>').attr('class', 'champimg').attr('src', "/resources/images/LOL_CHAMPION_ICON/lol_champion_" +
                 z.champion_name_eng + ".png").appendTo(personskill.find('.champs'));
             $('<p>').text(y.summonerName).appendTo(personskill.find('.champs'));
         }
     }
-
+    
+    
     for (let f in skillbuildlist) {
         let mastery = new Array()
         let b = Number(f);
+        
+        
+
+
         if (skillbuildlist[b] == 1) {
             $('<td>').text(b + 1).attr('class', 'value up').css('background-color', 'orange').appendTo(table.find('.Q'));
             $('<td>').appendTo(table.find('.W'));
             $('<td>').appendTo(table.find('.E'));
             $('<td>').appendTo(table.find('.R'));
+            
+            
         }
         if (skillbuildlist[b] == 2) {
             $('<td>').appendTo(table.find('.Q'));
             $('<td>').text(b + 1).attr('class', 'value up').css('background-color', 'orange').appendTo(table.find('.W'));
             $('<td>').appendTo(table.find('.E'));
             $('<td>').appendTo(table.find('.R'));
-
+            
         }
         if (skillbuildlist[b] == 3) {
             $('<td>').appendTo(table.find('.Q'));
@@ -766,9 +778,14 @@ function getSkillBuild(y, timeData, $skill) {
             $('<td>').appendTo(table.find('.W'));
             $('<td>').appendTo(table.find('.E'));
             $('<td>').text(b + 1).attr('class', 'value up').css('background-color', 'orange').appendTo(table.find('.R'));
+            
         }
     }
-    table.find('td').css('width', '50px').css('border', '1px solid black');
+
+    
+    
+
+    //table.find('td').css('border', '1px solid black');
 
     if (y.teamId == 100) {
         personskill.appendTo($skill.children('.buildblue'));
@@ -776,4 +793,109 @@ function getSkillBuild(y, timeData, $skill) {
         personskill.appendTo($skill.children('.buildred'));
     }
 
+    
+
+
+
+
+
+}
+
+function getTotalData(x,bluegold,redgold,$total){
+    //let kill = $total.find('kill');
+    //let gold = $total.find('gold');
+    let bluekill;
+    let redkill;
+    for(let i of x){
+        if (i.teamId==100){
+            bluekill=i.objectives.champion.kills;
+        }else if (i.teamId==200){
+            redkill=i.objectives.champion.kills;
+        }
+    }
+
+
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart1);
+
+    //google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart2);
+
+    function drawChart1() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['bludgold',     bluegold],
+        ['redgold',      redgold]
+        
+      ]);
+
+      var options = {
+        title: 'total_gold',
+        height: '100px',
+        legend:'none',
+        backgroundColor:{
+            fill:  'transparent'
+        }
+      };
+
+      var chart = new google.visualization.PieChart($total.find('.gold')[0]);
+
+      chart.draw(data, options);
+    }
+
+
+    function drawChart2() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['kills', 'Hours per Day'],
+          ['bluekill',     bluekill],
+          ['redkill',      redkill]
+          
+        ]);
+  
+        var options = {
+          title: 'total_kill',
+          height: '100px',
+          legend:'none',
+          backgroundColor:{
+            fill:  'transparent'
+        }
+        };
+  
+        var chart = new google.visualization.PieChart($total.find('.kill')[0]);
+  
+        chart.draw(data, options);
+      }
+}
+
+function drawlikland(z,y){
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['라인', '선호도'],
+        ['TOP',     z.TOP],
+        ['JUNGLE',      z.JUNGLE],
+        ['MIDDLE',  z.MIDDLE],
+        ['BOTTOM', z.BOTTOM],
+        ['UTILITY',    z.UTILITY]
+      ]);
+
+      var options = {
+        title: '',
+        legend:'none',
+        backgroundColor:{
+            fill:'transparent'
+        }
+
+      };
+
+      var chart = new google.visualization.PieChart(y.find('.likeLane')[0]);
+
+      chart.draw(data, options);
+    }
 }
