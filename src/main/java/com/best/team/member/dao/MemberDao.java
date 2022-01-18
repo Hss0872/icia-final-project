@@ -4,6 +4,8 @@ import com.best.team.member.bean.Member;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Map;
+
 @Repository
 public interface MemberDao {
 
@@ -34,4 +36,9 @@ public interface MemberDao {
     String getId(Member member);
 
     Member getMemberInfo(@Param("m_id") String m_id);
+
+    Member selectProfile(Member member);
+
+    boolean updateProfile(Map map);
+
 }

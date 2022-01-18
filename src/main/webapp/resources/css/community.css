@@ -14,7 +14,8 @@ body{
     width: 100%;
     height: 100%;
     display: none;
-    background-color: rgba(0, 0, 0, 0.4); }
+    background-color: rgba(0, 0, 0, 0.4);
+}
 
 
 .modal.show {
@@ -22,16 +23,76 @@ body{
 }
 .modal_body {
     position: absolute;
-    top: 50%; left: 50%;
-    width: 400px;
-    height: 500px;
+    top: 48%; left: 50%;
+    width: 500px;
+    height: 550px;
     padding: 40px;
     text-align: center;
     background-color: rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 35px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
     transform: translateX(-50%) translateY(-50%);
 }
+.modal_body button{
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+
+.modal_body i{
+    border: none;
+    color: black;
+}
+
+.login_modal{
+    height: 400px;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+
+}
+
+.logout_btn, .myPage_btn , .btn-open-popup{
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+.myPage_btn:hover,
+.myPage_btn:active,
+.logout_btn:hover,
+.logout_btn:active,
+.btn-open-popup:hover,
+.btn-open-popup:active{
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+.myPage_btn:active,
+.logout_btn:active
+.btn-open-popup:active{
+    opacity: .5;
+}
+
+
 
 
 
@@ -63,6 +124,11 @@ body{
     font: bold 40px 'arial';
     padding-top: 14px;
     letter-spacing: 2px;
+}
+
+.header_logo a{
+    text-decoration-line: none;
+    color: #f8b80e;
 }
 
 .header_logo p{
@@ -117,22 +183,6 @@ body{
 }
 
 
-.btn-open-popup{
-    opacity: 0.5;
-    color: rgb(1, 12, 8);
-    background-color: rgb(206, 206, 192);
-    display : inline-block;
-    position: relative;
-}
-.logout_btn{
-    display: none;
-    opacity: 0.5;
-    color: rgb(1, 12, 8);
-    background-color: rgb(206, 206, 192);
-    position: relative;
-}
-
-
 /* modal login */
 
 
@@ -171,6 +221,14 @@ h4{
     border: 1px solid lightgray;
     outline: none;
 }
+.forgot_pw button{
+    background-color:transparent;
+    border: 0;
+    outline: 0;
+    font-weight: 700;
+    color: #0b3cd2;
+    margin: 10px 0 0 0;
+}
 
 .forgot_pw a {
     margin-top: 30px;
@@ -179,17 +237,16 @@ h4{
 }
 
 .signUp a{
-    margin-left: 90px;
+    float:right;
     padding: 2px ;
+    text-decoration-line: none;
+    color: #0b3cd2;
 
 }
 
 
-
-
-
-
 .login_etc {
+    margin-top : 20px;
     padding: 10px;
     width: 80%;
     font-size: 14px;
@@ -199,15 +256,16 @@ h4{
     font-weight: bold;
 }
 
-.submit {
-    text-align: left;
-    margin-top: 20px;
-    margin-left: 170px;
+#loginSubmitBtn {
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
     margin-bottom: 30px;
-    width: 70%;
+    width: 80%;
 }
 .submit input {
-    width: 40%;
+    margin-left: 68px;
+    width: 50%;
     height: 50px;
     border: 0;
     outline: none;
@@ -304,17 +362,178 @@ h4{
 
 
 /*id 찾기 pw 찾기 모달*/
+.certify button{
+    width: 100px;
+    margin-left: 160px;
+    margin-top: 80px;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 17px;
+    justify-content: center;
+    line-height: 1em;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
 
-.total_form{
+.certify input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid rgb(2, 0, 12);
+    margin-top: 50px;
+    width: 80%;
+    height: 35px;
+}
+
+
+.total_form, .certify{
     width: 100%;
     height: 100%;
-    border: #382ed5;
-    border: solid 2px;
-    border-radius: 10px;
+    /*display: table-cell;*/
+    vertical-align: middle;
+}
+.new_total_form{
+    width: 100%;
+    height: 100%;
+}
+.new_total_form input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid rgb(2, 0, 12);
+    margin-top: 50px;
+    width: 80%;
+    height: 35px;
+}
+
+.new_total_form button{
+    width: 120px;
+    margin-left: 150px;
+    margin-top: 80px;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 17px;
+    justify-content: center;
+    line-height: 1em;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 
-.id_input, .pw_input{
 
+
+.total_form input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid rgb(2, 0, 12);
+    margin-top: 50px;
+    width: 80%;
+    height: 35px;
 }
 
+.total_form button{
+    width: 100px;
+    margin-left: 159px;
+    margin-top: 90px;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 17px;
+    justify-content: center;
+    line-height: 1em;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.total_form button, .certify button:active,
+.total_form button, .certify button:hover {
+    outline: 0;
+}
+
+@media (min-width: 768px) {
+    .total_form button, .certify button, .new_total_form button{
+        font-size: 17px;
+        min-width: 100px;
+    }
+}
+
+
+
+.searchId{
+    display: flex;
+    width: 100%;
+    height: 400px;
+}
+
+.searchId div{
+    margin: 40px auto ;
+    width: 350px;
+}
+
+.searchId input{
+    width: 300px;
+    border-radius: 20px;
+}
+
+#id_search_btn{
+    background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    transition: 200ms;
+    width: 100px;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#id_search_btn:not(:disabled):hover,
+#id_search_btn:not(:disabled):focus {
+    outline: 0;
+    background: #f4e603;
+    box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+#id_search_btn:disabled {
+    filter: saturate(0.2) opacity(0.5);
+    cursor: not-allowed;
+}

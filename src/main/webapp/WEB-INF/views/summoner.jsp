@@ -2,12 +2,15 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/summoner.css">
-    <script src="/resources/js/summoner.js"></script>
+    <link rel="stylesheet" href="/resources/css/summoner.css?ver=1">
+    <script src="/resources/js/summoner.js?ver=1"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <div id="canvas_container">
+    <video muted autoplay loop>
+        <source src="/resources/images/videos/animated-esports-season2016.mp4" type="video/mp4">
+    </video>
     <a href="/">
         <img src="/resources/images/pngwing.com (2).png" alt="aaaa">
     </a>

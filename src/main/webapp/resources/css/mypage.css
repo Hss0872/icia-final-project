@@ -1,0 +1,187 @@
+video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 500px;
+    height: 580px;
+    border-radius: 35px;
+    z-index: -1;
+    overflow: hidden;
+    background-color: rgb(87, 52, 87);
+}
+
+
+.myPage_form{
+    text-align: center;
+    align-items: center;
+    height: 320px;
+    width: 100%;
+}
+
+.client_photo{
+    width: 200px;
+    height: 170px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+
+
+.client_info{
+    display: block;
+    margin-top: 120px;
+    font-size: 20px;
+
+}
+
+.client_info_update{
+    font-size: 18px;
+    margin-top: 45px;
+    text-align: center;
+    align-items: center;
+}
+
+.client_info button{
+    opacity: 80%;
+    background: linear-gradient(to bottom right, #ffd3db, #ca44a9);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.client_info_update button{
+    opacity: 80%;
+    background: linear-gradient(to bottom right, #ffd3db, #ca44a9);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+
+
+
+/* 회원정보 수정 페이지  */
+
+.profileFrm{
+    display: flex;
+    height: 450px;
+    width: 100%;
+}
+
+.profileDiv{
+    margin: 0 auto;
+    width: 250px;
+}
+
+.profileDiv input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid rgb(2, 0, 12);
+    margin-top: 35px;
+    width: 100%;
+}
+
+.profileFrm button{
+    margin-top: 40px;
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 180px;
+    word-break: break-word;
+    border: 0;
+}
+
+/* 내가 작성한 글목록  */
+
+.client_work{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.client_work_lst{
+    vertical-align: middle;
+    margin: 18px auto;
+    width: 90%;
+    height: 40px;
+    border: solid 2px;
+    border: #e6c7b3;
+    border-radius: 30px;
+    background-color: rgb(213, 211, 236);
+
+}
+
+.client_work_lst a{
+    font-family: neon;
+    font-size: 16px;
+    text-shadow: 0 0 1vw #bbbbf093;
+    animation: neon 1s ease infinite;
+    -moz-animation: neon 1s ease infinite;
+    -webkit-animation: neon 1s ease infinite;
+}
+
+/* 내가 작성한 댓글목록 */
+
+.client_reply{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.client_reply_lst{
+    vertical-align: middle;
+    margin: 18px auto;
+    width: 90%;
+    height: 40px;
+    border: solid 2px;
+    border: #e6c7b3;
+    border-radius: 30px;
+    background-color: rgb(213, 211, 236);
+
+}

@@ -20,7 +20,7 @@
 
     <!--   -->
     <select id="getSecurityPwd" resultType="String">
-        SELECT M_PW FROM member WHERE M_ID=#{m_id}
+        SELECT M_PW FROM member WHERE M_ID = #{m_id}
     </select>
 
     <select id="getValueEamilAccept" resultType="boolean">
@@ -51,4 +51,13 @@
     <select id="getMemberInfo" resultType="Member">
         SELECT * FROM MEMBER WHERE m_id = #{m_id}
     </select>
+
+    <select id="selectProfile" resultType="Member">
+        select m_nickname, m_phone from member where m_id = #{m_id}
+    </select>
+
+    <update id="updateProfile" parameterType="map">
+        update member set m_nickname = #{m_nickname}, m_phone = #{m_phone}, m_pw = #{m_newPw} where m_id = #{m_id}
+    </update>
+
 </mapper>

@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -89,4 +89,11 @@ public class CommunityController {
         boolean result = boardWriteMM.deleteBoard(type, bNum, session, model);
         return result ? "redirect:/community" : "redirect:/community/board/" + type + "/" + bNum;
     }
+
+    @PostMapping(value = "/mypage/profile")
+    public ModelAndView changeProfile(){
+        ModelAndView mav = new ModelAndView();
+        return mav;
+    }
+
 }

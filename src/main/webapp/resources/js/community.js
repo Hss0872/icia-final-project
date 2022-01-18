@@ -3,7 +3,7 @@ src = "https://code.jquery.com/jquery-3.6.0.js"
 //로그인 id 유효성
 function inspectId(){
     let loginId = document.querySelector('#id');
-    if(loginId.value <= 3){
+    if(loginId.value.length <= 3){
         loginId.setAttribute('data-value','false');
     }else{
         loginId.setAttribute('data-value','true');
@@ -66,12 +66,10 @@ function loginFrm(){
 
 //id찾기 모달창
 function searchId() {
-    console.log('야야투레레레');
     let login_modal = document.querySelector('.login_modal');
     login_modal.style.display ='none';
     let searchIdForm = document.querySelector('.searchId');
     searchIdForm.style.display ='block';
-    console.log('야야투레');
 
     let modal = document.querySelector('.modal');
     let modal_body = document.querySelector('.modal_body');
@@ -170,6 +168,7 @@ function searchPw(){
     email_input.setAttribute('data-value','false');
     email_input.setAttribute('onblur','email_inspect()');
     email_input.setAttribute('name','m_email');
+    email_input.setAttribute('placeholder','이메일 입력');
 
     let email_submit = document.createElement('button');
     email_submit.setAttribute('class', 'email_submit');
@@ -225,9 +224,10 @@ function searchPw(){
 //pw찾기(이메일인증) 유효성
 function email_inspect(){
     //유효성 먼저
+    let emailRegExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
     let email = document.querySelector('#email');
-    if(email.value <= 1){
+    if(!emailRegExp.test(email.value)){
         email.setAttribute('data-value', 'false');
     }else{
         email.setAttribute('data-value', 'true');
@@ -238,10 +238,9 @@ function email_inspect(){
 function searchPwAjax(){
     let email_data_value = document.getElementById('email').getAttribute('data-value');
     let email = document.querySelector('#email');
-    let emailRegExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     let total_form = document.querySelector('.total_form');
 
-    if(email_data_value == 'true' && emailRegExp.test(email.value)){
+    if(email_data_value == 'true'){
         console.log('이메일인증 시작');
         let certify = document.querySelector('.certify');
 
@@ -255,17 +254,25 @@ function searchPwAjax(){
                     m_email : email.value
                 })
         }).then((res)=>{
-                return res.json();   //그래야 아래 제이슨형태의 객체로 바꿔줄수있으니
+            if(res.status == 200){
+                total_form.style.display ='none';
+                certify.style.display ='block';
+                window.emailCode = res;
+                return res.json();
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '존재 하지않는 이메일입니다.',
+                })
+                return res.json();
+            }
         }).then((res)=>{
-            total_form.style.display ='none';
-            certify.style.display ='block';
             window.emailCode = res;
-        }).catch((res)=>{
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: '존재 하지않는 이메일입니다.',
-            })
+            console.log(res);
+
+        }).catch((err)=>{
+            console.log(err);
         })
 
     }else{
@@ -431,6 +438,289 @@ function logout(){
     })
 }
 
+//마이페이지
+function myPage(){
+    let modal = document.querySelector('.modal');
+    modal.style.display ='block';
+    let login_modal = document.querySelector('.login_modal');
+    login_modal.style.display ='none';
+    let myPage_form = document.querySelector('.myPage_form');
+    myPage_form.style.display ='block';
+
+}
+
+//회원정보 수정
+function client_info(){
+    let myPage_form = document.querySelector('.myPage_form');
+    myPage_form.style.display ='none';
+    let profileFrm = document.querySelector('.profileFrm');
+    profileFrm.style.display = 'block';
+    let p_nickname = document.querySelector('#p_nickname');
+    let p_phone = document.querySelector('#p_phone');
+    let p_pw = document.querySelector('#p_pw');
+    let p_newPw = document.querySelector('#p_newPw');
+    let p_confirmPw = document.querySelector('#p_confirmPw');
+
+    return fetch( '/member/profile/select',
+        {
+            method: 'post',
+            headers: {
+                "Accept": "application/json;",
+                "ContentType": "application/json;"
+            },
+            body: JSON.stringify({
+                m_id : window.id
+            })
+
+        }).then((res)=>{
+        return res.json();
+    }).then((res)=>{
+        console.log(res);
+        p_nickname.value = res.m_nickname;
+        p_phone.value = res.m_phone;
+        p_pw.value = null;
+        p_newPw.value = null;
+        p_confirmPw.value = null;
+        p_nickname.setAttribute('data-value','true');
+        p_phone.setAttribute('data-value','true');
+    }).catch((err)=>{})
+
+}
+
+//마이페이지 닉네임 유효성
+function profile_nickname(){
+    let p_nickname = document.querySelector('#p_nickname');
+    if(p_nickname.value.length <= 3){
+        p_nickname.value = null;
+        p_nickname.setAttribute('data-value','false');
+        setTimeout(()=>{
+            document.getElementById('p_nickname').placeholder ='닉네임은 3글자 이상입니다.'
+            p_nickname.style.borderBottomColor ='red';
+        }, 100);
+
+    }else{
+        return fetch('/member/dupleCheck',
+            {
+                method: 'post',
+                headers: {
+                    "Accept": "application/json;",
+                    "ContentType": "application/json;"
+                },
+                body: JSON.stringify({
+                    m_nickname: p_nickname.value,
+                })
+            }).then((res)=>{
+                if(res.status == 200){
+                    console.log('사용가능');
+                    p_nickname.setAttribute('data-value','true');
+                    setTimeout(()=>{
+                        document.getElementById('p_nickname').placeholder ='닉네임 변경'
+                        p_nickname.style.borderBottomColor ='black';
+                    },100);
+                }else{
+                    console.log('중복');
+                    p_nickname.value = null;
+                    p_nickname.setAttribute('data-value','false');
+                    setTimeout(()=>{
+                        document.getElementById('p_nickname').placeholder ='이미 사용중인 닉네임입니다.'
+                        p_nickname.style.borderBottomColor ='red';
+                    }, 100);
+                }
+        }).catch((error)=>{
+            console.log(error)
+        })
+    }
+
+
+}
+//마이페이지 폰 유효성
+function profile_phone(){
+    let regExp =  /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+    let p_phone = document.querySelector('#p_phone');
+    let profileInput = document.querySelector('.profileDiv input');
+    if(!regExp.test(p_phone.value)){
+        p_phone.value = null;
+        p_phone.setAttribute('data-value','false');
+        p_phone.placeholder ='전화번호 양식에 맞춰주세요.'
+        p_phone.style.borderBottomColor = 'red';
+        setTimeout(()=>{
+            p_phone.placeholder ='전화번호 변경'
+            p_phone.style.borderBottomColor = 'black';
+        }, 2000)
+    }else{
+        p_phone.setAttribute('data-value','true');
+        p_phone.placeholder ='전화번호 변경'
+        p_phone.style.borderBottomColor = 'black';
+    }
+
+}
+
+//마이페이지 비번 유효성
+function profile_pw(){
+    let pwregExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+    let p_pw = document.querySelector('#p_pw');
+    if(!pwregExp.test(p_pw.value)){
+        p_pw.value = null;
+        p_pw.setAttribute('data-value','false');
+        p_pw.placeholder = '8~16자 영문, 숫자 조합';
+        p_pw.style.borderBottomColor ='red';
+        setTimeout(()=>{
+            p_pw.placeholder = '기존 비밀번호';
+            p_pw.style.borderBottomColor ='black';
+        })
+
+    }else{
+        return fetch('/member/profile/pw',
+            {
+                method : 'post',
+                headers: {
+                    "Accept": "application/json;",
+                    "ContentType": "application/json;"
+                },
+                body: JSON.stringify({
+                    m_pw: p_pw.value,
+                    m_id : window.id
+                })
+
+        }).then((res)=>{
+            if(res.status == 200){
+                p_pw.style.borderBottomColor ='black'
+                p_pw.setAttribute('data-value','true');
+
+            }else{
+                p_pw.value = null;
+                p_pw.placeholder ='비밀번호가 일치하지 않습니다.'
+                p_pw.style.borderBottomColor ='red'
+                p_pw.setAttribute('data-value','false');
+                setTimeout(()=>{
+                    p_pw.placeholder ='기존 비밀번호';
+                    p_pw.style.borderBottomColor ='black';
+                }, 2000)
+            }
+
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+}
+
+//마이페이지 새로운비번 유효성
+function profile_newPw(){
+    let pwregExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+    let p_newPw = document.querySelector('#p_newPw');
+    let p_pwValue = document.getElementById('p_pw').getAttribute('data-value');
+    let p_pw = document.querySelector('#p_pw');
+
+        if(p_pwValue == 'true'){
+            if(!pwregExp.test(p_newPw.value)){
+                p_newPw.setAttribute('data-value','false');
+                p_newPw.value = null;
+                p_newPw.placeholder = '8~16자 영문, 숫자 조합';
+                p_newPw.style.borderBottomColor ='red';
+                setTimeout(()=>{
+                    p_newPw.style.borderBottomColor ='black';
+                    p_newPw.placeholder = '변경할 비밀번호';
+                }, 2000)
+            }else{
+                p_newPw.setAttribute('data-value','true');
+                p_newPw.placeholder = '변경할 비밀번호';
+                p_newPw.style.borderBottomColor ='black';
+            }
+        }else if(p_pwValue == 'false'){
+            p_newPw.value = null;
+            p_newPw.setAttribute('data-value','false');
+            p_pw.style.borderBottomColor ='red';
+            p_pw.placeholder = '기존 비밀번호를 입력해주세요'
+        }
+
+
+}
+
+//마이페이지 새로운비번 컨펌 유효성
+function profile_confirmPw(){
+    let p_confirmPw = document.querySelector('#p_confirmPw');
+    let p_newPw = document.querySelector('#p_newPw');
+            if (p_confirmPw.value !== p_newPw.value) {
+                p_confirmPw.setAttribute('data-value', 'false');
+                p_confirmPw.value = null;
+                p_confirmPw.placeholder = '두개의 비밀번호가 일치하지 않습니다.'
+                p_confirmPw.style.borderBottomColor = 'red';
+                setTimeout(()=>{
+                    p_confirmPw.style.borderBottomColor = 'black';
+                    p_confirmPw.placeholder = '변경할 비밀번호 확인'
+                }, 2500)
+            } else {
+                p_confirmPw.setAttribute('data-value', 'true');
+                p_confirmPw.style.borderBottomColor = 'black';
+            }
+}
+
+//마이페이지 최종 변경 컨트롤러
+function profile_inspect(){
+    let p_nickname = document.getElementById('p_nickname').getAttribute('data-value');
+    let p_nicknameValue = document.querySelector('#p_nickname');
+    let p_phone = document.getElementById('p_phone').getAttribute('data-value');
+    let p_phoneValue = document.querySelector('#p_phone');
+    let p_pw = document.getElementById('p_pw').getAttribute('data-value');
+    let p_pwValue = document.querySelector('#p_pw');
+    let p_idValue = document.querySelector('#p_id');
+    let p_newPw = document.getElementById('p_newPw').getAttribute('data-value');
+    let p_newPwValue = document.querySelector('#p_newPw');
+    let p_confirmPw = document.getElementById('p_confirmPw').getAttribute('data-value');
+
+    let myPageFrm= document.querySelector('.myPage_form');
+    let profileFrm = document.querySelector('.profileFrm');
+
+    if(p_nickname == 'true' && p_phone == 'true' && p_pw == 'true' && p_newPw == 'true' && p_confirmPw == 'true'){
+        return fetch('/member/profile/update',
+            {
+                method : 'post',
+                headers : {
+                    "Content-Type" : "application/json",
+                    "accept" : "application/json;charset=utf-8"
+                },
+                body : JSON.stringify({
+                    m_id : window.id,
+                    m_nickname : p_nicknameValue.value,
+                    m_phone : p_phoneValue.value,
+                    m_pw : p_pwValue.value,
+                    m_newPw : p_newPwValue.value
+                })
+        }).then((res)=>{
+            if(res.status == 200){
+                let get_input = document.querySelector('.profileFrm input[type=text]');
+                console.log(get_input);
+                profileFrm.style.display ='none';
+                myPageFrm.style.display ='block';
+                get_input.value = null;
+
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '변경완료되었습니다',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+            }else{
+                console.log('변경실패!');
+                profileFrm.style.display ='none';
+                myPageFrm.style.display ='block';
+            }
+
+        }).catch((err)=>{
+            console.log(err);
+        })
+
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '양식을 모두 완성해주세요.',
+        })
+        return false;
+    }
+}
+
 
 
 
@@ -444,12 +734,23 @@ function back(){
     let total_form = document.querySelector('.total_form');
     let certify = document.querySelector('.certify');
     let new_pw_form = document.querySelector('.new_total_form');
+    let client_workFrm = document.querySelector('.client_work');
+    let client_reply = document.querySelector('.client_reply');
+    let modal_body = document.querySelector('.modal_body');
 
-    if(total_form !== null || certify !== null || new_pw_form !== null || searchIdForm !== null){
+    //회원종보 수정 모달
+    let profileFrm = document.querySelector('.profileFrm');
+
+    if(total_form !== null || certify !== null || new_pw_form !== null || searchIdForm !== null ||
+        profileFrm !== null || client_workFrm !== null || client_reply !== null){
         total_form && total_form.remove && total_form.remove();
         certify.style.display ='none';
         new_pw_form.style.display ='none';
         searchIdForm.style.display ='none';
+        profileFrm.style.display ='none';
+        client_workFrm.style.display ='none';
+        client_reply.style.display ='none';
+        modal_body.style.overflow = '';
     }
 
     modal.style.display ='none';
@@ -473,6 +774,27 @@ function modal_open(){
         login_modal.style.display ="block";
 
 
+}
+
+//회원 글목록 모달
+
+function client_work(){
+    let myPage_form = document.querySelector('.myPage_form');
+    myPage_form.style.display ='none';
+    let client_work = document.querySelector('.client_work');
+    client_work.style.display ='block';
+    let modal_body = document.querySelector('.modal_body');
+    modal_body.style.overflow ='scroll';
+
+}
+// 회원 댓글 모달
+function client_reply(){
+    let myPage_form = document.querySelector('.myPage_form');
+    myPage_form.style.display ='none';
+    let client_reply = document.querySelector('.client_reply');
+    client_reply.style.display ='block';
+    let modal_body = document.querySelector('.modal_body');
+    modal_body.style.overflow ='scroll';
 }
 
 

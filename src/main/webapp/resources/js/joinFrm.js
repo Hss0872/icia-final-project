@@ -94,7 +94,7 @@ function nickname_check(e) {  	//blur 포커싱 끝났을때 실행되게
     e.preventDefault()
     let nickname = document.querySelector('#nickname');
     if (nickname.value.length < 4) {   //추가사항 * 아이디 중복검사 필요
-        $('#nickname_check').text('아이디는 3글자 이상입니다.');
+        $('#nickname_check').text('닉네임은 3글자 이상입니다.');
         $('#nickname_check').css("color", "#EB0000");
         $('#nickname_check').css("font-weight", "600");
         $('#nickname_check').show();
@@ -182,7 +182,7 @@ function email_check(e) {  	//blur 포커싱 끝났을때 실행되게
 
 //전화번호 컨펌
 function phone_check() {
-    let phoneRegExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;   //전화번호 정규식
+    let phoneRegExp =  /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;  //전화번호 정규식
     let phonenumber = document.querySelector('#phonenumber');
     if (!phoneRegExp.test(phonenumber.value)) {
         $('#phoneNumber_check').text('전화번호  " - " 형식에 맞게쓰세요 ');
