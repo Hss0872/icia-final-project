@@ -16,7 +16,6 @@
     <script src="/resources/js/login.js?ver=1"></script>
     <script src="/resources/js/community.js?ver=1"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1"></script>
 </head>
 <body>
 <header class="header">
@@ -110,9 +109,6 @@
                 <div class="boardNumber"></div>
                 <div class="contentsIp"></div>
                 <div class="contentsTopMenu">
-                    <a href=javascript:location.href=document.referrer>목록</a>
-                    |
-                    <a>댓글</a></div>
             </div>
         </div>
         <div class="boardMain">
@@ -125,11 +121,6 @@
                     <div class="contentsBotMenu">
                         <div class="botMenuLeft">
                             <div class="contentsBottomMenu">
-                                            <span>
-                                                <a href=javascript:location.href=document.referrer>목록</a>
-                                                |
-                                                <a>댓글</a>
-                                            </span>
                             </div>
                         </div>
                         <div class="botMenuCenter">
@@ -140,16 +131,16 @@
                         </div>
                         <div class="botMenuRight">
                             <div class="bttn84Report">
-                                <a>따봉업확인</a>
+                                <a></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="boardBotMenu">
+                <div class="leftMenu">
+                </div>
                 <div class="rightMenu">
-                    <button onclick="location.href=document.referrer">목록이동</button>
-                    <button>글작성</button>
                 </div>
             </div>
             <div class="replyFrm">
@@ -196,12 +187,29 @@
         board_number = '${freeBoardInfo.b_free_num}';
         change_like_button_tag(currentStatus, '${freeBoardInfo.b_free_lcount}');
         $('#boardSubjectH1').text('${freeBoardInfo.b_free_title}');
-        $('#maincontentBody').text('${freeBoardInfo.b_free_content}');
+        $('#maincontentBody').html(`
+            ${freeBoardInfo.b_free_content}
+           `);
+
+        $('<button>').attr('onclick', "location.href=`/community/board/free/`")
+            .text("목록이동").appendTo($('.rightMenu'));
+
+        if ('${freeBoardInfo.b_free_id}' == '${id}') {
+            $('<button>').attr('onclick', "location.href=`/community/board/free/${freeBoardInfo.b_free_num}/update`")
+            .text("글수정").appendTo($('.leftMenu'));
+            $('<button>').attr('onclick', "location.href=`/community/board/free/${freeBoardInfo.b_free_num}/delete`")
+                .text("글삭제").appendTo($('.leftMenu'));
+            $('<button>').attr('onclick', "location.href=`/community/board/write`")
+                .text("글작성").appendTo($('.rightMenu'));
+        }
+
         getReplyList(boardType, '${freeBoardInfo.b_free_num}').then(
             function (result) {
                 add_reply_tag(result, boardType);
             }
-        )
+        );
+
+
     } else {
         $('.contentsWriter').text('${laneBoardInfo.b_lane_nickname}');
         $('.contentsDate').text('${laneBoardInfo.b_lane_date}');
@@ -210,7 +218,22 @@
         board_number = '${laneBoardInfo.b_lane_num}';
         change_like_button_tag(currentStatus, '${laneBoardInfo.b_lane_lcount}');
         $('#boardSubjectH1').text('${laneBoardInfo.b_lane_title}');
-        $('#maincontentBody').text('${laneBoardInfo.b_lane_content}');
+        $('#maincontentBody').html(`
+            ${laneBoardInfo.b_lane_content}
+            `);
+
+        $('<button>').attr('onclick', "location.href=`/community/board/lane/`")
+            .text("목록이동").appendTo($('.rightMenu'));
+
+        if ('${laneBoardInfo.b_lane_id}' == '${id}') {
+            $('<button>').attr('onclick', "location.href=`/community/board/lane/${laneBoardInfo.b_lane_num}/update`")
+                .text("글수정").appendTo($('.leftMenu'));
+            $('<button>').attr('onclick', "location.href=`/community/board/lane/${laneBoardInfo.b_lane_num}/delete`")
+                .text("글삭제").appendTo($('.leftMenu'));
+            $('<button>').attr('onclick', "location.href=`/community/board/write`")
+                .text("글작성").appendTo($('.rightMenu'));
+        }
+
         getReplyList(boardType, '${laneBoardInfo.b_lane_num}').then(
             function (result) {
                 add_reply_tag(result, boardType);
@@ -243,11 +266,13 @@
                 let $reply_delete = $('<td>').attr('class', 'reply_delete');
                 $('<button>').text('삭제').attr('onclick', 'delete_reply(' + row['r_' + boardType + '_num'] + ')').appendTo($reply_delete);
                 $reply_delete.appendTo($reply_innerTr);
+            } else {
+                $('<td>').attr('class', 'reply_delete').appendTo($reply_innerTr);
             }
 
             $reply_innerTr.appendTo($reply_setTr);
             let $2nd_tr = $('<tr>');
-            $('<td>').attr('colspan', '3').text(row['r_' + boardType + '_content']).appendTo($2nd_tr);
+            $('<td>').attr('class', 'reply_td').attr('colspan', '3').text(row['r_' + boardType + '_content']).appendTo($2nd_tr);
             $2nd_tr.appendTo($reply_setTr);
             $reply_setTr.appendTo($add_reply_list);
         }

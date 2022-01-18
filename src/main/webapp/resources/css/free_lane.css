@@ -306,8 +306,8 @@ th {
   color: #01140a;
 }
 td, th {
-  max-width: 304px;
-  max-height: 31px;
+  /*max-width: 304px;*/
+  /*max-height: 31px;*/
   border: 1px solid #030000;
   overflow: hidden;
   border-radius: 5%;

@@ -2,31 +2,39 @@ package com.best.team.community.controller;
 import com.best.team.community.bean.BoardType;
 import com.best.team.community.bean.ReplyParam;
 import com.best.team.community.service.BoardMM;
+import com.best.team.community.service.BoardWriteMM;
 import com.best.team.community.service.LikeMM;
 import com.best.team.community.service.ReplyMM;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/community")
+@Slf4j
 public class CommunityRestController {
 
     private BoardMM boardMM;
     private ReplyMM replyMM;
     private LikeMM likeMM;
+    private BoardWriteMM boardWriteMM;
 
     @Autowired
-    public CommunityRestController(BoardMM boardMM, ReplyMM replyMM, LikeMM likeMM) {
+    public CommunityRestController(BoardMM boardMM, ReplyMM replyMM, LikeMM likeMM, BoardWriteMM boardWriteMM) {
         this.boardMM = boardMM;
         this.replyMM = replyMM;
         this.likeMM = likeMM;
+        this.boardWriteMM = boardWriteMM;
     }
 
     @PostMapping(value = "/board/preview", produces = "application/json;utf-8")
@@ -75,5 +83,12 @@ public class CommunityRestController {
         return result ? ResponseEntity.ok(
                 new ObjectMapper().writeValueAsString(model.getAttribute("likeCount").toString())) :
                 ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/ckUpload", method = RequestMethod.POST)
+    public void uploadImg(HttpServletRequest req, HttpServletResponse res, @RequestParam MultipartFile upload) {
+        log.info("uploadImg");
+        boardWriteMM.uploadImg(req, res, upload);
     }
 }

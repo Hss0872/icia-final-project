@@ -65,6 +65,11 @@
     position: relative;
     font-family: "Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
 }
+
+.contentBody ul li{
+    list-style: disc;
+}
+
 .bbsViewRecom{
     margin: 0px auto 20px !important;
     width: calc(100% - 59px);
@@ -156,6 +161,25 @@
 
 .boardBotMenu{
     height: 70px;
+}
+
+.leftMenu{
+    float: left;
+    width: 200px;
+}
+
+.leftMenu button{
+    display: inline-block;
+    padding: 0 10px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #686868;
+    line-height: 30px;
+    text-align: center;
+    transition: 0.2s;
 }
 
 .rightMenu{

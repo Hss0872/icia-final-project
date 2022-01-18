@@ -217,5 +217,11 @@
         a_next.innerHTML = '&gt;';
         boardPageNo.append(a_next);
     }
+
+    let id = "${sessionScope.id}";
+    if (id != "") {
+        $('<button>').text('글작성').attr('type', 'button').attr('onclick', "location.href=`/community/board/write`").appendTo($('.searchFrm'));
+    }
+
 </script>
 </html>

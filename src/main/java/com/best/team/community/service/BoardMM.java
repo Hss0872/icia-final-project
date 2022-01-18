@@ -5,7 +5,6 @@ import com.best.team.community.dao.BoardDao;
 import com.best.team.community.dao.LikeDao;
 import com.best.team.community.dao.ReplyDao;
 import com.best.team.community.userClass.Paging;
-import com.best.team.member.bean.Member;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -101,11 +100,11 @@ public class BoardMM {
         log.info("getBoardInfo call");
         Optional<?> op_boardInfo;
         HttpSession session = request.getSession();
+
         if (type.equals("free")) {
             if (boardDao.checkExistFreeBoard(bNum)) {
                 ViewCountUp(type, bNum, request, response);
-                FreeBoard freeBoardInfo = boardDao.getFreeBoardInfo(bNum);
-                op_boardInfo = Optional.ofNullable(freeBoardInfo);
+                op_boardInfo = Optional.ofNullable(boardDao.getFreeBoardInfo(bNum));
             } else {
                 log.info("해당 번호의 게시글이 존재하지 않습니다.");
                 return false;
@@ -113,8 +112,7 @@ public class BoardMM {
         } else {
             if (boardDao.checkExistLaneBoard(bNum)) {
                 ViewCountUp(type, bNum, request, response);
-                LaneBoard laneBoardInfo = boardDao.getLaneBoardInfo(bNum);
-                op_boardInfo = Optional.ofNullable(laneBoardInfo);
+                op_boardInfo = Optional.ofNullable(boardDao.getLaneBoardInfo(bNum));
             } else {
                 log.info("해당 번호의 게시글이 존재하지 않습니다.");
                 return false;
@@ -128,7 +126,6 @@ public class BoardMM {
         log.info("op_id = {}", op_id.orElse("sessionId does not exist"));
 
         if (op_boardInfo.isPresent()) {
-
             if (type.equals("free")) {
                 if (op_id.isPresent()) {    //회원 로그인 여부 확인 후 좋아요 클릭 여부 확인
                     boolean currentStatus = likeDao.checkFreeBoardLike(bNum, op_id.get().toString());
@@ -168,8 +165,8 @@ public class BoardMM {
             Cookie newCookie = new Cookie("cookie" + type + bNum, "|" + bNum + "|");
             response.addCookie(newCookie);
 
-            boolean result = type.equals("free") ? boardDao.FreeBoardViewCountUp(bNum) :
-                    boardDao.LaneBoardViewCountUp(bNum);
+            boolean result = type.equals("free") ? boardDao.freeBoardViewCountUp(bNum) :
+                    boardDao.laneBoardViewCountUp(bNum);
 
             if (result) {
                 System.out.println("조회수 증가");

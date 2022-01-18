@@ -46,5 +46,7 @@
     <tx:annotation-driven transaction-manager="txManager"/>
     
     <resources mapping="resources/**" location="resources/"/>
+    
+    <resources mapping="ckUpload/**" location="resources/ckUpload/"/>
 
 </beans:beans>

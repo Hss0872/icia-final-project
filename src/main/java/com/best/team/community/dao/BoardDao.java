@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface BoardDao {
@@ -53,11 +54,23 @@ public interface BoardDao {
 
     int selectCountLaneBLike(@Param("bNum") int bNum);
 
-    boolean FreeBoardViewCountUp(@Param("bNum") int bNum);
+    boolean freeBoardViewCountUp(@Param("bNum") int bNum);
 
-    boolean LaneBoardViewCountUp(@Param("bNum") int bNum);
+    boolean laneBoardViewCountUp(@Param("bNum") int bNum);
 
     boolean checkExistFreeBoard(@Param("bNum") int bNum);
 
     boolean checkExistLaneBoard(@Param("bNum") int bNum);
+
+    boolean freeBoardWriteSelKey(BoardWriteParam boardWriteParam);
+
+    boolean laneBoardWriteSelKey(BoardWriteParam boardWriteParam);
+
+    boolean freeBoardUpdate(BoardWriteParam boardWriteParam);
+
+    boolean laneBoardUpdate(BoardWriteParam boardWriteParam);
+
+    boolean deleteFreeBoard(@Param("bNum") int bNum,@Param("m_id") String m_id);
+
+    boolean deleteLaneBoard(@Param("bNum") int bNum,@Param("m_id") String m_id);
 }

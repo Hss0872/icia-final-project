@@ -148,7 +148,7 @@
         <input type="text" name="keyword" class="searchText">
         <input type="submit" class="searchB" value="검색">
     </form>
-
+    <button onclick="location.href='/community/board/write'">글작성</button>
 </div>
 </body>
 <script>
@@ -222,5 +222,11 @@
         a_next.innerHTML = '&gt;';
         boardPageNo.append(a_next);
     }
+
+    let id = "${sessionScope.id}";
+    if (id != "") {
+        $('<button>').text('글작성').attr('type', 'button').attr('onclick', "location.href=`/community/board/write`").appendTo($('.searchFrm'));
+    }
+
 </script>
 </html>
