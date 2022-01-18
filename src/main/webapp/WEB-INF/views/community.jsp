@@ -4,15 +4,16 @@
     <title>Title</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
-    <link rel="stylesheet" href="/resources/css/community.css?ver=2">
-    <link rel="stylesheet" href="/resources/css/board.css?ver=1">
+    <link rel="stylesheet" href="/resources/css/community.css?ver=6">
+    <link rel="stylesheet" href="/resources/css/mypage.css?ver=6">
+    <link rel="stylesheet" href="/resources/css/board.css?ver=6">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-    <script src="/resources/js/login.js?ver=2"></script>
-    <script src="/resources/js/community.js?ver=2"></script>
+    <script src="/resources/js/login.js?ver=6"></script>
+    <script src="/resources/js/community.js?ver=6"></script>
     <script src = "https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
@@ -33,8 +34,8 @@
         </div>
 
         <div class="modal" >
-            <div class="modal_body">Modal
-                <button class="fas fa-times" onclick="back()"></button>
+            <div class="modal_body">
+                <button onclick="back()"> <i class="fas fa-angle-double-left fa-2x"></i></button>
                 <!-- 로그인 form태그 -->
                 <form class= "login_modal" onsubmit="return loginFrm()" action="/member/access" method="post">
                     <div class="login_id">
@@ -61,9 +62,9 @@
                         <input type="submit" value="submit"/>
                     </div>
                 </form>
-                <form method="post" class="searchId" style="display: none">
-                    <input id="id_search" onblur="inspectEmail()" name="m_email" data-value="false" placeholder="이메일 입력" required>
-                    <button type="button" id="id_search_btn" onclick="idSearch()">아이디 찾기</button>
+                <form method="post" class="searchId" style="display: none"> 아이디찾기
+                    <div> <input id="id_search" onblur="inspectEmail()" name="m_email" data-value="false" placeholder="이메일 입력" required> </div>
+                    <button type="button" id="id_search_btn" onclick="idSearch()">전송</button>
                 </form>
 
                 <form method="get" class="certify" style="display: none">
@@ -78,16 +79,48 @@
                     <button type="button" id="new_pw_submit" onclick="changePw()">비밀번호 변경</button>
                     <div id="new_pw2_comment" style="display: none">동일한 비밀번호를 입력해주세요.</div>
                 </form>
-                    <div class="myPage_form" style="display: none">
-                        <div class="client_photo">
-                            <img src="/resources/images/pngwing.com%20(5).png">
-                        </div>
-                        <div class="client_info">사용자 가입정보 수정</div>
-                        <div>
-                            <button>내가 작성한 글 목록</button>
-                            <button>내가 작성한 댓글 목록</button>
-                        </div>
+                <div class="myPage_form" style="display: none">  <!--마이페이지 -->
+                    <video muted autoplay loop>
+                        <source src="/resources/images/videos/animated-starguardian.mp4" type="video/mp4">
+                    </video>
+                    <div  class="client_info" onclick="client_info()"><button>사용자 가입정보 수정</button></div>
+                    <div class="client_info_update" onclick="client_work()">
+                        <button>내가 작성한 글 목록</button>
                     </div>
+                    <div class="client_info_update" onclick="client_reply()">
+                        <button>내가 작성한 댓글 목록</button></div>
+                </div>
+
+                <form class="profileFrm" style="display: none;" method="post"> 회원정보 수정
+                    <div style="display: none"> <input id="p_id" name="m_id" style="display: none"/></div>
+                    <div class="profileDiv"> <input id="p_nickname" type="text" placeholder="닉네임 변경" name="m_nickname" onblur="profile_nickname()"  data-value="false"/></div>
+                    <div class="profileDiv"> <input id="p_phone" type="text" placeholder="전화번호 변경" name="m_phone" onblur="profile_phone()" data-value="false"></div>
+                    <div class="profileDiv"> <input id="p_pw" type="password" placeholder="기존 비밀번호" name="m_pw" onblur="profile_pw()" data-value="false"></div>
+                    <div class="profileDiv"> <input id="p_newPw" type="password" placeholder="변경할 비밀번호" name="m_newpw" onblur="profile_newPw()" data-value="false"></div>
+                    <div class="profileDiv"> <input id="p_confirmPw" type="password" placeholder="변경할 비밀번호확인" name="m_newpw2" onblur="profile_confirmPw()" data-value="false"></div>
+                    <button type="button" onclick="profile_inspect()">변경</button>
+                </form>
+
+                <div class="client_work" style="display: none;"> 내가 작성한 글목록
+                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글1dsfdfdfdf</a></div>
+                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글2</a></div>
+                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글3</a></div>
+                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글4</a></div>
+                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글5</a></div>
+                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글6</a></div>
+                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글7</a></div>
+                </div>
+
+                <div class="client_reply" style="display: none;"> 내가 작성한 댓글목록
+                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글1dsfdfdfdf</a></div>
+                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글2</a></div>
+                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글3</a></div>
+                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글4</a></div>
+                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글5</a></div>
+                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글6</a></div>
+                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글7</a></div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -404,13 +437,13 @@
         let logoutStyle = document.querySelector('.logout_btn');
         let myPageBtn = document.querySelector('.myPage_btn');
         //let id = "<%=session.getAttribute("id")%>"  //문자열로해서 담아주려고
-        let id = "${sessionScope.id}";
+        window.id = "${sessionScope.id}";
         console.log(id);
-        if(id != ""){ //세션객체 null이 아닐때
+        if(window.id != ""){ //세션객체 null이 아닐때
             joinBtnStyle.style.display = 'none';
             logoutStyle.style.display = 'block';
             myPageBtn.style.display ='block';
-        }else if(id == ""){
+        }else if(window.id == ""){
             joinBtnStyle.style.display = 'block';
             logoutStyle.style.display = 'none';
             myPageBtn.style.display ='none';
