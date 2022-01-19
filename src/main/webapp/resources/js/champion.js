@@ -129,31 +129,20 @@ window.onload = function() {   //dom element가 그려지기전에 실행하게�
 
 			for(id of data){
 				let a = $('<a>');
-				let div = $('<div>');
+				let div = $('<div>').attr('class','cl');
+				let name = $('<div>').attr('class','champName');
 
 				$('<img>').attr('src', '/resources/images/LOL_CHAMPION_ICON/lol_champion_' + id + '.png').attr('alt', id).appendTo(a);
-				a.attr('href', `http://localhost:8090/champion/${id}`).appendTo(div);
-				div.attr('class','cl').appendTo(champ_div);
-		}
+				a.attr('href', "http://localhost:8090/champion/"+id).appendTo(div);
+				name.html("<p>"+id+"</p>").appendTo(div);
+				//console.log(name);
+				div.appendTo(champ_div);
+			}
+		},
 		error: function test (err) {
 			console.log(err)
 		}
-	}
-	/*let champ_div = $('#champ_img');
-	for(id of champion_list){
-		let a = $('<a>');
-		let div = $('<div>');
-
-	$('<img>').attr('src', '/resources/images/LOL_CHAMPION_ICON/lol_champion_' + id + '.png').attr('alt', id).appendTo(a);
-	a.attr('href', `http://localhost:8090/champion/${id}`).appendTo(div);
-	div.attr('class','cl').appendTo(champ_div);
-*/
-	//jsp 페이지 다이렉트로 호출
-	//--> spring servlet 들렸다가 옴
-	//	|-> 
-	//프론트에서 다 해결함
-	
-});
+	});
 }
 
 

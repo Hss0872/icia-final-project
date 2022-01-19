@@ -13,8 +13,8 @@ public class SkillWinRate {
 
     private String championName;    //챔피언 이름
     private String skill_Bulid;     //스킬 빌드
-    private int cnt;             //채용횟수
-    private int win_cnt;         //승리횟수
+    private int cnt;                //채용횟수
+    private int win_cnt;            //승리횟수
     private float win_rate;         //승률
 
 }
