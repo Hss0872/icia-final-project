@@ -307,6 +307,7 @@ function certifyCation(){  //인증번호 검사
         if(window.emailCode == certifyInput.value){
             certifyForm.style.display ='none';
             new_total_form.style.display ='block';
+            new_total_form.style.display ='block';
 
         }else{
             Swal.fire({
