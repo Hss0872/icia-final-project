@@ -23,7 +23,7 @@
         <span>전적검색</span>
     </div>
     <div class="box">
-        <a href="/community"><img src="/resources/images/Jarvan-League-of-Legends-purple-LoL_jarban.jpg"></a>
+        <a href="/community/board/free"><img src="/resources/images/Jarvan-League-of-Legends-purple-LoL_jarban.jpg"></a>
         <span>커뮤니티</span>
     </div>
     <div class="box">

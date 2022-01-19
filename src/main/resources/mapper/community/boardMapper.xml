@@ -73,4 +73,100 @@
         SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_TYPE = #{lane} AND UPPER(${boardSearch.searchType}) LIKE UPPER('%${boardSearch.keyword}%')
     </select>
 
+    <select id="getFreeBoardInfo" resultType="FreeBoard">
+        SELECT * FROM COMMUNITY_FREEB WHERE B_FREE_NUM = #{bNum}
+    </select>
+
+    <select id="getLaneBoardInfo" resultType="LaneBoard">
+        SELECT * FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum}
+    </select>
+
+    <update id="addCountFreeBReply">
+        UPDATE COMMUNITY_FREEB SET B_FREE_RYCOUNT = B_FREE_RYCOUNT + 1 WHERE B_FREE_NUM = #{bNum}
+    </update>
+
+    <update id="addCountLaneBReply">
+        UPDATE COMMUNITY_LANEB SET B_LANE_RYCOUNT = B_LANE_RYCOUNT + 1 WHERE B_LANE_NUM = #{bNum}
+    </update>
+
+    <update id="deleteCountFreeBReply">
+        UPDATE COMMUNITY_FREEB SET B_FREE_RYCOUNT = B_FREE_RYCOUNT - 1 WHERE B_FREE_NUM = #{bNum}
+    </update>
+
+    <update id="deleteCountLaneBReply">
+        UPDATE COMMUNITY_LANEB SET B_LANE_RYCOUNT = B_LANE_RYCOUNT - 1 WHERE B_LANE_NUM = #{bNum}
+    </update>
+
+    <update id="incrCountFreeBLike">
+        UPDATE COMMUNITY_FREEB SET B_FREE_LCOUNT = B_FREE_LCOUNT + 1 WHERE B_FREE_NUM = #{bNum}
+    </update>
+
+    <update id="incrCountLaneBLike">
+        UPDATE COMMUNITY_LANEB SET B_LANE_LCOUNT = B_LANE_LCOUNT + 1 WHERE B_LANE_NUM = #{bNum}
+    </update>
+
+    <update id="decrCountFreeBLike">
+        UPDATE COMMUNITY_FREEB SET B_FREE_LCOUNT = B_FREE_LCOUNT - 1 WHERE B_FREE_NUM = #{bNum}
+    </update>
+
+    <update id="decrCountLaneBLike">
+        UPDATE COMMUNITY_LANEB SET B_LANE_LCOUNT = B_LANE_LCOUNT - 1 WHERE B_LANE_NUM = #{bNum}
+    </update>
+
+    <select id="selectCountFreeBLike" resultType="int">
+        SELECT B_FREE_LCOUNT FROM COMMUNITY_FREEB WHERE B_FREE_NUM = #{bNum}
+    </select>
+
+    <select id="selectCountLaneBLike" resultType="int">
+        SELECT B_LANE_LCOUNT FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum}
+    </select>
+
+    <select id="checkExistFreeBoard" resultType="boolean">
+        SELECT COUNT(*) FROM COMMUNITY_FREEB WHERE B_FREE_NUM = #{bNum}
+    </select>
+
+    <select id="checkExistLaneBoard" resultType="boolean">
+        SELECT COUNT(*) FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum}
+    </select>
+
+    <update id="freeBoardViewCountUp">
+        UPDATE COMMUNITY_FREEB SET B_FREE_VIEW = B_FREE_VIEW + 1 WHERE B_FREE_NUM = #{bNum}
+    </update>
+
+    <update id="laneBoardViewCountUp">
+        UPDATE COMMUNITY_LANEB SET B_LANE_VIEW = B_LANE_VIEW + 1 WHERE B_LANE_NUM = #{bNum}
+    </update>
+
+    <insert id="freeBoardWriteSelKey" parameterType="boardWriteParam" useGeneratedKeys="true" keyProperty="b_write_num">
+        <selectKey keyProperty="b_write_num" resultType="int" order="BEFORE">
+            SELECT COMMUNITY_FREEB_SEQ.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO COMMUNITY_FREEB VALUES(#{b_write_num}, #{b_write_id},#{b_write_nickname},
+                                      #{b_write_title}, #{b_write_content},default,default,default,default,default)
+    </insert>
+
+    <insert id="laneBoardWriteSelKey" parameterType="boardWriteParam" useGeneratedKeys="true" keyProperty="b_write_num">
+        <selectKey keyProperty="b_write_num" resultType="int" order="BEFORE">
+            SELECT COMMUNITY_LANEB_SEQ.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO COMMUNITY_LANEB VALUES(#{b_write_num}, #{b_write_id},#{b_write_nickname}, #{b_write_type},
+        #{b_write_title}, #{b_write_content},default,default,default,default,default)
+    </insert>
+
+    <update id="freeBoardUpdate" parameterType="BoardWriteParam">
+        UPDATE COMMUNITY_FREEB SET B_FREE_TITLE = #{b_write_title}, B_FREE_CONTENT = #{b_write_content} WHERE B_FREE_NUM = #{b_write_num}
+    </update>
+
+    <update id="laneBoardUpdate" parameterType="BoardWriteParam">
+        UPDATE COMMUNITY_LANEB SET B_LANE_TYPE = #{b_write_type}, B_LANE_TITLE = #{b_write_title}, B_LANE_CONTENT = #{b_write_content} WHERE B_LANE_NUM = #{b_write_num}
+    </update>
+
+    <delete id="deleteFreeBoard">
+        DELETE FROM COMMUNITY_FREEB WHERE B_FREE_NUM = #{bNum} AND B_FREE_ID = #{m_id}
+    </delete>
+
+    <delete id="deleteLaneBoard">
+        DELETE FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum} AND B_LANE_ID = #{m_id}
+    </delete>
+
 </mapper>

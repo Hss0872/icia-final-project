@@ -79,138 +79,6 @@
             <a class="Logo" href="pMain.html" width="100%">
                 <img src="/resources/images/Full.png" alt="First in Last out Logo">
             </a>
-            <div class="coment">댓글 많이 쓴 회원 Top10
-                <div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">100</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">90</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">80</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">70</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">60</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">50</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">40</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">30</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">20</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="look">조회수 많은 글 Top10
-                <div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">100</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">90</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">80</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">70</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">60</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">50</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">40</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">30</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">20</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">10</div>
-                    </div>
-                </div>
-            </div>
-            <div class="like">좋아요 많은 글 Top10
-                <div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">100</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">90</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">80</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">70</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">60</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">50</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">40</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">30</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">20</div>
-                    </div>
-                    <div>
-                        <div class="BLeft">사과</div>
-                        <div class="BRight">10</div>
-                    </div>
-                </div>
-            </div>
 
         </div>
         <div class="Main">
@@ -244,11 +112,18 @@
                         <div>
                             <div class="post">
                                 <div class="bNo">${board.b_lane_num}</div>
-                                <div class="bTitle">${board.b_lane_title}</div>
+                                <div class="bTitle">
+                                        <a href="/community/board/lane/${board.b_lane_num}">
+                                                ${board.b_lane_title}
+                                        </a>
+                                    <c:if test="${board.b_lane_rycount != 0}">
+                                        [${board.b_lane_rycount}]
+                                    </c:if>
+                                </div>
                                 <div class="bWr">${board.b_lane_nickname}</div>
                                 <div class="bDate">${board.b_lane_date}</div>
                                 <div class="bLook">${board.b_lane_view}</div>
-                                <div class="bLike">${board.b_lane_like}</div>
+                                <div class="bLike">${board.b_lane_lcount}</div>
                             </div>
                         </div>
                     </c:forEach>

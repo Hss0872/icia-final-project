@@ -29,6 +29,7 @@
                 <div class="dropdown-content">
                     <button id="loginBtn" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal">Join</button>
                 </div>
+            </div>
         </a>
     </div>
 
@@ -222,5 +223,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

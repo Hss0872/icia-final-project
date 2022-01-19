@@ -1,0 +1,346 @@
+/*body{*/
+/*  overflow: auto;*/
+/*}*/
+
+
+/**{*/
+/*  margin: 0px;*/
+/*  padding: 0px;*/
+/*  list-style: none;*/
+/*  text-decoration: none;*/
+/*  color: black;*/
+/*}*/
+
+/*.header_logo img{*/
+/*  float: left;*/
+/*  width: 160px;*/
+/*  height: 145px;*/
+/*}*/
+
+/*.header{*/
+/*  height: 146px;*/
+/*  text-align: center;*/
+/*  box-sizing: border-box;*/
+/*  border-bottom: 1px solid #999;*/
+/*}*/
+
+/*.header_logo h1{*/
+/*  margin-right: 150px;*/
+/*  display: inline-block;*/
+/*  font: bold 40px 'arial';*/
+/*  padding-top: 14px;*/
+/*  letter-spacing: 2px;*/
+/*}*/
+
+/*.header_logo a{*/
+/*  text-decoration-line: none;*/
+/*  color: #f8b80e;*/
+/*}*/
+
+/*.header_logo p{*/
+/*  margin-right: 150px;*/
+/*  font: bold 12px 'arial';*/
+/*  letter-spacing: 2px;*/
+/*  margin-top: -1px;*/
+/*}*/
+
+/*.header_gnb ul{*/
+/*  margin-right: 150px;*/
+/*  margin-top: 39px;*/
+/*}*/
+
+/*.header_gnb ul li{*/
+/*  display: inline-block;*/
+/*}*/
+
+/*.header_gnb ul li a{*/
+/*  display: block;*/
+/*  font: bold 14px 'arial';*/
+/*  color: #999;*/
+/*  margin: 0px 16px;*/
+/*  letter-spacing: 1px;*/
+/*}*/
+
+
+
+/*!* login버튼시작 *!*/
+/*.dropdown{*/
+/*  float: right;*/
+/*  margin-right: 10px;*/
+/*}*/
+
+/*.dropbtn{*/
+/*  margin-bottom: 40px;*/
+/*  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+/*  font-weight: bold;*/
+/*  font-style: italic;*/
+/*  font-size: larger;*/
+/*}*/
+
+
+/*.dropdown-content{*/
+/*  display : none;*/
+/*  padding-top: 21px;*/
+/*}*/
+
+
+/*.dropdown:hover .dropdown-content {*/
+/*  display: block;*/
+/*}*/
+
+
+
+
+
+
+/*!* modal login *!*/
+
+
+/*.login_id {*/
+/*  margin-top: 20px;*/
+/*  width: 80%;*/
+/*}*/
+/*h4{*/
+/*  text-align: left;*/
+/*  margin-left: 40px;*/
+/*}*/
+
+/*.login_id input {*/
+/*  margin-left: 40px ;*/
+/*  width: 90%;*/
+/*  height: 50px;*/
+/*  border-radius: 30px;*/
+/*  margin-top: 10px;*/
+/*  padding: 0px 20px;*/
+/*  border: 1px solid lightgray;*/
+/*  outline: none;*/
+/*}*/
+
+/*.login_pw {*/
+/*  margin-top: 20px;*/
+/*  width: 80%;*/
+/*}*/
+
+/*.login_pw input {*/
+/*  margin-left: 40px ;*/
+/*  width: 90%;*/
+/*  height: 50px;*/
+/*  border-radius: 30px;*/
+/*  margin-top: 10px;*/
+/*  padding: 0px 20px;*/
+/*  border: 1px solid lightgray;*/
+/*  outline: none;*/
+/*}*/
+/*.forgot_pw button{*/
+/*  background-color:transparent;*/
+/*  border: 0;*/
+/*  outline: 0;*/
+/*  font-weight: 700;*/
+/*  color: #0b3cd2;*/
+/*  margin: 10px 0 0 0;*/
+/*}*/
+
+/*.forgot_pw a {*/
+/*  margin-top: 30px;*/
+/*  margin-left:50px ;*/
+
+/*}*/
+
+/*.signUp a{*/
+/*  float:right;*/
+/*  padding: 2px ;*/
+/*  text-decoration-line: none;*/
+/*  color: #0b3cd2;*/
+
+/*}*/
+
+
+/*.login_etc {*/
+/*  margin-top : 20px;*/
+/*  padding: 10px;*/
+/*  width: 80%;*/
+/*  font-size: 14px;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*#loginSubmitBtn {*/
+/*  align-items: center;*/
+/*  text-align: center;*/
+/*  margin-top: 30px;*/
+/*  margin-bottom: 30px;*/
+/*  width: 80%;*/
+/*}*/
+/*.submit input {*/
+/*  margin-left: 68px;*/
+/*  width: 50%;*/
+/*  height: 50px;*/
+/*  border: 0;*/
+/*  outline: none;*/
+/*  border-radius: 40px;*/
+/*  background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));*/
+/*  color: white;*/
+/*  font-size: 1.2em;*/
+/*  letter-spacing: 2px;*/
+/*}*/
+
+/*!*id 찾기 pw 찾기 모달*!*/
+
+/*.total_form{*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  border: #382ed5;*/
+/*  border: solid 2px;*/
+/*  border-radius: 10px;*/
+/*}*/
+
+/* 테스트ㄴ */
+
+.bg {
+  width: 100%;
+  height: 80%;
+}
+/*video {*/
+/*  opacity: 65%;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  overflow: hidden;*/
+/*  position: absolute;*/
+/*  z-index: -1;*/
+/*}*/
+
+#boardTitle{
+  background-color:rgba( 255, 255, 255, 0.1 );
+  width: 81.2%;
+  height: 48px;
+  text-align: center;
+  margin: auto;
+}
+
+#boardTitle a{
+  font-weight: 800;
+  color: #012212;
+}
+
+#boardTitle a :hover{
+  text-decoration: none;
+  color: #f8b80e;
+}
+
+
+/* 링크 색상 (중요하지 않음) */
+a {
+  text-decoration: none;
+  color: #333;
+}
+a:hover {color: #b8bb01c7;}
+
+/* 테이블 색상 (중요하지 않음) */
+table {
+  width: 81.2%;
+  margin: 0 auto 10px;
+}
+#mainTr{
+  background-color:rgba(255, 255, 255, 0.1);
+}
+
+#mainTr th{
+  font-weight: 900;
+}
+
+th {
+  color: #01140a;
+}
+td, th {
+  /*max-width: 304px;*/
+  /*max-height: 31px;*/
+  border: 1px solid #030000;
+  overflow: hidden;
+  border-radius: 5%;
+  border-style: groove;
+  padding: 5px 15px;
+  font-size:13px;
+  font-weight: 700;
+}
+tr:nth-of-type(odd) { 
+	background-color:rgba(255, 255, 255, 0.2)
+  
+}
+
+/* 체크박스의 크기 */
+.check {
+  width:15px;
+  height:15px;
+}
+
+/* 컬럼의 너비 */
+.free_no {width: 12%;}
+.free_writer {width: 17%;}
+.free_date {width: 14%;}
+.free_views {width: 10%;}
+.free_likes {width: 10%;}
+
+/* 컬럼의 정렬 */
+tr td:nth-child(1){text-align:center;}
+tr td:nth-child(2){text-align:center;}
+tr td:nth-child(3){text-align:left;}
+tr td:nth-child(4){text-align:center;}
+tr td:nth-child(5){text-align:center;}
+tr td:nth-child(6){text-align:center;}
+tr td:nth-child(7){text-align:center;}
+
+/* 페이징 버튼 */
+.page-box {
+  width: 80%;
+  margin: 15px auto;
+  height: 30px;
+  text-align: center;
+}
+.page-box a.btn {
+  display:inline-block;
+  padding: 3px 5px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid #050113;
+  color: rgb(1, 6, 24);
+  background-color: #dbdbdb;
+}
+.page-box a.btn.on {
+  background-color: #dbdbdb;
+}
+.searchFrm{
+  margin: 10px auto;
+  text-align: center;
+}
+
+
+
+.search{
+  text-align: center;
+}
+
+.searchText{
+  width: 300px;
+}
+
+/* 레인별 드롭다운  */
+.dropdown2{
+  margin-left: 150px;
+  display: inline;
+  text-align: center;
+  width: 180px;
+}
+
+
+.dropdown2-content{
+  text-align: center;
+  align-items: center;
+  display: none;
+
+}
+
+.dropdown2:hover .dropdown2-content{
+  display: block;
+}

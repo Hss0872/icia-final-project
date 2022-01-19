@@ -3,10 +3,6 @@ body{
     overflow: auto;
 }
 
-.modal{
-    display: block;
-}
-
 .modal {
     position: absolute;
     top: 0;
@@ -74,6 +70,7 @@ body{
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
+    margin-top: 2px;
 }
 
 .myPage_btn:hover,
@@ -221,20 +218,23 @@ h4{
     border: 1px solid lightgray;
     outline: none;
 }
+.forgot_pw{
+    width: 250px;
+    height: 90px;
+    margin-top: 20px;
+}
+
 .forgot_pw button{
+    display: block;
+    width: 125px;
     background-color:transparent;
     border: 0;
     outline: 0;
     font-weight: 700;
     color: #0b3cd2;
-    margin: 10px 0 0 0;
+    margin : 10px 10px 10px 30px ;
 }
 
-.forgot_pw a {
-    margin-top: 30px;
-    margin-left:50px ;
-
-}
 
 .signUp a{
     float:right;
@@ -259,12 +259,12 @@ h4{
 #loginSubmitBtn {
     align-items: center;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 8px;
     margin-bottom: 30px;
     width: 80%;
 }
 .submit input {
-    margin-left: 68px;
+    margin-left: 70px;
     width: 50%;
     height: 50px;
     border: 0;
@@ -277,87 +277,87 @@ h4{
 }
 
 
-/* section영역 시작 */
+/*!* section영역 시작 *!*/
 
-.main{
-    text-align: center;
-    float:left ;
-    margin-top: 10px;
-    margin-left: 5px;
-    width: 300px;
-    height: 700px;
-    border: 3px;
-    border-style: groove;
-    border-color: rgb(54, 54, 138);
-    overflow: hidden;
-}
+/*.main{*/
+/*    text-align: center;*/
+/*    float:left ;*/
+/*    margin-top: 10px;*/
+/*    margin-left: 5px;*/
+/*    width: 300px;*/
+/*    height: 700px;*/
+/*    border: 3px;*/
+/*    border-style: groove;*/
+/*    border-color: rgb(54, 54, 138);*/
+/*    overflow: hidden;*/
+/*}*/
 
-.main_chat{
-    margin: 10px 0px;
-    display: inline-block;
-    width: 270px;
-    height: 210px;
-    border: 2px;
-    border-style: groove;
-    border-color: rgb(54, 54, 138);
-}
+/*.main_chat{*/
+/*    margin: 10px 0px;*/
+/*    display: inline-block;*/
+/*    width: 270px;*/
+/*    height: 210px;*/
+/*    border: 2px;*/
+/*    border-style: groove;*/
+/*    border-color: rgb(54, 54, 138);*/
+/*}*/
 
-.main_views{
-    margin: 10px 0px;
-    display: inline-block;
-    width: 270px;
-    height: 210px;
-    border: 2px;
-    border-style: groove;
-    border-color: rgb(54, 54, 138);
-}
+/*.main_views{*/
+/*    margin: 10px 0px;*/
+/*    display: inline-block;*/
+/*    width: 270px;*/
+/*    height: 210px;*/
+/*    border: 2px;*/
+/*    border-style: groove;*/
+/*    border-color: rgb(54, 54, 138);*/
+/*}*/
 
-.main_likes{
-    margin: 10px 0px;
-    display: inline-block;
-    width: 270px;
-    height: 210px;
-    border: 2px;
-    border-style: groove;
-    border-color: rgb(54, 54, 138);
+/*.main_likes{*/
+/*    margin: 10px 0px;*/
+/*    display: inline-block;*/
+/*    width: 270px;*/
+/*    height: 210px;*/
+/*    border: 2px;*/
+/*    border-style: groove;*/
+/*    border-color: rgb(54, 54, 138);*/
 
-}
+/*}*/
 
 
-/* boardmain */
+/*!* boardmain *!*/
 
-.board{
-    display: inline-block;
-    margin-top: 10px;
-    margin-left: 5px;
-    text-align: center;
-    width: 900px;
-    height: 700px;
-    border: 3px;
-    border-style: groove;
-    border-color: rgb(54, 54, 138);
-    overflow: hidden;
-}
+/*.board{*/
+/*    display: inline-block;*/
+/*    margin-top: 10px;*/
+/*    margin-left: 5px;*/
+/*    text-align: center;*/
+/*    width: 900px;*/
+/*    height: 700px;*/
+/*    border: 3px;*/
+/*    border-style: groove;*/
+/*    border-color: rgb(54, 54, 138);*/
+/*    overflow: hidden;*/
+/*}*/
 
-.board span{
-    display: inline-block;
-    margin-top: 5px;
-    margin-left: 150px ;
-    margin-right: 150px ;
-    font-style: oblique;
-    font-weight: bold;
-}
+/*.board span{*/
+/*    display: inline-block;*/
+/*    margin-top: 5px;*/
+/*    margin-left: 150px ;*/
+/*    margin-right: 150px ;*/
+/*    font-style: oblique;*/
+/*    font-weight: bold;*/
+/*}*/
 
-.mainboard{
-    margin: 40px 0px;
-    display: block;
-    border: 2px;
-    border-style: groove;
-    border-color: rgb(54, 54, 138);
-    overflow: hidden;
-    width: 920px;
-    height: 650px;
-}
+/*.mainboard{*/
+/*    margin: 40px 0px;*/
+/*    display: block;*/
+/*    border: 2px;*/
+/*    border-style: groove;*/
+/*    border-color: rgb(54, 54, 138);*/
+/*    overflow: hidden;*/
+/*    width: 920px;*/
+/*    height: 650px;*/
+/*}*/
 
 
 

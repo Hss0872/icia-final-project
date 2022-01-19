@@ -20,7 +20,8 @@ public class FreeBoard {
     private String b_free_content;
     private Timestamp b_free_date; //년월일 시분초 다 나오는 클래스이다.
     private int b_free_view;
-    private int b_free_like;
+    private int b_free_lcount;
     private int b_free_rcount;
+    private int b_free_rycount;
 
 }

@@ -124,7 +124,6 @@
             </div>
         </div>
     </div>
-
 </header>
 
 <div class="back">
@@ -424,11 +423,6 @@
 
 
 
-
-
-
-
-
     //세션객체를 통한 새로고침 문제 해결
 
     window.onload = function(){
@@ -466,13 +460,6 @@
                 }
             }
         )
-
     }
-
-
-
-
-
-
 </script>
 </html>
