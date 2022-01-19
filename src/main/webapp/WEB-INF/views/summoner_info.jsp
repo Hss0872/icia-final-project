@@ -49,7 +49,7 @@
                             <a class="nav-link" href="http://localhost:8090/summoner">전적 검색</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8090/community">커뮤티니</a>
+                            <a class="nav-link" href="http://localhost:8090/community/board/free">커뮤니티</a>
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
@@ -432,6 +432,7 @@
             $recodeSummonerInfo.find('.detail').click(function(){
                 if($selectBar.css('display') =='none'){
                     $selectBar.show();
+                    $total.show();
                 }else {
                     $selectBar.hide();
                     $total.hide();

@@ -46,17 +46,38 @@ public class MemberController {
         return mav;
     }
 
-    @PostMapping(value = "/access")
-    public ModelAndView access(Member member, HttpSession session, RedirectAttributes loginAtr) {
-        mav = memberMM.access(member, session, loginAtr);
-        return mav;
+    @PostMapping(value = "/access", produces = "application/json;utf-8")
+    @ResponseBody
+    public ResponseEntity access(@RequestBody String json_member, HttpSession session) throws JsonProcessingException {
+        ObjectMapper obj = new ObjectMapper();
+        Member member = obj.readValue(json_member, Member.class);
+        System.out.println("member = " + member);
+        ResponseEntity<?> result = null;
+        String accessCheck = memberMM.access(member, session);
+        System.out.println("accessCheck = " + accessCheck);
+
+        if (accessCheck == "0") {  //성공
+            result = ResponseEntity.ok(obj.writeValueAsString("0"));
+        }else if(accessCheck == "1"){    //이메일 인증여부
+            result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
+                    body(obj.writeValueAsString("1"));
+        }else if(accessCheck == "2"){   //비번불일치
+            result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
+                    body(obj.writeValueAsString("2"));
+
+        }else if(accessCheck == "3"){     //아이디불일치
+            result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
+                    body(obj.writeValueAsString("3"));
+        }
+
+        log.info("access 성공");
+        return result;
     }
 
     @PostMapping("/logout")
-    public String logout(HttpSession session) {
+    public void logout(HttpSession session) {
         session.invalidate();
 //        return "redirect:/community";
-        return "redirect:/community/board/free";
     }
 
 

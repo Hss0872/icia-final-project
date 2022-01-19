@@ -50,6 +50,8 @@ public class BoardWriteMM {
         boardWriteParam.setB_write_id(member.getM_id());
         boardWriteParam.setB_write_nickname(member.getM_nickname());
 
+        System.out.println("boardWriteParam = " + boardWriteParam.getB_write_type());
+
         if (boardWriteParam.getB_write_type().equals("free")) {
             if (boardDao.freeBoardWriteSelKey(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
@@ -183,6 +185,9 @@ public class BoardWriteMM {
         boardWriteParam.setB_write_num(bNum);
         boardWriteParam.setB_write_id(member.getM_id());
         boardWriteParam.setB_write_nickname(member.getM_nickname());
+
+        System.out.println("boardWriteParam.getB_write_type().equals(\"free\") = " + boardWriteParam.getB_write_type().equals("free"));
+        System.out.println("boardWriteParam = " + boardWriteParam.getB_write_num());
 
         if (boardWriteParam.getB_write_type().equals("free")) {
             if (boardDao.freeBoardUpdate(boardWriteParam)) {

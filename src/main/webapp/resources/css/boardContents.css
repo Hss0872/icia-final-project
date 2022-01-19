@@ -295,3 +295,7 @@
     text-align: center;
     transition: 0.2s;
 }
+.reply_td {
+    min-width: 1200px;
+    max-width: 1200px;
+}

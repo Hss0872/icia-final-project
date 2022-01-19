@@ -10,14 +10,14 @@
     <script src="https://kit.fontawesome.com/f9589fd651.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/resources/css/free_lane.css">
-    <link rel="stylesheet" href="/resources/css/mypage.css?ver=6">
-    <link rel="stylesheet" href="/resources/css/community.css?ver=6">
+    <link rel="stylesheet" href="/resources/css/free_lane.css?ver=1">
+    <link rel="stylesheet" href="/resources/css/mypage.css?ver=1">
+    <link rel="stylesheet" href="/resources/css/community.css?ver=1">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-    <script src="/resources/js/login.js?ver=1"></script>
-    <script src="/resources/js/community.js?ver=1"></script>
+    <script src="/resources/js/login.js?ver=2"></script>
+    <script src="/resources/js/community.js?ver=2"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
         <a href="/">
             <img src="/resources/images/pngwing.com (3).png">
         </a>
-        <h1><a href="/community">Community</a></h1>
+        <h1><a href="/community/board/free">Community</a></h1>
         <p>You Are Free</p>
         <div class="dropdown">
             <span class="dropbtn">Login</span>
@@ -41,7 +41,7 @@
             <div class="modal_body">
                 <button onclick="back()"> <i class="fas fa-angle-double-left fa-2x"></i></button>
                 <!-- 로그인 form태그 -->
-                <form class= "login_modal" onsubmit="return loginFrm()" action="/member/access" method="post">
+                <form class= "login_modal" method="post">
                     <div class="login_id">
                         <h4>ID</h4>
                         <input type="id" name="m_id" id="id" placeholder="Id" onblur="inspectId()" data-value="false">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="submit" id="loginSubmitBtn">
-                        <input type="submit" value="submit"/>
+                        <input type="button" onclick="loginFrm()" value="submit"/>
                     </div>
                 </form>
                 <form method="post" class="searchId" style="display: none"> 아이디찾기
@@ -102,7 +102,7 @@
                     <div class="profileDiv"> <input id="p_pw" type="password" placeholder="기존 비밀번호" name="m_pw" onblur="profile_pw()" data-value="false"></div>
                     <div class="profileDiv"> <input id="p_newPw" type="password" placeholder="변경할 비밀번호" name="m_newpw" onblur="profile_newPw()" data-value="false"></div>
                     <div class="profileDiv"> <input id="p_confirmPw" type="password" placeholder="변경할 비밀번호확인" name="m_newpw2" onblur="profile_confirmPw()" data-value="false"></div>
-                    <button type="button" onclick="profile_inspect()">변경</button>
+                    <button id="profileBtn" type="button" onclick="profile_inspect()">변경</button>
                 </form>
 
                 <div class="client_work" style="display: none;"> 내가 작성한 글목록
@@ -133,9 +133,16 @@
     <video muted autoplay loop>
         <source src="animated-zaun.mp4" type="video/mp4">
     </video>
-    <div id="boardTitle">
-        <a href="/community/board/free">자유게시판</a>
-        <a href="/community/board/lane">라인별 게시판</a>
+    <div class="row" id="boardTitle">
+
+        <div class="col-6" style="text-align: center">
+            <a href="/community/board/free">자유게시판</a>
+        </div>
+        <div class="col-6" style="text-align: center">
+            <a href="/community/board/lane">라인별 게시판</a>
+        </div>
+
+
     </div>
     <table>
         <colgroup>
@@ -318,65 +325,6 @@
         })
     }
 
-
-
-    //로그인 시
-    let $checkLogin = '${checkLogin}';
-    let joinBtn = document.querySelector('.btn-open-popup'); //조인버튼
-    let logoutBtn = document.querySelector('.logout_btn');  //로그아웃
-    let myPageBtn = document.querySelector('.myPage_btn'); //마이페이지
-
-
-    if($checkLogin === '1') {
-        Swal.fire({
-            title: '비밀번호가 일치하지 않습니다.',
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            }
-        })
-
-    }else if($checkLogin === '2'){
-        Swal.fire({
-            title: '아이디가 일치하지 않습니다.',
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            }
-        })
-
-    }else if($checkLogin === '3'){
-        Swal.fire({
-            title: '이메일 인증을 해주세요',
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            }
-        })
-    }else if($checkLogin === '0'){
-        Swal.fire({
-            title: 'Congratulations on becoming our member',
-            text: 'first.gg',
-            imageUrl: '/resources/images/2880x1620_league-of-legends-ekko-4k.jpg',
-            imageWidth: 400,
-            imageHeight: 250,
-            imageAlt: 'Custom image',
-        })
-
-        joinBtn.setAttribute('data-value','false');
-        joinBtn.style.display = 'none';
-        logoutBtn.style.display = 'block';
-        myPageBtn.style.display ='block';
-
-
-
-    }
 
     //아이디 찾기 이메일 존재 유무
     let $emailHas = '${hasEmailCheck}';

@@ -56,41 +56,35 @@ public class MemberMM {
     }
 
     //로그인
-    public ModelAndView access(Member member, HttpSession session, RedirectAttributes loginAtr) {
-        mav = new ModelAndView();
-        String view = null;
+    public String access(Member member, HttpSession session) {
         // 스프링은 복호화 안되지만 비교는 해줌. //암호화<--->복호화
         BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder(); // 암호화된 비번과 아이디랑 일치한지 확인해야하니까
         String encodedPwd = memberDao.getSecurityPwd(member.getM_id()); // 1111-->$2a$10$M/boV.EJkuwZHD0LMX0BHuGr8vT6zK0Ua9
         boolean emailAcceptValue = memberDao.getValueEamilAccept(member);
+        String accessCheck = null;
 
+        System.out.println("encodedPwd != null = " + encodedPwd != null);
         if (encodedPwd != null) {
+            System.out.println("pwdEncoder.matches(member.getM_pw(), encodedPwd) = " + pwdEncoder.matches(member.getM_pw(), encodedPwd));
             if (pwdEncoder.matches(member.getM_pw(), encodedPwd)) {
+                System.out.println("emailAcceptValue = " + emailAcceptValue);
                 if (emailAcceptValue) {
                     log.info("로그인 성공");
-                    // 로그인 성공 마킹
+                    accessCheck = "0";
                     session.setAttribute("id", member.getM_id()); // "id" parameter의 속성 mb.getM_id 인스턴스 가져와서 session객체에 담아주기
-                    session.setAttribute("member", member); // "id" parameter의 속성 mb.getM_id 인스턴스 가져와서 session객체에 담아주기
+                    // 로그인 성공 마킹
                     /*view = "redirect:/community";*/
-                    loginAtr.addFlashAttribute("checkLogin", "0");
-                } else {
-//                    view = "community";
-//                    mav.addObject("checkLogin", "3");
-                    loginAtr.addFlashAttribute("checkLogin", "3");
+                } else { //이메일 인증 여부
+                    accessCheck = "1";
                 }
             } else { //비번 불일치
-//                view = "community";
-//                mav.addObject("checkLogin", "1");
-                loginAtr.addFlashAttribute("checkLogin", "1");
+                accessCheck = "2";
             }
         } else {  //아이디 불일치
-//            view = "community";
-//            mav.addObject("checkLogin", "2");
-            loginAtr.addFlashAttribute("checkLogin", "2");
+            accessCheck = "3";
+
         }
-        view = "redirect:/community/board/free";
-        mav.setViewName(view);
-        return mav;
+        return accessCheck;
     }
 
     //비번 찾기 restController

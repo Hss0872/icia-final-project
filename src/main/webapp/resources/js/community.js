@@ -29,27 +29,113 @@ function loginFrm(){
     let pw_value = document.getElementById("pw").getAttribute('data-value');
     let id_check = document.querySelector('#id_check');
     let pw_check = document.querySelector('#pw_check');
+    let id = document.querySelector('#id');
+    let pw = document.querySelector('#pw');
 
 
 
     if(id_value == 'true' && pw_value == 'true'){
         console.log('성공~');
 
-        return true;
+        return fetch('/member/access',
+            {
+                method :'post',
+                headers : {
+                    "Accept": "application/json",
+                    "ContentType": "application/json"
+                },
+                body : JSON.stringify({
+                    m_id : id.value,
+                    m_pw : pw.value
+                })
+
+        }).then((res)=>{
+            console.log(res);
+            return res.json();
+        }).then((res)=>{
+            console.log(res);
+            if(res == "0"){
+                let joinBtn = document.querySelector('.btn-open-popup'); //조인버튼
+                let logoutBtn = document.querySelector('.logout_btn');  //로그아웃
+                let myPageBtn = document.querySelector('.myPage_btn'); //마이페이지
+
+                joinBtn.setAttribute('data-value','false');
+                joinBtn.style.display = 'none';
+                logoutBtn.style.display = 'block';
+                myPageBtn.style.display ='block';
+
+                Swal.fire({
+                    title: '환영합니다.',
+                    text: 'first.gg',
+                    imageUrl: '/resources/images/2880x1620_league-of-legends-ekko-4k.jpg',
+                    imageWidth: 400,
+                    imageHeight: 250,
+                    imageAlt: 'Custom image',
+                })
+
+                setTimeout(()=>{
+                    location.reload();
+                }, 2200)
+
+            }else if(res == "1"){
+                Swal.fire({
+                    title: '이메일 인증을 해주세요',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+
+                setTimeout(()=>{
+                    location.reload();
+                }, 2200)
+
+            }else if(res == "2"){
+                Swal.fire({
+                    title: '비밀번호가 일치하지 않습니다.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+                setTimeout(()=>{
+                    location.reload();
+                }, 2200)
+
+
+            }else if(res == "3"){
+                Swal.fire({
+                    title: '아이디가 일치하지 않습니다.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+
+                setTimeout(()=>{
+                    location.reload();
+                }, 2200)
+
+            }
+        })
 
     }else if(id_value =='true' && pw_value =='false'){
         pw_check.style.display ='block';
         pw_check.style.color = "#FFB400";
         pw_check.innerText ='8~16자 영문, 숫자 조합.'
         id_check.style.display = 'none';
-        return false;
 
     }else if(id_value == 'false' && pw_value == 'true'){
         id_check.style.display ='block';
         id_check.style.color = "#FFB400";
         id_check.innerText ='아이디는 3글자 이상입니다.'
         pw_check.style.display ='none';
-        return false;
     }else{
         pw_check.style.display ='none';
         id_check.style.display = 'none';
@@ -58,7 +144,6 @@ function loginFrm(){
             title: 'Oops...',
             text: '양식을 모두 완성해주세요.'
         })
-        return false;
     }
 
 }
@@ -435,7 +520,8 @@ function logout(){
             method : 'post',
     }).then((response)=>{
         /*location.href ="/community"*/
-        location.href ="/community/board/free"
+        // location.href ="/community/board/free";
+        location.reload();
     })
 }
 
