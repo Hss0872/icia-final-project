@@ -26,15 +26,15 @@
 
         <%--    Sorry, your browser doesn't support embedded videos.--%>
         <%--</video>--%>
-        <header>
-            <div class="cham_header">
-                <div class="inner">
-                    <p class="homeTag">
-                        <a href="/" style="color: white ">Home</a>
-                    </p>
-                </div>
-            </div>
-        </header>
+
+        <!-- 상단 메뉴바 -->
+        <div class="page">
+            <header>
+                <a href="/" style="color: white ">
+                    <img class="home_img" src="/resources/images/ICON/Home_Icon.png" alt="home">
+                </a>
+            </header>
+        </div>
 
         <!-- <div class="firstOne" id="test">
             <div class="firstOne2">

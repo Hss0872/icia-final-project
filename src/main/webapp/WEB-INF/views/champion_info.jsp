@@ -147,16 +147,16 @@
 
     <%------------------------------------------ 챔피언 상세정보 페이지 프론트 작업란 -------------------------------------------%>
 
-        <!-- 챔피언 백그라운드 -->
-        <!-- url에 챔피언 백그라운드 경로 파일을 올리면 될 것 같음 -->
-        <!-- <div class="Background_back__29qGw"></div>
-            <img src="./Shen_basic_skin.jpg" alt="shen_background">
-            ::after
-        </div> -->
+        <!-- 상단 메뉴바 -->
+        <div class="page">
+            <header>
+                <a href="/champion" style="color: white ">
+                    <img class="menu_img" src="/resources/images/ICON/Menu_Icon.png" alt="menu">
+                </a>
+            </header>
+        </div>
 
         <!-- 챔피언 헤더 -->
-        <!-- 마우스 오버 (설명 말풍선) 따로 로직 구성하기 -->
-
         <div class ="Wrapper_content__1wGv-">
             <div class="ChampionHeader_champion__2ZqIZ ChampionHeader_header__TkIzw">
                 <div>
@@ -169,28 +169,28 @@
                     <div class="SkillList_wrapper__1HtlM">
                         <div class="Skill_skill30__CEeFI">
                             <img class="Champ_Passive" src="/resources/images/LOL_CHAMPION_PASSIVE/${championName}Passive.png" alt="${championName}P">
-                            <div>P</div>
-                            <p class="Explain_box">${championName}Passive</p>
+                            <div class="champion_skill_slot">P</div>
+                            <div class="Explain_box_P"></div>
                         </div>
                         <div class="Skill_skill30__CEeFI">
                             <img class="Champ_Q" src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}Q.png" alt="${championName}Q">
-                            <div>Q</div>
-                            <p class="Explain_box">${championName}Q</p>
+                            <div class="champion_skill_slot">Q</div>
+                            <div class="Explain_box_Q"></div>
                         </div>
                         <div class="Skill_skill30__CEeFI">
                             <img class="Champ_W" src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}W.png" alt="${championName}W">
-                            <div>W</div>
-                            <p class="Explain_box">${championName}W</p>
+                            <div class="champion_skill_slot">W</div>
+                            <div class="Explain_box_W"></div>
                         </div>
                         <div class="Skill_skill30__CEeFI">
                             <img class="Champ_E" src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}E.png" alt="${championName}E">
-                            <div>E</div>
-                            <p class="Explain_box">${championName}E</p>
+                            <div class="champion_skill_slot">E</div>
+                            <div class="Explain_box_E"></div>
                         </div>
                         <div class="Skill_skill30__CEeFI">
                             <img class="Champ_R" src="/resources/images/LOL_CHAMPION_SPELLS/${championName}/${championName}R.png" alt="${championName}R">
-                            <div>R</div>
-                            <p class="Explain_box">${championName}R</p>
+                            <div class="champion_skill_slot">R</div>
+                            <div class="Explain_box_R"></div>
                         </div>
                     </div>
                 </div>
@@ -213,29 +213,13 @@
 
             <!-- 챔피언 정보 분석 창 -->
             <div class="Summary_quick__3le_e">
-                <div class="Summary_row1__3rZk8">
-                    <div>
-                        Skill Priority
-                        <div class="Tip_q__3v_Eo">?</div>
-                    </div>
-                    <div>
-                        Item Build
-                        <div class="Tip_q__3v_Eo">?</div>
-                    </div>
-                    <div>
-                        Primary Runes
-                        <div class="Tip_q__3v_Eo">?</div>
-                    </div>
-                    <div>Secondary</div>
-                    <div>Stat Mods</div>
-                </div>
-
                 <!-- 챔피언 스킬 트리 로직 (스킬을 선마한 구간에는 이미지가 표시되도록 로직을 짜야함) -->
                 <div class="Summary_row2__3iVg7">
                     <div>
                         <div>
                             <div class="SkillPriority_skillpriority__oC3Z5">
                                 <div class="Skill_Tree_Div1">
+                                    <p style="font-size: 15px; height: 15px; margin-top: 5px">Skill Priority</p>
                                     <table class="Skill_Tree1">
                                         <tr>
                                             <th>1</th>
@@ -310,17 +294,20 @@
                             <div class="RuneSet_rune__3PQbj">
                                 <div class="Rune_Build_Div1">
                                     <div class="First_Rune1">
+                                        <p style="font-size: 15px; height: 15px; margin-top: 5px">Primary Rune</p>
                                         <div class="Oneline_Rune1" style="display: flex"></div>
                                         <div class="Twoline_Rune1" style="display: flex"></div>
                                         <div class="Threeline_Rune1" style="display: flex"></div>
                                         <div class="Fourline_Rune1" style="display: flex"></div>
                                     </div>
                                     <div class="Second_Rune1">
+                                        <p style="font-size: 15px; height: 15px; margin-top: 5px">Secondary</p>
                                         <div class="Summary_One1" style="display: flex"></div>
                                         <div class="Summary_Two1" style="display: flex"></div>
                                         <div class="Summary_Three1" style="display: flex"></div>
                                     </div>
                                     <div class="Stats_Rune1">
+                                        <p style="font-size: 15px; height: 15px; margin-top: 5px">Stat Mods</p>
                                         <div class="Stats_One1" style="display: flex"></div>
                                         <div class="Stats_Two1" style="display: flex"></div>
                                         <div class="Stats_Three1" style="display: flex"></div>
@@ -442,6 +429,46 @@
         //5등 (챔피언 숙련도 점수 순) 5th
         $('<p>').attr("class", "Master_Champion_Summoner").text("5th." + M_Summoner5).appendTo(Master5);
         $('<p>').attr("class", "Master_Champion_Point").text(M_Point5 + "점").appendTo(Master5);
+
+        //─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  로직 구분 주석 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+        //챔피언 스킬 설명에 사용하는 변수들
+        let ExplainP = $('.Explain_box_P');     //패시브 DIV
+        let ExplainQ = $('.Explain_box_Q');     //Q DIV
+        let ExplainW = $('.Explain_box_W');     //W DIV
+        let ExplainE = $('.Explain_box_E');     //E DIV
+        let ExplainR = $('.Explain_box_R');     //R DIV
+
+        //패시브
+        let P_Name = championPassives.champion_passive_kor;     //패시브 이름
+        let P_Desc = championPassives.split;                    //패시브 설명
+
+        //Q
+        let Q_Name = championSkillDesc.q;                       //Q 스킬 이름
+        let Q_Desc = championSkillDesc.q_desc;                  //Q 스킬 설명
+
+        //W
+        let W_Name = championSkillDesc.w;                       //W 스킬 이름
+        let W_Desc = championSkillDesc.w_desc;                  //W 스킬 설명
+
+        //E
+        let E_Name = championSkillDesc.e;                       //E 스킬 이름
+        let E_Desc = championSkillDesc.e_desc;                  //E 스킬 설명
+
+        //R
+        let R_Name = championSkillDesc.r;                       //R 스킬 이름
+        let R_Desc = championSkillDesc.r_desc;                  //R 스킬 설명
+
+        $('<p>').attr("class", "skill_name").text(P_Name+"\u00A0"+"[P]").appendTo(ExplainP);
+        $('<p>').attr("class", "skill_Desc").text(P_Desc).appendTo(ExplainP);
+        $('<p>').attr("class", "skill_name").text(Q_Name+"\u00A0"+"[Q]").appendTo(ExplainQ);
+        $('<p>').attr("class", "skill_Desc").text(Q_Desc).appendTo(ExplainQ);
+        $('<p>').attr("class", "skill_name").text(W_Name+"\u00A0"+"[W]").appendTo(ExplainW);
+        $('<p>').attr("class", "skill_Desc").text(W_Desc).appendTo(ExplainW);
+        $('<p>').attr("class", "skill_name").text(E_Name+"\u00A0"+"[E]").appendTo(ExplainE);
+        $('<p>').attr("class", "skill_Desc").text(E_Desc).appendTo(ExplainE);
+        $('<p>').attr("class", "skill_name").text(R_Name+"\u00A0"+"[R]").appendTo(ExplainR);
+        $('<p>').attr("class", "skill_Desc").text(R_Desc).appendTo(ExplainR);
 
         //─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  로직 구분 주석 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
 

@@ -1,4 +1,153 @@
 /* 마우스 오버 (말풍선) css */
+.Skill_skill30__CEeFI {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+}
+
+.Skill_skill30__CEeFI .Explain_box_P {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI .Explain_box_Q {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI .Explain_box_W {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI .Explain_box_E {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI .Explain_box_R {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_P {
+    visibility: visible;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_Q {
+    visibility: visible;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_W {
+    visibility: visible;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_E {
+    visibility: visible;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_R {
+    visibility: visible;
+}
+
+.skill_name {
+    margin-left: 10px;
+    color: darkorange;
+    font-weight: bold;
+}
+
+.skill_Desc {
+    margin-left: 10px;
+    color: white;
+    width: 275px;
+}
+
+/* 헤더 css */
+header {
+    background-color: #333333;
+    opacity: 0.8;
+    width: 2000px;
+    height: 80px;
+    z-index: 13;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    /* width: 100% */
+    left: 0;
+    right: 0;
+}
+
+.menu_img {
+    width: 70px;
+    height: 55px;
+    margin-left: 25px;
+}
+
+h2 {
+    margin-left:50px;
+}
 
 /*챔피언 백그라운드 창 css*/
 body {
@@ -68,11 +217,16 @@ body {
 
 .ChampionHeader_header__TkIzw {
     min-height: 225px;
-    margin-top: 100px;
+    margin-top: 150px;
     margin-bottom: 10px;
     background: linear-gradient(90deg,rgba(16,16,16,.8),rgba(33,33,38,.8));
     border: 3px solid #333333;
     display: grid;
+}
+
+.champion_blurb_desc {
+    width: 570px;
+    text-align: justify;
 }
 
 .ChampionHeader_header__TkIzw>div:first-child {
@@ -172,7 +326,7 @@ body {
 .Skill_skill30__CEeFI {
     border: 1px solid #666;
     border-radius: 5px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     font-size: 0;
 }
 
@@ -204,8 +358,8 @@ img {
     font-size: 13px;
     line-height: 20px;
     /* background-color: rgba(0,0,0,.5); */
-    width: 574px;
-    text-align: justify;
+    /*width: 574px;*/
+    /*text-align: justify;*/
 }
 
 .Circle_circle__1UKAB {
@@ -249,7 +403,7 @@ img {
     width: 12px;
     line-height: 14px;
     position: relative;
-    top: -16px;
+    /*top: -16px;*/
     right: -16px;
     pointer-events: none;
 }
@@ -270,10 +424,11 @@ img {
 
 .Summary_row1__3rZk8 {
     display: grid;
-    grid-template-columns: 300px 300px 300px 200px 200px;
+    grid-template-columns: 400px 520px 135px 142px;
     font-size: 15px;
     line-height: 30px;
     text-align: center;
+    height: 35px;
 }
 
 .Tip_q__3v_Eo, .Tip_qinline__3rgRn {
@@ -405,6 +560,10 @@ img {
     margin-bottom: 2px;
 }
 
+.champion_skill_slot {
+    top: -14px;
+}
+
 .Summary_pickwin__PRaVa {
     font-size: 10px;
     margin-top: 6px;
@@ -511,26 +670,36 @@ img {
     text-align: center;
 }
 
+.Build_Name_H {
+    margin-top: -15px;
+    text-align: end;
+}
+
 .champion_title_desc {
     padding-top: 6px;
     font-size: 20px;
 }
 
 .Master_Point_Div {
-    width: 300px;
+    width: 510px;
     line-height: 28px;
     padding-top: 10px;
     padding-left: 350px;
     text-shadow: 2px 2px 4px #f2f2f2;
 }
 
-.Master_Ranking {
-    font-size: 20px;
-    margin-top: 10px;
+.Master_Champion_Summoner {
+    width: 230px;
 }
 
 .Master_Champion_Point {
     text-align: end;
+    width: 80px;
+}
+
+.Master_Ranking {
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 .Master_Summoner1 {
