@@ -1,5 +1,5 @@
 body {
-    background-image: url("/resources/images/Garen_Darius.jpg");
+    background-image: url("/resources/images/Dragon_AurelionSol.jpg");
     background-size : cover;
     height: 100vh;
     /* 배경이미지는 최소 1920*960으로 제작해야 문제가 안생김 */
@@ -40,6 +40,10 @@ header {
 
 .home_img {
     border: solid 1px #333333;
+    border-radius: 0em;
+    margin-left: 30px;
+    height: 70px;
+    width: 70px;
 }
 
 #champ_img {

@@ -31,7 +31,7 @@
         <div class="page">
             <header>
                 <a href="/" style="color: white ">
-                    <img class="home_img" src="/resources/images/ICON/Home_Icon.png" alt="home">
+                    <img class="home_img" src="/resources/images/ICON/Home_Icon(2).png" alt="home">
                 </a>
             </header>
         </div>
