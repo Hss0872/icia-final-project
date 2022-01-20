@@ -80,7 +80,7 @@
 
 
 
-        <div class="container a summoner_info">
+        <div class="container-fluid a summoner_info">
             <div class="row summoner">
                 <div class="col-1 icon">
                     
@@ -118,7 +118,7 @@
 
         </div>
 
-        <div class="container b" id="recodeInfo">
+        <div class="container-fluid b" id="recodeInfo">
 
 
             <div class="row recode" id="recode">
