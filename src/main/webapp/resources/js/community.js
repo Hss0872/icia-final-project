@@ -263,36 +263,6 @@ function searchPw(){
     email_submit.setAttribute('onclick', 'searchPwAjax()');
     email_submit.innerText = '이메일 전송'
 
-    // let new_pw1 = document.createElement('input');  //새비밀번호
-    // new_pw1.setAttribute('class','new_pw1');
-    // new_pw1.setAttribute('id','new_pw1');
-    // new_pw1.setAttribute('data-value','false');
-    // new_pw1.setAttribute('onblur','new_pw1_inspect()');
-    // new_pw1.setAttribute('name','new_pw');
-    // new_pw1.setAttribute('placeholder','새비밀번호 설정');
-    //
-    // let new_pw2 = document.createElement('input');  //비번확인
-    // new_pw2.setAttribute('class','new_pw2');
-    // new_pw2.setAttribute('id','new_pw2');
-    // new_pw2.setAttribute('data-value','false');
-    // new_pw2.setAttribute('onblur','new_pw2_inspect()');
-    // new_pw2.setAttribute('name','new_pw2');
-    // new_pw2.setAttribute('placeholder','8~16자 영문, 숫자 조합');
-
-
-    // let new_pw_submit = document.createElement('button');
-    // new_pw_submit.setAttribute('class', 'new_email_submit');
-    // new_pw_submit.setAttribute('type', 'button');
-    // new_pw_submit.setAttribute('onclick', 'newPwAjax()');
-    // new_pw_submit.innerText = '비밀번호 변경'
-
-
-    // let warningPw = document.createElement('div');
-    // warningPw.setAttribute('id','warningPw');
-    // warningPw.style.display = 'block';
-    // warningPw.style.color ='red';
-    // warningPw.innerText = '8~16자 영문, 숫자 조합';
-    // warningPw.style.display ='none';
 
 
     total_form.append(email_input);
@@ -494,7 +464,7 @@ function changePw(){
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: '존재하지 않는 아이디입니다.'
+                        text: '본인 아이디를 입력해주세요.'
                     })
                 }
         }).catch((err)=>{
