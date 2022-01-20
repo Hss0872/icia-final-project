@@ -7,8 +7,8 @@ function summoner_name(){
     if(userName.value.length< 2 ){
         Swal.fire({
             title: '최소2글자 이상입니다.',
-            imageUrl: 'images/pngwing.com (5).png',
-            imageWidth: 360,
+            imageUrl: '/resources/images/Blood Moon Jhin.jpg',
+            imageWidth: 380,
             imageHeight: 210,
 
           })

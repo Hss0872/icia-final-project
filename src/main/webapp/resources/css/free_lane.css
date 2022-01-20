@@ -202,6 +202,7 @@
   width: 100%;
   height: 80%;
 }
+
 /*video {*/
 /*  opacity: 65%;*/
 /*  width: 100%;*/
@@ -211,10 +212,23 @@
 /*  z-index: -1;*/
 /*}*/
 
+.mainVideo video{
+  opacity: 80%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  min-width: 115%;
+  min-height: 115%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  overflow: hidden;
+}
+
 #boardTitle{
   background-color:rgba( 255, 255, 255, 0.1 );
   width: 81.2%;
-  height: 48px;
+  height: 63px;
   text-align: center;
   margin: auto;
 }
@@ -264,6 +278,8 @@ td, th {
   font-size:13px;
   font-weight: 700;
 }
+
+
 tr:nth-of-type(odd) { 
 	background-color:rgba(255, 255, 255, 0.2)
   
@@ -295,7 +311,7 @@ tr td:nth-child(7){text-align:center;}
 .page-box {
   width: 80%;
   margin: 15px auto;
-  height: 30px;
+  height: 32px;
   text-align: center;
 }
 .page-box a.btn {
@@ -304,8 +320,8 @@ tr td:nth-child(7){text-align:center;}
   font-size: 12px;
   font-weight: 700;
   border: 2px solid #050113;
-  color: rgb(1, 6, 24);
-  background-color: #dbdbdb;
+  color: #FFFFFF;
+  background-color: rgba(101, 98, 98, 0.8);
 }
 .page-box a.btn.on {
   background-color: #dbdbdb;
@@ -317,13 +333,98 @@ tr td:nth-child(7){text-align:center;}
 
 
 
+
 .search{
+  color: #ffffff;
+  font-weight: 600;
   text-align: center;
+  border-radius: 13px;
+  background-color: #343131;
+  margin-right: 15px;
+}
+.search option{
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 13px;
+  background-color: #343131;
+  margin-right: 15px;
 }
 
 .searchText{
+  border-color: rgba(101, 98, 98, 0.8);
+  border-radius: 20px;
   width: 300px;
+  height: 33px;
+  background-color: rgba(101, 98, 98, 0.8);
+  color: #FFFFFF;
 }
+
+.searchb{
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+#writeBtn{
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#writeBtn:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  #writeBtn {
+    padding: 0.25em 0.75em;
+  }
+}
+
 
 /* 레인별 드롭다운  */
 .dropdown2{
@@ -331,16 +432,68 @@ tr td:nth-child(7){text-align:center;}
   display: inline;
   text-align: center;
   width: 180px;
+  font-weight: 700;
 }
 
 
 .dropdown2-content{
-  text-align: center;
   align-items: center;
   display: none;
 
 }
 
+
+
 .dropdown2:hover .dropdown2-content{
   display: block;
+  margin-bottom: 3px;
+}
+
+
+.dropdown2-content button{
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 18px;
+  height: 32px;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.dropdown2-content button:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
+}
+
+.dropdown2-content button:active {
+  outline: 0;
+}
+
+.dropdown2-content button:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+}
+
+@media (max-width: 420px) {
+  .dropdown2-content button{
+    height: 38px;
+  }
 }

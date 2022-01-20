@@ -185,18 +185,18 @@ function phone_check() {
     let phoneRegExp =  /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;  //전화번호 정규식
     let phonenumber = document.querySelector('#phonenumber');
     if (!phoneRegExp.test(phonenumber.value)) {
-        $('#phoneNumber_check').text('전화번호  " - " 형식에 맞게쓰세요 ');
-        $('#phoneNumber_check').css('color', 'red');
-        $('#phoneNumber_check').css("font-weight", "500");
-        $('#phoneNumber_check').show();
+        phonenumber.setAttribute('data-value','true');
+        phonenumber.innerHTML = '전화번호 형식에 맞게쓰세요.'
+        phonenumber.style.color ='red';
+        phonenumber.style.fontWeight = '600';
+        phonenumber.style.display = 'block';
         phonenumber.value = null;
-        $('#phonenumber').attr('data-value', 'false');
     } else {
-        $('#phoneNumber_check').text('사용 가능합니다.');
-        $('#phoneNumber_check').css("color", "green");
-        $('#phoneNumber_check').css("font-weight", "500");
-        $('#phoneNumber_check').show();
-        $('#phonenumber').attr('data-value', 'true');
+        phonenumber.setAttribute('data-value','true');
+        phonenumber.innerHTML = '사용 가능합니다.'
+        phonenumber.style.color ='green';
+        phonenumber.style.fontWeight = '600';
+        phonenumber.style.display = 'block';
 
     }
 

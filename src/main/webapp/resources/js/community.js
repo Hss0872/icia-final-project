@@ -31,6 +31,7 @@ function loginFrm(){
     let pw_check = document.querySelector('#pw_check');
     let id = document.querySelector('#id');
     let pw = document.querySelector('#pw');
+    let modal = document.querySelector('.modal');
 
 
 
@@ -63,6 +64,7 @@ function loginFrm(){
                 joinBtn.style.display = 'none';
                 logoutBtn.style.display = 'block';
                 myPageBtn.style.display ='block';
+                modal.style.display = 'none';
 
                 Swal.fire({
                     title: '환영합니다.',
@@ -75,7 +77,7 @@ function loginFrm(){
 
                 setTimeout(()=>{
                     location.reload();
-                }, 2200)
+                }, 1300);
 
             }else if(res == "1"){
                 Swal.fire({
@@ -914,3 +916,4 @@ function getPreviewList(boardType, lane) {
             })
         }).then(response => response.json())
 };
+

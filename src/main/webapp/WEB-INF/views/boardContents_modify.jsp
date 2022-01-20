@@ -11,9 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/resources/css/free_lane.css">
-    <link rel="stylesheet" href="/resources/css/community.css?ver=1">
-    <link rel="stylesheet" href="/resources/css/mypage.css?ver=1">
-    <link rel="stylesheet" href="/resources/css/boardContents.css?ver=1">
+    <link rel="stylesheet" href="/resources/css/community.css?ver=2">
+    <link rel="stylesheet" href="/resources/css/mypage.css?ver=2">
+    <link rel="stylesheet" href="/resources/css/boardContents.css?ver=2">
+    <link rel="stylesheet" href="/resources/css/test123.css?ver=2">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
@@ -138,7 +139,6 @@
 
 
 <div class="bg">
-
     <div id="boardTitle" class="row" style="margin-top: 7px">
         <div class="col-6" style="text-align: center">
             <a href="/community/board/free" >자유게시판</a>
@@ -155,6 +155,14 @@
             <div class="contentsHit"></div>
         </div>
         <div class="contentsHeadMenu">
+            <div class="watch-face">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
             <div class="topmenuInfo">
                 <div class="contentsCategory"></div>
                 <div class="boardNumber"></div>
