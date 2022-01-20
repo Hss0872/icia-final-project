@@ -116,7 +116,7 @@
   margin: auto;
 }
 .partner1 p, .partner2 p{
-  font-size: 70%;
+  font-size: 90%;
   font-weight: 600;
 }
 
@@ -126,7 +126,35 @@
 p{
   text-align: center;
   margin: auto;
+  color: rgb(0, 0, 0);
+
+
 }
+
+.partner1 p, .partner2 p, .gameInfo p, .kda p{
+  color: rgb(0, 0, 0);
+}
+.teamblue p, .teamred p{
+  color: black;
+}
+
+@font-face{
+  font-family: 'RixYeoljeongdo_Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BMHANNAPro';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+p, h1, h2, h3, h4, h5, .skillbuild td, a{
+  font-family: 'RixYeoljeongdo_Regular';
+}
+
 .kda p{
   text-align: left;
 }
@@ -177,6 +205,7 @@ a{
 }
 .partner1,.partner2{
   margin-top: 2px;
+
 }
 .detail div{
   margin-top: 100px;

@@ -195,9 +195,6 @@ body {
     background: linear-gradient(transparent,#111) 0 repeat;
 }
 
-/*챔피언 스킬 설명 말풍선*/
-/*따로 로직 구성하기/
-
 /*챔피언 헤더 css*/
 .Wrapper_wrapper__3izJT, .Wrapper_wrapperstep__1Gsea {
     margin-left: auto;
@@ -216,6 +213,7 @@ body {
 }
 
 .ChampionHeader_header__TkIzw {
+    width: 1410px;
     min-height: 225px;
     margin-top: 150px;
     margin-bottom: 10px;
@@ -410,6 +408,7 @@ img {
 
 /*챔피언 분석 창 css*/
 .Summary_quick__3le_e {
+    width: 1210px;
     padding-top: 10px;
     padding-bottom: 25px;
     padding-inline: 100px;
