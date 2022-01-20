@@ -196,7 +196,7 @@ function phone_check() {
     } else {
         phonenumber.setAttribute('data-value','true');
         phonenumber_div.innerHTML = '사용 가능합니다.'
-        phonenumber_div.style.color ='green';
+        phonenumber_div.style.color ='#06f809';
         phonenumber_div.style.fontWeight = '600';
         phonenumber_div.style.display = 'block';
 
@@ -212,13 +212,13 @@ function password_check() {
     if (!pwregExp.test(pw.value)) {
         $('#pw_check').text('8~16자 영문, 숫자 조합');
         $('#pw_check').css('color', 'red');
-        $('#pw_check').css('font-weight', '500');
+        $('#pw_check').css('font-weight', '600');
         pw.value = null;
         $('#pw').attr('data-value', 'false');
     } else {
         $('#pw_check').text('사용 가능합니다.');
-        $('#pw_check').css('color', 'green');
-        $('#pw_check').css('font-weight', '500');
+        $('#pw_check').css('color', '#06f809');
+        $('#pw_check').css('font-weight', '600');
         $('#pw').attr('data-value', 'true');
     }
 
@@ -232,12 +232,12 @@ function confirm_password() {
         if (confirmpw.value != pw.value) {
             $('#confirmpw_check').text('두개의 비밀번호가 일치하지않습니다.');
             $('#confirmpw_check').css('color', 'red');
-            $('#confirmpw_check').css('font-weight', '500');
+            $('#confirmpw_check').css('font-weight', '600');
             $('#confirmpw').attr('data-value', 'false');
         } else {
             $('#confirmpw_check').text('사용 가능합니다.');
-            $('#confirmpw_check').css('color', 'green');
-            $('#confirmpw_check').css('font-weight', '500');
+            $('#confirmpw_check').css('color', '#06f809');
+            $('#confirmpw_check').css('font-weight', '600');
             $('#confirmpw').attr('data-value', 'true');
         }
 
@@ -245,7 +245,7 @@ function confirm_password() {
         $('#confirmpw').attr('data-value', 'false');
         $('#confirmpw_check').text('동일한 비밀번호를 입력해주세요.');
         $('#confirmpw_check').css('color', 'red');
-        $('#confirmpw_check').css('font-weight', '500');
+        $('#confirmpw_check').css('font-weight', '600');
 
     }
 
