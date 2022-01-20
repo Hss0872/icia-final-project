@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="/resources/css/champion.css?ver=2">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1"></script>
         <script type="text/javascript" src="/resources/js/champion.js?ver=2"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
 
     <body>
@@ -26,6 +28,7 @@
                 <a href="/" style="color: white ">
                     <img class="home_img" src="/resources/images/ICON/Home_Icon(2).png" alt="home">
                 </a>
+                <input id="searchInput" class="form-control searchInput" type="text" onkeyup="filter()" placeholder="챔피언을 검색하세요." style="width: 300px">
             </header>
         </div>
 
@@ -45,4 +48,21 @@
         </div>
 
     </body>
+
+    <script type="text/javascript">
+        function filter() {
+            let search = document.getElementById("searchInput").value.toLowerCase();
+            let listInner = document.getElementsByClassName("cl");
+
+            for (let i = 0; i < listInner.length; i++) {
+                let champName = listInner[i].getElementsByClassName("champName");
+                //country = listInner[i].getElementsByClassName("country");
+                if (champName[0].innerHTML.toLowerCase().indexOf(search) != -1) {
+                    listInner[i].style.display="inline-block";
+                } else {
+                    listInner[i].style.display="none";
+                }
+            }
+        }
+    </script>
 </html>
