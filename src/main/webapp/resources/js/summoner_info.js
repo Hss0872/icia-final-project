@@ -30,15 +30,21 @@ function getsummoner(name) {
         error: function (err) {
             console.log(err);
 
-            Swal.fire({
-                title: '존재하지 않은 소환사 입니다.',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
-            })
+             Swal.fire({
+                 title: '존재하지 않은 소환사 입니다.',
+                 showClass: {
+                     popup: 'animate__animated animate__fadeInDown'
+                 },
+                 hideClass: {
+                     popup: 'animate__animated animate__fadeOutUp'
+                 }
+             })
+            setTimeout(()=>{
+
+
+                location.href ="http://localhost:8090/summoner";
+            },2000)
+
         }
 
 
