@@ -114,7 +114,7 @@ public class MemberMM {
             String subject = "비밀번호 찾기 서비스 이메일 인증 입니다.";
             StringBuilder sb = new StringBuilder();
             sb.append("<h1>비밀번호 찾기 메일인증 입니다</h1>")
-                    .append("<div>" + key + "</div>");
+                    .append("<div> 인증번호 : " + key + "</div>");
             System.out.println(sb.toString());
             mailService.send(subject, sb.toString(), "hssproject0872@gmail.com", member.getM_email(), null);
         }
@@ -122,23 +122,22 @@ public class MemberMM {
     }
 
     //클라이언트 비밀번호 변경
-    public boolean changePw(Member member, Model model) {
+    public String changePw(Member member) {
         BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();   //암호화된 비번과 아이디랑 일치한지 확인해야하니까
         member.setM_pw(pwdEncoder.encode(member.getM_pw()));
 
         Boolean doHaveId = memberDao.hasId(member);
+        String result = null;
         log.info("아이디존재유무:" + doHaveId);
-        Boolean newPw = memberDao.changePw(member);
-        log.info("비번변경 확인:" + newPw);
-
-        if (doHaveId) {  //아이디 존재여부 검사
-            if (newPw) {
-
-            } else {
-                model.addAttribute("changePwCheck", "2");
-            }
+        if(doHaveId){
+            memberDao.changePw(member);
+            System.out.println("변경완료");
+            result = "1";
+        }else{
+            result = "0";
         }
-        return newPw;
+
+        return result;
     }
 
     public String searchId(Member member) {
@@ -178,11 +177,12 @@ public class MemberMM {
 
     //마이페이지 프로필 최종변경
     public boolean updateProfile(Map map){
+
         BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
         String m_newPw = pwdEncoder.encode(String.valueOf(map.get("m_newPw")));
         map.put("m_newPw",m_newPw );
         System.out.println("m_newPw = " + m_newPw);
-        
+
         boolean profileUpdate = memberDao.updateProfile(map);
         System.out.println("profileUpdate = " + profileUpdate);
         return profileUpdate;

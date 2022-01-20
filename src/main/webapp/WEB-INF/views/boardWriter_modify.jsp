@@ -91,7 +91,7 @@
                 </form>
                 <div class="myPage_form" style="display: none">  <!--마이페이지 -->
                     <video muted autoplay loop>
-                        <source src="/resources/images/videos/animated-starguardian.mp4" type="video/mp4">
+                        <source src="/resources/images/videos/mypage_v.mp4" type="video/mp4">
                     </video>
                     <div  class="client_info" onclick="client_info()"><button>사용자 가입정보 수정</button></div>
                     <div class="client_info_update" onclick="client_work()">
@@ -111,25 +111,16 @@
                     <button id="profileBtn" type="button" onclick="profile_inspect()">변경</button>
                 </form>
 
+
                 <div class="client_work" style="display: none;"> 내가 작성한 글목록
-                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글1dsfdfdfdf</a></div>
-                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글2</a></div>
-                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글3</a></div>
-                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글4</a></div>
-                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글5</a></div>
-                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글6</a></div>
-                    <div class="client_work_lst"><a href="" style="color: rgb(136, 17, 184);">글7</a></div>
+                    <div id="client_work_lst" class="client_work_lst"></div>
+
                 </div>
 
                 <div class="client_reply" style="display: none;"> 내가 작성한 댓글목록
-                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글1dsfdfdfdf</a></div>
-                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글2</a></div>
-                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글3</a></div>
-                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글4</a></div>
-                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글5</a></div>
-                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글6</a></div>
-                    <div class="client_reply_lst"><a href="" style="color: rgb(136, 17, 184);">댓글7</a></div>
+                    <div id="client_reply_lst" class="client_reply_lst"></div>
                 </div>
+
             </div>
         </div>
     </div>

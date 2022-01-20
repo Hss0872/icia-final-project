@@ -184,19 +184,21 @@ function email_check(e) {  	//blur 포커싱 끝났을때 실행되게
 function phone_check() {
     let phoneRegExp =  /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;  //전화번호 정규식
     let phonenumber = document.querySelector('#phonenumber');
+    let phonenumber_div = document.querySelector("#phoneNumber_check");
+
     if (!phoneRegExp.test(phonenumber.value)) {
         phonenumber.setAttribute('data-value','true');
-        phonenumber.innerHTML = '전화번호 형식에 맞게쓰세요.'
-        phonenumber.style.color ='red';
-        phonenumber.style.fontWeight = '600';
-        phonenumber.style.display = 'block';
-        phonenumber.value = null;
+        phonenumber_div.innerHTML = '전화번호 형식에 맞게쓰세요.'
+        phonenumber_div.style.color ='red';
+        phonenumber_div.style.fontWeight = '600';
+        phonenumber_div.style.display = 'block';
+        phonenumber_div.value = null;
     } else {
         phonenumber.setAttribute('data-value','true');
-        phonenumber.innerHTML = '사용 가능합니다.'
-        phonenumber.style.color ='green';
-        phonenumber.style.fontWeight = '600';
-        phonenumber.style.display = 'block';
+        phonenumber_div.innerHTML = '사용 가능합니다.'
+        phonenumber_div.style.color ='green';
+        phonenumber_div.style.fontWeight = '600';
+        phonenumber_div.style.display = 'block';
 
     }
 

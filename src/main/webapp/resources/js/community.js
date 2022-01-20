@@ -479,23 +479,26 @@ function changePw(){
                     m_id :m_id_value
                 })
         }).then((res)=>{
-                new_total_form.style.display ='none';
-                login_modal.style.display ='block';
+                if(res.status == 200){
+                    new_total_form.style.display ='none';
+                    login_modal.style.display ='block';
 
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: '변경완료되었습니다, 로그인 해주시면됩니다.',
-                    showConfirmButton: false,
-                    timer: 2700
-                })
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: '변경완료되었습니다, 로그인 해주시면됩니다.',
+                        showConfirmButton: false,
+                        timer: 2700
+                    })
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '존재하지 않는 아이디입니다.'
+                    })
+                }
         }).catch((err)=>{
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: '존재하지 않는 아이디입니다.'
-            })
-
+            console.log(err);
         })
 
     }else{
@@ -888,7 +891,20 @@ function client_work(){
             })
         }).then(response => response.json())
         .then((response) => {
-            console.log(response);
+            for (let row of response) {
+                if (Object.keys(row)[0] == 'b_free_num') {
+                    let clone = $('#client_work_lst').clone(true).attr('id', 'b '+ row.b_free_num);
+                    $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/free/' + row.b_free_num)
+                        .text(row.b_free_title).appendTo(clone)
+                    clone.appendTo($('.client_work'));
+                } else {
+                    let clone = $('#client_work_lst').clone(true);
+                    $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/lane/' + row.b_lane_num)
+                        .text(row.b_lane_title).appendTo(clone)
+                    clone.appendTo($('.client_work'));
+                }
+            }
+            $('#client_work_lst').remove();
         })
 }
 // 회원 댓글 모달
@@ -912,7 +928,21 @@ function client_reply(){
             })
         }).then(response => response.json())
         .then((response) => {
-            console.log(response);
+            for (let row of response) {
+                console.log(row);
+                if (Object.keys(row)[0] == 'r_free_num') {
+                    let clone = $('#client_reply_lst').clone(true).attr('id', 'r '+ row.r_free_num);
+                    $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/free/' + row.r_free_num)
+                        .text(row.r_free_title).appendTo(clone)
+                    clone.appendTo($('.client_reply'));
+                } else {
+                    let clone = $('#client_work_lst').clone(true);
+                    $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/lane/' + row.r_lane_num)
+                        .text(row.r_lane_title).appendTo(clone)
+                    clone.appendTo($('.client_reply'));
+                }
+            }
+            $('#client_reply_lst').remove();
         })
 }
 

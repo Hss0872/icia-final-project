@@ -129,17 +129,17 @@ public class MemberController {
     //비밀번호 변경
     @PostMapping(value = "/pw/change")
     @ResponseBody
-    public ResponseEntity changePw(@RequestBody String json_value, Model model) throws JsonProcessingException {
+    public ResponseEntity changePw(@RequestBody String json_value) throws JsonProcessingException {
         ObjectMapper obj = new ObjectMapper();
         Member member = obj.readValue(json_value, Member.class);
         ResponseEntity<?> result = null;
-        boolean changeNewPw = memberMM.changePw(member, model);
+        String changeNewPw = memberMM.changePw(member);
         System.out.println("새로운 비밀번호 = " + changeNewPw);
 
-        if (!changeNewPw) {
+        if (changeNewPw == "0") {   //아이디 존재 x
             result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
                     body("");
-        } else {    //성공적으로 비번
+        } else {    //성공적으로 비번변경
             result = ResponseEntity.ok("");
         }
         return result;

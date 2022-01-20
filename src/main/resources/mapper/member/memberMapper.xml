@@ -60,4 +60,6 @@
         update member set m_nickname = #{m_nickname}, m_phone = #{m_phone}, m_pw = #{m_newPw} where m_id = #{m_id}
     </update>
 
+
+
 </mapper>
