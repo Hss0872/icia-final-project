@@ -120,15 +120,14 @@
   font-weight: 600;
 }
 
-.champ{
-  margin: auto;
-}
+
 p{
   text-align: center;
   margin: auto;
 }
-.kda p{
-  text-align: left;
+
+.kda {
+  margin: auto;
 }
 .peritembuild, .gaeminfo{
   margin: auto;
