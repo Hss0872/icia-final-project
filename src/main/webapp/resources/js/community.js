@@ -873,6 +873,20 @@ function client_work(){
     let modal_body = document.querySelector('.modal_body');
     modal_body.style.overflow ='scroll';
 
+    return fetch('/member/profile/getboardlist',
+        {
+            method: 'post',
+            headers: {
+                "Accept": "application/json;",
+                "Content-Type": "application/json;"
+            },
+            body: JSON.stringify({
+                m_id: window.id
+            })
+        }).then(response => response.json())
+        .then((response) => {
+            console.log(response);
+        })
 }
 // 회원 댓글 모달
 function client_reply(){
@@ -882,6 +896,21 @@ function client_reply(){
     client_reply.style.display ='block';
     let modal_body = document.querySelector('.modal_body');
     modal_body.style.overflow ='scroll';
+
+    return fetch('/member/profile/getreplylist',
+        {
+            method: 'post',
+            headers: {
+                "Accept": "application/json;",
+                "Content-Type": "application/json;"
+            },
+            body: JSON.stringify({
+                m_id: window.id
+            })
+        }).then(response => response.json())
+        .then((response) => {
+            console.log(response);
+        })
 }
 
 

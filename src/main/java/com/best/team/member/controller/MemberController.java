@@ -58,14 +58,14 @@ public class MemberController {
 
         if (accessCheck == "0") {  //성공
             result = ResponseEntity.ok(obj.writeValueAsString("0"));
-        }else if(accessCheck == "1"){    //이메일 인증여부
+        } else if (accessCheck == "1") {    //이메일 인증여부
             result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
                     body(obj.writeValueAsString("1"));
-        }else if(accessCheck == "2"){   //비번불일치
+        } else if (accessCheck == "2") {   //비번불일치
             result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
                     body(obj.writeValueAsString("2"));
 
-        }else if(accessCheck == "3"){     //아이디불일치
+        } else if (accessCheck == "3") {     //아이디불일치
             result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
                     body(obj.writeValueAsString("3"));
         }
@@ -154,7 +154,7 @@ public class MemberController {
         Member member = obj.readValue(json_member, Member.class);
         ResponseEntity<?> result = null;
         boolean pwProof = memberMM.provePw(member);
-        log.info("{} 기존비번확인여부" , pwProof);
+        log.info("{} 기존비번확인여부", pwProof);
 
         if (!pwProof) {
             result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).
@@ -190,7 +190,7 @@ public class MemberController {
     //마이페이지 프로필 최종 업데이트
     @PostMapping(value = "/profile/update")
     @ResponseBody
-    public ResponseEntity updateProfile (@RequestBody Map map){
+    public ResponseEntity updateProfile(@RequestBody Map map) {
         System.out.println("map = " + map);
         ResponseEntity<?> result = null;
         boolean updateMember = memberMM.updateProfile(map);
@@ -205,4 +205,23 @@ public class MemberController {
         return result;
     }
 
+    // 마이페이지 작성글 찾기
+
+    @ResponseBody
+    @RequestMapping(value = "/profile/getboardlist", method = RequestMethod.POST, consumes = "application/json;"
+            , produces = "application/json;utf-8")
+    public ResponseEntity<?> getProfileBoardList(@RequestBody Member member, HttpSession session, Model model) throws JsonProcessingException {
+        boolean result = memberMM.getProfileBoardList(member, session, model);
+        return result ? ResponseEntity.ok(model.getAttribute("boardList")) :
+                ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(model.getAttribute("fail"));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/profile/getreplylist", method = RequestMethod.POST, consumes = "application/json;"
+            , produces = "application/json;utf-8")
+    public ResponseEntity<?> getProfileReplyList(@RequestBody Member member, HttpSession session, Model model) throws JsonProcessingException {
+        boolean result = memberMM.getProfileReplyList(member, session, model);
+        return result ? ResponseEntity.ok(model.getAttribute("replyList")) :
+                ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(model.getAttribute("fail"));
+    }
 }//end

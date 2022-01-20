@@ -89,5 +89,4 @@ public class CommunityController {
         ModelAndView mav = new ModelAndView();
         return mav;
     }
-
 }

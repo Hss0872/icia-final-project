@@ -169,4 +169,12 @@
         DELETE FROM COMMUNITY_LANEB WHERE B_LANE_NUM = #{bNum} AND B_LANE_ID = #{m_id}
     </delete>
 
+    <select id="getFreeBoardList" resultType="FreeBoard">
+        SELECT * FROM COMMUNITY_FREEB WHERE B_FREE_ID = #{m_id}
+    </select>
+
+    <select id="getLaneBoardList" resultType="LaneBoard">
+        SELECT * FROM COMMUNITY_LANEB WHERE B_LANE_ID = #{m_id}
+    </select>
+
 </mapper>

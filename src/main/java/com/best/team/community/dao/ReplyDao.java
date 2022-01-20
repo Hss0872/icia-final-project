@@ -23,4 +23,8 @@ public interface ReplyDao {
     boolean deleteFreeReply(@Param("bNum") int bNum,@Param("r_type_num") int r_type_num,@Param("r_type_id") String r_type_id);
 
     boolean deleteLaneReply(@Param("bNum") int bNum,@Param("r_type_num") int r_type_num,@Param("r_type_id") String r_type_id);
+
+    List<FreeReply> getProfileFreeReplyList(Member member);
+
+    List<LaneReply> getProfileLaneReplyList(Member member);
 }

@@ -1,8 +1,16 @@
 package com.best.team.member.service;
 
+import com.best.team.community.bean.FreeBoard;
+import com.best.team.community.bean.FreeReply;
+import com.best.team.community.bean.LaneBoard;
+import com.best.team.community.bean.LaneReply;
+import com.best.team.community.dao.BoardDao;
+import com.best.team.community.dao.ReplyDao;
 import com.best.team.member.bean.Member;
 import com.best.team.member.dao.MemberDao;
 import com.best.team.member.userClass.Tempkey;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,7 +26,10 @@ import javax.servlet.http.HttpSession;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Slf4j
 @Service
@@ -26,11 +37,15 @@ public class MemberMM {
 
     private MemberDao memberDao;
     private MailService mailService;
+    private BoardDao boardDao;
+    private ReplyDao replyDao;
 
     @Autowired
-    public MemberMM(MemberDao memberDao, MailService mailService) {
+    public MemberMM(MemberDao memberDao, MailService mailService, BoardDao boardDao, ReplyDao replyDao) {
         this.memberDao = memberDao;
         this.mailService = mailService;
+        this.boardDao = boardDao;
+        this.replyDao = replyDao;
     }
 
     ModelAndView mav;
@@ -171,7 +186,73 @@ public class MemberMM {
         boolean profileUpdate = memberDao.updateProfile(map);
         System.out.println("profileUpdate = " + profileUpdate);
         return profileUpdate;
-
     }
 
+    public boolean getProfileBoardList(Member member, HttpSession session, Model model) throws JsonProcessingException {
+        log.info("getBoardList call");
+        Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        if (op_id.isPresent()) {
+            if (op_id.get().toString().equals(member.getM_id())) {
+                List<FreeBoard> freeBoardList = boardDao.getFreeBoardList(member);
+                List<LaneBoard> laneBoardList = boardDao.getLaneBoardList(member);
+                if (freeBoardList == null && laneBoardList == null) {
+                    return false;
+                }
+                if (freeBoardList == null && laneBoardList != null) {
+                    model.addAttribute("boardList", objectMapper.writeValueAsString(laneBoardList));
+                    return true;
+                } else if (freeBoardList != null && laneBoardList == null) {
+                    model.addAttribute("boardList", objectMapper.writeValueAsString(freeBoardList));
+                    return true;
+                } else if (freeBoardList != null && laneBoardList != null){
+                    List<Object> boardList = Stream.concat(freeBoardList.stream(), laneBoardList.stream())
+                            .collect(Collectors.toList());
+                    model.addAttribute("boardList", objectMapper.writeValueAsString(boardList));
+                    return true;
+                }
+            } else {
+                log.info("동일한 아이디가 아니다.");
+            }
+        } else {
+            log.info("아이디가 존재하지 않는다.");
+        }
+        model.addAttribute("fail", objectMapper.writeValueAsString("fail"));
+        return false;
+    }
+
+    public boolean getProfileReplyList(Member member, HttpSession session, Model model) throws JsonProcessingException {
+        log.info("getReplyList call");
+        Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        if (op_id.isPresent()) {
+            if (op_id.get().toString().equals(member.getM_id())) {
+                List<FreeReply> freeReplyList = replyDao.getProfileFreeReplyList(member);
+                List<LaneReply> laneReplyList = replyDao.getProfileLaneReplyList(member);
+                if (freeReplyList == null && laneReplyList == null) {
+                    return false;
+                }
+                if (freeReplyList == null && laneReplyList != null) {
+                    model.addAttribute("replyList", objectMapper.writeValueAsString(laneReplyList));
+                    return true;
+                } else if (freeReplyList != null && laneReplyList == null) {
+                    model.addAttribute("replyList", objectMapper.writeValueAsString(freeReplyList));
+                    return true;
+                } else if (freeReplyList != null && laneReplyList != null){
+                    List<Object> boardList = Stream.concat(freeReplyList.stream(), laneReplyList.stream())
+                            .collect(Collectors.toList());
+                    model.addAttribute("replyList", objectMapper.writeValueAsString(boardList));
+                    return true;
+                }
+            } else {
+                log.info("동일한 아이디가 아니다.");
+            }
+        } else {
+            log.info("아이디가 존재하지 않는다.");
+        }
+        model.addAttribute("fail", objectMapper.writeValueAsString("fail"));
+        return false;
+    }
 }//end

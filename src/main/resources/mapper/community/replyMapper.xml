@@ -25,4 +25,12 @@
         DELETE FROM LANE_REPLY WHERE R_LANE_NUM = #{r_type_num} AND R_LANE_BNUM = #{bNum} AND R_LANE_ID = #{r_type_id}
     </delete>
 
+    <select id="getProfileFreeReplyList" resultType="FreeReply">
+        SELECT * FROM FREE_REPLY WHERE R_FREE_ID = #{m_id}
+    </select>
+
+    <select id="getProfileLaneReplyList" resultType="LaneReply">
+        SELECT * FROM LANE_REPLY WHERE R_LANE_ID = #{m_id}
+    </select>
+
 </mapper>

@@ -1,6 +1,7 @@
 package com.best.team.community.dao;
 
 import com.best.team.community.bean.*;
+import com.best.team.member.bean.Member;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -73,4 +74,9 @@ public interface BoardDao {
     boolean deleteFreeBoard(@Param("bNum") int bNum,@Param("m_id") String m_id);
 
     boolean deleteLaneBoard(@Param("bNum") int bNum,@Param("m_id") String m_id);
+
+    List<FreeBoard> getFreeBoardList(Member member);
+
+    List<LaneBoard> getLaneBoardList(Member member);
+
 }
