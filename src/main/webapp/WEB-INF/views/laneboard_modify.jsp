@@ -24,6 +24,11 @@
 
 </head>
 <body>
+<div class="mainVideo">
+    <video muted autoplay loop>
+        <source src="/resources/images/videos/animated-harrowing-2014.webm" type="video/mp4">
+    </video>
+</div>
 <header class="header">
     <div class="header_logo">
         <a href="/">
@@ -133,17 +138,14 @@
 </header>
 
 <div class="bg">
-    <video muted autoplay loop>
-        <source src="animated-zaun.mp4" type="video/mp4">
-    </video>
     <div id="boardTitle">
         <a href="/community/board/free">자유게시판</a>
         <div class="dropdown2">
             <span class="dropbtn2">라인별 게시판</span>
             <div class="dropdown2-content">
                 <button class="btn-open-popup2" onclick="location.href='/community/board/lane?lane=TOP'">Top</button>
-                <button class="btn-open-popup2" onclick="location.href='/community/board/lane?lane=MIDDLE'">Jungle</button>
-                <button class="btn-open-popup2" onclick="location.href='/community/board/lane?lane=JUNGLE'">Middle</button>
+                <button class="btn-open-popup2" onclick="location.href='/community/board/lane?lane=JUNGLE'">Jungle</button>
+                <button class="btn-open-popup2" onclick="location.href='/community/board/lane?lane=MIDDLE'">Middle</button>
                 <button class="btn-open-popup2" onclick="location.href='/community/board/lane?lane=BUTTOM'">Bottom</button>
                 <button class="btn-open-popup2" onclick="location.href='/community/board/lane?lane=SUPPOTER'">Support</button>
             </div>
@@ -275,7 +277,7 @@
 
     let id = "${sessionScope.id}";
     if (id != "") {
-        $('<button>').text('글작성').attr('type', 'button').attr('onclick', "location.href=`/community/board/write`").appendTo($('.searchFrm'));
+        $('<button>').text('글작성').attr('type', 'button').attr('onclick', "location.href=`/community/board/write`").attr('id','writeBtn').appendTo($('.searchFrm'));
     }
 
     //아이디 찾기 이메일 존재 유무
@@ -315,5 +317,20 @@
             myPageBtn.style.display ='none';
         }
     }
+
+    //호버 관련
+
+    // let hoverBtn = document.querySelector('.dropbtn2');
+    // let dropdown2_content = document.querySelector('.dropdown2-content');
+    // let boardTitle = document.querySelector('#boardTitle');
+    // hoverBtn.addEventListener('mouseover', ()=>{
+    //     dropdown2_content.style.display ='block';
+    //     dropdown2_content.style.marginBottom ='3px';
+    //     boardTitle.style.height = '64px';
+    // })
+    // dropdown2_content.addEventListener('mouseout',()=>{
+    //     dropdown2_content.style.display ='none';
+    //     boardTitle.style.height = '52px';
+    // });
 </script>
 </html>

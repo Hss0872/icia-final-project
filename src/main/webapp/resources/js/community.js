@@ -31,6 +31,7 @@ function loginFrm(){
     let pw_check = document.querySelector('#pw_check');
     let id = document.querySelector('#id');
     let pw = document.querySelector('#pw');
+    let modal = document.querySelector('.modal');
 
 
 
@@ -63,6 +64,7 @@ function loginFrm(){
                 joinBtn.style.display = 'none';
                 logoutBtn.style.display = 'block';
                 myPageBtn.style.display ='block';
+                modal.style.display = 'none';
 
                 Swal.fire({
                     title: '환영합니다.',
@@ -75,7 +77,7 @@ function loginFrm(){
 
                 setTimeout(()=>{
                     location.reload();
-                }, 2200)
+                }, 1300);
 
             }else if(res == "1"){
                 Swal.fire({
@@ -391,6 +393,7 @@ function certifyCation(){  //인증번호 검사
     if(certifyValue =='true'){
         if(window.emailCode == certifyInput.value){
             certifyForm.style.display ='none';
+            new_total_form.style.display ='block';
             new_total_form.style.display ='block';
 
         }else{
@@ -942,3 +945,4 @@ function getPreviewList(boardType, lane) {
             })
         }).then(response => response.json())
 };
+

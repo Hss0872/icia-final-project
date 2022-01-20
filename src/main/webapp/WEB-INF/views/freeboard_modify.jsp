@@ -21,6 +21,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
+<div class="mainVideo">
+    <video muted autoplay loop>
+        <source src="/resources/images/videos/animated-harrowing-2014.webm" type="video/mp4">
+    </video>
+</div>
 <header class="header">
     <div class="header_logo">
         <a href="/">
@@ -130,9 +135,6 @@
 </header>
 
 <div class="bg">
-    <video muted autoplay loop>
-        <source src="animated-zaun.mp4" type="video/mp4">
-    </video>
     <div class="row" id="boardTitle">
 
         <div class="col-6" style="text-align: center">
@@ -271,7 +273,7 @@
 
     let id = "${sessionScope.id}";
     if (id != "") {
-        $('<button>').text('글작성').attr('type', 'button').attr('onclick', "location.href=`/community/board/write`").appendTo($('.searchFrm'));
+        $('<button>').text('글작성').attr('type', 'button').attr('onclick', "location.href=`/community/board/write`").attr('id','writeBtn').appendTo($('.searchFrm'));
     }
 
     <%-- ---------------------------- 게시판 관련 스크립트 -------------------------------------- --%>
@@ -363,5 +365,8 @@
             myPageBtn.style.display ='none';
         }
     }
+
+
+
 </script>
 </html>

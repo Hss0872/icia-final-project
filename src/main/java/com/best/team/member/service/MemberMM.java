@@ -66,7 +66,7 @@ public class MemberMM {
         } else {
             ettr.addFlashAttribute("emailCheck", "3");  //인증 중복되었을때
         }
-        mav.setViewName("redirect:/community");
+        mav.setViewName("redirect:/community/board/free");
         return mav;
     }
 

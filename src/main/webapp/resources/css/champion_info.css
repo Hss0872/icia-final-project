@@ -1,63 +1,161 @@
 /* 마우스 오버 (말풍선) css */
-.ChampSkill {
-    padding: 10px;
-    float: left;
-}
-
-.ChampSkill_Passive{
-    padding: 10px;
-    background: #f3f3f3;
-    border: 1px solid #d8d8d8;
-    text-align: center;
-}
-
-.ChampSkill_Passive div {
+.Skill_skill30__CEeFI {
     position: relative;
     display: inline-block;
+    margin: auto;
 }
 
-.ChampSkill_Passive img {
-    display: flex;
-}
-
-.Explain_box {
-    display: none;
-    position: absolute;
-    width: 100px;
-    padding: 8px;
-    /*top: 27%;*/
-    left: 0;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    background: #333;
-    color: #fff;
-    font-size: 14px;
-}
-
-.Explain_box:after {
+.Skill_skill30__CEeFI .Explain_box_P {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
     position: absolute;
     bottom: 100%;
     left: 50%;
-    width: 0;
-    height: 0;
-    margin-left: 10px;
-    border: solid transparent;
-    border-color: rgba(51, 51, 51, 0);
-    border-bottom-color: #333;
-    border-width: 10px;
-    pointer-events: none;
-    content: ' ';
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
 }
-.ChampSkill_Passive img:hover + p.Explain_box {
-    display: block;
+
+.Skill_skill30__CEeFI .Explain_box_Q {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI .Explain_box_W {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI .Explain_box_E {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI .Explain_box_R {
+    visibility: hidden;
+    width: 300px;
+    height: auto;
+    background: linear-gradient(270deg,rgba(10,10,10,.9),rgba(20,20,20,.9));
+    border: solid 2px #333333;
+    padding: 0;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+    margin-bottom: 10px;
+    z-index: 13;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_P {
+    visibility: visible;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_Q {
+    visibility: visible;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_W {
+    visibility: visible;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_E {
+    visibility: visible;
+}
+
+.Skill_skill30__CEeFI:hover .Explain_box_R {
+    visibility: visible;
+}
+
+.skill_name {
+    margin-left: 10px;
+    color: darkorange;
+    font-weight: bold;
+}
+
+.skill_Desc {
+    margin-left: 10px;
+    color: white;
+    width: 275px;
+}
+
+/* 헤더 css */
+header {
+    background-color: #333333;
+    opacity: 0.8;
+    width: 2000px;
+    height: 80px;
+    z-index: 13;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    /* width: 100% */
+    left: 0;
+    right: 0;
+}
+
+.menu_img {
+    width: 70px;
+    height: 55px;
+    margin-left: 25px;
+}
+
+h2 {
+    margin-left:50px;
 }
 
 /*챔피언 백그라운드 창 css*/
 body {
-    background-image: url("/resources/images/space_image(1).jpg");
+    background-image: url("/resources/images/Aurelion Sol Teasing Wallpaper.png");
     background-color: #111;
     margin: 48px 0 0;
+    height: 100vh;
+    background-size : cover;
     color: #fff;
     font-family: "Roboto",Arial,sans-serif;
     font-display: optional;
@@ -65,6 +163,14 @@ body {
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
+    /* 배경이미지는 최소 1920*960으로 제작해야 문제가 안생김 */
+    background-repeat: no-repeat;
+    /* 요소를 비율에 맞게 커버 */
+    background-position: center;
+    /* 이미지를 요소의 정가운데로 처리 */
+    background-attachment: fixed;
+    /* 스크롤바 움직일때 이미지가 따라다님 */
+    overflow: auto;
 }
 
 .Background_back__29qGw {
@@ -89,9 +195,6 @@ body {
     background: linear-gradient(transparent,#111) 0 repeat;
 }
 
-/*챔피언 스킬 설명 말풍선*/
-/*따로 로직 구성하기/
-
 /*챔피언 헤더 css*/
 .Wrapper_wrapper__3izJT, .Wrapper_wrapperstep__1Gsea {
     margin-left: auto;
@@ -110,12 +213,18 @@ body {
 }
 
 .ChampionHeader_header__TkIzw {
+    width: 1410px;
     min-height: 225px;
-    margin-top: 100px;
+    margin-top: 150px;
     margin-bottom: 10px;
     background: linear-gradient(90deg,rgba(16,16,16,.8),rgba(33,33,38,.8));
     border: 3px solid #333333;
     display: grid;
+}
+
+.champion_blurb_desc {
+    width: 570px;
+    text-align: justify;
 }
 
 .ChampionHeader_header__TkIzw>div:first-child {
@@ -129,6 +238,8 @@ body {
     width: 174px;
     height: 147px;
     overflow: hidden;
+    margin-left: 8px;
+    margin-top: 7px;
 }
 
 .Champ_champ140c__ZSREE {
@@ -142,6 +253,7 @@ body {
     position: absolute;
     border-radius: 50%;
     z-index: 12;
+    margin-left: 10px;
 }
 
 .CircleBig_border__3QsNj {
@@ -153,6 +265,7 @@ body {
     z-index: 11;
     width: 146px;
     pointer-events: none;
+    margin-left: 10px;
 }
 
 .CircleBig_lane__2qKzs {
@@ -211,7 +324,7 @@ body {
 .Skill_skill30__CEeFI {
     border: 1px solid #666;
     border-radius: 5px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     font-size: 0;
 }
 
@@ -220,14 +333,14 @@ img {
 }
 
 .ChampionHeader_header__TkIzw>div:nth-child(2) {
-    padding-left: 70px;
+    padding-left: 80px;
     padding-top: 25px;
     text-shadow: 2px 2px 4px #f2f2f2;
     font-size: 14px;
 }
 
 .ChampionHeader_header__TkIzw h1 {
-    font-size: 35px;
+    font-size: 34px;
     line-height: 30px;
     margin-top: 0;
     margin-bottom: 8px;
@@ -243,8 +356,8 @@ img {
     font-size: 13px;
     line-height: 20px;
     /* background-color: rgba(0,0,0,.5); */
-    width: 500px;
-    text-align: justify;
+    /*width: 574px;*/
+    /*text-align: justify;*/
 }
 
 .Circle_circle__1UKAB {
@@ -288,15 +401,16 @@ img {
     width: 12px;
     line-height: 14px;
     position: relative;
-    top: -16px;
+    /*top: -16px;*/
     right: -16px;
     pointer-events: none;
 }
 
 /*챔피언 분석 창 css*/
 .Summary_quick__3le_e {
+    width: 1210px;
     padding-top: 10px;
-    padding-bottom: 350px;
+    padding-bottom: 25px;
     padding-inline: 100px;
     overflow: hidden;
     color: #fff;
@@ -309,10 +423,11 @@ img {
 
 .Summary_row1__3rZk8 {
     display: grid;
-    grid-template-columns: 300px 300px 300px 200px 200px;
+    grid-template-columns: 400px 520px 135px 142px;
     font-size: 15px;
     line-height: 30px;
     text-align: center;
+    height: 35px;
 }
 
 .Tip_q__3v_Eo, .Tip_qinline__3rgRn {
@@ -341,6 +456,7 @@ img {
 
 .SkillPriority_skillpriority__oC3Z5>div {
     display: inline-block;
+    width: 700px;
 }
 
 .Skill_skill36__yk-DO, .Skill_skill36__yk-DO img {
@@ -443,6 +559,10 @@ img {
     margin-bottom: 2px;
 }
 
+.champion_skill_slot {
+    top: -14px;
+}
+
 .Summary_pickwin__PRaVa {
     font-size: 10px;
     margin-top: 6px;
@@ -479,11 +599,10 @@ span.Summary_keystonegames__3ypEL {
 }
 
 .Summary_row3__3lr5H {
-    display: grid;
+    /*display: grid;*/
     grid-template-columns: 188px 216px 172px 216px 232px;
     font-size: 14px;
     line-height: 28px;
-    text-align: center;
     margin-top: -1px;
 }
 
@@ -548,4 +667,505 @@ img {
     display: grid;
     grid-template-columns: 220px 400px 200px 200px 200px;
     text-align: center;
+}
+
+.Build_Name_H {
+    margin-top: -15px;
+    text-align: end;
+}
+
+.champion_title_desc {
+    padding-top: 6px;
+    font-size: 20px;
+}
+
+.Master_Point_Div {
+    width: 510px;
+    line-height: 28px;
+    padding-top: 10px;
+    padding-left: 350px;
+    text-shadow: 2px 2px 4px #f2f2f2;
+}
+
+.Master_Champion_Summoner {
+    width: 230px;
+}
+
+.Master_Champion_Point {
+    text-align: end;
+    width: 80px;
+}
+
+.Master_Ranking {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.Master_Summoner1 {
+    color: gold;
+    display: flex;
+    height: 30px;
+}
+
+.Master_Summoner2 {
+    color: silver;
+    display: flex;
+    height: 30px;
+}
+
+.Master_Summoner3 {
+    color: peru;
+    display: flex;
+    height: 30px;
+}
+
+.Master_Summoner4 {
+    display: flex;
+    height: 30px;
+}
+
+.Master_Summoner5 {
+    display: flex;
+    height: 30px;
+}
+
+.Skill_Tree1 {
+    /*border: solid 3px #333333;*/
+}
+
+.Skillimg {
+    width: 45px;
+}
+
+td , th{
+    width: 50px;
+    text-align: center;
+    border: solid 2px white;
+    background: linear-gradient(90deg ,rgba(16,16,16,.8),rgba(33,33,38,.8));
+}
+
+.skill_rate {
+    color: rgb(70, 175, 46);
+    font-size: 13px;
+}
+
+.skill_cnt {
+    color: #aaa;
+    font-size: 13px;
+}
+
+/* --------------------------------- 룬 빌드 css --------------------------------------- */
+
+.rune_build {
+    width: 400px;
+    height: 100px;
+    padding-left: 450px;
+}
+
+.Rune_Build_Div2 {
+    padding-top: 15px;
+}
+
+.Rune_Build_Div1_Rate {
+    height: 60px;
+    padding-left: 163px;
+    white-space: nowrap;
+}
+
+.Rune_Build_Div2_Rate {
+    height: 60px;
+    padding-left: 163px;
+    white-space: nowrap;
+}
+
+.Rune_Build_Div1_CNT {
+    padding-left: 180px;
+    white-space: nowrap;
+}
+
+.Rune_Build_Div2_CNT {
+    padding-left: 180px;
+    white-space: nowrap;
+}
+
+.First_Rune1 {
+    transform: translateX(-15%);
+}
+
+.First_Rune2 {
+    transform: translateX(-15%);
+}
+
+.Second_Rune1 {
+    height: 130px;
+}
+
+.Second_Rune2 {
+    height: 130px;
+}
+
+.Stats_Rune1 {
+    padding-left: 30px;
+}
+
+.Stats_Rune2 {
+    padding-left: 30px;
+}
+
+.Rune_Build_Rate {
+    padding-left: 10px;
+    height: 72px;
+    color: rgb(70, 175, 46);
+    font-size: 13px;
+}
+
+.Rune_Build_Div1_Rate {
+    height: 20px;
+}
+
+.Rune_Build_Div2_Rate {
+    height: 20px;
+}
+
+.Rune_Build_cnt {
+    padding-left: 10px;
+    height: 10px;
+    color: #aaa;
+    font-size: 13px;
+}
+.Domination_Malice_TasteOfBlood_A {
+    padding-left: 25px;
+}
+
+.Domination_Malice_SuddenImpact_A {
+    padding-left: 25px;
+}
+
+.Domination_Tracking_GhostPoro_A {
+    padding-left: 25px;
+}
+
+.Domination_Tracking_EyeballCollection_A {
+    padding-left: 25px;
+}
+
+.Domination_Malice_TasteOfBlood_B {
+    padding-left: 25px;
+}
+
+.Domination_Malice_SuddenImpact_B {
+    padding-left: 25px;
+}
+
+.Domination_Tracking_GhostPoro_B {
+    padding-left: 25px;
+}
+
+.Domination_Tracking_EyeballCollection_B {
+    padding-left: 25px;
+}
+
+.Precision_Heroism_Triumph_A {
+    padding-left: 25px;
+}
+
+.Precision_Heroism_PresenceOfMind_A {
+    padding-left: 25px;
+}
+
+.Precision_Legend_LegendTenacity_A {
+    padding-left: 25px;
+}
+
+.Precision_Legend_LegendBloodline_A {
+    padding-left: 25px;
+}
+
+.Precision_Combat_CutDown_A {
+    padding-left: 25px;
+}
+
+.Precision_Combat_LastStand_A {
+    padding-left: 25px;
+}
+
+.Precision_Heroism_Triumph_B {
+    padding-left: 25px;
+}
+
+.Precision_Heroism_PresenceOfMind_B {
+    padding-left: 25px;
+}
+
+.Precision_Legend_LegendTenacity_B {
+    padding-left: 25px;
+}
+
+.Precision_Legend_LegendBloodline_B {
+    padding-left: 25px;
+}
+
+.Precision_Combat_CutDown_B {
+    padding-left: 25px;
+}
+
+.Precision_Combat_LastStand_B {
+    padding-left: 25px;
+}
+
+.Domination_Malice_TasteOfBlood_As {
+    padding-left: 19px;
+}
+
+.Domination_Malice_SuddenImpact_As {
+    padding-left: 19px;
+}
+
+.Domination_Tracking_GhostPoro_As {
+    padding-left: 19px;
+}
+
+.Domination_Tracking_EyeballCollection_As {
+    padding-left: 19px;
+}
+
+.Domination_Malice_TasteOfBlood_Bs {
+    padding-left: 19px;
+}
+
+.Domination_Malice_SuddenImpact_Bs {
+    padding-left: 19px;
+}
+
+.Domination_Tracking_GhostPoro_Bs {
+    padding-left: 19px;
+}
+
+.Domination_Tracking_EyeballCollection_Bs {
+    padding-left: 19px;
+}
+
+.Twoline_Rune1 {
+    padding-top: 5px;
+}
+
+.Twoline_Rune2 {
+    padding-top: 5px;
+}
+
+.Fourline_Rune1 {
+    padding-top: 5px;
+}
+
+.Fourline_Rune2 {
+    padding-top: 5px;
+}
+
+.Threeline_Rune1 {
+    padding-top: 5px;
+}
+
+.Threeline_Rune2 {
+    padding-top: 5px;
+}
+
+.Summary_Two1 {
+    padding-top: 10px;
+}
+
+.Summary_Two2 {
+    padding-top: 10px;
+}
+
+.Summary_Three1 {
+    padding-top: 10px;
+}
+
+.Summary_Three2 {
+    padding-top: 10px;
+}
+
+.Stats_5008_A {
+    padding-top: 5px;
+}
+
+.Stats_5005_A {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.Stats_5007_A {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.Stats_5008_Aa {
+    padding-top: 10px;
+}
+
+.Stats_5002_A {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5003_A {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5001_A {
+    padding-top: 10px;
+}
+
+.Stats_5002_Aa {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5003_Aa {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5008_B {
+    padding-top: 5px;
+}
+
+.Stats_5005_B {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.Stats_5007_B {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.Stats_5008_Bb {
+    padding-top: 10px;
+}
+
+.Stats_5002_B {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5003_B {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5001_B {
+    padding-top: 10px;
+}
+
+.Stats_5002_Bb {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.Stats_5003_Bb {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+/* --------------------------------- 시작 아이템 빌드 css --------------------------------------- */
+
+.start_item_img {
+    width: 55px;
+    height: 55px;
+    margin-right: 15px;
+    border: solid 2px sandybrown;
+}
+
+.Staring_Item_Build{
+    display: flex;
+    padding-left: 120px;
+    /*padding-top: 60px;*/
+}
+
+.Starting_Build_Div1 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Starting_Build_Div2 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Starting_Build_Tree1 {
+    /*padding-top: 40px;*/
+}
+
+.Starting_Build_Tree2 {
+    padding-left: 110px;
+    /*padding-top: 40px;*/
+}
+
+.start_item_rate {
+    height: 10px;
+    color: rgb(70, 175, 46);
+    font-size: 13px;
+    text-align: center;
+}
+
+.start_cnt {
+    color: #aaa;
+    font-size: 13px;
+    text-align: center;
+}
+
+.Starting_Build_H {
+    text-align: center;
+}
+
+/* --------------------------------- 아이템 빌드 css --------------------------------------- */
+
+.Item_Build {
+    display: flex;
+}
+
+.Item_Build_Div1 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Item_Build_Div2 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Item_Build_Div3 {
+    display: flex;
+    margin-left: 20px;
+}
+
+.Item_Build_H {
+    text-align: center;
+}
+
+.item_build_rate {
+    height: 10px;
+    color: rgb(70, 175, 46);
+    font-size: 13px;
+    text-align: center;
+}
+
+.item_cnt {
+    color: #aaa;
+    font-size: 13px;
+    text-align: center;
+}
+
+.Item_Build_Tree1 {
+    padding-left: 115px;
+}
+
+.Item_Build_Tree2 {
+    padding-left: 115px;
+}
+
+.Item_Build_Tree3 {
+    padding-left: 115px;
 }

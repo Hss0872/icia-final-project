@@ -1,7 +1,14 @@
 .boardContent1{
-    width: 70%;
+    width: 75%;
+    height: 100%;
     margin: auto;
 }
+
+
+.contentsHeadMenu{
+    background-color: #f6f4f4;
+}
+
 
 .contentsInfo{
     display: flex;

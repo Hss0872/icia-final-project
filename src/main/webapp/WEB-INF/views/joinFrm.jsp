@@ -35,7 +35,7 @@
         <input class="form-styling" id="nickname"type="text" name="m_nickname" data-value="false" onblur="nickname_check(event)"
         />
         <div class="idMsg" id="nickname_check"></div>
-    </div>1
+    </div>
     <label for="email">Email</label>
     <div class="duplebtn">
         <input class="form-styling1" id="email" type="text" name="m_email"  data-value="false" onblur="email_check(event)"

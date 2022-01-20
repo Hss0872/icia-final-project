@@ -72,12 +72,13 @@ public class JoinMM {
         sb.append("<h1>회원 가입 메일인증 입니다</h1>")
                 .append("<a href='http://localhost:8090/member/emailconfirm?m_email=")
                 .append(member.getM_email()).append("&m_auth_key=").append(m_auth_key)
-                .append("'>클릭하세요</a>");
+                .append("'>클릭해주세요</a>");
         System.out.println(sb.toString());
+
 
         if (jDao.joinComplete(member)) {
             mailService.send(subject, sb.toString(), "hssproject0872@gmail.com", member.getM_email(), null);
-            view = "redirect:/community";
+            view = "redirect:/community/board/free";
             rttr.addFlashAttribute("check", 1);   //queryString을 없애주는 역할
         } else {
             view = "joinFrm";

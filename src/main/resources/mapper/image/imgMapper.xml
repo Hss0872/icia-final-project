@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.best.team.image.dao.IImgDao">
     <select id="getChampionList" resultType="Champion">
-        SELECT * FROM CHAMPION_NAME_INFO
+        SELECT * FROM CHAMPION_NAME_INFO ORDER BY CHAMPION_NAME_KR ASC
     </select>
     <select id="getItemInfo" resultType="Item">
         SELECT * FROM ITEM_INFO
