@@ -27,7 +27,7 @@ import java.util.Map;
 @Slf4j
 @Controller
 @RequestMapping("/member")
-public class MemberController {
+public class  MemberController {
 
     ModelAndView mav;
 

@@ -120,9 +120,7 @@
   font-weight: 600;
 }
 
-.champ{
-  margin: auto;
-}
+
 p{
   text-align: center;
   margin: auto;
@@ -137,6 +135,7 @@ p{
 .teamblue p, .teamred p{
   color: black;
 }
+
 
 @font-face{
   font-family: 'RixYeoljeongdo_Regular';
@@ -157,6 +156,7 @@ p, h1, h2, h3, h4, h5, .skillbuild td, a{
 
 .kda p{
   text-align: left;
+
 }
 .peritembuild, .gaeminfo{
   margin: auto;

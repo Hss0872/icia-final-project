@@ -21,8 +21,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/resources/js/summoner_info.js?ver=7"></script>
-    <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=7">
+    <script src="/resources/js/summoner_info.js?ver=8"></script>
+    <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=8">
 
 
 
@@ -433,12 +433,15 @@
                 if($selectBar.css('display') =='none'){
                     $selectBar.show();
                     $total.show();
+
                 }else {
                     $selectBar.hide();
                     $total.hide();
                     $item.hide();
                     $rune.hide();
                     $skill.hide();
+
+
                 }
             });
             $selectBar.find('.opentotal').click(function(){
