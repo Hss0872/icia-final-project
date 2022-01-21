@@ -597,7 +597,7 @@
             $('.total17').css('display','none')
             $('.total18').css('display','none')
             $('.total19').css('display','none')
-        }, 3000)
+        }, 4000)
         
             
         

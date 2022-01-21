@@ -868,7 +868,7 @@ function client_work(){
                         .text(row.b_free_title).appendTo(clone)
                     clone.appendTo($('.client_work'));
                 } else {
-                    let clone = $('#client_work_lst').clone(true);
+                    let clone = $('#client_work_lst').clone(true).attr('id', 'b '+ row.b_lane_num);
                     $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/lane/' + row.b_lane_num)
                         .text(row.b_lane_title).appendTo(clone)
                     clone.appendTo($('.client_work'));
@@ -902,13 +902,15 @@ function client_reply(){
                 console.log(row);
                 if (Object.keys(row)[0] == 'r_free_num') {
                     let clone = $('#client_reply_lst').clone(true).attr('id', 'r '+ row.r_free_num);
-                    $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/free/' + row.r_free_num)
-                        .text(row.r_free_title).appendTo(clone)
+                    console.log(row.r_free_content);
+                    $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/free/' + row.r_free_bnum)
+                        .html(row.r_free_content).appendTo(clone)
                     clone.appendTo($('.client_reply'));
                 } else {
-                    let clone = $('#client_work_lst').clone(true);
-                    $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/lane/' + row.r_lane_num)
-                        .text(row.r_lane_title).appendTo(clone)
+                    let clone = $('#client_work_lst').clone(true).attr('id', 'r '+ row.r_lane_num);
+                    console.log(row.r_lane_content);
+                    $('<a>').css('color', 'rgb(136, 17, 184)').attr('href', '/community/board/lane/' + row.r_lane_bnum)
+                        .html(row.r_lane_content).appendTo(clone)
                     clone.appendTo($('.client_reply'));
                 }
             }
