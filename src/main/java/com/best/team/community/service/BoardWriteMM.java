@@ -55,14 +55,14 @@ public class BoardWriteMM {
         if (boardWriteParam.getB_write_type().equals("free")) {
             if (boardDao.freeBoardWriteSelKey(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
-                view = "redirect:/community/board/" + boardWriteParam.getB_write_type() + "/" + boardWriteParam.getB_write_num();
+                view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }
         } else {
             if (boardDao.laneBoardWriteSelKey(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
-                view = "redirect:/community/board/" + boardWriteParam.getB_write_type() + "/" + boardWriteParam.getB_write_num();
+                view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }
@@ -192,14 +192,14 @@ public class BoardWriteMM {
         if (boardWriteParam.getB_write_type().equals("free")) {
             if (boardDao.freeBoardUpdate(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
-                view = "redirect:/community/board/" + boardWriteParam.getB_write_type() + "/" + boardWriteParam.getB_write_num();
+                view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }
         } else {
             if (boardDao.laneBoardUpdate(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
-                view = "redirect:/community/board/" + boardWriteParam.getB_write_type() + "/" + boardWriteParam.getB_write_num();
+                view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }

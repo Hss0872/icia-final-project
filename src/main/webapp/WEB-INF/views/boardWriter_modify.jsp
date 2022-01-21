@@ -149,8 +149,7 @@
                 </div>
                 <div class="col-11 searchBar">
                     <select class="form-select selectbar" aria-label="Default select example" name="b_write_type">
-                        <option value="free" selected disabled>게시판 목록</option>
-                        <option value="free">자유 게시판</option>
+                        <option value="free" selected>자유 게시판</option>
                         <option value="TOP" >TOP</option>
                         <option value="JUNGLE" >JUNGLE</option>
                         <option value="MIDDLE" >MIDDLE</option>
@@ -175,7 +174,7 @@
                 <div class="col-4 btn-group" role="group" aria-label="Basic outlined example">
                     <button type="submit" class="btn btn-outline-primary">글작성</button>
                     <button type="reset" class="btn btn-outline-primary" id="reset">취소</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="location.href='/community/free/board'">글목록</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="location.href='/community/board/free'">글목록</button>
                 </div>
                 <div class="col-4"></div>
             </div>
