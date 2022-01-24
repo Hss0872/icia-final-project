@@ -78,7 +78,12 @@ public class BoardWriteMM {
         HttpSession session = req.getSession();
         String root = session.getServletContext().getRealPath("/");
         System.out.println("root=" + root);
-        String path = root + "resources/";
+        String path = root + "resources/ckUpload/";
+
+        File dir = new File(path);
+        if (!dir.isDirectory()) {
+            dir.mkdir();
+        }
 
         OutputStream out = null;
         PrintWriter printWriter = null;
@@ -93,7 +98,7 @@ public class BoardWriteMM {
             byte[] bytes = upload.getBytes();
 
             // 업로드 경로
-            String ckUploadPath = path + File.separator + "ckUpload" + File.separator + uid + "_" + fileName;
+            String ckUploadPath = path + uid + "_" + fileName;
             System.out.println("ckUploadPath = " + ckUploadPath);
 
             out = new FileOutputStream(new File(ckUploadPath));
