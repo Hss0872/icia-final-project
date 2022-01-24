@@ -33,7 +33,7 @@
     <div class="background">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://localhost:8090/"><img class="simbol" src="/resources/images/Full.png"></a>
+                <a class="navbar-brand" href="/"><img class="simbol" src="/resources/images/Full.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -43,13 +43,13 @@
                 <div class="collapse navbar-collapse" id="navbarsExample03">
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="http://localhost:8090/champion">챔피언 정보</a>
+                            <a class="nav-link active" aria-current="page" href="/champion">챔피언 정보</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8090/summoner">전적 검색</a>
+                            <a class="nav-link" href="/summoner">전적 검색</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8090/community/board/free">커뮤니티</a>
+                            <a class="nav-link" href="/community/board/free">커뮤니티</a>
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
