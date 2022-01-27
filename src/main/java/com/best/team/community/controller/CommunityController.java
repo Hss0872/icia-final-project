@@ -79,8 +79,8 @@ public class CommunityController {
     }
 
     @RequestMapping(value = "/board/{type}/{bNum}/delete", method = RequestMethod.GET)
-    public String deleteBoard(@PathVariable String type, @PathVariable int bNum, HttpSession session, Model model) {
-        boolean result = boardWriteMM.deleteBoard(type, bNum, session, model);
+    public String deleteBoard(@PathVariable String type, @PathVariable int bNum, HttpSession session) {
+        boolean result = boardWriteMM.deleteBoard(type, bNum, session);
         return "redirect:/community/board/" + type;
     }
 

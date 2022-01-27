@@ -67,9 +67,9 @@ public interface BoardDao {
 
     boolean laneBoardWriteSelKey(BoardWriteParam boardWriteParam);
 
-    boolean freeBoardUpdate(BoardWriteParam boardWriteParam);
+    boolean updateFreeBoard(BoardWriteParam boardWriteParam);
 
-    boolean laneBoardUpdate(BoardWriteParam boardWriteParam);
+    boolean updateLaneBoard(BoardWriteParam boardWriteParam);
 
     boolean deleteFreeBoard(@Param("bNum") int bNum,@Param("m_id") String m_id);
 
