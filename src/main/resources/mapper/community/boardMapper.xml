@@ -153,11 +153,11 @@
         #{b_write_title}, #{b_write_content},default,default,default,default,default)
     </insert>
 
-    <update id="freeBoardUpdate" parameterType="BoardWriteParam">
+    <update id="updateFreeBoard" parameterType="BoardWriteParam">
         UPDATE COMMUNITY_FREEB SET B_FREE_TITLE = #{b_write_title}, B_FREE_CONTENT = #{b_write_content} WHERE B_FREE_NUM = #{b_write_num}
     </update>
 
-    <update id="laneBoardUpdate" parameterType="BoardWriteParam">
+    <update id="updateLaneBoard" parameterType="BoardWriteParam">
         UPDATE COMMUNITY_LANEB SET B_LANE_TYPE = #{b_write_type}, B_LANE_TITLE = #{b_write_title}, B_LANE_CONTENT = #{b_write_content} WHERE B_LANE_NUM = #{b_write_num}
     </update>
 

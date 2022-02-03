@@ -21,8 +21,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/resources/js/summoner_info.js?ver=7"></script>
-    <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=7">
+    <script src="/resources/js/summoner_info.js?ver=8"></script>
+    <link rel="stylesheet" href="/resources/css/summoner_info.css?ver=8">
 
 
 
@@ -33,7 +33,7 @@
     <div class="background">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://localhost:8090/"><img class="simbol" src="/resources/images/Full.png"></a>
+                <a class="navbar-brand" href="/"><img class="simbol" src="/resources/images/Full.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -43,13 +43,13 @@
                 <div class="collapse navbar-collapse" id="navbarsExample03">
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="http://localhost:8090/champion">챔피언 정보</a>
+                            <a class="nav-link active" aria-current="page" href="/champion">챔피언 정보</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8090/summoner">전적 검색</a>
+                            <a class="nav-link" href="/summoner">전적 검색</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8090/community/board/free">커뮤니티</a>
+                            <a class="nav-link" href="/community/board/free">커뮤니티</a>
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
@@ -433,12 +433,15 @@
                 if($selectBar.css('display') =='none'){
                     $selectBar.show();
                     $total.show();
+
                 }else {
                     $selectBar.hide();
                     $total.hide();
                     $item.hide();
                     $rune.hide();
                     $skill.hide();
+
+
                 }
             });
             $selectBar.find('.opentotal').click(function(){
@@ -594,7 +597,7 @@
             $('.total17').css('display','none')
             $('.total18').css('display','none')
             $('.total19').css('display','none')
-        }, 3000)
+        }, 4000)
         
             
         

@@ -7,7 +7,6 @@ import com.best.team.community.dao.BoardDao;
 import com.best.team.member.bean.Member;
 import com.best.team.member.dao.MemberDao;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -55,14 +54,14 @@ public class BoardWriteMM {
         if (boardWriteParam.getB_write_type().equals("free")) {
             if (boardDao.freeBoardWriteSelKey(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
-                view = "redirect:/community/board/" + boardWriteParam.getB_write_type() + "/" + boardWriteParam.getB_write_num();
+                view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }
         } else {
             if (boardDao.laneBoardWriteSelKey(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
-                view = "redirect:/community/board/" + boardWriteParam.getB_write_type() + "/" + boardWriteParam.getB_write_num();
+                view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }
@@ -195,16 +194,16 @@ public class BoardWriteMM {
         System.out.println("boardWriteParam = " + boardWriteParam.getB_write_num());
 
         if (boardWriteParam.getB_write_type().equals("free")) {
-            if (boardDao.freeBoardUpdate(boardWriteParam)) {
+            if (boardDao.updateFreeBoard(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
-                view = "redirect:/community/board/" + boardWriteParam.getB_write_type() + "/" + boardWriteParam.getB_write_num();
+                view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }
         } else {
-            if (boardDao.laneBoardUpdate(boardWriteParam)) {
+            if (boardDao.updateLaneBoard(boardWriteParam)) {
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
-                view = "redirect:/community/board/" + boardWriteParam.getB_write_type() + "/" + boardWriteParam.getB_write_num();
+                view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }
@@ -213,7 +212,7 @@ public class BoardWriteMM {
         return mav;
     }
 
-    public boolean deleteBoard(String type, int bNum, HttpSession session, Model model) {
+    public boolean deleteBoard(String type, int bNum, HttpSession session) {
         log.info("deleteBoard call");
         Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
         if (!op_id.isPresent()) {

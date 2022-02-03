@@ -28,7 +28,7 @@
         <span>커뮤니티</span>
     </div>
     <div class="box">
-        <a href="/manager"><img src="/resources/images/vi.jpg"></a>
+        <a href="/community/board/free"><img src="/resources/images/vi.jpg"></a>
         <span></span>
     </div>
 </div>

@@ -42,7 +42,7 @@ function getsummoner(name) {
             setTimeout(()=>{
 
 
-                location.href ="http://localhost:8090/summoner";
+                location.href ="/summoner";
             },2000)
 
         }
@@ -80,7 +80,7 @@ function darwInfo(summonerdata, rank) {
             .profileIconId + ".jpg?image=q_auto:best&v=1518361200")
         .attr('class', 'img').appendTo($('.icon'));
     $('#name').html(
-        "<h5 ><a id='nameA' href='http://localhost:8090/summoner/summoner_info?userName=" +
+        "<h5 ><a id='nameA' href='/summoner/summoner_info?userName=" +
         summonerdata
         .name + "'>" + summonerdata.name + "</a></h5>");
     $('#level').html('<h5> level : ' + summonerdata.summonerLevel + '</h5>');

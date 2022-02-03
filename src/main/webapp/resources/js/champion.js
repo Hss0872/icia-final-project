@@ -133,7 +133,7 @@ window.onload = function() {   //dom element가 그려지기전에 실행하게�
 				let name = $('<div>').attr('class','champName');
 
 				$('<img>').attr('src', '/resources/images/LOL_CHAMPION_ICON/lol_champion_' + id + '.png').attr('alt', id).appendTo(a);
-				a.attr('href', "http://localhost:8090/champion/"+id).appendTo(div);
+				a.attr('href', "/champion/"+id).appendTo(div);
 				$('<p>').attr('class', 'champName').text(id).appendTo(div);
 				// name.html("<p>"+id+"</p>").appendTo(div);
 				console.log(name);

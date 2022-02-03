@@ -147,9 +147,8 @@
                     <p>제목</p>
                 </div>
                 <div class="col-11 searchBar">
-                    <select class="form-select selectbar" aria-label="Default select example" name="b_write_type" aria-readonly="true">
-                        <option>게시판 목록</option>
-                        <option class="select_free" value="free">자유 게시판</option>
+                    <select class="form-select selectbar" aria-label="Default select example" name="b_write_type" >
+                        <option class="free" value="free">자유 게시판</option>
                         <option class="TOP" value="TOP" >TOP</option>
                         <option class="JUNGLE" value="JUNGLE" >JUNGLE</option>
                         <option class="MIDDLE" value="MIDDLE" >MIDDLE</option>
@@ -174,7 +173,7 @@
                 <div class="col-4 btn-group" role="group" aria-label="Basic outlined example">
                     <button type="submit" class="btn btn-outline-primary">글수정</button>
                     <button type="reset" class="btn btn-outline-primary" id="reset">취소</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="location.href='/community/free/board'">글목록</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="location.href='/community/board/free'">글목록</button>
                 </div>
                 <div class="col-4"></div>
             </div>
