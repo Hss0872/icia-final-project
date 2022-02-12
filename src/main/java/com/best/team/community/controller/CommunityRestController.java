@@ -1,6 +1,7 @@
 package com.best.team.community.controller;
 import com.best.team.community.bean.BoardType;
 import com.best.team.community.bean.ReplyParam;
+import com.best.team.community.bean.UploadFile;
 import com.best.team.community.service.BoardMM;
 import com.best.team.community.service.BoardWriteMM;
 import com.best.team.community.service.LikeMM;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/community")
@@ -28,6 +30,7 @@ public class CommunityRestController {
     private ReplyMM replyMM;
     private LikeMM likeMM;
     private BoardWriteMM boardWriteMM;
+    public static final ArrayList<UploadFile> uploadFileList = new ArrayList<>();
 
     @Autowired
     public CommunityRestController(BoardMM boardMM, ReplyMM replyMM, LikeMM likeMM, BoardWriteMM boardWriteMM) {
@@ -68,7 +71,6 @@ public class CommunityRestController {
     }
 
     // --- LIKE ---
-
     @RequestMapping(value = "/board/{type}/{bNum}/like", method = RequestMethod.POST, produces = "application/json;utf-8")
     public ResponseEntity<?> addBoardLike(@PathVariable String type, @PathVariable int bNum, HttpSession session, Model model) throws JsonProcessingException {
         boolean result = likeMM.addBoardLike(type, bNum, session, model);
@@ -88,7 +90,7 @@ public class CommunityRestController {
     @ResponseBody
     @RequestMapping(value = "/ckUpload", method = RequestMethod.POST)
     public void uploadImg(HttpServletRequest req, HttpServletResponse res, @RequestParam MultipartFile upload) {
-        log.info("uploadImg");
-        boardWriteMM.uploadImg(req, res, upload);
+        log.info("uploadImg call");
+        boardWriteMM.uploadImg(req, res, upload, uploadFileList);
     }
 }

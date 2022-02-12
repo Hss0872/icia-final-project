@@ -40,34 +40,4 @@ public class Paging {
         boardPaging.setEnd(end);
         return boardPaging;
     }
-
-/*
-        if (start != 1) {
-            sb.append("<a href='" + boardType + "?pageNum=" + (start - 1) + "'>");
-            sb.append("[이전]");
-            sb.append("</a>");
-        }
-
-        for (int i = start; i <= end; i++) {
-            if (pageNum != i) { // 현재 페이지가 아닌 경우 링크처리
-                sb.append("<a href='" + boardType + "?pageNum=" + i + "'>");
-                sb.append(" [ ");
-                sb.append(i);
-                sb.append(" ] ");
-                sb.append("</a>");
-            } else { // 현재 페이지인 경우 링크 해제
-                sb.append("<font style='color:red;'>");
-                sb.append(" [ ");
-                sb.append(i);
-                sb.append(" ] ");
-                sb.append("</font>");
-            }
-        }
-        if (end != totalPage) {
-            sb.append("<a href='" + boardType + "?pageNum=" + (end + 1) + "'>");
-            sb.append("[다음]");
-            sb.append("</a>");
-        }
-        return sb.toString();*/
-
 }

@@ -36,15 +36,14 @@ function joinFrm() {  //유효성 검사   //회원가입 폼
 }
 
 
-
-
 //아이디 중복확인
 function id_check(e) {  	//blur 포커싱 끝났을때 실행되게
     e.preventDefault();
     let id = document.querySelector('#id');
-    if (id.value.length < 4) {   //추가사항 * 아이디 중복검사 필요
+    let idRegExp = /^[a-z]+[a-z0-9]{3,19}$/g;  //아이디 정규식
+    if ((id.value.length < 4) || !idRegExp.test(id.value) ) {   //추가사항 * 아이디 중복검사 필요
         const $idCheck = $('#id_check')  //전체의 dom에서 불필요하게 조회를 해버리기때문에 이렇게 자바스크립트 변수로 담아뒀다.
-        $idCheck.text('아이디는 3글자 이상입니다.');
+        $idCheck.text('아이디는 영문자로 시작하는 영문자 또는 숫자 4 ~ 20자 입니다.');
         $idCheck.css("color", "#FFB400");
         $idCheck.css("font-weight", "600");
         $idCheck.show();
@@ -61,8 +60,8 @@ function id_check(e) {  	//blur 포커싱 끝났을때 실행되게
             {
                 method: 'post',    //json 형태로 보낼때는 post만 가능 /가없으면 상대경로
                 headers: {
-                    "Accept": "application/json;",
-                    "ContentType": "application/json;"
+                    "Content-Type": "application/json",
+                    "accept": "application/json;charset=utf-8"
                 },
                 body: JSON.stringify({
                     m_id: id_value
@@ -107,8 +106,8 @@ function nickname_check(e) {  	//blur 포커싱 끝났을때 실행되게
             {
                 method: 'post',
                 headers: {
-                    "Accept": "application/json;",
-                    "ContentType": "application/json;"
+                    "Content-Type": "application/json",
+                    "accept": "application/json;charset=utf-8"
                 },
                 body: JSON.stringify({
                     m_nickname: nickname_value
@@ -154,8 +153,8 @@ function email_check(e) {  	//blur 포커싱 끝났을때 실행되게
             {
                 method: 'post',
                 headers: {
-                    "Accept": "application/json;",
-                    "ContentType": "application/json;"
+                    "Content-Type": "application/json",
+                    "accept": "application/json;charset=utf-8"
                 },
                 body: JSON.stringify({
                     m_email: email_value    //m_email --> name이름을 정확히 일치해서 쓰자.

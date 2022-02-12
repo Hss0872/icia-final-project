@@ -47,8 +47,8 @@ public class BoardMM {
         return previewBListJson;
     }
 
-    public boolean getBList(BoardType boardType, Integer pageNum, Model model, BoardSearch boardSearch) {
-        log.info("getBList call");
+    public void getBoardList(BoardType boardType, Integer pageNum, Model model, BoardSearch boardSearch) {
+        log.info("getBoardList call");
         log.info("boardType = {}", boardType.getBoardType());
         log.info("boardSearch = {}", boardSearch.getSearchType());
         pageNum = (pageNum == null) ? 1 : pageNum;
@@ -70,13 +70,11 @@ public class BoardMM {
             model.addAttribute("boardSearch", boardSearch);
             model.addAttribute("bList", bList);
             model.addAttribute("boardPaging", getPaging(pageNum, boardType, boardSearch));
-            return true;
         } else {
             BoardPaging boardPaging = new BoardPaging();
             boardPaging.setType(boardType.getBoardType());
             boardPaging.setLane(boardType.getLane());
             model.addAttribute("boardPaging", boardPaging);
-            return false;
         }
     }
 

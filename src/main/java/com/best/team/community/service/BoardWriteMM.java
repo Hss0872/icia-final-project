@@ -3,7 +3,11 @@ package com.best.team.community.service;
 import com.best.team.community.bean.BoardWriteParam;
 import com.best.team.community.bean.FreeBoard;
 import com.best.team.community.bean.LaneBoard;
+import com.best.team.community.bean.UploadFile;
+import com.best.team.community.controller.CommunityRestController;
 import com.best.team.community.dao.BoardDao;
+import com.best.team.community.dao.FileDao;
+import com.best.team.community.userClass.FileClass;
 import com.best.team.member.bean.Member;
 import com.best.team.member.dao.MemberDao;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -26,12 +31,13 @@ public class BoardWriteMM {
 
     private MemberDao memberDao;
     private BoardDao boardDao;
-
+    private FileDao fileDao;
 
     @Autowired
-    public BoardWriteMM(MemberDao memberDao, BoardDao boardDao) {
+    public BoardWriteMM(MemberDao memberDao, BoardDao boardDao, FileDao fileDao) {
         this.memberDao = memberDao;
         this.boardDao = boardDao;
+        this.fileDao = fileDao;
     }
 
     public ModelAndView addBoardWrite(BoardWriteParam boardWriteParam, HttpSession session) {
@@ -51,8 +57,30 @@ public class BoardWriteMM {
 
         System.out.println("boardWriteParam = " + boardWriteParam.getB_write_type());
 
+        //미리보기 업로드한 파일 중 게시글에 사용된 파일 checkedUploadFileList 저장
+        ArrayList<UploadFile> checkedUploadFileList = new ArrayList<>();
+
+        log.info("uploadFileList size = {}", CommunityRestController.uploadFileList.size());
+        for (UploadFile uploadFile : CommunityRestController.uploadFileList) {
+            if (boardWriteParam.getB_write_content().contains(uploadFile.getSystem_file_name())) {
+                checkedUploadFileList.add(uploadFile);
+            }
+        }
+
+        //업로드 파일 List clear
+        CommunityRestController.uploadFileList.clear();
+
         if (boardWriteParam.getB_write_type().equals("free")) {
             if (boardDao.freeBoardWriteSelKey(boardWriteParam)) {
+                if (checkedUploadFileList.size() > 0) {
+                    log.info("checkedUploadFileList size = {}", checkedUploadFileList.size());
+                    for (UploadFile uploadFile : checkedUploadFileList) {
+                        log.info("uploadFileName = {}", uploadFile.getOrigin_file_name());
+                        uploadFile.setB_write_num(boardWriteParam.getB_write_num());
+                        fileDao.addFreeBFile(uploadFile);
+                        fileDao.updateFileUse(uploadFile);
+                    }
+                }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
@@ -60,6 +88,15 @@ public class BoardWriteMM {
             }
         } else {
             if (boardDao.laneBoardWriteSelKey(boardWriteParam)) {
+                if (checkedUploadFileList.size() > 0) {
+                    log.info("checkedUploadFileList size = {}", checkedUploadFileList.size());
+                    for (UploadFile uploadFile : checkedUploadFileList) {
+                        log.info("uploadFileName = {}", uploadFile.getOrigin_file_name());
+                        uploadFile.setB_write_num(boardWriteParam.getB_write_num());
+                        fileDao.addLaneBFile(uploadFile);
+                        fileDao.updateFileUse(uploadFile);
+                    }
+                }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
@@ -70,11 +107,12 @@ public class BoardWriteMM {
         return mav;
     }
 
-    public void uploadImg(HttpServletRequest req, HttpServletResponse res, MultipartFile upload) {
+    public void uploadImg(HttpServletRequest request, HttpServletResponse response, MultipartFile upload, ArrayList<UploadFile> uploadFileList) {
+
         // 랜덤 문자 생성
         UUID uid = UUID.randomUUID();
 
-        HttpSession session = req.getSession();
+        HttpSession session = request.getSession();
         String root = session.getServletContext().getRealPath("/");
         System.out.println("root=" + root);
         String path = root + "resources/ckUpload/";
@@ -84,12 +122,26 @@ public class BoardWriteMM {
             dir.mkdir();
         }
 
+        // 폴더 크기 확인 후 -> 크기가 약 100메가 이상일 때 사용하지 않는 파일(USE_FL = 0인 파일)들 모두 삭제
+        log.info("upload directory size = {}", FileClass.measureFolderSize(dir));
+        if (FileClass.measureFolderSize(dir) > 100000000) {
+            ArrayList<UploadFile> unusedFileList = fileDao.getUnusedFileList();
+            for (UploadFile uploadFile : unusedFileList) {
+                FileClass.deleteFile(path + uploadFile.getSystem_file_name());
+            }
+            if (fileDao.deleteUploadFile()) {
+                log.info("delete 성공");
+            } else {
+                log.info("delete 실패");
+            }
+        }
+
         OutputStream out = null;
         PrintWriter printWriter = null;
 
         // 인코딩
-        res.setCharacterEncoding("utf-8");
-        res.setContentType("text/html;charset=utf-8");
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
 
         try {
 
@@ -97,15 +149,28 @@ public class BoardWriteMM {
             byte[] bytes = upload.getBytes();
 
             // 업로드 경로
-            String ckUploadPath = path + uid + "_" + fileName;
+            String system_file_name = uid + "_" + fileName;
+            String ckUploadPath = path + system_file_name;
             System.out.println("ckUploadPath = " + ckUploadPath);
 
             out = new FileOutputStream(new File(ckUploadPath));
             out.write(bytes);
             out.flush();  // out에 저장된 데이터를 전송하고 초기화
 
-            String callback = req.getParameter("CKEditorFuncNum");
-            printWriter = res.getWriter();
+            //UploadList에 upload 파일 이름 저장
+            UploadFile uploadFile = new UploadFile();
+            uploadFile.setSystem_file_name(system_file_name);
+            log.info("system_file_name = {}", system_file_name);
+            uploadFile.setOrigin_file_name(fileName);
+            log.info("fileName = {}", fileName);
+            uploadFileList.add(uploadFile);
+            log.info("uploadFileList size = {}", uploadFileList.size());
+
+            //db에 uploadFile 저장
+            fileDao.addUploadFile(uploadFile);
+
+            String callback = request.getParameter("CKEditorFuncNum");
+            printWriter = response.getWriter();
             String fileUrl = "/ckUpload/" + uid + "_" + fileName;  // 작성화면
 
             // 업로드시 메시지 출력

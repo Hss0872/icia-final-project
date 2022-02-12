@@ -36,28 +36,27 @@ public class CommunityController {
     }
 
     @RequestMapping(value = "/board/{type}", method = RequestMethod.GET)
-    public String getBList(@PathVariable() String type, BoardType boardType, Integer pageNum, Model model,
-                           BoardSearch boardSearch) {
+    public String getBoardList(@PathVariable() String type, BoardType boardType,
+                               Integer pageNum, Model model, BoardSearch boardSearch) {
         log.info("getBList call");
         boardType.setBoardType(type);
-        boolean result = boardMM.getBList(boardType, pageNum, model, boardSearch);
-        log.info(type + "board");
-        return type + "board_modify";
+        boardMM.getBoardList(boardType, pageNum, model, boardSearch);
+        return type + "board";
     }
 
     @RequestMapping(value = "/board/{type}/{bNum}", method = RequestMethod.GET)
     public String getBoardInfo(@PathVariable String type, @PathVariable int bNum, Model model,
                                HttpServletRequest request, HttpServletResponse response) {
         log.info("getBoardInfo call");
-        boolean result = boardMM.getBoardInfo(type, bNum, model, request, response);
-        return result ? "boardContents_modify" : "redirect:/community/board/free";
+        return boardMM.getBoardInfo(type, bNum, model, request, response) ?
+                "boardContents" : "redirect:/community/board/free";
     }
 
     @RequestMapping(value = "/board/write", method = RequestMethod.GET)
     public String boardWritePage(HttpSession session) {
         Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
         log.info("op_id = {}", op_id.orElse("sessionId does not exist"));
-        return op_id.isPresent() ? "boardWriter_modify" : "redirect:/community";
+        return op_id.isPresent() ? "boardWrite" : "redirect:/community";
     }
 
     @RequestMapping(value = "/board/write", method = RequestMethod.POST)
@@ -69,7 +68,7 @@ public class CommunityController {
     public String updateBoardPage(@PathVariable String type, @PathVariable int bNum,
                                   HttpSession session, Model model) {
         boolean result = boardWriteMM.updateBoardPage(type, bNum, session, model);
-        return result ? "boardUpdate_modify" : "redirect:/community";
+        return result ? "boardUpdate" : "redirect:/community";
     }
 
     @RequestMapping(value = "/board/{type}/{bNum}/update", method = RequestMethod.POST)

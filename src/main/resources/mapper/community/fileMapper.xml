@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.best.team.community.dao.FileDao">
+    <insert id="addUploadFile" parameterType="UploadFile">
+        INSERT INTO UPLOAD_FILE VALUES(#{system_file_name}, #{origin_file_name}, default)
+    </insert>
+
+    <insert id="addFreeBFile" parameterType="UploadFile">
+        INSERT INTO FREEB_FILE VALUES(FREEBF_SEQ.NEXTVAL, #{b_write_num} , #{system_file_name}, #{origin_file_name})
+    </insert>
+
+    <update id="updateFileUse" parameterType="UploadFile">
+        UPDATE UPLOAD_FILE SET USE_FL = 1 WHERE SYSTEM_FILE_NAME = #{system_file_name}
+    </update>
+
+    <insert id="addLaneBFile" parameterType="UploadFile">
+        INSERT INTO LANEB_FILE VALUES(LANEBF_SEQ.NEXTVAL, #{b_write_num} , #{system_file_name}, #{origin_file_name})
+    </insert>
+
+    <select id="getUnusedFileList" resultType="UploadFile">
+        SELECT * FROM UPLOAD_FILE WHERE USE_FL = 0
+    </select>
+
+    <delete id="deleteUploadFile">
+        DELETE FROM UPLOAD_FILE WHERE USE_FL = 0
+    </delete>
+
+</mapper>
