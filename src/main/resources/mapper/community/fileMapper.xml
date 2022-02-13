@@ -9,9 +9,9 @@
         INSERT INTO FREEB_FILE VALUES(FREEBF_SEQ.NEXTVAL, #{b_write_num} , #{system_file_name}, #{origin_file_name})
     </insert>
 
-    <update id="updateFileUse" parameterType="UploadFile">
-        UPDATE UPLOAD_FILE SET USE_FL = 1 WHERE SYSTEM_FILE_NAME = #{system_file_name}
-    </update>
+    <delete id="updateFileUse" parameterType="UploadFile">
+        DELETE FROM UPLOAD_FILE WHERE SYSTEM_FILE_NAME = #{system_file_name}
+    </delete>
 
     <insert id="addLaneBFile" parameterType="UploadFile">
         INSERT INTO LANEB_FILE VALUES(LANEBF_SEQ.NEXTVAL, #{b_write_num} , #{system_file_name}, #{origin_file_name})
@@ -23,6 +23,22 @@
 
     <delete id="deleteUploadFile">
         DELETE FROM UPLOAD_FILE WHERE USE_FL = 0
+    </delete>
+
+    <select id="getFreeBFile" parameterType="FreeBoard" resultType="FreeBFile">
+        SELECT * FROM FREEB_FILE WHERE BF_FREE_BNUM = #{b_free_num}
+    </select>
+
+    <select id="getLaneBFile" parameterType="LaneBoard" resultType="LaneBFile">
+        SELECT * FROM LANEB_FILE WHERE BF_LANE_BNUM = #{b_lane_num}
+    </select>
+
+    <delete id="deleteFreeBFile" parameterType="FreeBFile">
+        DELETE FROM FREEB_FILE WHERE BF_FREE_SYSTEM = #{bf_free_system}
+    </delete>
+
+    <delete id="deleteLaneBFile" parameterType="LaneBFile">
+        DELETE FROM LANEB_FILE WHERE BF_LANE_SYSTEM = #{bf_lane_system}
     </delete>
 
 </mapper>

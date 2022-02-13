@@ -1,9 +1,6 @@
 package com.best.team.community.service;
 
-import com.best.team.community.bean.BoardWriteParam;
-import com.best.team.community.bean.FreeBoard;
-import com.best.team.community.bean.LaneBoard;
-import com.best.team.community.bean.UploadFile;
+import com.best.team.community.bean.*;
 import com.best.team.community.controller.CommunityRestController;
 import com.best.team.community.dao.BoardDao;
 import com.best.team.community.dao.FileDao;
@@ -22,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -58,14 +56,7 @@ public class BoardWriteMM {
         System.out.println("boardWriteParam = " + boardWriteParam.getB_write_type());
 
         //미리보기 업로드한 파일 중 게시글에 사용된 파일 checkedUploadFileList 저장
-        ArrayList<UploadFile> checkedUploadFileList = new ArrayList<>();
-
-        log.info("uploadFileList size = {}", CommunityRestController.uploadFileList.size());
-        for (UploadFile uploadFile : CommunityRestController.uploadFileList) {
-            if (boardWriteParam.getB_write_content().contains(uploadFile.getSystem_file_name())) {
-                checkedUploadFileList.add(uploadFile);
-            }
-        }
+        ArrayList<UploadFile> checkedUploadFileList = checkUploadFileList(boardWriteParam);
 
         //업로드 파일 List clear
         CommunityRestController.uploadFileList.clear();
@@ -73,13 +64,7 @@ public class BoardWriteMM {
         if (boardWriteParam.getB_write_type().equals("free")) {
             if (boardDao.freeBoardWriteSelKey(boardWriteParam)) {
                 if (checkedUploadFileList.size() > 0) {
-                    log.info("checkedUploadFileList size = {}", checkedUploadFileList.size());
-                    for (UploadFile uploadFile : checkedUploadFileList) {
-                        log.info("uploadFileName = {}", uploadFile.getOrigin_file_name());
-                        uploadFile.setB_write_num(boardWriteParam.getB_write_num());
-                        fileDao.addFreeBFile(uploadFile);
-                        fileDao.updateFileUse(uploadFile);
-                    }
+                    addFreeFile(boardWriteParam, checkedUploadFileList);
                 }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
@@ -89,13 +74,7 @@ public class BoardWriteMM {
         } else {
             if (boardDao.laneBoardWriteSelKey(boardWriteParam)) {
                 if (checkedUploadFileList.size() > 0) {
-                    log.info("checkedUploadFileList size = {}", checkedUploadFileList.size());
-                    for (UploadFile uploadFile : checkedUploadFileList) {
-                        log.info("uploadFileName = {}", uploadFile.getOrigin_file_name());
-                        uploadFile.setB_write_num(boardWriteParam.getB_write_num());
-                        fileDao.addLaneBFile(uploadFile);
-                        fileDao.updateFileUse(uploadFile);
-                    }
+                    addLaneFile(boardWriteParam, checkedUploadFileList);
                 }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
@@ -113,9 +92,7 @@ public class BoardWriteMM {
         UUID uid = UUID.randomUUID();
 
         HttpSession session = request.getSession();
-        String root = session.getServletContext().getRealPath("/");
-        System.out.println("root=" + root);
-        String path = root + "resources/ckUpload/";
+        String path = getPath(session);
 
         File dir = new File(path);
         if (!dir.isDirectory()) {
@@ -258,15 +235,50 @@ public class BoardWriteMM {
         System.out.println("boardWriteParam.getB_write_type().equals(\"free\") = " + boardWriteParam.getB_write_type().equals("free"));
         System.out.println("boardWriteParam = " + boardWriteParam.getB_write_num());
 
+        //미리보기 업로드한 파일 중 게시글에 사용된 파일 checkedUploadFileList 저장
+        ArrayList<UploadFile> checkedUploadFileList = checkUploadFileList(boardWriteParam);
+
         if (boardWriteParam.getB_write_type().equals("free")) {
+            // 기존에 사용하던 파일을 계속 사용하는지 체크, 사용하지 않는다면 파일 삭제
+            FreeBoard freeBoard = new FreeBoard();
+            freeBoard.setB_free_num(bNum);
+            List<FreeBFile> freeBFileList = fileDao.getFreeBFile(freeBoard);
+            if (freeBFileList.size() > 0) {
+                for (FreeBFile freeBFile : freeBFileList) {
+                    if (!boardWriteParam.getB_write_content().contains(freeBFile.getBf_free_system())) {
+                        fileDao.deleteFreeBFile(freeBFile);
+                        String path = getPath(session);
+                        FileClass.deleteFile(path + freeBFile.getBf_free_system());
+                    }
+                }
+            }
             if (boardDao.updateFreeBoard(boardWriteParam)) {
+                if (checkedUploadFileList.size() > 0) {
+                    addFreeFile(boardWriteParam, checkedUploadFileList);
+                }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
                 view = "redirect:/community/board/write";
             }
         } else {
+            // 기존에 사용하던 파일을 계속 사용하는지 체크, 사용하지 않는다면 파일 삭제
+            LaneBoard laneBoard = new LaneBoard();
+            laneBoard.setB_lane_num(bNum);
+            List<LaneBFile> laneBFileList = fileDao.getLaneBFile(laneBoard);
+            if (laneBFileList.size() > 0) {
+                for (LaneBFile laneBFile : laneBFileList) {
+                    if (!boardWriteParam.getB_write_content().contains(laneBFile.getBf_lane_system())) {
+                        fileDao.deleteLaneBFile(laneBFile);
+                        String path = getPath(session);
+                        FileClass.deleteFile(path + laneBFile.getBf_lane_system());
+                    }
+                }
+            }
             if (boardDao.updateLaneBoard(boardWriteParam)) {
+                if (checkedUploadFileList.size() > 0) {
+                    addLaneFile(boardWriteParam, checkedUploadFileList);
+                }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
             } else {    //글쓰기 실패
@@ -289,12 +301,22 @@ public class BoardWriteMM {
             if (boardDao.checkExistFreeBoard(bNum)) {
                 FreeBoard freeBoardInfo = boardDao.getFreeBoardInfo(bNum);
                 //로그인 회원이 작성자인지 확인
-                if (!freeBoardInfo.getB_free_id().equals(op_id.get().toString())) {
+                if (freeBoardInfo.getB_free_id().equals(op_id.get().toString())) {
+                    //해당 게시글에 사용된 그림 파일이 있다면 파일 삭제
+                    List<FreeBFile> freeBFileList = fileDao.getFreeBFile(freeBoardInfo);
+                    if (freeBFileList.size() > 0) {
+                        String path = getPath(session);
+                        for (FreeBFile freeBFile : freeBFileList) {
+                            log.info("delete file = {}", freeBFile.getBf_free_system());
+                            FileClass.deleteFile(path + freeBFile.getBf_free_system());
+                        }
+                    }
+                    if (!boardDao.deleteFreeBoard(bNum, op_id.get().toString())) {
+                        log.info("게시글 delete 실패");
+                    }
+                } else {
                     log.info("로그인 회원과 작성자가 일치하지 않습니다.");
                     return false;
-                }
-                if (!boardDao.deleteFreeBoard(bNum, op_id.get().toString())) {
-                    log.info("delete 실패");
                 }
                 return true;
             } else {
@@ -304,13 +326,24 @@ public class BoardWriteMM {
         } else {
             if (boardDao.checkExistLaneBoard(bNum)) {
                 LaneBoard laneBoardInfo = boardDao.getLaneBoardInfo(bNum);
+
                 //로그인 회원이 작성자인지 확인
-                if (!laneBoardInfo.getB_lane_id().equals(op_id.get().toString())) {
+                if (laneBoardInfo.getB_lane_id().equals(op_id.get().toString())) {
+                    //해당 게시글에 사용된 그림 파일이 있다면 파일 삭제
+                    List<LaneBFile> laneBFileList = fileDao.getLaneBFile(laneBoardInfo);
+                    if (laneBFileList.size() > 0) {
+                        String path = getPath(session);
+                        for (LaneBFile laneBFile : laneBFileList) {
+                            log.info("delete file = {}", laneBFile.getBf_lane_system());
+                            FileClass.deleteFile(path + laneBFile.getBf_lane_system());
+                        }
+                    }
+                    if (!boardDao.deleteLaneBoard(bNum, op_id.get().toString())) {
+                        log.info("게시글 delete 실패");
+                    }
+                } else {
                     log.info("로그인 회원과 작성자가 일치하지 않습니다.");
                     return false;
-                }
-                if (!boardDao.deleteLaneBoard(bNum, op_id.get().toString())) {
-                    log.info("delete 실패");
                 }
                 return true;
             } else {
@@ -319,4 +352,45 @@ public class BoardWriteMM {
             }
         }
     }
+
+    private String getPath(HttpSession session) {
+        String root = session.getServletContext().getRealPath("/");
+        System.out.println("root=" + root);
+        String path = root + "resources/ckUpload/";
+        return path;
+    }
+
+
+    private ArrayList<UploadFile> checkUploadFileList(BoardWriteParam boardWriteParam) {
+        ArrayList<UploadFile> checkedUploadFileList = new ArrayList<>();
+        log.info("uploadFileList size = {}", CommunityRestController.uploadFileList.size());
+        for (UploadFile uploadFile : CommunityRestController.uploadFileList) {
+            if (boardWriteParam.getB_write_content().contains(uploadFile.getSystem_file_name())) {
+                checkedUploadFileList.add(uploadFile);
+            }
+        }
+        log.info("checkedUploadFileList.size() = {}", checkedUploadFileList.size());
+        return checkedUploadFileList;
+    }
+
+    private void addFreeFile(BoardWriteParam boardWriteParam, ArrayList<UploadFile> checkedUploadFileList) {
+        log.info("checkedUploadFileList size = {}", checkedUploadFileList.size());
+        for (UploadFile uploadFile : checkedUploadFileList) {
+            log.info("uploadFileName = {}", uploadFile.getOrigin_file_name());
+            uploadFile.setB_write_num(boardWriteParam.getB_write_num());
+            fileDao.addFreeBFile(uploadFile);
+            fileDao.updateFileUse(uploadFile);
+        }
+    }
+
+    private void addLaneFile(BoardWriteParam boardWriteParam, ArrayList<UploadFile> checkedUploadFileList) {
+        log.info("checkedUploadFileList size = {}", checkedUploadFileList.size());
+        for (UploadFile uploadFile : checkedUploadFileList) {
+            log.info("uploadFileName = {}", uploadFile.getOrigin_file_name());
+            uploadFile.setB_write_num(boardWriteParam.getB_write_num());
+            fileDao.addLaneBFile(uploadFile);
+            fileDao.updateFileUse(uploadFile);
+        }
+    }
 }
+

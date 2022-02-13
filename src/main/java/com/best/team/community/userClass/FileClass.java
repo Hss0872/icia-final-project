@@ -1,8 +1,7 @@
 package com.best.team.community.userClass;
-
-import com.best.team.community.bean.UploadFile;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 
 @Slf4j

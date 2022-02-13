@@ -53,7 +53,6 @@ public class CommunityRestController {
     }
 
     // --- REPLY ---
-
     @RequestMapping(value = "/board/{type}/{bNum}/reply", method = RequestMethod.POST, produces = "application/json;utf-8")
     public ResponseEntity<?> addReply(@PathVariable String type, @PathVariable int bNum,
                                       @RequestBody() ReplyParam replyParam, HttpSession session, Model model) throws JsonProcessingException {
@@ -89,8 +88,8 @@ public class CommunityRestController {
 
     @ResponseBody
     @RequestMapping(value = "/ckUpload", method = RequestMethod.POST)
-    public void uploadImg(HttpServletRequest req, HttpServletResponse res, @RequestParam MultipartFile upload) {
+    public void uploadImg(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) {
         log.info("uploadImg call");
-        boardWriteMM.uploadImg(req, res, upload, uploadFileList);
+        boardWriteMM.uploadImg(request, response, upload, uploadFileList);
     }
 }
