@@ -45,8 +45,10 @@ public class BoardWriteMM {
 
         Optional<Object> op_id = Optional.ofNullable(session.getAttribute("id"));
         if (!op_id.isPresent()) {
-            log.info("op_id = {}", op_id.orElse("sessionId does not exist"));
+            log.info("sessionId does not exist");
             view = "redirect:/community";
+            mav.setViewName(view);
+            return mav;
         }
 
         Member member = memberDao.getMemberInfo(op_id.get().toString());
@@ -55,16 +57,15 @@ public class BoardWriteMM {
 
         System.out.println("boardWriteParam = " + boardWriteParam.getB_write_type());
 
-        //미리보기 업로드한 파일 중 게시글에 사용된 파일 checkedUploadFileList 저장
+        //미리보기 업로드한 파일 중 게시글 본문을 파싱하여 본문에 사용된 파일들을 checkedUploadFileList 저장
         ArrayList<UploadFile> checkedUploadFileList = checkUploadFileList(boardWriteParam);
 
-        //업로드 파일 List clear
         CommunityRestController.uploadFileList.clear();
 
         if (boardWriteParam.getB_write_type().equals("free")) {
             if (boardDao.freeBoardWriteSelKey(boardWriteParam)) {
                 if (checkedUploadFileList.size() > 0) {
-                    addFreeFile(boardWriteParam, checkedUploadFileList);
+                    addFreeBoardFile(boardWriteParam, checkedUploadFileList);
                 }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
@@ -74,7 +75,7 @@ public class BoardWriteMM {
         } else {
             if (boardDao.laneBoardWriteSelKey(boardWriteParam)) {
                 if (checkedUploadFileList.size() > 0) {
-                    addLaneFile(boardWriteParam, checkedUploadFileList);
+                    addLaneBoardFile(boardWriteParam, checkedUploadFileList);
                 }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
@@ -102,14 +103,17 @@ public class BoardWriteMM {
         // 폴더 크기 확인 후 -> 크기가 약 100메가 이상일 때 사용하지 않는 파일(USE_FL = 0인 파일)들 모두 삭제
         log.info("upload directory size = {}", FileClass.measureFolderSize(dir));
         if (FileClass.measureFolderSize(dir) > 100000000) {
+            log.info("unusedFile delete");
             ArrayList<UploadFile> unusedFileList = fileDao.getUnusedFileList();
-            for (UploadFile uploadFile : unusedFileList) {
-                FileClass.deleteFile(path + uploadFile.getSystem_file_name());
-            }
-            if (fileDao.deleteUploadFile()) {
-                log.info("delete 성공");
-            } else {
-                log.info("delete 실패");
+            if (unusedFileList.size() > 0) {
+                for (UploadFile uploadFile : unusedFileList) {
+                    FileClass.deleteFile(path + uploadFile.getSystem_file_name());
+                }
+                if (fileDao.deleteUploadFile()) {
+                    log.info("delete 성공");
+                } else {
+                    log.info("delete 실패");
+                }
             }
         }
 
@@ -254,7 +258,7 @@ public class BoardWriteMM {
             }
             if (boardDao.updateFreeBoard(boardWriteParam)) {
                 if (checkedUploadFileList.size() > 0) {
-                    addFreeFile(boardWriteParam, checkedUploadFileList);
+                    addFreeBoardFile(boardWriteParam, checkedUploadFileList);
                 }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/free/" + boardWriteParam.getB_write_num();
@@ -277,7 +281,7 @@ public class BoardWriteMM {
             }
             if (boardDao.updateLaneBoard(boardWriteParam)) {
                 if (checkedUploadFileList.size() > 0) {
-                    addLaneFile(boardWriteParam, checkedUploadFileList);
+                    addLaneBoardFile(boardWriteParam, checkedUploadFileList);
                 }
                 System.out.println("boardWriteParam = " + boardWriteParam.getB_write_id());
                 view = "redirect:/community/board/lane/" + boardWriteParam.getB_write_num();
@@ -373,7 +377,7 @@ public class BoardWriteMM {
         return checkedUploadFileList;
     }
 
-    private void addFreeFile(BoardWriteParam boardWriteParam, ArrayList<UploadFile> checkedUploadFileList) {
+    private void addFreeBoardFile(BoardWriteParam boardWriteParam, ArrayList<UploadFile> checkedUploadFileList) {
         log.info("checkedUploadFileList size = {}", checkedUploadFileList.size());
         for (UploadFile uploadFile : checkedUploadFileList) {
             log.info("uploadFileName = {}", uploadFile.getOrigin_file_name());
@@ -383,7 +387,7 @@ public class BoardWriteMM {
         }
     }
 
-    private void addLaneFile(BoardWriteParam boardWriteParam, ArrayList<UploadFile> checkedUploadFileList) {
+    private void addLaneBoardFile(BoardWriteParam boardWriteParam, ArrayList<UploadFile> checkedUploadFileList) {
         log.info("checkedUploadFileList size = {}", checkedUploadFileList.size());
         for (UploadFile uploadFile : checkedUploadFileList) {
             log.info("uploadFileName = {}", uploadFile.getOrigin_file_name());
